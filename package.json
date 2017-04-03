@@ -1,78 +1,26 @@
 {
-  "name": "scm",
+  "name": "SCM",
   "version": "1.0.0",
-  "description": "Social networking website",
-  "main": "app.js",
-
-   "scripts": {
-    "watch": "watchify app.js -o public/js/bundle.js -v",
-    "browserify": "browserify app.js | uglifyjs > public/js/bundle.js",
-    "build": "npm run browserify ",
-   "start": "webpack-dev-server --hot"
-  },
-
+  "description": "scm",
+  "main": "server.js",
   "dependencies": {
-    "express": "~4.9.7",
-    "express-handlebars": "~1.1.0",    
-    "mongoose": "^3.8.17",
-    "node-jsx": "~0.11.0",
-    "babel-core": "^6.24.0",
-    "babel-loader": "^6.4.1",
-    "nodejs": "^0.0.0",
-    "react": "^15.4.2",
-    "react-dom": "^15.4.2",
-    "webpack": "^2.3.1",
-    "webpack-dev-server": "^2.4.2",
-    "socket.io": "^1.1.0",
-    "async": "^2.0.0-rc.6",
+    "angular": "^1.5.0",
+    "angular-clipboard": "^1.4.2",
     "body-parser": "^1.15.0",
-    "bower": "^1.7.7",
-    "compression": "^1.6.1",
-    "connect-mongo": "^1.2.1",
-    "consolidate": "^0.14.1",
-    "cookie-parser": "^1.4.3",
+    "consolidate": "^0.14.0",
     "express": "^4.13.4",
-    "express-jwt": "^3.4.0",
-    "express-session": "^1.13.0",
-    "express-validator": "^2.20.8",
-    "faker": "^3.1.0",
-    "http-errors": "^1.5.0",
-    "jsonwebtoken": "^7.0.1",
-    "lodash": "^4.13.1",
-    "method-override": "^2.3.5",
-    "mongoose": "^4.4.3",
-    "mongoose-beautiful-unique-validation": "^3.0.0",
-    "mongoose-delete": "^0.3.3",
-    "mongoose-validator": "^1.2.5",
-    "morgan": "^1.6.1",
-    "passport": "^0.3.2",
-    "passport-local": "^1.0.0",
-    "swig": "^1.4.2"
+    "request": "^2.79.0",
+    "request-promise": "^4.1.1",
+    "sitemap-generator": "^4.1.1"
   },
-
   "devDependencies": {
-     "browserify": "~6.0.3",
-    "nodemon": "^1.2.1",
-    "reactify": "~0.14.0",
-    "uglify-js": "~2.4.15",
-    "watchify": "~2.0.0"
+    "express": "latest",
+    "gulp-gzip": "^1.4.0"
   },
-  
-  "browserify": {
-    "transform": [
-      "reactify"
-    ]
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
-
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/praveerpanghal/SCM-SourceCode.git"
-  },
-
-  "author": "Shankar Katkala",
-  "license": "UBSOLS",
-  "bugs": {
-    "url": "https://github.com/praveerpanghal/SCM-SourceCode/issues"
-  },
-  "homepage": "https://github.com/praveerpanghal/SCM-SourceCode#readme"
+  "author": "poorna",
+  "license": "ISC"
 }

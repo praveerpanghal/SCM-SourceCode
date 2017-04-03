@@ -1,14 +1,19 @@
 <!DOCTYPE html>
-<html lang = "en">
+<html ng-app="scm">
+	<head>
+		<title>SCM App</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+		<script src="scripts/app.js"></script>
+		<script src="scripts/controllers/redCtrl.js"></script>
+	</head>
+	<body ng-controller="scmCtrl">
+		<h2>{{msg}}</h2>
+		<p><a href="#/">Main</a></p>
 
-   <head>
-      <meta charset = "UTF-8">
-      <title>React App</title>
-   </head>
-
-   <body>
-      <div id = "app"></div>
-      <script src = "index.js"></script>
-   </body>
-
+		<a href="#red">Red</a>
+		<a href="#green">Green</a>
+		<a href="#blue">Blue</a>
+		<div ng-view></div>
+	</body>
 </html>

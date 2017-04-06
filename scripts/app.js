@@ -1,29 +1,18 @@
 /* app configuration */
 'use strict'
-var app = angular.module("scm", ["ngRoute"]);
+var app = angular.module("scm", ['ngRoute']);
 
 app.config(function($routeProvider) {
-    $routeProvider
+    $routeProvider   
     .when("/", {
-        templateUrl : "views/main.html"
+        templateUrl : "views/Login.html",
+		controller : "LoginCtrl"
+    }).when("/register", {
+        templateUrl : "views/Register.html",
+		controller : "RegisterCtrl"
     })
-    .when("/red", {
-        templateUrl : "views/red.html",
-		controller : "scripts/controllers/redCtrl.js"
-    })
-    .when("/green", {
-        templateUrl : "views/green.html",
-		controller : "scripts/controllers/greenCtrl.js"
-    })
-    .when("/blue", {
-        templateUrl : "views/blue.html",
-		controller : "scripts/controllers/blueCtrl.js"
-    });
+	.otherwise({
+		redirectTo: "/"
+	});
 });
 
-
-app.controller("scmCtrl",function($scope){
-	
-	$scope.msg="welcome to scm";
-	
-});

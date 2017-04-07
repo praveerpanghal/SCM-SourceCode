@@ -4,7 +4,7 @@ server = express(),
 bodyParser = require('body-parser'),
 engines = require('consolidate'),
 path = require('path'),
-SERVER_PORT=82;
+SERVER_PORT=8986;
 
 server.use(bodyParser.json());
 server.use(express.static(__dirname));

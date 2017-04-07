@@ -6,6 +6,7 @@ engines = require('consolidate'),
 path = require('path'),
 SERVER_PORT=82;
 
+
 server.use(bodyParser.json());
 server.use(express.static(__dirname));
 server.set('views', __dirname );

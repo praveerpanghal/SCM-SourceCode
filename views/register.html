@@ -3,91 +3,92 @@
 		<h3>Register</h3>
 	</div>
 	<div class="container">
-		<form novalidate="novalidate">
+		<form name="registerForm" >
 			<div class="col-md-12">		   
-				<div class="col-md-4 col-sm-4 form-group">
-					<input class="form-control" id="user_fname" name="user_fname" placeholder="First Name" type="text" value="">
-					<span class="field-validation-valid validate_msg"></span>
+				<div class="col-md-4 col-sm-4 form-group" ng-class="{ 'has-error' : registerForm.user_fname.$invalid && !registerForm.user_fname.$pristine }">
+					<input class="form-control" name="user_fname" placeholder="First Name" type="text" ng-model="person.user_fname" required>
+					<span class="help-block" ng-show="registerForm.user_fname.$invalid && !registerForm.user_fname.$pristine">First Name Required</span>
 				</div>
 				<div class="col-md-4 col-sm-4 form-group">
-					<input class="form-control" id="user_mname" name="user_mname" placeholder="Middle Name" type="text" value="">
+					<input class="form-control" id="user_mname" name="user_mname" placeholder="Middle Name" type="text" ng-model="person.user_mname">
 					<span class="field-validation-valid validate_msg"></span>
 				</div>
-				<div class="col-md-4 col-sm-4 form-group">
-					<input class="form-control" id="user_lname" name="user_lname" placeholder="Last Name" type="text" value="">
-					<span class="field-validation-valid validate_msg"></span>
-				</div>
-			</div>
-			<div class="form-height col-md-12">				
-				<div class="col-md-12 form-group">
-					<input class="form-control" id="user_email" name="user_email" placeholder="Email id" style="margin-top:0px" type="text" value="">
-					<span class="field-validation-valid validate_msg"></span>
+				<div class="col-md-4 col-sm-4 form-group" ng-class="{ 'has-error' : registerForm.user_lname.$invalid && !registerForm.user_lname.$pristine }">
+					<input class="form-control" id="user_lname" name="user_lname" placeholder="Last Name" type="text" ng-model="person.user_lname" required>
+					<span class="help-block" ng-show="registerForm.user_lname.$invalid && !registerForm.user_lname.$pristine">Last Name Required</span>
 				</div>
 			</div>
 			<div class="form-height col-md-12">				
-				<div class="col-md-12 form-group">				
-					<input class="form-control inputfield text-box single-line tooltipstered" id="user_mob" name="user_mob" placeholder="Mobile No" type="tel" value="">
-					<span class="field-validation-valid validate_msg"></span>
+				<div class="col-md-12 form-group" ng-class="{ 'has-error' : registerForm.email.$invalid && !registerForm.email.$pristine }">
+					<input class="form-control" id="email" name="email" placeholder="Email id" type="email" ng-model="person.email">
+					<span class="help-block" ng-show="registerForm.email.$invalid && !registerForm.email.$pristine">Valid Email Required</span>
 				</div>
 			</div>
 			<div class="form-height col-md-12">				
-				<div class="col-md-12 form-group">
-					<input class="form-control" data-val="true" id="password" name="password" placeholder="Password" type="password" value="">
-					<span class="field-validation-valid validate_msg"></span>
+				<div class="col-md-12 form-group" ng-class="{ 'has-error' : registerForm.user_mob.$invalid && !registerForm.user_mob.$pristine }">				
+					<input class="form-control" id="user_mob" name="user_mob" placeholder="Mobile No" type="tel" ng-model="person.user_mob" required>
+					<span class="help-block" ng-show="registerForm.user_mob.$invalid && !registerForm.user_mob.$pristine">Mobile Number Required</span>
 				</div>
 			</div>
 			<div class="form-height col-md-12">				
-				<div class="col-md-12 form-group">
-					<input class="form-control" id="re_password" name="re_password" placeholder="Re-Password" type="password" value="">
-					<span class="field-validation-valid validate_msg"></span>
+				<div class="col-md-12 form-group" ng-class="{ 'has-error' : registerForm.password.$invalid && !registerForm.password.$pristine }">
+					<input class="form-control" data-val="true" id="password" name="password" placeholder="Password" type="password" ng-model="person.password" required>
+					<span class="help-block" ng-show="registerForm.password.$invalid && !registerForm.password.$pristine">Password Required</span>
+				</div>
+			</div>
+			<div class="form-height col-md-12">				
+				<div class="col-md-12 form-group" ng-class="{ 'has-error' : registerForm.re_password.$invalid && !registerForm.re_password.$pristine }">
+					<input class="form-control" id="re_password" name="re_password" placeholder="Re-Password" type="password" ng-model="person.re_password" required>
+					<span class="help-block" ng-show="registerForm.re_password.$invalid && !registerForm.re_password.$pristine">Re-Password Required</span>
 				</div>
 			</div>
 			<div class="col-md-12">
-				<div class="form-spacing col-md-4 form-group">					
-					<select class="form-control" id="country_id" name="country_id" ng-model="countryId" ng-change="StateName(countryId)">
+				<div class="form-spacing col-md-4 form-group" ng-class="{ 'has-error' : registerForm.country_id.$invalid && !registerForm.country_id.$pristine }">					
+					<select class="form-control" id="country_id" name="country_id" ng-model="person.country_id" ng-change="StateName(person.country_id)" required>
 						<option value="">Select Country</option>
 						<option ng-repeat="country in countryList" value={{country.country_id}}>{{country.country_name}}</option>
-					</select>
-					<span class="field-validation-valid validate_msg"></span>
+					</select>					
+					<span class="help-block" ng-show="registerForm.country_id.$invalid && !registerForm.country_id.$pristine">Country Name Required</span>
 				</div>
-				<div class="form-spacing col-md-4 form-group">
-					<select class="form-control" id="state_id" name="state_id">
+				<div class="form-spacing col-md-4 form-group" ng-class="{ 'has-error' : registerForm.state_id.$invalid && !registerForm.state_id.$pristine }">
+					<select class="form-control" id="state_id" name="state_id" ng-model="person.state_id" required>
 						<option value="">Please select a State</option>
-						<option ng-repeat="country in stateList" value={{country.country_id}}>{{country.state_name}}</option>
+						<option ng-repeat="state in stateList" value={{state.state_id}}>{{state.state_name}}</option>
 					</select>
-					<span class="field-validation-valid validate_msg"></span>
+					<span class="help-block" ng-show="registerForm.state_id.$invalid && !registerForm.state_id.$pristine">State Name Required</span>
 				</div>
-				<div class="form-spacing col-md-4 form-group">					
-					<input type="text" class="form-control" id="city_id" name="city_id" title="Please Select your City" placeholder="Please Enter your City" />
-					<span class="field-validation-valid validate_msg"></span>
+				<div class="form-spacing col-md-4 form-group" ng-class="{ 'has-error' : registerForm.city_id.$invalid && !registerForm.city_id.$pristine }">					
+					<input type="text" class="form-control" id="city_id" name="city_id" title="Please Select your City" placeholder="Please Enter your City" ng-model="person.city_id" required>
+					<span class="help-block" ng-show="registerForm.city_id.$invalid && !registerForm.city_id.$pristine">City Name Required</span>
 				</div>
 			</div>
 			<div class="form-height col-md-12">				
-				<div class="col-md-12  form-group">
-					<select class="form-control" id="school_id" name="school_id"  title="Please Select your school">
+				<div class="col-md-12  form-group" ng-class="{ 'has-error' : registerForm.school_id.$invalid && !registerForm.school_id.$pristine }">
+					<select class="form-control" id="school_id" name="school_id"  title="Please Select your school" ng-model="person.school_id" required>
 						<option value="">Please select a school</option>
+						<option ng-repeat="school in schoolsList" value={{school.school_id}}>{{school.school_name}}</option>
 					</select>					
-					<span class="field-validation-valid validate_msg"></span>
+					<span class="help-block" ng-show="registerForm.school_id.$invalid && !registerForm.school_id.$pristine">School Name Required</span>
 				</div>
 			</div>
 			<div class="form-height col-md-12">
-				<div class="col-md-12 form-group">					
-					<input class="form-control" id="user_dateofbirth" name="user_dateofbirth" placeholder="Please select your Date of Birth" type="datetime" value="">
-					<span class="field-validation-valid validate_msg"></span>
+				<div class="col-md-12 form-group" ng-class="{ 'has-error' : registerForm.user_dateofbirth.$invalid && !registerForm.user_dateofbirth.$pristine }">					
+					<input class="form-control" id="user_dateofbirth" name="user_dateofbirth" placeholder="Please select your Date of Birth" type="date" ng-model="person.user_dateofbirth" required>
+					<span class="help-block" ng-show="registerForm.user_dateofbirth.$invalid && !registerForm.user_dateofbirth.$pristine">Date of Birth Required</span>
 				</div>
 			</div>
 			<div class="form-height col-md-12">				
 				<div class="col-md-6">
 					<label for="user_gender">Gender</label>
 				</div><div class="col-md-6">
-					<input id="user_gender" name="user_gender" type="radio" value="M"> Male
-					<input id="user_gender" name="user_gender" type="radio" value="F"> Female
+					<input id="user_gender" name="user_gender" type="radio" value="M" ng-model="person.user_gender"> Male
+					<input id="user_gender" name="user_gender" type="radio" value="F" ng-model="person.user_gender"> Female
 				</div>			
 			</div>
 			<div class="clearfix"></div>
 			<div class="form-group">
 				<div class="col-xs-12 col-sm-12 col-lg-12">
-					<input type="button" value="Register here" class="btn btn-block btn-warning">
+					<input type="button" ng-click="registerUser(person)" value="Register here" class="btn btn-block btn-warning">
 				</div>
 			</div>
         </form>

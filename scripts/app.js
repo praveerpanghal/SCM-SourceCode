@@ -2,6 +2,16 @@
 'use strict'
 var app = angular.module("scm", ['ngRoute']);
 
+/* Service URL's */
+
+var BaseUrl = 'http://162.17.231.114:1212/ServiceSCM.svc/';
+
+app.value('ServiceUrls', {
+    GetCountrylist: BaseUrl + 'GetCountrylist',
+    GetStateList: BaseUrl + 'GetStateList',
+    GetSchoolList: BaseUrl + 'GetSchoolList'
+});
+
 app.config(function($routeProvider) {
     $routeProvider   
     .when("/", {

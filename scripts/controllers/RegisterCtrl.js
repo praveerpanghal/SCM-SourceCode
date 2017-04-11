@@ -1,41 +1,56 @@
 /* MainCtrl */
-app.controller("RegisterCtrl", function($scope,$http){	
+app.controller("RegisterCtrl", function($scope, $http, HttpService, ServiceUrls){	
 	//$scope.text = "Register Ctrl.";
 	
 	// Country List
-	$http({
-		url: 'http://162.17.231.114:1212/ServiceSCM.svc/GetCountrylist',
-		method: 'GET'
-	}).then(function successCallback(response){
-		$scope.countryList = response.data.GetCountryListResult;
-	}, function errorCallback(response){
-		$log.info(response.statusText);		
-	});
+	var url = ServiceUrls.GetCountrylist;
+
+	HttpService.CountryListService(url)
+		.then(function successCallback(response){
+			if(response.GetCountryListResult!==''){
+				$scope.countryList = response.GetCountryListResult;	
+			}
+			else{
+				$log.info(response);
+			}
+			
+		}, function errorCallback(error){
+			$log.info(error);		
+		});
 	
 	// State List
 	$scope.StateName = function(countryId){
+
+		var url = ServiceUrls.GetStateList;
 		var data = {"country_id" : countryId};
-		console.log(data);
-		$http({
-			url: 'http://162.17.231.114:1212//ServiceSCM.svc/GetStateList',
-			method: 'POST',
-			data : data
-		}).then(function successCallback(response){
-			$scope.stateList = response.data.GetStateListResult;			
-		}, function errorCallback(response){
-			$log.info(response.statusText);		
-		});
+
+		HttpService.StateListService(url, data)
+			.then(function successCallback(response){
+				if(response.GetStateListResult !== ''){
+					$scope.stateList = response.GetStateListResult;
+				}
+				else{
+					$log.info(response);
+				}
+			}, function errorCallback(error){
+				$log.info(error);		
+			});
 	}
 	
 	// Schools List
-	$http({
-		url: 'http://162.17.231.114:1212//ServiceSCM.svc/GetSchoolList',
-		method: 'GET'
-	}).then(function successCallback(response){
-		$scope.schoolsList = response.data.GetSchoolListResult;
-	}, function errorCallback(response){
-		$log.info(response.statusText);		
-	});
+	var url = ServiceUrls.GetSchoolList;
+	HttpService.SchoolsListService(url)
+		.then(function successCallback(response){
+			if(response.GetSchoolListResult!==''){
+				$scope.schoolsList = response.GetSchoolListResult;	
+			}
+			else{
+				$log.info(response);
+			}
+			
+		}, function errorCallback(error){
+			$log.info(error);		
+		});
 	
 	// Register User
 	$scope.registerUser = function(person){

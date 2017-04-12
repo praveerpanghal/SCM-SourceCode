@@ -9,7 +9,8 @@ var BaseUrl = 'http://162.17.231.114:1212/ServiceSCM.svc/';
 app.value('ServiceUrls', {
     GetCountrylist: BaseUrl + 'GetCountrylist',
     GetStateList: BaseUrl + 'GetStateList',
-    GetSchoolList: BaseUrl + 'GetSchoolList'
+    GetSchoolList: BaseUrl + 'GetSchoolList',
+    UserRegistrationForm: BaseUrl + 'UserRegistrationForm'
 });
 
 app.config(function($routeProvider) {

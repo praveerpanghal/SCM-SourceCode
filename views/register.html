@@ -3,14 +3,14 @@
 		<h3>Register</h3>
 	</div>
 	<div class="container">
-		<form name="registerForm" >
+		<form name="registerForm" ng-submit="registerUser(person)">
 			<div class="col-md-12">		   
 				<div class="col-md-4 col-sm-4 form-group" ng-class="{ 'has-error' : registerForm.user_fname.$invalid && !registerForm.user_fname.$pristine }">
 					<input class="form-control" name="user_fname" placeholder="First Name" type="text" ng-model="person.user_fname" required>
 					<span class="help-block" ng-show="registerForm.user_fname.$invalid && !registerForm.user_fname.$pristine">First Name Required</span>
 				</div>
 				<div class="col-md-4 col-sm-4 form-group">
-					<input class="form-control" id="user_mname" name="user_mname" placeholder="Middle Name" type="text" ng-model="person.user_mname">
+					<input class="form-control" id="user_mname" name="user_mname" placeholder="Middle Name" type="text" ng-model="person.user_mname" >
 					<span class="field-validation-valid validate_msg"></span>
 				</div>
 				<div class="col-md-4 col-sm-4 form-group" ng-class="{ 'has-error' : registerForm.user_lname.$invalid && !registerForm.user_lname.$pristine }">
@@ -20,7 +20,7 @@
 			</div>
 			<div class="form-height col-md-12">				
 				<div class="col-md-12 form-group" ng-class="{ 'has-error' : registerForm.email.$invalid && !registerForm.email.$pristine }">
-					<input class="form-control" id="email" name="email" placeholder="Email id" type="email" ng-model="person.email">
+					<input class="form-control" id="email" name="email" placeholder="Email id" type="email" ng-model="person.email" required>
 					<span class="help-block" ng-show="registerForm.email.$invalid && !registerForm.email.$pristine">Valid Email Required</span>
 				</div>
 			</div>
@@ -57,9 +57,9 @@
 					</select>
 					<span class="help-block" ng-show="registerForm.state_id.$invalid && !registerForm.state_id.$pristine">State Name Required</span>
 				</div>
-				<div class="form-spacing col-md-4 form-group" ng-class="{ 'has-error' : registerForm.city_id.$invalid && !registerForm.city_id.$pristine }">					
-					<input type="text" class="form-control" id="city_id" name="city_id" title="Please Select your City" placeholder="Please Enter your City" ng-model="person.city_id" required>
-					<span class="help-block" ng-show="registerForm.city_id.$invalid && !registerForm.city_id.$pristine">City Name Required</span>
+				<div class="form-spacing col-md-4 form-group" ng-class="{ 'has-error' : registerForm.city_name.$invalid && !registerForm.city_name.$pristine }">				
+					<input type="text" class="form-control" id="city_name" name="city_name" title="Please Select your City" placeholder="Please Enter your City" ng-model="person.city_name" required>
+					<span class="help-block" ng-show="registerForm.city_name.$invalid && !registerForm.city_name.$pristine">City Name Required</span>
 				</div>
 			</div>
 			<div class="form-height col-md-12">				
@@ -81,14 +81,14 @@
 				<div class="col-md-6">
 					<label for="user_gender">Gender</label>
 				</div><div class="col-md-6">
-					<input id="user_gender" name="user_gender" type="radio" value="M" ng-model="person.user_gender"> Male
-					<input id="user_gender" name="user_gender" type="radio" value="F" ng-model="person.user_gender"> Female
+					<input id="user_gender" name="user_gender" type="radio" value="M" ng-model="person.user_gender" required> Male
+					<input id="user_gender" name="user_gender" type="radio" value="F" ng-model="person.user_gender" required> Female
 				</div>			
 			</div>
 			<div class="clearfix"></div>
 			<div class="form-group">
 				<div class="col-xs-12 col-sm-12 col-lg-12">
-					<input type="button" ng-click="registerUser(person)" value="Register here" class="btn btn-block btn-warning">
+					<input type="submit" value="Register here" class="btn btn-block btn-warning">
 				</div>
 			</div>
         </form>

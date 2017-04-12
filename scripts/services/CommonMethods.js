@@ -1,4 +1,4 @@
-   app.service('SuccessError', function(){ 
+   app.service('SuccessError', function($q){ 
 
         this.Successresult = function(response) {  
            

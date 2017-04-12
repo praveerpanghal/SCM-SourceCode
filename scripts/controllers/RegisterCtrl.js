@@ -1,5 +1,5 @@
 /* MainCtrl */
-app.controller("RegisterCtrl", function($scope, $http, HttpService, ServiceUrls){	
+app.controller("RegisterCtrl", function($scope, $http, $window, HttpService, ServiceUrls){	
 	//$scope.text = "Register Ctrl.";
 	
 	// Country List
@@ -8,14 +8,14 @@ app.controller("RegisterCtrl", function($scope, $http, HttpService, ServiceUrls)
 	HttpService.CountryListService(url)
 		.then(function successCallback(response){
 			if(response.GetCountryListResult!==''){
-				$scope.countryList = response.GetCountryListResult;	
+				$scope.countryList = response.GetCountryListResult;
 			}
 			else{
-				$log.info(response);
+				console.log(response);
 			}
 			
 		}, function errorCallback(error){
-			$log.info(error);		
+			console.log(error);		
 		});
 	
 	// State List
@@ -42,7 +42,7 @@ app.controller("RegisterCtrl", function($scope, $http, HttpService, ServiceUrls)
 	HttpService.SchoolsListService(url)
 		.then(function successCallback(response){
 			if(response.GetSchoolListResult!==''){
-				$scope.schoolsList = response.GetSchoolListResult;	
+				$scope.schoolsList = response.GetSchoolListResult;
 			}
 			else{
 				$log.info(response);
@@ -54,7 +54,27 @@ app.controller("RegisterCtrl", function($scope, $http, HttpService, ServiceUrls)
 	
 	// Register User
 	$scope.registerUser = function(person){
-		console.log(person);
 		
+		var url = ServiceUrls.GetStateList;
+		var data = { user_fname: person.user_fname, 
+		  user_mname: person.user_mname||"", 
+		  user_lname: person.user_lname, 
+		  password: person.password, 
+		  re_password: person.re_password, 
+		  school_id: person.school_id, 
+		  user_email: person.email, 
+		  user_mob: person.user_mob, 
+		  country_id: person.country_id, 
+		  state_id: person.state_id, 
+		  city_name: person.city_name, 
+		  user_dateofbirth: person.user_dateofbirth, 
+		  user_gender: person.user_gender};
+
+		HttpService.RegisterUserService(url, data)
+			.then(function successCallback(response){
+				$window.location.href('/');
+			}, function errorCallback(error){
+				$log.info(error);		
+			});
 	}
 });

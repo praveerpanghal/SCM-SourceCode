@@ -22,7 +22,7 @@ app.controller("RegisterCtrl", function($scope, $http, $window, HttpService, Ser
 	$scope.StateName = function(countryId){
 
 		var url = ServiceUrls.GetStateList;
-		var data = {"country_id" : countryId};
+		var data = {"country_id"  : countryId};
 
 		HttpService.StateListService(url, data)
 			.then(function successCallback(response){
@@ -56,25 +56,27 @@ app.controller("RegisterCtrl", function($scope, $http, $window, HttpService, Ser
 	$scope.registerUser = function(person){
 		
 		var url = ServiceUrls.GetStateList;
-		var data = { user_fname: person.user_fname, 
-		  user_mname: person.user_mname||"", 
-		  user_lname: person.user_lname, 
-		  password: person.password, 
-		  re_password: person.re_password, 
-		  school_id: person.school_id, 
-		  user_email: person.email, 
-		  user_mob: person.user_mob, 
-		  country_id: person.country_id, 
-		  state_id: person.state_id, 
-		  city_name: person.city_name, 
-		  user_dateofbirth: person.user_dateofbirth, 
-		  user_gender: person.user_gender};
-
+		var data = new Object();
+			data.user_fname = person.user_fname;
+			data.user_mname = person.user_mname||""; 
+			data.user_lname = person.user_lname;
+		  	data.password = person.password; 
+		  	data.re_password = person.re_password;
+			data.school_id = person.school_id;
+			data.user_email = person.email;
+			data.user_mob = person.user_mob;
+			data.country_id = person.country_id;
+			data.state_id = person.state_id;
+			data.city_name = person.city_name;
+			data.user_dateofbirth = person.user_dateofbirth;
+			data.user_gender = person.user_gender;
+		
 		HttpService.RegisterUserService(url, data)
 			.then(function successCallback(response){
-				$window.location.href('/');
+				console.log(response);
+				//$window.location='/';
 			}, function errorCallback(error){
 				$log.info(error);		
-			});
+			}); 
 	}
 });

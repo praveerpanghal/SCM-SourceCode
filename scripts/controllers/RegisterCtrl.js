@@ -1,5 +1,5 @@
 /* MainCtrl */
-app.controller("RegisterCtrl", function($scope, $http, $window, HttpService, ServiceUrls){	
+app.controller("RegisterCtrl", function($scope, $http, $window, $log, HttpService, ServiceUrls){	
 	//$scope.text = "Register Ctrl.";
 	
 	// Country List
@@ -55,26 +55,22 @@ app.controller("RegisterCtrl", function($scope, $http, $window, HttpService, Ser
 	// Register User
 	$scope.registerUser = function(person){
 		
-		var url = ServiceUrls.GetStateList;
+		var url = ServiceUrls.UserRegistrationForm;
 		var data = new Object();
 			data.user_fname = person.user_fname;
 			data.user_mname = person.user_mname||""; 
 			data.user_lname = person.user_lname;
-		  	data.password = person.password; 
-		  	data.re_password = person.re_password;
+		  	data.password = person.passwrd;
 			data.school_id = person.school_id;
 			data.user_email = person.email;
-			data.user_mob = person.user_mob;
+			data.user_mob = person.user_mob||"";
 			data.country_id = person.country_id;
 			data.state_id = person.state_id;
-			data.city_name = person.city_name;
-			data.user_dateofbirth = person.user_dateofbirth;
-			data.user_gender = person.user_gender;
 		
 		HttpService.RegisterUserService(url, data)
 			.then(function successCallback(response){
 				console.log(response);
-				//$window.location='/';
+				$window.location='/';
 			}, function errorCallback(error){
 				$log.info(error);		
 			}); 

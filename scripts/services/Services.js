@@ -17,6 +17,10 @@ app.factory('HttpService',function($http, SuccessError){
 		RegisterUserService: function(url, data){
 			return $http.post(url, data)
 				.then(SuccessError.Successresult, SuccessError.Errorresult);
+		},
+		LoginUserService: function(url, data){
+			return $http.post(url, data)
+				.then(SuccessError.Successresult, SuccessError.Errorresult);
 		}
 	}
 

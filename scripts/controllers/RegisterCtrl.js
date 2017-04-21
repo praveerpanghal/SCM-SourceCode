@@ -66,13 +66,14 @@ app.controller("RegisterCtrl", function($scope, $http, $window, $log, HttpServic
 			data.user_mob = person.user_mob||"";
 			data.country_id = person.country_id;
 			data.state_id = person.state_id;
-		
+			data.city_name = "";
+			data.user_dateofbirth = "";
+			data.user_gender = "";
 		HttpService.RegisterUserService(url, data)
-			.then(function successCallback(response){
-				console.log(response);
+			.then(function successCallback(response){				
 				$window.location='/';
 			}, function errorCallback(error){
-				$log.info(error);		
+				$log.info(error);		 
 			}); 
 	}
 });

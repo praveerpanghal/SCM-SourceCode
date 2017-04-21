@@ -1,6 +1,6 @@
 /* app configuration */
 'use strict'
-var app = angular.module("scm", ['ngRoute']);
+var app = angular.module("scm", ['ngStorage', 'ngRoute']);
 
 /* Service URL's */
 
@@ -10,9 +10,11 @@ app.value('ServiceUrls', {
     GetCountrylist: BaseUrl + 'GetCountrylist',
     GetStateList: BaseUrl + 'GetStateList',
     GetSchoolList: BaseUrl + 'GetSchoolList',
-    UserRegistrationForm: BaseUrl + 'UserRegistrationForm'
+    UserRegistrationForm: BaseUrl + 'UserRegistrationForm',
+    LoginDetails: BaseUrl + 'LoginDetails'
 });
 
+/* Password Comapre Code */
 app.directive('nxEqual', function() {
     return {
         require: 'ngModel',
@@ -33,7 +35,7 @@ app.directive('nxEqual', function() {
     };
 });
 
-app.config(function($routeProvider) {
+app.config(['$routeProvider', '$httpProvider', function($routeProvider, $httpProvider) {
     $routeProvider   
     .when("/", {
         templateUrl : "views/Login.html",
@@ -41,10 +43,16 @@ app.config(function($routeProvider) {
     }).when("/register", {
         templateUrl : "views/Register.html",
 		controller : "RegisterCtrl"
+    }).when("/home", {
+        templateUrl : "views/Home.html",
+        controller : "HomeCtrl"
+    }).when("/logout", {
+        templateUrl : "views/Logout.html",
+        controller : "LogoutCtrl"
     })
 	.otherwise({
 		redirectTo: "/"
 	});
 
-});
+}]);
 

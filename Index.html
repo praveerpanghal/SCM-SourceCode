@@ -1,31 +1,27 @@
 <!DOCTYPE html>
 <html ng-app="scm">
 	<head>
-		<meta charset="utf-8">
-	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-	    <meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>SCM App</title>
 		<!-- scripts start -->
-
-		<script src="scripts/jquery-3.1.0.min.js"></script>
-		<script src="scripts/bootstrap.min.js"></script>
-		<script src="scripts/angular.min.js"></script>
-		<script src="scripts/angular-route.min.js"></script>
-		<script src="scripts/ngStorage.js"></script>
-		<script src="scripts/app.js"></script>
+		<script src="Src/scripts/jquery-3.1.0.min.js"></script>
+		<script src="Src/scripts/bootstrap.min.js"></script>
+		<script src="Src/scripts/angular.min.js"></script>
+		<script src="Src/scripts/angular-route.min.js"></script>
+		<script src="Src/scripts/ngStorage.js"></script>
+		<script src="Src/scripts/app.js"></script>
 		
 		<!-- services start -->
-		<script src="scripts/services/CommonMethods.js"></script>
-		<script src="scripts/services/Services.js"></script>
-		<script src="scripts/services/LocalStorageService.js"></script>
+		<script src="Src/scripts/services/CommonMethods.js"></script>
+		<script src="Src/scripts/services/Services.js"></script>
+		<script src="Src/scripts/services/LocalStorageService.js"></script>
 		<!-- services end -->
 		
 		<!-- controllers start -->
-		<script src="scripts/controllers/MainCtrl.js"></script>
-		<script src="scripts/controllers/RegisterCtrl.js"></script>
-		<script src="scripts/controllers/LoginCtrl.js"></script>
-		<script src="scripts/controllers/HomeCtrl.js"></script>
-		<script src="scripts/controllers/LogoutCtrl.js"></script>
+		<script src="Src/scripts/controllers/MainCtrl.js"></script>
+		<script src="Src/scripts/controllers/RegisterCtrl.js"></script>
+		<script src="Src/scripts/controllers/LoginCtrl.js"></script>
+		<script src="Src/scripts/controllers/LogoutCtrl.js"></script>
+		<script src="Src/scripts/controllers/HomeCtrl.js"></script>
 		<!-- controllers end -->
 		
 		<!-- scripts end -->
@@ -42,8 +38,8 @@
 				</a>
 			</div>
 			<div class="col-md-4 col-sm-4 col-xs-4  pull-right">
-				<a class="btn btn-primary btn-sm btnset1 dropdown-toggle  col-md-3 col-sm-6 col-xs-12" href="#register" ng-if="!user">Register</a>
-				<a class="btn btn-primary btn-sm btnset1 dropdown-toggle  col-md-3 col-sm-6 col-xs-12" href="#logout" ng-if="user">Logout</a>
+				<a class="btn btn-primary btn-sm btnset1 dropdown-toggle  col-md-3 col-sm-6 col-xs-12" href="#register" ng-if="!m.latestData()">Register</a>
+				<a class="btn btn-primary btn-sm btnset1 dropdown-toggle  col-md-3 col-sm-6 col-xs-12" href="#logout" ng-if="m.latestData()">Logout</a>
 			</div>
 		</div>
 		<div ng-view></div>

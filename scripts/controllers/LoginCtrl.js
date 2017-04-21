@@ -1,6 +1,6 @@
 /* MainCtrl */
 app.controller("LoginCtrl", function($scope, $location, HttpService, ServiceUrls, LS){	
-	$scope.text = "Login Ctrl.";
+	
 	var user = LS.getData();
 	if(user){
 		$location.path('/home');

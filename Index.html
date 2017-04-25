@@ -22,6 +22,7 @@
 		<script src="Src/scripts/controllers/LoginCtrl.js"></script>
 		<script src="Src/scripts/controllers/LogoutCtrl.js"></script>
 		<script src="Src/scripts/controllers/HomeCtrl.js"></script>
+		<script src="Src/scripts/controllers/ForgotCtrl.js"></script>
 		<!-- controllers end -->
 		
 		<!-- scripts end -->
@@ -38,10 +39,24 @@
 				</a>
 			</div>
 			<div class="col-md-4 col-sm-4 col-xs-4  pull-right">
-				<a class="btn btn-primary btn-sm btnset1 dropdown-toggle  col-md-3 col-sm-6 col-xs-12" href="#register" ng-if="!m.latestData()">Register</a>
-				<a class="btn btn-primary btn-sm btnset1 dropdown-toggle  col-md-3 col-sm-6 col-xs-12" href="#logout" ng-if="m.latestData()">Logout</a>
+				<a class="btn btn-primary btn-sm btnset1 dropdown-toggle  col-md-3 col-sm-6 col-xs-12" href="#register" ng-if="!m.latestData()" ng-show="location.path()!='/register' && location.path()!='/forgot'" ng-cloak>Register</a>
+				<a class="btn btn-primary btn-sm btnset1 dropdown-toggle  col-md-3 col-sm-6 col-xs-12" href="#/" ng-show="location.path()!='/' && location.path()!='/home'" ng-cloak>Login</a>
+				<a class="btn btn-primary btn-sm btnset1 dropdown-toggle  col-md-3 col-sm-6 col-xs-12" href="#logout" ng-if="m.latestData()" ng-cloak>Logout</a>
 			</div>
 		</div>
 		<div ng-view></div>
+		<!-- Footer Start -->
+		<footer id="footer">
+			<hr class="soften">
+			<div class="container text-center">
+
+				<div class="col-lg-12 ">
+				</div>
+			</div>
+			<div class="container">
+				<p class="text-center">© 2017. All Rights Reserved.</p>
+			</div>
+		</footer>
+		<!-- Footer End -->
 	</body>
 </html>

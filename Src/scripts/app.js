@@ -1,6 +1,8 @@
 /* app configuration */
 'use strict'
-var app = angular.module("scm", ['ngStorage', 'ngRoute']);
+var app = angular.module("scm", ['ngStorage', 'ngRoute']).run(function($rootScope, $location){
+    $rootScope.location = $location;
+});
 
 /* Service URL's */
 
@@ -49,6 +51,9 @@ app.config(['$routeProvider', '$httpProvider', function($routeProvider, $httpPro
     }).when("/logout", {
         templateUrl : "views/Logout.html",
         controller : "LogoutCtrl"
+    }).when("/forgot", {
+        templateUrl : "views/Forgot.html",
+        controller : "ForgotCtrl"
     })
 	.otherwise({
 		redirectTo: "/"

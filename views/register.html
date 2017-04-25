@@ -20,7 +20,7 @@
 			</div>
 			<div class="form-height col-md-12">				
 				<div class="col-md-12 form-group" ng-class="{ 'has-error' : registerForm.email.$invalid && !registerForm.email.$pristine }">
-					<input class="form-control" id="email" name="email" placeholder="Email id" type="email" ng-model="person.email" required>
+					<input class="form-control" id="email" name="email" placeholder="Email id" type="email" ng-model="person.email" required ng-pattern = '/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i'>
 					<span class="help-block" ng-show="registerForm.email.$invalid && !registerForm.email.$pristine">Valid Email Required</span>
 				</div>
 			</div>

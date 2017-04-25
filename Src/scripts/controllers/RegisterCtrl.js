@@ -1,6 +1,10 @@
 /* MainCtrl */
-app.controller("RegisterCtrl", function($scope, $http, $window, $log, HttpService, ServiceUrls){	
+app.controller("RegisterCtrl", function($scope, $http, $window, $log, $location, HttpService, ServiceUrls){	
 	//$scope.text = "Register Ctrl.";
+	
+	// Path of the current page
+	$scope.currentPath = $location.path();
+	console.log($scope.currentPath);
 	
 	// Country List
 	var url = ServiceUrls.GetCountrylist;

@@ -1,13 +1,13 @@
-<div id="content-pre" >            
-	<div class="text-center ">
-		<h3>Login</h3>
-	</div>
+<div id="content-pre" >
 	<!-- Begin Page Content -->
-	<div class="login_popup col-md-offset-4 col-md-4 col-sm-offset-3 col-sm-6 col-xs-10 col-xs-offset-1">
+	<div class="loginForm">
+		<div class="text-center">
+			<h3>Login</h3>
+		</div>
 		<div class="modal-body">
 			<form name="LoginForm" ng-submit="loginUser(user)">
 				<div class="form-group" ng-class="{ 'has-error' : LoginForm.user_email.$invalid && !LoginForm.user_email.$pristine }">                                
-					<input class="form-control text-box single-line" id="user_email" name="user_email" placeholder="Email or Mobile number" title="Please enter Email or Mobile No" type="text" ng-model="user.user_email" required ng-pattern = '/^[^\s@]+@[a-zA-Z]+\.[a-zA-Z]{2,}$/'>
+					<input class="form-control text-box single-line" id="user_email" name="user_email" placeholder="Email" title="Please enter Email or Mobile No" type="text" ng-model="user.user_email" required ng-pattern = '/^[^\s@]+@[a-zA-Z]+\.[a-zA-Z]{2,}$/'>
 					<span class="help-block" ng-show="LoginForm.user_email.$invalid && !LoginForm.user_email.$pristine">Valid Email Required</span>
 				</div>
 				<div class="form-group">                                
@@ -17,7 +17,7 @@
 				<div class="form-group">
 					<input type="submit" value="Sign In" class="btn btn-large btn-block btn-warning standard-color">
 				</div>
-				<div ng-show="message">{{message}}</div>
+				<div ng-show="message" class="err">{{message}}</div>
 			</form>
 		</div>
 		<div class="text-center ">

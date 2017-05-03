@@ -1,36 +1,37 @@
 <div id="content-pre" >            
+	<div class="regForm">
 	<div class="text-center ">
 		<h3>Register</h3>
 	</div>
-	<div class="container">
+	<div class="">
 		<form name="registerForm" ng-submit="registerUser(person)">
 			<div class="col-md-12">		   
-				<div class="col-md-4 col-sm-4 form-group" ng-class="{ 'has-error' : registerForm.user_fname.$invalid && !registerForm.user_fname.$pristine }">
+				<div class="form-group" ng-class="{ 'has-error' : registerForm.user_fname.$invalid && !registerForm.user_fname.$pristine }">
 					<input class="form-control" name="user_fname" placeholder="First Name" type="text" ng-model="person.user_fname" required>
 					<span class="help-block" ng-show="registerForm.user_fname.$invalid && !registerForm.user_fname.$pristine">First Name Required</span>
 				</div>
-				<div class="col-md-4 col-sm-4 form-group">
+				<div class="form-group">
 					<input class="form-control" id="user_mname" name="user_mname" placeholder="Middle Name" type="text" ng-model="person.user_mname" >
 					<span class="field-validation-valid validate_msg"></span>
 				</div>
-				<div class="col-md-4 col-sm-4 form-group" ng-class="{ 'has-error' : registerForm.user_lname.$invalid && !registerForm.user_lname.$pristine }">
+				<div class="form-group" ng-class="{ 'has-error' : registerForm.user_lname.$invalid && !registerForm.user_lname.$pristine }">
 					<input class="form-control" id="user_lname" name="user_lname" placeholder="Last Name" type="text" ng-model="person.user_lname" required>
 					<span class="help-block" ng-show="registerForm.user_lname.$invalid && !registerForm.user_lname.$pristine">Last Name Required</span>
 				</div>
 			</div>
 			<div class="form-height col-md-12">				
-				<div class="col-md-12 form-group" ng-class="{ 'has-error' : registerForm.email.$invalid && !registerForm.email.$pristine }">
+				<div class="form-group" ng-class="{ 'has-error' : registerForm.email.$invalid && !registerForm.email.$pristine }">
 					<input class="form-control" id="email" name="email" placeholder="Email id" type="email" ng-model="person.email" required ng-pattern = '/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i'>
 					<span class="help-block" ng-show="registerForm.email.$invalid && !registerForm.email.$pristine">Valid Email Required</span>
 				</div>
 			</div>
-			<div class="form-height col-md-12">				
+			<div class="form-height">				
 				<div class="col-md-12 form-group">				
 					<input class="form-control" id="user_mob" name="user_mob" placeholder="Mobile No" type="tel" ng-model="person.user_mob" ><!--
 					<span class="help-block" ng-show="registerForm.user_mob.$invalid && !registerForm.user_mob.$pristine">Mobile Number Required</span>-->
 				</div>
 			</div>
-			<div class="form-height col-md-12">				
+			<div class="form-height ">				
 				<div class="col-md-12 form-group" ng-class="{ 'has-error' : registerForm.password.$invalid && !registerForm.password.$pristine }">
 					<input type="password" class="form-control" id="passwrd" name="passwrd" placeholder="Password" ng-model="person.passwrd" ng-minlength="8" ng-maxlength="30" ng-pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z])/" required >
 <span class="text-danger" ng-show="registerForm.passwrd.$error.required && registerForm.passwrd.$invalid && registerForm.passwrd.$dirty && registerForm.passwrd.$pristine">This is a required field</span>
@@ -39,13 +40,13 @@
 <span class="text-danger" ng-show="!registerForm.passwrd.$error.required && !registerForm.passwrd.$error.minlength && !registerForm.passwrd.$error.maxlength && registerForm.passwrd.$error.pattern && registerForm.passwrd.$dirty">Must contain one lower & uppercase letter, and one numeric</span>
 				</div>
 			</div>
-			<div class="form-height col-md-12">				
+			<div class="form-height">				
 				<div class="col-md-12 form-group" ng-class="{ 'has-error' : registerForm.re_password.$invalid && !registerForm.re_password.$pristine }">
 					<input class="form-control" id="re_password" name="re_password" placeholder="Re-Password" type="password" ng-model="person.re_password" nx-equal="person.passwrd" required>
 					<span class="text-error" ng-show="!registerForm.passwrd.$error.required && registerForm.re_password.$error.nxEqual && registerForm.re_password.$dirty">Password do not match</span>
 				</div>
 			</div>
-			<div class="col-md-12">
+			<div class="">
 				<div class="form-spacing col-md-6 form-group" ng-class="{ 'has-error' : registerForm.country_id.$invalid && !registerForm.country_id.$pristine }">					
 					<select class="form-control" id="country_id" name="country_id" ng-model="person.country_id" ng-change="StateName(person.country_id)" required>
 						<option value="">Select Country</option>
@@ -65,7 +66,7 @@
 					<span class="help-block" ng-show="registerForm.city_name.$invalid && !registerForm.city_name.$pristine">City Name Required</span>
 				</div>-->
 			</div>
-			<div class="form-height col-md-12">				
+			<div class="form-height">				
 				<div class="col-md-12  form-group" ng-class="{ 'has-error' : registerForm.school_id.$invalid && !registerForm.school_id.$pristine }">
 					<select class="form-control" id="school_id" name="school_id"  title="Please Select your school" ng-model="person.school_id" required>
 						<option value="">Please select a school</option>
@@ -74,30 +75,13 @@
 					<span class="help-block" ng-show="registerForm.school_id.$invalid && !registerForm.school_id.$pristine">School Name Required</span>
 				</div>
 			</div>
-			<!--
-			<div class="form-height col-md-12">
-				<div class="col-md-12 form-group" ng-class="{ 'has-error' : registerForm.user_dateofbirth.$invalid && !registerForm.user_dateofbirth.$pristine }">					
-					<input class="form-control" id="user_dateofbirth" name="user_dateofbirth" placeholder="Please select your Date of Birth" type="date" ng-model="person.user_dateofbirth" required>
-					<span class="help-block" ng-show="registerForm.user_dateofbirth.$invalid && !registerForm.user_dateofbirth.$pristine">Date of Birth Required</span>
-				</div>
-			</div>
-			<div class="form-height col-md-12">				
-				<div class="col-md-6">
-					<label for="user_gender">Gender</label>
-				</div><div class="col-md-6">
-					<input id="user_gender" name="user_gender" type="radio" value="M" ng-model="person.user_gender" required> Male
-					<input id="user_gender" name="user_gender" type="radio" value="F" ng-model="person.user_gender" required> Female
-				</div>			
-			</div>
-			-->
 			<div class="clearfix"></div>
-			<div class="col-md-12">
-				<div class="form-height">
-					<div class="col-xs-12 col-sm-12 col-lg-12">
-						<input type="submit" value="Register here" class="btn btn-block btn-warning">
-					</div>
+			<div class="form-height">
+				<div class="col-xs-12 col-sm-12 col-lg-12">
+					<input type="submit" value="Register here" class="btn btn-block btn-warning">
 				</div>
 			</div>
         </form>
+    </div>
     </div>
 </div>

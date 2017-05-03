@@ -21,6 +21,10 @@ app.factory('HttpService',function($http, SuccessError){
 		LoginUserService: function(url, data){
 			return $http.post(url, data)
 				.then(SuccessError.Successresult, SuccessError.Errorresult);
+		},
+		UserInfoService: function(url, data){
+			return $http.post(url, data)
+				.then(SuccessError.Successresult, SuccessError.Errorresult);
 		}
 	}
 

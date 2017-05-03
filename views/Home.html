@@ -1,9 +1,79 @@
-<div id="content-pre" >            
-	
+<div id="content-pre">
 	<!-- Begin Page Content -->
-	<div>
-		<h1 style="text-align: center;margin-top: 100px;margin-bottom: 50px;">{{text}}</h1>
+	<div class="col-md-12">
+		<div class="col-md-2 content">
+		<div id="col-left" class="col-left ">
+                    <ul class="main-menu">
+                        <nav id="main-nav" class="main-nav">
+                            <li class="has-submenu">
+                                <a href=""><i class="glyphicon glyphicon-home"></i><span class="text">Home</span><i class="glyphicon glyphicon-chevron-right arrow"></i></a>
+                            </li>
+                            <li class="has-submenu active">
+                                <a href="#" class="user-clr"><i class="glyphicon glyphicon-user user-clr"></i><span class="text user-clr arr-pos-left">Users</span><i class="glyphicon glyphicon-chevron-right arrow user-clr arr-pos"></i></a>
+
+                                <ul class="list-unstyled sub-menu pad_left" style="display: none;">
+                                    <li class="sub-list">
+                                       <a href="/Users/ProfilePage">
+                <i class="glyphicon glyphicon-play"></i><span class="text">My Profile</span>
+            </a>
+</li>
+                                    <li class="sub-list">
+                                        <a href="/Home/UnderConstruction">
+                                            <i class="glyphicon glyphicon-play"></i><span class="text">Edit Profile</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="has-submenu">
+                                <a href="#"><i class="glyphicon glyphicon-time"></i><span class="text">Recent Updates</span><i class="glyphicon glyphicon-chevron-right arrow"></i></a>
+                            </li>
+                            <li class="has-submenu">
+                                <a href="#"><i class="glyphicon glyphicon-briefcase"></i><span class="text">Jobs</span><i class="glyphicon glyphicon-chevron-right arrow"></i></a>
+                            </li>
+                            <li class="has-submenu">
+                                <a href="#"><i class="glyphicon glyphicon-comment"></i><span class="text">Messages</span><i class="glyphicon glyphicon-chevron-right arrow"></i></a>
+                            </li>
+                            <li class="has-submenu">
+                                <a href="#"><i class="glyphicon glyphicon-picture"></i><span class="text">Photos</span><i class="glyphicon glyphicon-chevron-right arrow"></i></a>
+                            </li>
+                            <li class="has-submenu">
+                                <a href="#"><i class="glyphicon glyphicon-expand"></i><span class="text">Videos</span><i class="glyphicon glyphicon-chevron-right arrow"></i></a>
+                            </li>
+                            <li class="has-submenu">
+                                <a href="#"><i class="glyphicon glyphicon-user"></i><span class="text">Group</span><i class="glyphicon glyphicon-chevron-right arrow"></i></a>
+                            </li>
+                            <li class="has-submenu">
+                                <a href="#"><i class="glyphicon glyphicon-blackboard"></i><span class="text">Schools</span><i class="glyphicon glyphicon-chevron-right arrow"></i></a>
+                            </li>
+                            <li class="has-submenu">
+                                <a href="#"><i class="glyphicon glyphicon-user"></i><span class="text">Friends</span><i class="glyphicon glyphicon-chevron-right arrow"></i></a>
+                            </li>
+                            <li class="has-submenu1 out-bg">
+                                <a href="#logout" class="out-mar">
+                                <i class="glyphicon glyphicon-user"></i>
+                                <span class="text">
+                                	{{userInfo[0].UserProfile[0].username}}
+                                </span><i class="glyphicon glyphicon-share arrow"></i></a>
+                            </li>
+                        </nav>
+                    </ul>
+                </div>
+		</div>
+		<div class="col-md-7">
+			<h3 class="text-center">{{text}}</h3>
+            <form ng-submit = "uploadFile()" enctype="multipart/form-data">
+                <div class="from-group">
+                    <input type="file" class="form-control" id="exampleInputFile" file-model="myfile" />
+                </div><br/>
+                <button>upload me</button>                  
+            </form>
+            <div>
+                <h4 ng-if="res" ng-cloak>{{res}}</h4>
+            </div>
+		</div>
+		<div class="col-md-3">
+            
+        </div>
 	</div>
-	<div class="clearfix"></div>
 	<!-- End Page Content -->
 </div>

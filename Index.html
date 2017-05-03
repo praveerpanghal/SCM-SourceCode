@@ -14,7 +14,12 @@
 		<script src="Src/scripts/services/CommonMethods.js"></script>
 		<script src="Src/scripts/services/Services.js"></script>
 		<script src="Src/scripts/services/LocalStorageService.js"></script>
+		<script src="Src/scripts/services/fileModelService.js"></script>
 		<!-- services end -->
+
+		<!-- directives start -->
+		<script src="Src/scripts/directives/fileModelDirective.js"></script>
+		<!-- directives end -->
 		
 		<!-- controllers start -->
 		<script src="Src/scripts/controllers/MainCtrl.js"></script>
@@ -28,23 +33,29 @@
 		<!-- scripts end -->
 		
 		<!-- styles start -->		
+		<link href="Src/styles/bootstrap.min.css" type="text/css" rel="stylesheet" />
 		<link href="Build/styles/style.css" type="text/css" rel="stylesheet" />
+
 		<!-- styles end -->
 	</head>
-	<body ng-controller="MainCtrl as m">			
-		<div class="container">
-			<div class="col-md-4 col-sm-4 col-xs-4 text-right">
-				<a class="loginlogo" href="#/">
-					<img src="/Build/Images/schoolconnect-Me_image.png" alt="">
-				</a>
-			</div>
-			<div class="col-md-4 col-sm-4 col-xs-4  pull-right">
-				<a class="btn btn-primary btn-sm btnset1 dropdown-toggle  col-md-3 col-sm-6 col-xs-12" href="#register" ng-if="!m.latestData()" ng-show="location.path()!='/register' && location.path()!='/forgot'" ng-cloak>Register</a>
-				<a class="btn btn-primary btn-sm btnset1 dropdown-toggle  col-md-3 col-sm-6 col-xs-12" href="#/" ng-show="location.path()!='/' && location.path()!='/home'" ng-cloak>Login</a>
-				<a class="btn btn-primary btn-sm btnset1 dropdown-toggle  col-md-3 col-sm-6 col-xs-12" href="#logout" ng-if="m.latestData()" ng-cloak>Logout</a>
+	<body ng-controller="MainCtrl as m">
+		<div class="menucolor">			
+			<div class="container">
+				<div class="col-md-4 col-sm-4 col-xs-4 text-right">
+					<a class="loginlogo" href="#/">
+						<img src="/Build/Images/schoolconnect-Me_image.png" alt="">
+					</a>
+				</div>
+				<div class="col-md-4 col-sm-4 col-xs-4  pull-right">
+					<a class="btn btn-primary btn-sm btnset1 dropdown-toggle  col-md-3 col-sm-6 col-xs-12" href="#register" ng-if="!m.latestData()" ng-show="location.path()!='/register' && location.path()!='/forgot'" ng-cloak>Register</a>
+					<a class="btn btn-primary btn-sm btnset1 dropdown-toggle  col-md-3 col-sm-6 col-xs-12" href="#/" ng-show="location.path()!='/' && location.path()!='/home'" ng-cloak>Login</a>
+					<a class="btn btn-primary btn-sm btnset1 dropdown-toggle  col-md-3 col-sm-6 col-xs-12" href="#logout" ng-if="m.latestData()" ng-cloak>Logout</a>
+				</div>
 			</div>
 		</div>
-		<div ng-view></div>
+		<div class="container">
+			<div ng-view></div>			
+		</div>
 		<!-- Footer Start -->
 		<footer id="footer">
 			<hr class="soften">

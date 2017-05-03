@@ -6,6 +6,24 @@ engines = require('consolidate'),
 path = require('path'),
 SERVER_PORT=82;
 
+var multer = require('multer');
+
+var storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, './Src/uploads/')
+    },
+    filename: function (req, file, cb) {
+        //cb(null, file.originalname+ '-' + Date.now()+'.jpg')
+		cb(null, file.originalname)
+    }
+});
+
+var upload = multer({storage: storage});
+server.post('/multer', upload.single('file'), function (req, res) {
+	res.end("File uploaded successfully.");
+});
+
+
 server.use(bodyParser.json());
 server.use(express.static(__dirname));
 server.set('views', __dirname );

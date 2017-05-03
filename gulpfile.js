@@ -23,8 +23,7 @@ gulp.task('imagemin', function() {
 // });
 
 gulp.task('styles', function() {   
-   gulp.src(['src/styles/*.css'])
-   .pipe(concat('style.css'))
+   gulp.src(['src/styles/style.css'])
    .pipe(autoprefix('last 2 versions'))
    .pipe(minifyCSS())
    .pipe(gulp.dest('build/styles/'))
@@ -33,7 +32,7 @@ gulp.task('styles', function() {
 
 gulp.task('default', ['imagemin' ,'styles'], function() {
 
-gulp.watch('src/styles/*.css', ['styles']);
+gulp.watch('src/styles/style.css', ['styles']);
 
 });
 

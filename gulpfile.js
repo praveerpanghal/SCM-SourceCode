@@ -33,6 +33,7 @@ gulp.task('styles', function() {
 gulp.task('default', ['imagemin' ,'styles'], function() {
 
 gulp.watch('src/styles/style.css', ['styles']);
+gulp.watch('src/images/**/*', ['imagemin']);
 
 });
 

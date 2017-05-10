@@ -14,6 +14,8 @@ app.controller("HomeCtrl", function($scope, $window, $location, $http, HttpServi
 			}, function errorCallback(error){
 				$log.info(error);		
 			});
+
+			/* upload file code start */
 			$scope.uploadFile = function(){
 				/*
                var uploadUrl = "/multer";
@@ -22,26 +24,26 @@ app.controller("HomeCtrl", function($scope, $window, $location, $http, HttpServi
                fupservice.post(data, uploadUrl);
 			   */
 			   
-		var file = $scope.myfile;
-		console.log(file);
-        var uploadUrl = "/multer";
-        var fd = new FormData();
-        fd.append('file', file);
+				var file = $scope.myfile;
+		        var uploadUrl = "/multer";
+		        var fd = new FormData();
+		        fd.append('file', file);
 
-        $http.post(uploadUrl,fd, {
-            transformRequest: angular.identity,
-            headers: {'Content-Type': undefined}
-        })
-        .success(function(response){
-        	//console.log(response);
-        	//console.log("success!!");
-        	$scope.res = response;
-        })
-        .error(function(){
-          console.log("error!!");
-        });
+		        $http.post(uploadUrl,fd, {
+		            transformRequest: angular.identity,
+		            headers: {'Content-Type': undefined}
+		        })
+		        .success(function(response){
+		        	//console.log(response);
+		        	//console.log("success!!");
+		        	$scope.res = response;
+		        })
+		        .error(function(){
+		          console.log("error!!");
+		        });
 		
             };
+            /* upload file code end */
 
 	}else{
 		$location.path('/');

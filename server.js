@@ -45,17 +45,26 @@ server.post('/authenticate', function (req, res) {
 
   res.json({ token: token });
 
-  res.send({
-  	retStatus:'Success',
-  	redirectTo: '/home'
-  });
+  // res.send({
+  // 	retStatus:'Success',
+  // 	redirectTo: '/home'
+  // });
 });
+
 
 server.get('/api/restricted', function (req, res) {
   //console.log('user ' + req.user.email + ' is calling /api/restricted');
   res.json({
     name: 'foo'
   });
+});
+
+server.use(express.static(__dirname));
+server.set('views', __dirname );
+server.engine('html', engines.mustache);
+server.set('view engine', 'html');
+server.get('/*', function(req, res){
+    res.sendFile(__dirname + '/index.html');
 });
 
 /* authentication token code */
@@ -79,13 +88,7 @@ server.post('/multer', upload.single('file'), function (req, res) {
 
 
 
-server.use(express.static(__dirname));
-server.set('views', __dirname );
-server.engine('html', engines.mustache);
-server.set('view engine', 'html');
-server.get('/*', function(req, res){
-    res.sendFile(__dirname + '/index.html');
-});
+
 server.listen(SERVER_PORT,function(){ });
 console.log("Server listening on "+SERVER_PORT+" port...");	
 module.exports = server;

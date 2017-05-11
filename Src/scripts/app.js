@@ -38,7 +38,7 @@ app.directive('nxEqual', function() {
     };
 });
 
-app.config(['$routeProvider', '$httpProvider', function($routeProvider, $httpProvider) {
+app.config(['$routeProvider', '$httpProvider', '$locationProvider', function($routeProvider, $httpProvider, $locationProvider) {
     $routeProvider   
     .when("/", {
         templateUrl : "views/Login.html",
@@ -59,6 +59,6 @@ app.config(['$routeProvider', '$httpProvider', function($routeProvider, $httpPro
 	.otherwise({
 		redirectTo: "/"
 	});
-
+    //$locationProvider.html5Mode(true);
 }]);
 

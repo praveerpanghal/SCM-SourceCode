@@ -2,7 +2,8 @@
 <html ng-app="scm">
 	<head>
 		<title>SCM App</title>
-		<!-- scripts start -->
+		<!--<base href="/">
+		 scripts start -->
 		<script src="Src/scripts/jquery-3.1.0.min.js"></script>
 		<script src="Src/scripts/bootstrap.min.js"></script>
 		<script src="Src/scripts/angular.min.js"></script>
@@ -45,7 +46,7 @@
 					<a class="loginlogo" href="#/">
 						<img src="/Build/Images/schoolconnect-Me_image.png" alt="">
 					</a>
-				</div>
+				</div>{{m.latestData()}}
 				<div class="col-md-4 col-sm-4 col-xs-4  pull-right">
 					<a class="btn btn-primary btn-sm btnset1 dropdown-toggle  col-md-3 col-sm-6 col-xs-12" href="#register" ng-if="!m.latestData()" ng-show="location.path()!='/register' && location.path()!='/forgot'" ng-cloak>Register</a>
 					<a class="btn btn-primary btn-sm btnset1 dropdown-toggle  col-md-3 col-sm-6 col-xs-12" href="#/" ng-show="location.path()!='/' && location.path()!='/home'" ng-cloak>Login</a>

@@ -1,10 +1,16 @@
 /* MainCtrl */
-app.controller("HomeCtrl", function($scope, $window, $location, $http, HttpService, ServiceUrls, LS){	
+app.controller("HomeCtrl", function($scope, $window, $location, $http, $log, HttpService, ServiceUrls, LS){	
 	$scope.user = LS.getData();
-	if($scope.user){
+	if(sessionStorage.token){
+		var encodedProfile = sessionStorage.token.split('.')[1];
+		var profile = JSON.parse(LS.url_base64_decode(encodedProfile));
+		
 		var url = ServiceUrls.GetUserInfo;
 		var data = new Object();
-		data.user_id = $scope.user;
+
+
+	
+			data.user_id = profile.userId;
 
 		HttpService.UserInfoService(url, data)
 			.then(function(response){

@@ -48,8 +48,8 @@ app.controller("LoginCtrl", function($scope, $location, $log, $http, $window, Ht
 			}); 
 		*/
 		//$scope.isAuthenticated = false;
-		$scope.welcome = '';
-		$scope.message = '';
+		//$scope.welcome = '';
+		//$scope.message = '';
 		 $http
       .post('/authenticate', $scope.user)
       .success(function (data, status, headers, config) {
@@ -59,8 +59,9 @@ app.controller("LoginCtrl", function($scope, $location, $log, $http, $window, Ht
         //$scope.isAuthenticated = true;
         var encodedProfile = data.token.split('.')[1];
         var profile = JSON.parse(url_base64_decode(encodedProfile));
-        $scope.welcome = 'Welcome ' + profile.returnVal + ' ' + profile.userId;
-        //console.log($scope.isAuthenticated);
+        $scope.err_message = profile.returnVal;
+        $scope.welcome = 'Welcome ' + profile.userId;
+        console.log($scope.err_message);
         $location.path('/home');
       })
       .error(function (data, status, headers, config) {
@@ -70,7 +71,7 @@ app.controller("LoginCtrl", function($scope, $location, $log, $http, $window, Ht
 
         // Handle login errors here
         $scope.error = 'Error: Invalid user or password';
-        $scope.welcome = '';
+        //$scope.welcome = '';
       });
 
 	}

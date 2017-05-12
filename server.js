@@ -30,10 +30,9 @@ server.post('/authenticate', function (req, res) {
 };
   client.post("http://162.17.231.114:1212/ServiceSCM.svc/LoginDetails", args, function (data, response) {
     // parsed response body as js object 
-    //console.log(data);
     // raw response 
-    //console.log(response);
     body = data[0];
+    console.log(body);
 });
   var profile = {
     returnVal: body.ReturnVal,
@@ -44,11 +43,7 @@ server.post('/authenticate', function (req, res) {
   var token = jwt.sign(profile, secret, { expiresInMinutes: 60*5 });
 
   res.json({ token: token });
-
-  // res.send({
-  // 	retStatus:'Success',
-  // 	redirectTo: '/home'
-  // });
+  
 });
 
 

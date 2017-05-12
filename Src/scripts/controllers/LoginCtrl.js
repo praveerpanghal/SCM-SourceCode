@@ -1,14 +1,14 @@
 /* MainCtrl */
 app.controller("LoginCtrl", function($scope, $location, $log, $http, $window, HttpService, ServiceUrls, LS){	
 	$scope.text = "Login Ctrl.";
-	/*
+	
 	var user = LS.getData();
 	if(user){
 		$location.path('/home');
 	}else{
 		$location.path('/');
 	}
-	*/
+	
 
 	//this is used to parse the profile
 	function url_base64_decode(str) {
@@ -47,25 +47,26 @@ app.controller("LoginCtrl", function($scope, $location, $log, $http, $window, Ht
 				$log.info(error);		
 			}); 
 		*/
-		$scope.isAuthenticated = false;
+		//$scope.isAuthenticated = false;
 		$scope.welcome = '';
 		$scope.message = '';
 		 $http
       .post('/authenticate', $scope.user)
       .success(function (data, status, headers, config) {
-        $window.sessionStorage.token = data.token;
+      	//console.log(data.token);
+        //$window.sessionStorage.token = data.token;
         LS.setData(data.token);
-        $scope.isAuthenticated = true;
+        //$scope.isAuthenticated = true;
         var encodedProfile = data.token.split('.')[1];
         var profile = JSON.parse(url_base64_decode(encodedProfile));
         $scope.welcome = 'Welcome ' + profile.returnVal + ' ' + profile.userId;
-        console.log($scope.welcome);
+        //console.log($scope.isAuthenticated);
         $location.path('/home');
       })
       .error(function (data, status, headers, config) {
         // Erase the token if the user fails to log in
         delete $window.sessionStorage.token;
-        $scope.isAuthenticated = false;
+        //$scope.isAuthenticated = false;
 
         // Handle login errors here
         $scope.error = 'Error: Invalid user or password';

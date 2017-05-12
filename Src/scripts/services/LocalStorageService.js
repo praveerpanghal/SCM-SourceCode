@@ -6,30 +6,30 @@ app.factory("LS", function($window, $rootScope) {
   });
   return {
     setData: function(val) {
-      $window.localStorage && $window.localStorage.setItem('my-storage', val);
+      $window.localStorage && $window.localStorage.setItem('token', val);
       //return this;
     },
     getData: function() {
-      return $window.localStorage && $window.localStorage.getItem('my-storage');
+      return $window.localStorage && $window.localStorage.getItem('token');
     },
     clearData: function() {
       return $window.localStorage && $window.localStorage.clear();
     },
     url_base64_decode: function(str){
       var output = str.replace('-', '+').replace('_', '/');
-    switch (output.length % 4) {
-      case 0:
-        break;
-      case 2:
-        output += '==';
-        break;
-      case 3:
-        output += '=';
-        break;
-      default:
-        throw 'Illegal base64url string!';
-    }
-    return window.atob(output);
+      switch (output.length % 4) {
+        case 0:
+          break;
+        case 2:
+          output += '==';
+          break;
+        case 3:
+          output += '=';
+          break;
+        default:
+          throw 'Illegal base64url string!';
+      }
+      return window.atob(output);
     }
   };
 });

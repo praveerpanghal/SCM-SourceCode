@@ -5,7 +5,6 @@ var app = angular.module("scm", ['ngStorage', 'ngRoute']).run(function($rootScop
 });
 
 /* Service URL's */
-
 var BaseUrl = 'http://162.17.231.114:1212/ServiceSCM.svc/';
 
 app.value('ServiceUrls', {
@@ -38,27 +37,29 @@ app.directive('nxEqual', function() {
     };
 });
 
-app.config(['$routeProvider', '$httpProvider', '$locationProvider', function($routeProvider, $httpProvider, $locationProvider) {
-    $routeProvider   
-    .when("/", {
-        templateUrl : "views/Login.html",
-		controller : "LoginCtrl"
-    }).when("/register", {
-        templateUrl : "views/Register.html",
-		controller : "RegisterCtrl"
-    }).when("/home", {
-        templateUrl : "views/Home.html",
-        controller : "HomeCtrl"
-    }).when("/logout", {
-        templateUrl : "views/Logout.html",
-        controller : "LogoutCtrl"
-    }).when("/forgot", {
-        templateUrl : "views/Forgot.html",
-        controller : "ForgotCtrl"
-    })
-	.otherwise({
-		redirectTo: "/"
-	});
-    //$locationProvider.html5Mode(true);
-}]);
-
+/* Routing Pages */
+app.config(['$routeProvider', '$httpProvider', '$locationProvider', 
+    function($routeProvider, $httpProvider, $locationProvider) {
+        $routeProvider   
+        .when("/", {
+            templateUrl : "views/Login.html",
+    		controller : "LoginCtrl"
+        }).when("/register", {
+            templateUrl : "views/Register.html",
+    		controller : "RegisterCtrl"
+        }).when("/home", {
+            templateUrl : "views/Home.html",
+            controller : "HomeCtrl"
+        }).when("/logout", {
+            templateUrl : "views/Logout.html",
+            controller : "LogoutCtrl"
+        }).when("/forgot", {
+            templateUrl : "views/Forgot.html",
+            controller : "ForgotCtrl"
+        })
+    	.otherwise({
+    		redirectTo: "/"
+    	});
+        $locationProvider.html5Mode(true);
+    }
+]);

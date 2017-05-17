@@ -9,7 +9,7 @@ SERVER_PORT=82;
 
 server.use(bodyParser.json());
 
-var expressJwt = require('express-jwt');
+var expressJwt = require('express-jwt')
 
 /* authentication token code */
 var secret = 'this is the secret secret secret 12356';
@@ -20,7 +20,7 @@ server.use('/api', expressJwt({secret: secret}));
 var Client = require('node-rest-client').Client;
 var client = new Client();
 var request = require("request");
-
+var body;
 server.post('/authenticate', function (req, res) {
   //TODO validate req.body.username and req.body.password
   //if is invalid, return 401
@@ -28,27 +28,23 @@ server.post('/authenticate', function (req, res) {
     data: { user_email: req.body.user_email, password: req.body.password },
     headers: { "Content-Type": "application/json" }
 };
-	client.post("http://162.17.231.114:1212/ServiceSCM.svc/LoginDetails", args, function (data, response) {
-		console.log(data);
+  client.post("http://162.17.231.114:1212/ServiceSCM.svc/LoginDetails", args, function (data, response) {
+    // parsed response body as js object 
+    // raw response 
+    body = data[0];
+    console.log(body);
+});
+  var profile = {
+    returnVal: body.ReturnVal,
+    userId: body.UserId
 
-	    var loginID = data[0];
+  };
+  // We are sending the profile inside the token
+  var token = jwt.sign(profile, secret, { expiresInMinutes: 60*5 });
 
-	    if (!(loginID.ReturnVal==1)) {
-	    	console.log('error');
-			//res.status(401);
-			res.json({ token: loginID.ReturnVal, err_status:0});
-		    return;
-		}
-
-	    var profile = {
-	    	returnVal: loginID.ReturnVal,
-	    	userId: loginID.UserId
-	  	};
-	  	// We are sending the profile inside the token
-	  	var token = jwt.sign(profile, secret, { expiresInMinutes: 60*5 });
-	  	res.json({ token: token });
-		});  
-	});
+  res.json({ token: token });
+  
+});
 
 
 server.get('/api/restricted', function (req, res) {

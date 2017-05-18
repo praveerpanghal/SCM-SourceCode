@@ -14,15 +14,15 @@
 					<input class="form-control text-box single-line password" id="password" name="password" placeholder="password" title="Please enter your Password" type="password" ng-model="user.password" required>
 					<span class="field-validation-valid text-danger"></span>
 				</div>
+				<div ng-show="err_message" class="err">{{err_message}}</div>
 				<div class="form-group">
 					<input type="submit" value="Sign In" class="btn btn-large btn-block btn-warning standard-color">
 				</div>
-				<div ng-show="err_message" class="err">{{err_message}}</div>
 			</form>
 		</div>
 		<div class="text-center ">
 			<h4>
-				<a class="linkup" href="#forgot">Forgot Password ?</a> 
+				<a class="linkup" href="forgot">Forgot Password ?</a> 
 			</h4>
 			<div class="cls"></div>
 		</div>

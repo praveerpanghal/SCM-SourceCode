@@ -13,7 +13,8 @@ app.value('ServiceUrls', {
     GetSchoolList: BaseUrl + 'GetSchoolList',
     UserRegistrationForm: BaseUrl + 'UserRegistrationForm',
     LoginDetails: BaseUrl + 'LoginDetails',
-    GetUserInfo: BaseUrl + 'GetUserInfo'
+    GetUserInfo: BaseUrl + 'GetUserInfo',
+    ForgotPassword: BaseUrl + 'ForgotPassword'
 });
 
 /* Password Comapre Code */

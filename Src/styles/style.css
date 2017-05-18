@@ -1,5 +1,7 @@
 .err{
 	color: red;
+    margin-top: -9px;
+    margin-bottom: 4px;
 }
 .menucolor{
 	height: 60px;

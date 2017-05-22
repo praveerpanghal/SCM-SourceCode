@@ -1,6 +1,6 @@
-<div id="content-pre">
+
 	<!-- Begin Page Content -->
-	<div class="col-md-12">
+	<div class="col-md-12 content-pre" style="padding-bottom: 50px;">
 		<div class="col-md-2 content">
 		<div id="col-left" class="col-left ">
                     <ul class="main-menu">
@@ -43,21 +43,104 @@
                     </ul>
                 </div>
 		</div>
-		<div class="col-md-7">
-			<h3 class="text-center">{{text}}</h3>
-            <form ng-submit = "uploadFile()" enctype="multipart/form-data">
-                <div class="from-group">
-                    <input type="file" class="form-control" id="exampleInputFile" file-model="myfile" />
-                </div><br/>
-                <button>upload me</button>                  
-            </form>
-            <div>
-                <h4 ng-if="res" ng-cloak>{{res}}</h4>
+		<div class="col-md-7 col-sm-12 content1">
+            <!--
+    			<h3 class="text-center">{{text}}</h3>
+                <form ng-submit = "uploadFile()" enctype="multipart/form-data">
+                    <div class="from-group">
+                        <input type="file" class="form-control" id="exampleInputFile" file-model="myfile" />
+                    </div><br/>
+                    <button>upload me</button>                  
+                </form>
+                <div>
+                    <h4 ng-if="res" ng-cloak>{{res}}</h4>
+                </div>
+            -->
+            <div class="cover profile">
+                <div class="wrapper">
+                    <div class="image">
+                        <div class="image">
+                            <img src="Src/images/profile/wallpaper.jpg" alt="people" ng-model="myfile" />
+                            <div class="fileUpload btn btn-default">
+                                <span class="glyphicon glyphicon-camera"></span>
+                                <input type="file" class="upload" file-model="myfile" name="file" accept="image/*" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="clear"></div>
+                <div class="cover-info">
+                    <div class="avatar">
+                        <img src="Src/images/profile/profile.jpg" alt="people">
+                    </div>
+                    <div class="name"><a href="#">{{userProfile.username}}</a></div>
+                    <div class="name1"><a href="#">{{userProfile.school_name}}</a></div>
+                </div>            
+                <div class="clear"></div>
+                <div class="butt-profile">
+                    <div class="left left-p"><a class="fon-profile" href="/FilesUpload/FileUpload">Change Profile</a></div>
+                    <div class="left"><a class="fon-photo" href="/FilesUpload/AddPhotos_Videos">Add Photos/Videos</a></div>
+                    <div class="left"><a class="fon-frineds" href="/Users/ProfilePage">Friends</a></div>
+                    <div class="left dropdown reqfriend">
+                        <a href="" class="fon-friendrq dropdown-toggle" data-toggle="dropdown">Friend Requests</a>
+                        <ul class="dropdown-menu frd_req" style="display: none;">
+                        </ul>
+                    </div>
+                </div>
+                <div class="clear"></div>
+    		</div>
+            <div class="clear"></div>
+    		<div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12 comment-box">
+                    <div class="col-md-1 col-sm-1 col-xs-1 comm-prof">
+                        <img src="Src/images/profile/profile.jpg" alt="people">
+                    </div>
+                    <form action="/Users/PostCmt" method="post">
+                        <div class="col-md-9 col-sm-9 col-xs-9 col-top">
+                            <div class="form-group">
+                                <textarea class="form-control cont" cols="20" id="postComment" name="postComment" placeholder="Post your comments here" rows="2"></textarea>  
+                                <input value="3" class="hideblocks text-box single-line" id="request_by_user" name="request_by_user" type="text" style="display: none;">                     
+                             </div>
+                        </div>
+                        <div class="col-md-2 col-sm-2 col-xs-2 pull-right">
+                            <div class="btn-group " role="group">
+                                <button class="btn btn-primary btn-wid">Post</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="clear"></div>
             </div>
-		</div>
-		<div class="col-md-3">
-            
-        </div>
-	</div>
-	<!-- End Page Content -->
-</div>
+            <div class="row">
+                    <div class="col-md-12 comment-box1">
+                        <div class="people-top">
+                            <img src="Src/images/peopleyoumayknow.png" alt="people"><span>People you may know</span>
+                        </div>
+                        <ul class="row people-bottom">
+                                <li class="col-md-12 request" ng-repeat="people in PeopleYouMayKnow">
+                                    <div class="col-md-2 avatar1">
+                                        <img src="Src/images/Defaultpicture.jpg" alt="people">
+                                    </div>
+                                    <div class="col-md-10 request-middle">
+                                        <ul>
+                                            <li>
+                                            <a class="font-img" href="#">{{people.username}}</a>
+                                            </li>
+                                            <li><a href="#" class="fon-img">{{people.school_name}}</a></li>
+                                            <li>
+
+<form action="/Users/MainPage" method="post"><input value="3" class="hideblocks text-box single-line" id="request_by_user" name="request_by_user" type="text" style="display: none;"><input value="2" class="hideblocks text-box single-line" id="request_to_user" name="request_to_user" type="text" style="display: none;">                                                                <button id="btnfrd_request" name="btnfrd_request" class=" btn btn-primary btn-pos pull-right ">Meet Me</button>
+</form>
+                                        </li></ul>
+                                    </div>
+                                    <div class="clear"></div>
+                                </li>                                                            
+                            <div class="clear"></div>
+                        </ul>
+                    </div>
+                </div>
+            <div class="clear"></div>
+    	</div>
+	   <!-- End Page Content -->
+    </div>

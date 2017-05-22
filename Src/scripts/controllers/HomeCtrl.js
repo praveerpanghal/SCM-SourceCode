@@ -8,11 +8,14 @@ app.controller("HomeCtrl", function($scope, $window, $location, $http, $log, Htt
 		var url = ServiceUrls.GetUserInfo;
 		var data = new Object();
 		data.user_id = profile.userId;
+		console.log(data.user_id);
 		HttpService.UserInfoService(url, data)
 			.then(function(response){
-				$scope.userInfo = JSON.parse(response.GetUserInfoResult);				
-				$scope.text = "Hi "+$scope.userInfo[0].UserProfile[0].username+", Welcome to SchoolConnect";
-				console.log($scope.userInfo[0].UserProfile[0].username);
+				$scope.userInfo = JSON.parse(response.GetUserInfoResult);
+				$scope.userProfile = $scope.userInfo[0].UserProfile[0];
+				$scope.PeopleYouMayKnow = $scope.userInfo[0].PeopleYouMayKnow;
+				console.log($scope.PeopleYouMayKnow);
+				$scope.text = "Hi "+$scope.userProfile.username+", Welcome to SchoolConnect";				
 			}, function errorCallback(error){
 				$log.info(error);		
 			});
@@ -46,6 +49,10 @@ app.controller("HomeCtrl", function($scope, $window, $location, $http, $log, Htt
 		
             };
             /* upload file code end */
+
+            /* home page data from service start */
+
+            /* home page data from service end */
 
 	}else{
 		$location.path('/');

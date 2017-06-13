@@ -43,11 +43,12 @@
 		<link href="Src/styles/bootstrap.min.css" type="text/css" rel="stylesheet" />
 		<link href="Build/styles/style.css" type="text/css" rel="stylesheet" />
 		<link href="Src/styles/newstyle.css" type="text/css" rel="stylesheet" />
+		<link href="Src/styles/font-awesome.min.css" type="text/css" rel="stylesheet" />
 
 		<!-- styles end -->
 	</head>
 	<body ng-controller="MainCtrl as m">
-		<div class="menucolor">			
+		<!--<div class="menucolor">			
 			<div class="container">
 				<div class="col-md-4 col-sm-4 col-xs-4">
 					<a class="loginlogo" href="#/">
@@ -64,7 +65,7 @@
 		<div class="container">
 			<div ng-view></div>			
 		</div>
-		<!-- Footer Start -->
+		
 		<footer id="footer">
 			<hr class="soften">
 			<div class="container text-center">
@@ -74,7 +75,13 @@
 			<div class="container">
 				<p class="text-center">© 2017. All Rights Reserved.</p>
 			</div>
-		</footer>
+		</footer>-->
+		
+	<div ng-include="'views/landingheader.html'"></div>
+	
+	<ng-view></ng-view>
+	
+	<div ng-include="'views/landingfooter.html'"></div>
 		<!-- Footer End -->
 	</body>
 </html>

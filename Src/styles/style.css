@@ -1,55 +1,340 @@
-.err{
-	color: red;
-    margin-top: -9px;
-    margin-bottom: 4px;
+body
+{
 }
-.menucolor{
-	height: 60px;
-	background: linear-gradient(to bottom, hsla(0,0%,0%,0.3) 0%,hsla(0,0%,0%,0.50) 100%);
+.container
+{
+    width:1170px;
+    max-width:100%;
+    padding-left:20px;
+    padding-right:20px;
+    /*border:1px solid #000;*/
 }
-.btnset1 {
-    padding: 10px;
-    margin-top: 10px;
+.landingheader
+{
+    border-top:8px solid #712e3b;
+    padding:28px 0;
+    background-color:#efefef;
 }
-.login_popup {
-    /* margin: 0px auto; */
-    margin-top: 40px;
-    background: rgba(255,255,255,0.7);
-    padding: 7px 5px 10px 5px;
-    border-radius: 3px;
-    overflow: hidden;
-    border: 1px solid #ccc;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
-} 
-.regForm {
-    background-color: rgba(255, 255, 255, 0.44);
-    width: 60%;
-    margin: 0 auto;
-    margin-top: 40px;
-    border-radius: 5px;
-    padding-top: 2px;
-    padding-bottom: 75px;
-    border: 1px solid #Ccc;
+.landingTopNav a
+{
+    color:#898989;
+    padding-left:40px;
+    font-size:16px;
 }
-.loginForm {
-    background-color: rgba(255, 255, 255, 0.44);
-    width: 60%;
-    margin: 0 auto;
-    margin-top: 40px;
-    border-radius: 5px;
-    padding-top: 2px;
-    padding-bottom: 35px;
-    border: 1px solid #Ccc;
+.landingTopNav a:hover
+{
+    text-decoration:none;
 }
-.cover-pic {
-    right: 0px;
-    font-size: 20px;
-    padding: 5px;
-    color: #fff;
-    opacity: .8;
-    position: absolute;
-    text-decoration: none;
+.landingTopNav a .fa
+{
+    color:#712d3a;
+    padding-right:8px;
 }
-.loginlogo{
-    padding: 0px;
+.landingNav
+{
+    padding:11px 0;
+    background-color:#712e3b;
+}
+.loginWizard
+{
+    padding-top:28px;
+    padding-bottom:28px;
+    background-color:#f8f5f3;
+}
+.loginWizard .form-control,.signUpContainer .form-control
+{
+    height:42px;
+    font-size:16px;
+    color:#949494;
+}
+.loginWizard label
+{
+    font-size:23px;
+    color:#898989;
+}
+.loginWizard .help-block
+{
+    font-size:14px;
+}
+.loginWizard [type="button"],.signUpBtn [type="button"]
+{
+    background-color:#712d3a;
+    color:#FFF;
+    font-size:16px;
+}
+.loginWizard [type="button"]:active,.loginWizard [type="button"]:focus,
+.loginWizard [type="button"]:hover,.loginWizard [type="button"]:visited,
+.signUpBtn [type="button"]:active,.signUpBtn [type="button"]:focus,
+.signUpBtn [type="button"]:hover,.signUpBtn [type="button"]:visited
+{
+    background-color:#e78604;
+}
+
+/* check box styles starts */
+    
+.loginWizard [type="checkbox"]:not(:checked),
+[type="checkbox"]:checked {
+  position: absolute;
+  left: -9999px;
+}
+.loginWizard [type="checkbox"]:not(:checked) + label,
+[type="checkbox"]:checked + label {
+  position: relative;
+  padding-left: 1.95em;
+  cursor: pointer;
+}
+
+/* checkbox aspect */
+.loginWizard [type="checkbox"]:not(:checked) + label:before,
+[type="checkbox"]:checked + label:before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0;
+  width:18px; height: 18px;
+  border: 2px solid #ccc;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,.1);
+}
+/* checked mark aspect */
+.loginWizard [type="checkbox"]:not(:checked) + label:after,
+.loginWizard [type="checkbox"]:checked + label:after {
+  content: '✔';
+  position: absolute;
+  top: -1px;
+  left: 2px;
+  font-size: 22px;
+  line-height: 0.8;
+  color: #712d3a;
+  transition: all .2s;
+}
+/* checked mark aspect changes */
+.loginWizard [type="checkbox"]:not(:checked) + label:after {
+  opacity: 0;
+  transform: scale(0);
+}
+.loginWizard [type="checkbox"]:checked + label:after {
+  opacity: 1;
+  transform: scale(1);
+}
+/* disabled checkbox */
+.loginWizard [type="checkbox"]:disabled:not(:checked) + label:before,
+.loginWizard [type="checkbox"]:disabled:checked + label:before {
+  box-shadow: none;
+  border-color: #bbb;
+  background-color: #ddd;
+}
+.loginWizard [type="checkbox"]:disabled:checked + label:after {
+  color: #999;
+}
+.loginWizard [type="checkbox"]:disabled + label {
+  color: #aaa;
+}
+/* accessibility */
+.loginWizard [type="checkbox"]:checked:focus + label:before,
+.loginWizard [type="checkbox"]:not(:checked):focus + label:before {
+  border: 2px dotted blue;
+}
+
+/* hover style just for information */
+/*label:hover:before {
+  border: 2px solid #4778d9!important;
+}   */
+
+
+    
+/* check box styles ends */
+
+/* radio button styles starts */
+
+.radio {
+    /*padding-left: 20px; */
+    padding-left: 29px;
+  }
+.radio label {
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+    padding-left: 5px; }
+.radio label::before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  width: 17px;
+  height: 17px;
+  left: 0;
+  margin-left: -20px;
+  border: 1px solid #cccccc;
+  border-radius: 50%;
+  background-color: #fff;
+  -webkit-transition: border 0.15s ease-in-out;
+  -o-transition: border 0.15s ease-in-out;
+      transition: border 0.15s ease-in-out; }
+.radio label::after {
+  display: inline-block;
+  position: absolute;
+  content: " ";
+  width: 11px;
+  height: 11px;
+  left: 3px;
+  top: 3px;
+  margin-left: -20px;
+  border-radius: 50%;
+  background-color: #555555;
+  -webkit-transform: scale(0, 0);
+  -ms-transform: scale(0, 0);
+  -o-transform: scale(0, 0);
+  transform: scale(0, 0);
+  -webkit-transition: -webkit-transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+  -moz-transition: -moz-transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+  -o-transition: -o-transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+      transition: transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33); }
+.radio input[type="radio"] {
+  opacity: 0;
+    z-index: 1; }
+.radio input[type="radio"]:focus + label::before {
+  outline: thin dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+      outline-offset: -2px; }
+.radio input[type="radio"]:checked + label::after {
+  -webkit-transform: scale(1, 1);
+  -ms-transform: scale(1, 1);
+  -o-transform: scale(1, 1);
+      transform: scale(1, 1); }
+.radio input[type="radio"]:disabled + label {
+      opacity: 0.65; }
+.radio input[type="radio"]:disabled + label::before {
+        cursor: not-allowed; }
+.radio.radio-inline {
+    margin-top: 0; }
+
+.radio-primary input[type="radio"] + label::after {
+  background-color: #337ab7; }
+.radio-primary input[type="radio"]:checked + label::before {
+  border-color: #337ab7; }
+.radio-primary input[type="radio"]:checked + label::after {
+  background-color: #337ab7; }
+
+.radio-danger input[type="radio"] + label::after {
+  background-color: #474747; }
+.radio-danger input[type="radio"]:checked + label::before {
+  border-color: #474747; }
+.radio-danger input[type="radio"]:checked + label::after {
+  background-color: #474747; }
+
+.radio-info input[type="radio"] + label::after {
+  background-color: #5bc0de; }
+.radio-info input[type="radio"]:checked + label::before {
+  border-color: #5bc0de; }
+.radio-info input[type="radio"]:checked + label::after {
+  background-color: #5bc0de; }
+
+.radio-warning input[type="radio"] + label::after {
+  background-color: #f0ad4e; }
+.radio-warning input[type="radio"]:checked + label::before {
+  border-color: #f0ad4e; }
+.radio-warning input[type="radio"]:checked + label::after {
+  background-color: #f0ad4e; }
+
+.radio-success input[type="radio"] + label::after {
+  background-color: #5cb85c; }
+.radio-success input[type="radio"]:checked + label::before {
+  border-color: #5cb85c; }
+.radio-success input[type="radio"]:checked + label::after {
+  background-color: #5cb85c; }
+  
+
+/* radio button styles ends */
+
+.keepMeLog .checkbox label
+{
+    font-size:15px;
+    white-space:nowrap;
+}
+.signUpWizard 
+{
+    background:#efefef;
+    padding:10px;
+    border-top:4px solid #e8e8e8;
+    border-bottom:4px solid #e8e8e8;
+}
+.signUpContainer
+{
+    padding:15px 0;
+    border:1px solid #d0d0d0;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    background-color:#ffffff;
+}
+.signUpContainer 
+{
+    background-color:#f8f5f3;
+}
+.signUpContainer .form-group
+{
+    padding-left:15px;
+    padding-right:15px;
+    margin-bottom:29px;
+}
+.signUpContainer .signUpTitle h1
+{
+    font-size: 23px;
+    color: #898989;
+    font-weight:bold;
+    padding-left:35px;
+}
+.signUpContainer .signUpTitle
+{
+    padding-bottom:35px;
+    margin-top:0;
+}
+.landingFooter .fa
+{
+    font-size:39px;
+    color:#ef6f04;
+    line-height: 140px;
+}
+.landingFooter .media-body h4{
+    font-size:18px;
+    margin-top:20px;
+    margin-bottom:20px;
+    font-weight:bold;
+}
+.landingCopyRgt
+{
+    background-color:#e8e8e8;
+    padding:2px 0;
+}
+.landingCopyRgt p{
+    margin-bottom:0;
+    padding:1px 0;
+}
+
+@media (max-width:1070px){
+    .landingTopNav a  
+    {
+        padding-left:5px;
+    }
+}
+@media (max-width:992px){
+    .loginWizard label {
+        font-size: 18px;
+        line-height: 36px;
+        margin-bottom: 0;
+    }
+}
+@media (max-width:600px){
+    .landingTopNav li  
+    {
+        width: 100%;
+        text-align:right;
+    }
+}
+@media (max-width:380px){
+    .landingTopNav a  
+    {
+        padding-left:15px;
+        font-size:14px;
+    }
 }

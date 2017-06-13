@@ -60,19 +60,20 @@
                 <div class="wrapper">
                     <div class="image">
                         <div class="image">
-                            <img src="Src/images/profile/wallpaper.jpg" alt="people" ng-model="myfile" />
+                            <img src="{{userProfile.cover_name}}" alt="people" ngf-thumbnail="myfile" />
                             <div class="fileUpload btn btn-default">
                                 <span class="glyphicon glyphicon-camera"></span>
-                                <input type="file" class="upload" file-model="myfile" name="file" accept="image/*" />
+                                <input type="file" class="upload" ngf-select ngf-model="myfile" id="exampleInputFile" />
                             </div>
                         </div>
                     </div>
                 </div>
-
+                <p>{{myfile.name}}</p>
+                <img src="{{myfile.name}}" >
                 <div class="clear"></div>
                 <div class="cover-info">
                     <div class="avatar">
-                        <img src="Src/images/profile/profile.jpg" alt="people">
+                        <img src="{{userProfile.image_name}}" alt="people" >
                     </div>
                     <div class="name"><a href="#">{{userProfile.username}}</a></div>
                     <div class="name1"><a href="#">{{userProfile.school_name}}</a></div>

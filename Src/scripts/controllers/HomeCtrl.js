@@ -29,7 +29,7 @@ app.controller("HomeCtrl", function($scope, $window, $location, $http, $log, Htt
                fupservice.post(data, uploadUrl);
 			   */
 			   
-				var file = $scope.myfile;
+				var file = $scope.myfile; 
 		        var uploadUrl = "/multer";
 		        var fd = new FormData();
 		        fd.append('file', file);
@@ -53,6 +53,24 @@ app.controller("HomeCtrl", function($scope, $window, $location, $http, $log, Htt
             /* home page data from service start */
 
             /* home page data from service end */
+
+            /* friend request sent code start */
+
+            $scope.frdRequest = function(userId){
+            	var data = new Object();
+				data.request_by_user = profile.userId;
+				data.request_to_user = userId;
+				var headers= {"Content-Type": "application/json;charset=UTF-8"}
+				console.log(data);
+            	HttpService.UserMeet(url, data, headers)
+            		.then(function(response){
+            			console.log(response);
+            		}, 
+            		function errorCallback(error){
+						$log.info(error);		
+					})
+            }
+            /* friend request sent code end */
 
 	}else{
 		$location.path('/');

@@ -1,7 +1,7 @@
 /* MainCtrl */
 app.controller("RegisterCtrl", function($scope, $http, $window, $log, $location, HttpService, ServiceUrls){	
 	//$scope.text = "Register Ctrl.";
-	
+	$scope.emailValid=true;
 	// Path of the current page
 	$scope.currentPath = $location.path();
 	console.log($scope.currentPath);
@@ -74,8 +74,22 @@ app.controller("RegisterCtrl", function($scope, $http, $window, $log, $location,
 			data.user_dateofbirth = "";
 			data.user_gender = "";
 		HttpService.RegisterUserService(url, data)
-			.then(function successCallback(response){				
-				$window.location='/';
+			.then(function successCallback(response){
+				if(response==1){
+					$scope.successMessage = 'Thanks for Registration';
+					$window.location='/';
+				}
+				else if(response==-4){
+					$scope.errorMsg = 'Either Email or Mobile already exists. Please try again!';
+				}
+				else if(response==-3){
+					$scope.errorMsg = 'Mobile already exists. Please try again!';
+				}
+				else if(response==-2){
+					$scope.errorMsg = 'Email already exists. Please try again!';
+					
+				}
+				
 			}, function errorCallback(error){
 				$log.info(error);		 
 			}); 

@@ -1,4 +1,4 @@
-
+<div class="container">
 	<!-- Begin Page Content -->
 	<div class="col-md-12 content-pre" style="padding-bottom: 50px;">
 		<div class="col-md-2 content">
@@ -130,8 +130,8 @@
                                             </li>
                                             <li><a href="#" class="fon-img">{{people.school_name}}</a></li>
                                             <li>
-
-<form action="/Users/MainPage" method="post"><input value="3" class="hideblocks text-box single-line" id="request_by_user" name="request_by_user" type="text" style="display: none;"><input value="2" class="hideblocks text-box single-line" id="request_to_user" name="request_to_user" type="text" style="display: none;">                                                                <button id="btnfrd_request" name="btnfrd_request" class=" btn btn-primary btn-pos pull-right ">Meet Me</button>
+<form>
+    <button id="btnfrd_request" name="btnfrd_request" ng-model="btnfrd_request" ng-click="frdRequest(people.user_id)" class="btn btn-primary btn-pos pull-right">Meet Me</button>
 </form>
                                         </li></ul>
                                     </div>
@@ -145,3 +145,4 @@
     	</div>
 	   <!-- End Page Content -->
     </div>
+</div>

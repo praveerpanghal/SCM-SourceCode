@@ -14,7 +14,8 @@ app.value('ServiceUrls', {
     UserRegistrationForm: BaseUrl + 'UserRegistrationForm',
     LoginDetails: BaseUrl + 'LoginDetails',
     GetUserInfo: BaseUrl + 'GetUserInfo',
-    ForgotPassword: BaseUrl + 'ForgotPassword'
+    ForgotPassword: BaseUrl + 'ForgotPassword',
+    UserMeet: BaseUrl + 'UserMeet'
 });
 
 /* Password Comapre Code */
@@ -57,6 +58,9 @@ app.config(['$routeProvider', '$httpProvider', '$locationProvider',
         }).when("/forgot", {
             templateUrl : "views/Forgot.html",
             controller : "ForgotCtrl"
+        }).when("/profile", {
+            templateUrl : "views/Profile.html",
+            controller : "ProfileCtrl"
         })
     	.otherwise({
     		redirectTo: "/"

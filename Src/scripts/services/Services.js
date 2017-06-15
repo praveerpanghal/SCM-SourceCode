@@ -29,6 +29,10 @@ app.factory('HttpService',function($http, SuccessError){
 		ForgotPasswordService: function(url, data){
 			return $http.post(url, data)
 				.then(SuccessError.Successresult, SuccessError.Errorresult);
+		},
+		UserMeet: function(url, data){
+			return $http.post(url, data)
+				.then(SuccessError.Successresult, SuccessError.Errorresult);
 		}
 	}
 

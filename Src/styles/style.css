@@ -37,8 +37,8 @@ body
 }
 .loginWizard
 {
-    padding-top:28px;
-    padding-bottom:28px;
+    padding-top:26px;
+    padding-bottom:22px;
     background-color:#f8f5f3;
 }
 .loginWizard .form-control,.signUpContainer .form-control

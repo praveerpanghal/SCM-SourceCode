@@ -1,3 +1,5 @@
+
+
 <div class="container">
 	<!-- Begin Page Content -->
 	<div class="col-md-12 content-pre" style="padding-bottom: 50px;">
@@ -121,7 +123,7 @@
                         <ul class="row people-bottom">
                                 <li class="col-md-12 request" ng-repeat="people in PeopleYouMayKnow">
                                     <div class="col-md-2 avatar1">
-                                        <img src="{{people.image_name}}" alt="people">
+                                        <img src="{{people.image_name}}" alt="people" >
                                     </div>
                                     <div class="col-md-10 request-middle">
                                         <ul>
@@ -141,8 +143,72 @@
                         </ul>
                     </div>
                 </div>
+                <div class="row gallery-part" ng-repeat="posts in postedData">
+                            <div class="col-md-12 col-sm-12 col-xs-12 gallery-inner">
+
+                                <div class="col-md-2 col-sm-2 col-xs-2 avatar2">
+                                    <img src="{{posts.UserPic}}" alt="people" />
+                                    <br />
+                                    <span class="profile-time">4 Day(s) 2 Hour(s)  </span>
+                                </div>
+                                <div class="col-md-10 col-sm-10 col-xs-10 image-box">
+                                    <div class="image-upper">
+                                        <div class="text-left">
+                                            <span class="gallery-font">{{posts.UserName}}</span>
+                                        </div>
+                                        <div class="text-right">
+                                            <form>
+                                                <button class="glyphicon glyphicon-thumbs-up link-btn" type="button" onclick="like(39, 3)" id="39likes" style="color: rgb(51, 122, 183);" ng-init="noLikes=2"
+                                                ng-click="noLikes=noLikes+1">
+                                                <span class="like-space numlike" id="39like">{{noLikes}}</span></button>
+                                            </form>
+                                            <form>
+                                                <button class="glyphicon glyphicon-share link-btn" type="button" onclick="share(39, 3)" id="39shares" style="color: rgb(255, 166, 76);" ng-init="noShares=3" ng-click="noShares=noShares+1">
+                                                <span class="like-space" id="39share">{{noShares}}</span></button>
+                                            </form>
+                                            <button class="glyphicon glyphicon-comment link-btn" id="39comments" style="color: rgb(34, 78, 153);" ng-init="noComments=0" ng-click="noComments=noComments+1">
+                                            <span class="like-space" id="39comment">{{noComments}}</span></button>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </div>
+                                    <div class="post_cmt" ng-if="posts.PostedMessage!=''">{{posts.PostedMessage}}
+
+                                    </div>
+                                    <img src="{{posts.PostedImage}}" class="image-set" title="Click to Zoom the Image" ng-if="posts.PostedImage!=''">
+                                   <div class="clear"></div>
+                                </div>
+                                <div class="clear"></div>
+                                <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12 comment-box2">
+                    <div class="col-md-2 col-sm-2 col-xs-2 avatar3">
+                        <img src="Src/images/profile/user.png" alt="people">
+                    </div>
+                    <div class="col-md-10 col-sm-10 col-xs-10 ">
+                        <div>
+                            <form>
+                               <div class="form-group col-md-10 cmt_box">
+                                    <input type="text" class="form-control cont1" placeholder="Write a comment..." style="margin-top: 8px;margin-left: -14px;">
+                                </div>
+                                  <div class="btn-group col-md-2 pull-right">
+                                    <button class="btn btn-primary btn-wid1" type="button"
+                                    style="margin-top: 11px; margin-left: 5px;">send</button>
+                                </div>
+                                <div class="clear"></div>
+
+                            </form>
+                        </div>
+                        <div id="45commentnames" style="display: block;">
+                            
+                        </div>
+                    </div>
+                </div>
+                            </div>
+                            </div>
+                            <div class="clear"> </div>
+                        </div>
             <div class="clear"></div>
     	</div>
+        <div class="col-md-3 col-sm-12 col-xs-12 content2"></div>
 	   <!-- End Page Content -->
     </div>
 </div>

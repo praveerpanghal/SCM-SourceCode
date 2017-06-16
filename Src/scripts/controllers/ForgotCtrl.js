@@ -9,6 +9,7 @@ app.controller("ForgotCtrl", function($scope, $window, $location, HttpService, S
 			.then(function successCallback(response){
 				if(response.ForgotPasswordResult == 1){
 					$scope.reset_message = "Your new passwrod sent to your mailid.";
+					$scope.user_email='';
 				}
 				else if(response.ForgotPasswordResult == -1){
 					$scope.message = "User does not exist";

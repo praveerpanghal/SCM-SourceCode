@@ -361,7 +361,13 @@ padding:0px;min-width:0px;}
 .cont{
   height: 50px !important;
     background-color: #D5DAE6;}
-
+.post_cmt {
+    background: #fff;
+    height: 55px;
+    margin-bottom: 10px;
+    padding: 5px;
+    color: #000;
+}
 .col-top{
   margin-bottom: -10px;
     }
@@ -891,7 +897,7 @@ display:inline;}
 .gallery-part{
   background:#f0f0f0;
   padding:15px;
-  margin:15px -15px 0px -15px;
+  margin:15px 0px 0px 0px;
   /* border: 1px solid #968E8E; */
 }
 .gallerypart {
@@ -924,7 +930,7 @@ margin:15px 0;}
   margin-top: 10px;
   padding: 0px 10px;
   border: 1px solid #dcdcdc;
-  right: -8px;
+  right: 12px;
 }
 .image-upper{
   padding:5px 0px;

@@ -1,0 +1,17 @@
+{
+"UserData":[
+	{
+		"UserName":"Poorna Chandar",
+		"UserPic":"Src/images/profile/profile.jpg",
+		"PostedMessage":"Hi welcome to spinotuts!",
+		"PostedImage":"",
+		"UserName":"Poorna Chandar"
+	},
+	{
+		"UserName":"Bala Krishna",
+		"UserPic":"Src/images/profile/balu.jpg",
+		"PostedMessage":"",
+		"PostedImage":"Src/images/cover/coverimage.jpg"
+	}
+]
+}

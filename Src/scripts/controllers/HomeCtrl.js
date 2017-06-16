@@ -1,5 +1,5 @@
 /* MainCtrl */
-app.controller("HomeCtrl", function($scope, $window, $location, $http, $log, HttpService, ServiceUrls, LS){	
+app.controller("HomeCtrl", function($scope, $window, $location, $http, $log, $route, HttpService, ServiceUrls, LS){	
 	var user = LS.getData();
 	var encodedProfile = user.split('.')[1];
 	var profile = JSON.parse(LS.url_base64_decode(encodedProfile));
@@ -8,14 +8,19 @@ app.controller("HomeCtrl", function($scope, $window, $location, $http, $log, Htt
 		var url = ServiceUrls.GetUserInfo;
 		var data = new Object();
 		data.user_id = profile.userId;
-		console.log(data.user_id);
+		//console.log(data.user_id);
 		HttpService.UserInfoService(url, data)
 			.then(function(response){
+				if(response.GetUserInfoResult!=''){					
 				$scope.userInfo = JSON.parse(response.GetUserInfoResult);
 				$scope.userProfile = $scope.userInfo[0].UserProfile[0];
 				$scope.PeopleYouMayKnow = $scope.userInfo[0].PeopleYouMayKnow;
-				console.log($scope.PeopleYouMayKnow);
+				//console.log($scope.PeopleYouMayKnow);
 				$scope.text = "Hi "+$scope.userProfile.username+", Welcome to SchoolConnect";				
+				}else{
+					alert('Data Not Found');
+					$location.path('/logout');
+				}
 			}, function errorCallback(error){
 				$log.info(error);		
 			});
@@ -50,21 +55,28 @@ app.controller("HomeCtrl", function($scope, $window, $location, $http, $log, Htt
             };
             /* upload file code end */
 
-            /* home page data from service start */
+            /* home page data from json start */
 
-            /* home page data from service end */
+            $http.get("Src/jsondata/PostedData.json").success(function(response){$scope.postedData=response.UserData});
+
+            /* home page data from json end */
 
             /* friend request sent code start */
 
             $scope.frdRequest = function(userId){
+            	var url = ServiceUrls.UserMeet;
             	var data = new Object();
 				data.request_by_user = profile.userId;
 				data.request_to_user = userId;
-				var headers= {"Content-Type": "application/json;charset=UTF-8"}
-				console.log(data);
-            	HttpService.UserMeet(url, data, headers)
+
+            	HttpService.UserMeet(url, data)
             		.then(function(response){
-            			console.log(response);
+            			if(response==1){
+            				console.log('sending request to user from meet me'+response);
+            				$route.reload();            				
+            			}else{
+            				alret('some thing went wrong, please try again.');
+            			}
             		}, 
             		function errorCallback(error){
 						$log.info(error);		

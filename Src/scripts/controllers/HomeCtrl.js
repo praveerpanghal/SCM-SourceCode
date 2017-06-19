@@ -84,6 +84,28 @@ app.controller("HomeCtrl", function($scope, $window, $location, $http, $log, $ro
             }
             /* friend request sent code end */
 
+            /* post comment code start */
+            $scope.postComments = function(postComment){
+            	var url = ServiceUrls.PostComment;
+            	var data = new Object();
+            	data.request_by_user = profile.userId;
+            	data.postComment = postComment;
+            	//console.log(url);
+            	//console.log(data);
+            	HttpService.PostComment(url, data)
+            		.then(function(response){
+            			if(response==1){
+            				$scope.postComment='';
+            				console.log('your comment is posted.');
+            			}else{
+            				alert('Error Occured while posting your data.');
+            			}
+            		}, function(error){
+            			$log.info(error);
+            		});
+            }
+            /* post comment code end */
+
 	}else{
 		$location.path('/');
 	}

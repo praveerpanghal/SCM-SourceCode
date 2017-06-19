@@ -15,7 +15,8 @@ app.value('ServiceUrls', {
     LoginDetails: BaseUrl + 'LoginDetails',
     GetUserInfo: BaseUrl + 'GetUserInfo',
     ForgotPassword: BaseUrl + 'ForgotPassword',
-    UserMeet: BaseUrl + 'UserMeet'
+    UserMeet: BaseUrl + 'UserMeet',
+    PostComment: BaseUrl + 'PostComment'
 });
 
 /* Password Comapre Code */

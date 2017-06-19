@@ -99,11 +99,11 @@
                     <div class="col-md-1 col-sm-1 col-xs-1 comm-prof">
                         <img src="Src/images/profile/profile.jpg" alt="people">
                     </div>
-                    <form action="/Users/PostCmt" method="post">
+                    <form method="post" ng-submit="postComments(postComment)">
                         <div class="col-md-9 col-sm-9 col-xs-9 col-top">
                             <div class="form-group">
-                                <textarea class="form-control cont" cols="20" id="postComment" name="postComment" placeholder="Post your comments here" rows="2"></textarea>  
-                                <input value="3" class="hideblocks text-box single-line" id="request_by_user" name="request_by_user" type="text" style="display: none;">                     
+                                <textarea class="form-control cont" cols="20" id="postComment" name="postComment" placeholder="Post your comments here" rows="2"
+                                ng-model="postComment"></textarea>
                              </div>
                         </div>
                         <div class="col-md-2 col-sm-2 col-xs-2 pull-right">

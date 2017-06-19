@@ -33,6 +33,10 @@ app.factory('HttpService',function($http, SuccessError){
 		UserMeet: function(url, data){
 			return $http.post(url, data)
 				.then(SuccessError.Successresult, SuccessError.Errorresult);
+		},
+		PostComment: function(url, data){
+			return $http.post(url, data)
+				.then(SuccessError.Successresult, SuccessError.Errorresult);
 		}
 	}
 

@@ -143,38 +143,38 @@
                         </ul>
                     </div>
                 </div>
-                <div class="row gallery-part" ng-repeat="posts in postedData">
+                <div class="row gallery-part" ng-repeat="posts in commentsInfo">
                             <div class="col-md-12 col-sm-12 col-xs-12 gallery-inner">
 
                                 <div class="col-md-2 col-sm-2 col-xs-2 avatar2">
-                                    <img src="{{posts.UserPic}}" alt="people" />
+                                    <img src="{{posts.image_name}}" alt="people" />
                                     <br />
-                                    <span class="profile-time">4 Day(s) 2 Hour(s)  </span>
+                                    <span class="profile-time">{{posts.daydiff}}</span>
                                 </div>
                                 <div class="col-md-10 col-sm-10 col-xs-10 image-box">
                                     <div class="image-upper">
                                         <div class="text-left">
-                                            <span class="gallery-font">{{posts.UserName}}</span>
+                                            <span class="gallery-font">{{posts.username}}</span>
                                         </div>
                                         <div class="text-right">
                                             <form>
-                                                <button class="glyphicon glyphicon-thumbs-up link-btn" type="button" onclick="like(39, 3)" id="39likes" style="color: rgb(51, 122, 183);" ng-init="noLikes=2"
+                                                <button class="glyphicon glyphicon-thumbs-up link-btn" type="button" id="39likes" style="color: rgb(51, 122, 183);" ng-init="noLikes=posts.l_id"
                                                 ng-click="noLikes=noLikes+1">
                                                 <span class="like-space numlike" id="39like">{{noLikes}}</span></button>
                                             </form>
                                             <form>
-                                                <button class="glyphicon glyphicon-share link-btn" type="button" onclick="share(39, 3)" id="39shares" style="color: rgb(255, 166, 76);" ng-init="noShares=3" ng-click="noShares=noShares+1">
+                                                <button class="glyphicon glyphicon-share link-btn" type="button" id="39shares" style="color: rgb(255, 166, 76);" ng-init="noShares=posts.s_id" ng-click="noShares=noShares+1">
                                                 <span class="like-space" id="39share">{{noShares}}</span></button>
                                             </form>
-                                            <button class="glyphicon glyphicon-comment link-btn" id="39comments" style="color: rgb(34, 78, 153);" ng-init="noComments=0" ng-click="noComments=noComments+1">
+                                            <button class="glyphicon glyphicon-comment link-btn" id="39comments" style="color: rgb(34, 78, 153);" ng-init="noComments=posts.c_id" ng-click="noComments=noComments+1">
                                             <span class="like-space" id="39comment">{{noComments}}</span></button>
                                         </div>
                                         <div class="clear"></div>
                                     </div>
-                                    <div class="post_cmt" ng-if="posts.PostedMessage!=''">{{posts.PostedMessage}}
+                                    <div class="post_cmt" ng-if="posts.mode=='text'">{{posts.posted_info}}
 
                                     </div>
-                                    <img src="{{posts.PostedImage}}" class="image-set" title="Click to Zoom the Image" ng-if="posts.PostedImage!=''">
+                                    <img src="{{posts.PostedImage}}" class="image-set" title="Click to Zoom the Image" ng-if="posts.mode!='text'">
                                    <div class="clear"></div>
                                 </div>
                                 <div class="clear"></div>

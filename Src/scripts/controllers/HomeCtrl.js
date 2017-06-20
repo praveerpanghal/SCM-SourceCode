@@ -4,7 +4,7 @@ app.controller("HomeCtrl", function($scope, $window, $location, $http, $log, $ro
 	var encodedProfile = user.split('.')[1];
 	var profile = JSON.parse(LS.url_base64_decode(encodedProfile));
 
-	if(profile.userId){		
+	if(profile.userId){
 		var url = ServiceUrls.GetUserInfo;
 		var data = new Object();
 		data.user_id = profile.userId;
@@ -15,8 +15,9 @@ app.controller("HomeCtrl", function($scope, $window, $location, $http, $log, $ro
 				$scope.userInfo = JSON.parse(response.GetUserInfoResult);
 				$scope.userProfile = $scope.userInfo[0].UserProfile[0];
 				$scope.PeopleYouMayKnow = $scope.userInfo[0].PeopleYouMayKnow;
-				//console.log($scope.PeopleYouMayKnow);
-				$scope.text = "Hi "+$scope.userProfile.username+", Welcome to SchoolConnect";				
+				$scope.commentsInfo = $scope.userInfo[0].CommentImagePost;
+				//console.log($scope.commentsInfo);
+				//$scope.text = "Hi "+$scope.userProfile.username+", Welcome to SchoolConnect";				
 				}else{
 					alert('Data Not Found');
 					$location.path('/logout');
@@ -96,7 +97,8 @@ app.controller("HomeCtrl", function($scope, $window, $location, $http, $log, $ro
             		.then(function(response){
             			if(response==1){
             				$scope.postComment='';
-            				console.log('your comment is posted.');
+            				//console.log('your comment is posted.');
+            				$route.reload();
             			}else{
             				alert('Error Occured while posting your data.');
             			}

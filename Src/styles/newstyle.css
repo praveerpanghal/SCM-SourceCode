@@ -240,6 +240,7 @@ img {
   text-transform:uppercase;
     display: block;
     z-index: 3;
+    top: 0px;
 }   
 .name a {
     color: #0E0E0E;
@@ -250,7 +251,7 @@ img {
  .name1 {
   position: absolute;
     left: 109px;
-    bottom: -5px;
+    bottom: 13px;
     display: block;
     z-index: 3;   
 }   

@@ -132,6 +132,11 @@ body
   background-color: #712e3b;
   color:#FFF;
 }
+.signInTxt a
+{
+  color:#712e3b;
+  padding-bottom: 10px;
+}
 /* checked mark aspect changes */
 .loginWizard [type="checkbox"]:not(:checked) + label:after {
   opacity: 0;
@@ -324,7 +329,16 @@ body
     margin-top: 10px;
     margin-bottom: 10px;
 }
-.signUpContainer .signUpTitle
+.pwdTitle h1
+{
+    padding-left:0;
+    font-size: 23px;
+    color: #898989;
+    font-weight: 700;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.signUpContainer .signUpTitle, .pwdTitle
 {
     padding-bottom:35px;
     margin-top:0;
@@ -355,6 +369,7 @@ body
     margin-bottom:0;
     padding:1px 0;
 }
+
 @media (max-width:1070px){
     .landingTopNav a  
     {

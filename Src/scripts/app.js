@@ -62,6 +62,9 @@ app.config(['$routeProvider', '$httpProvider', '$locationProvider',
         }).when("/profile", {
             templateUrl : "views/Profile.html",
             controller : "ProfileCtrl"
+        }).when("/reset", {
+            templateUrl : "views/ResetPassword.html",
+            controller : "ResetPasswordCtrl"
         })
     	.otherwise({
     		redirectTo: "/"

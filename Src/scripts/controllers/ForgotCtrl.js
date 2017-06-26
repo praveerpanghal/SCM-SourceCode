@@ -10,9 +10,11 @@ app.controller("ForgotCtrl", function($scope, $window, $location, HttpService, S
 				if(response.ForgotPasswordResult == 1){
 					$scope.reset_message = "Your new passwrod sent to your mailid.";
 					$scope.user_email='';
+					$scope.disabled_key='true';
 				}
 				else if(response.ForgotPasswordResult == -1){
 					$scope.message = "User does not exist";
+					$scope.disabled_key=true;
 				}
 				else{
 					$log.info(response);

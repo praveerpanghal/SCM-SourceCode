@@ -14,7 +14,7 @@
                                 <a href="#" class="user-clr"><i class="glyphicon glyphicon-user user-clr"></i><span class="text user-clr arr-pos-left">Users</span><i class="glyphicon glyphicon-chevron-right arrow user-clr arr-pos"></i></a>
                             </li>
                             <li class="has-submenu">
-                                <a href="#"><i class="glyphicon glyphicon-briefcase"></i><span class="text">Jobs</span><i class="glyphicon glyphicon-chevron-right arrow"></i></a>
+                                <a href="reset"><i class="glyphicon glyphicon-briefcase"></i><span class="text">Reset Password</span><i class="glyphicon glyphicon-chevron-right arrow"></i></a>
                             </li>
                             <li class="has-submenu">
                                 <a href="#"><i class="glyphicon glyphicon-comment"></i><span class="text">Messages</span><i class="glyphicon glyphicon-chevron-right arrow"></i></a>
@@ -62,10 +62,11 @@
                 <div class="wrapper">
                     <div class="image">
                         <div class="image">
-                            <img src="{{userProfile.cover_name}}" alt="people" ngf-thumbnail="myfile" />
+                            <img src="{{userProfile.cover_name}}" alt="people" ng-hide="filepreview" />
+                            <img ng-src="{{filepreview}}" class="img-responsive" ng-show="filepreview" />
                             <div class="fileUpload btn btn-default">
                                 <span class="glyphicon glyphicon-camera"></span>
-                                <input type="file" class="upload" ngf-select ngf-model="myfile" id="exampleInputFile" />
+                                <input type="file" class="upload" ng-model="myfile" id="exampleInputFile" fileinput="file" filepreview="filepreview" />
                             </div>
                         </div>
                     </div>

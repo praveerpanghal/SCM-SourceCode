@@ -87,13 +87,13 @@ app.controller("HomeCtrl", function($scope, $window, $location, $http, $log, $ro
 
             /* post comment code start */
             $scope.postComments = function(postComment){
-            	var url = ServiceUrls.PostCommentService;
+            	var url = ServiceUrls.PostComment;
             	var data = new Object();
             	data.request_by_user = profile.userId;
             	data.postComment = postComment;
             	//console.log(url);
             	//console.log(data);
-            	HttpService.PostComment(url, data)
+            	HttpService.PostCommentService(url, data)
             		.then(function(response){
             			if(response==1){
             				$scope.postComment='';

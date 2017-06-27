@@ -48,7 +48,7 @@ body
 }
 .loginWizard
 {
-    padding-top:26px;
+    padding-top:8px;
     padding-bottom:0;
     background-color:#f8f5f3;
 }
@@ -284,11 +284,15 @@ body
 {
   display: inline-block;
 }
+.forgotPwd p
+{
+  margin-bottom: 0;
+}
 .forgotPwd p a
 {
   font-size:15px;
   color:#898989;
-  padding-top:10px;
+  padding-top:5px;
 }
 .forgotPwd p a:hover
 {

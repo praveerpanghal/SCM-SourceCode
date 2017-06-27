@@ -65,7 +65,7 @@ app.controller("HomeCtrl", function($scope, $window, $location, $http, $log, $ro
             /* friend request sent code start */
 
             $scope.frdRequest = function(userId){
-            	var url = ServiceUrls.UserMeet;
+            	var url = ServiceUrls.UserMeetService;
             	var data = new Object();
 				data.request_by_user = profile.userId;
 				data.request_to_user = userId;
@@ -87,7 +87,7 @@ app.controller("HomeCtrl", function($scope, $window, $location, $http, $log, $ro
 
             /* post comment code start */
             $scope.postComments = function(postComment){
-            	var url = ServiceUrls.PostComment;
+            	var url = ServiceUrls.PostCommentService;
             	var data = new Object();
             	data.request_by_user = profile.userId;
             	data.postComment = postComment;

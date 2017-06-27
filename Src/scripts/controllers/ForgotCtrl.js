@@ -14,7 +14,7 @@ app.controller("ForgotCtrl", function($scope, $window, $location, HttpService, S
 				}
 				else if(response.ForgotPasswordResult == -1){
 					$scope.message = "User does not exist";
-					$scope.disabled_key=true;
+					
 				}
 				else{
 					$log.info(response);

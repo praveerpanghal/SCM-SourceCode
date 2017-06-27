@@ -30,11 +30,15 @@ app.factory('HttpService',function($http, SuccessError){
 			return $http.post(url, data)
 				.then(SuccessError.Successresult, SuccessError.Errorresult);
 		},
-		UserMeet: function(url, data){
+		UserMeetService: function(url, data){
 			return $http.post(url, data)
 				.then(SuccessError.Successresult, SuccessError.Errorresult);
 		},
-		PostComment: function(url, data){
+		PostCommentService: function(url, data){
+			return $http.post(url, data)
+				.then(SuccessError.Successresult, SuccessError.Errorresult);
+		},
+		ChangePasswordService: function(url, data){
 			return $http.post(url, data)
 				.then(SuccessError.Successresult, SuccessError.Errorresult);
 		}

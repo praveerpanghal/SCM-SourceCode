@@ -49,7 +49,7 @@ body
 .loginWizard
 {
     padding-top:26px;
-    padding-bottom:22px;
+    padding-bottom:0;
     background-color:#f8f5f3;
 }
 .loginWizard .form-control,.signUpContainer .form-control
@@ -318,7 +318,11 @@ body
 {
     padding-left:15px;
     padding-right:15px;
-    margin-bottom:29px;
+    margin-bottom:25px;
+}
+.signUpBtn .form-group
+{
+    margin-bottom:5px;
 }
 .signUpContainer .signUpTitle h1
 {
@@ -340,7 +344,7 @@ body
 }
 .signUpContainer .signUpTitle, .pwdTitle
 {
-    padding-bottom:35px;
+    padding-bottom:5px;
     margin-top:0;
 }
 .landingFooter

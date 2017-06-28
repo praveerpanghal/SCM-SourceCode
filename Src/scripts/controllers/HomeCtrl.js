@@ -18,6 +18,7 @@ app.controller("HomeCtrl", function($scope, $window, $location, $http, $log, $ro
 				$scope.commentsInfo = $scope.userInfo[0].CommentImagePost;
 				$scope.friendRequests = $scope.userInfo[0].FriendRequest;
 				console.log($scope.userInfo[0].FriendRequest);
+				console.log($scope.userInfo[0].PeopleYouMayKnow);
 				//$scope.text = "Hi "+$scope.userProfile.username+", Welcome to SchoolConnect";				
 				}else{
 					alert('Data Not Found');
@@ -66,12 +67,12 @@ app.controller("HomeCtrl", function($scope, $window, $location, $http, $log, $ro
             /* friend request sent code start */
 
             $scope.frdRequest = function(userId){
-            	var url = ServiceUrls.UserMeetService;
+            	var url = ServiceUrls.UserMeet;
             	var data = new Object();
 				data.request_by_user = profile.userId;
 				data.request_to_user = userId;
 
-            	HttpService.UserMeet(url, data)
+            	HttpService.UserMeetService(url, data)
             		.then(function(response){
             			if(response==1){
             				console.log('sending request to user from meet me'+response);

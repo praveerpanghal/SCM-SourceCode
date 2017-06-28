@@ -87,8 +87,30 @@
                     <div class="left"><a class="fon-photo" href="/FilesUpload/AddPhotos_Videos">Add Photos/Videos</a></div>
                     <div class="left"><a class="fon-frineds" href="/Users/ProfilePage">Friends</a></div>
                     <div class="left dropdown reqfriend">
-                        <a href="" class="fon-friendrq dropdown-toggle" data-toggle="dropdown">Friend Requests</a>
-                        <ul class="dropdown-menu frd_req" style="display: none;">
+                        <a href="" class="fon-friendrq dropdown-toggle" data-toggle="dropdown">Friend Requests ({{friendRequests.length}})</a>
+                        <ul class="dropdown-menu frd_req" ng-hide="friendRequests.length==0">
+                        <li ng-repeat="friendRequest in friendRequests" >
+                            <div class="row">
+                                <div class="comm-prof1" style="float:left">
+                                    <img src="{{friendRequest.image_name}}" alt="people">
+                                </div>
+                                <div class="req_info">
+                                    <a class="font-img" href="">{{friendRequest.username}}</a>                                    
+                                    <div>
+                                        <form method="post">
+                                            <input value="11" class="hideblocks text-box single-line" id="request_to_user" name="request_to_user" type="text" style="display: none;"><input value="3" class="hideblocks text-box single-line" id="request_by_user" name="request_by_user" type="text" style="display: none;">
+                                            <button class="btn btn-warning btn-pos1 pull-right">Reject</button>
+                                        </form>
+                                        <form method="post">
+                                            <input value="11" class="hideblocks text-box single-line" id="request_to_user" name="request_to_user" type="text" style="display: none;"><input value="3" class="hideblocks text-box single-line" id="request_by_user" name="request_by_user" type="text" style="display: none;">       
+                                            <button class="btn btn-primary btn-pos1 pull-right">Accept</button>
+                                        </form>
+                                        <div class="clear"></div>
+                                    </div>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                        </li>                          
                         </ul>
                     </div>
                 </div>

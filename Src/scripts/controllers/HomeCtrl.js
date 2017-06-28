@@ -16,7 +16,8 @@ app.controller("HomeCtrl", function($scope, $window, $location, $http, $log, $ro
 				$scope.userProfile = $scope.userInfo[0].UserProfile[0];
 				$scope.PeopleYouMayKnow = $scope.userInfo[0].PeopleYouMayKnow;
 				$scope.commentsInfo = $scope.userInfo[0].CommentImagePost;
-				//console.log($scope.commentsInfo);
+				$scope.friendRequests = $scope.userInfo[0].FriendRequest;
+				console.log($scope.userInfo[0].FriendRequest);
 				//$scope.text = "Hi "+$scope.userProfile.username+", Welcome to SchoolConnect";				
 				}else{
 					alert('Data Not Found');

@@ -8,7 +8,7 @@ app.controller("ForgotCtrl", function($scope, $window, $location, HttpService, S
 		HttpService.ForgotPasswordService(url, data)
 			.then(function successCallback(response){
 				if(response.ForgotPasswordResult == 1){
-					$scope.reset_message = "Your new passwrod sent to your mailid.";
+					$scope.reset_message = "Thank you, your password has been sent to registered email id.";
 					$scope.disabled_key=true;
 				}
 				else if(response.ForgotPasswordResult == -1){

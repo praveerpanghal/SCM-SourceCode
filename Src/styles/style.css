@@ -309,10 +309,6 @@ body
 {
   height:95%;
 }
-.forgotWizard .signUpContainer
-{
-  height:100%;
-}
 .signUpContainer,.forgotWizard .signUpContainer
 {
     padding:15px 0;
@@ -321,6 +317,11 @@ body
     -moz-border-radius: 8px;
     border-radius: 8px;
     background-color:#ffffff;
+}
+.forgotWizard .signUpContainer
+{
+  height:100%;
+  padding-top: 12%;
 }
 .signUpContainer, .forgotWizard .signUpContainer
 {

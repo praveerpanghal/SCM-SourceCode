@@ -298,14 +298,22 @@ body
 {
   text-decoration:none;
 }
-.signUpWizard 
+.signUpWizard,.forgotWizard
 {
     background:#efefef;
     padding:10px;
     border-top:4px solid #e8e8e8;
     /*border-bottom:4px solid #e8e8e8;*/
 }
-.signUpContainer
+.forgotWizard
+{
+  height:95%;
+}
+.forgotWizard .signUpContainer
+{
+  height:100%;
+}
+.signUpContainer,.forgotWizard .signUpContainer
 {
     padding:15px 0;
     border:1px solid #d0d0d0;
@@ -314,11 +322,11 @@ body
     border-radius: 8px;
     background-color:#ffffff;
 }
-.signUpContainer 
+.signUpContainer, .forgotWizard .signUpContainer
 {
     background-color:#f8f5f3;
 }
-.signUpContainer .form-group
+.signUpContainer .form-group,.forgotWizard .signUpContainer .form-group
 {
     padding-left:15px;
     padding-right:15px;
@@ -328,7 +336,7 @@ body
 {
     margin-bottom:5px;
 }
-.signUpContainer .signUpTitle h1
+.signUpContainer .signUpTitle h1,.forgotWizard .signUpTitle h1
 {
     font-size: 23px;
     color: #898989;
@@ -346,7 +354,7 @@ body
     margin-top: 10px;
     margin-bottom: 10px;
 }
-.signUpContainer .signUpTitle, .pwdTitle
+.signUpContainer .signUpTitle, .pwdTitle,.forgotWizard .signUpTitle
 {
     padding-bottom:5px;
     margin-top:0;
@@ -399,11 +407,16 @@ body
   left: 0;
   overflow-y: auto;
   padding-top: 160px;
-}
+  }
   .navbar-fixed-bottom {
     position: relative;
     z-index: 999;
   }
+  .loginWizard
+  {
+    padding-top: 28px;
+  }
+
   
 }
 @media (max-width:600px){

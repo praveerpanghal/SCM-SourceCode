@@ -307,7 +307,9 @@ body
 }
 .forgotWizard
 {
-  height:100%;
+    height: 100%;
+    width: 100%;
+    margin: 0;
 }
 .signUpContainer,.forgotWizard .signUpContainer
 {
@@ -320,8 +322,18 @@ body
 }
 .forgotWizard .signUpContainer
 {
-  height:100%;
-  padding-top: 7%;
+  height: 95%;
+  position: absolute;
+  top: 3%;
+  left: 0;
+  right: 0;
+  bottom: 3%;
+  display: table;
+}
+.forgotrow {
+    display: table-cell;
+    max-width: 100%;
+    vertical-align: middle;
 }
 .signUpContainer, .forgotWizard .signUpContainer
 {
@@ -416,6 +428,28 @@ body
   .loginWizard
   {
     padding-top: 28px;
+  }
+  .forgotWizard
+  {
+    height:95%;
+    width: auto;
+  }
+  .forgotWizard .signUpContainer
+  {
+    height:100%;
+    padding-top: 7%;
+
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    display: block;
+  }
+  .forgotrow {
+    display: block;
+    max-width: 100%;
+    vertical-align: middle;
   }
 
   

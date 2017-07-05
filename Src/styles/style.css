@@ -471,7 +471,10 @@ body
     max-width: 100%;
     vertical-align: middle;
   }
-
+  .pwdTitle h1
+  {
+    padding-top: 1%;
+  }
   
 }
 @media (max-width:600px){

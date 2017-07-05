@@ -7,5 +7,4 @@ app.controller("MainCtrl", function($scope, LS){
 		// return profile.userId;
 		return LS.getData();
 	} 
-	
 });

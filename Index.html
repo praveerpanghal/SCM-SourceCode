@@ -36,6 +36,7 @@
 		<script src="Src/scripts/controllers/HomeCtrl.js"></script>
 		<script src="Src/scripts/controllers/ForgotCtrl.js"></script>
 		<script src="Src/scripts/controllers/ResetPasswordCtrl.js"></script>
+		<script src="Src/scripts/controllers/HeaderCtrl.js"></script>
 		<!-- controllers end -->
 		
 		<!-- scripts end -->
@@ -77,7 +78,7 @@
 				<p class="text-center">© 2017. All Rights Reserved.</p>
 			</div>
 		</footer>-->
-			<div class="navbar-fixed-top" ng-include="'views/landingheader.html'"></div>
+			<div class="navbar-fixed-top" ng-include="'views/landingheader.html'" ng-controller="HeaderCtrl"></div>
 			
 			<!--<ng-view></ng-view>-->
 			<div class="body-content" ng-view></div>

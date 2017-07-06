@@ -6,14 +6,14 @@ app.factory("LS", function($window, $rootScope) {
   });
   return {
     setData: function(val) {
-      $window.localStorage && $window.localStorage.setItem('token', val);
+      $window.sessionStorage && $window.sessionStorage.setItem('token', val);
       //return this;
     },
     getData: function() {
-      return $window.localStorage && $window.localStorage.getItem('token');
+      return $window.sessionStorage && $window.sessionStorage.getItem('token');
     },
     clearData: function() {
-      return $window.localStorage && $window.localStorage.clear();
+      return $window.sessionStorage && $window.sessionStorage.clear();
     },
     url_base64_decode: function(str){
       var output = str.replace('-', '+').replace('_', '/');

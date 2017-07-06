@@ -347,10 +347,14 @@ body
   left: 0;
   right: 0;
   bottom: 3%;
-  display: table;
+  /*display: table;*/
 }
+.forgotWizard.signUpWizard .signUpContainer
+{
+  display: block;
+} 
 .forgotrow {
-    display: table-cell;
+    /*display: table-cell;*/
     max-width: 100%;
     vertical-align: top;
 }
@@ -439,7 +443,7 @@ body
   right: 0;
   left: 0;
   overflow-y: auto;
-  padding-top: 160px;
+  padding-top: 150px;
   }
   .navbar-fixed-bottom {
     position: relative;

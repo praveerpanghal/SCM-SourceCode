@@ -95,7 +95,7 @@ body{
   
 }
 .user-clr {
-    background-color: #ffa64c;
+    background-color: #ef6f04;
     border-radius: 7px;
     line-height: 10px;
   color:#000;
@@ -714,7 +714,7 @@ li.sub-list a {
     font-weight: 400;
     line-height: 1;
     -webkit-font-smoothing: antialiased;
-    color: #f1a44c;
+    color: #ef6f04;
     padding-right: 7px;
 }
 .fon-photo:before {
@@ -727,7 +727,7 @@ li.sub-list a {
     font-weight: 400;
     line-height: 1;
     -webkit-font-smoothing: antialiased;
-    color: #f1a44c;
+    color: #ef6f04;
     padding-right: 7px;
         
 }
@@ -741,7 +741,7 @@ li.sub-list a {
     font-weight: 400;
     line-height: 1;
     -webkit-font-smoothing: antialiased;
-    color: #f1a44c;
+    color: #ef6f04;
     padding-right: 7px;
 }
 .fon-friendrq:before {
@@ -754,7 +754,7 @@ li.sub-list a {
     font-weight: 400;
     line-height: 1;
     -webkit-font-smoothing: antialiased;
-    color: #f1a44c;
+    color: #ef6f04;
     padding-right: 7px;
 }
 .art-left img,.art-left1 img {

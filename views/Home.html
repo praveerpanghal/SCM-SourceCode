@@ -97,13 +97,13 @@
                                 <div class="req_info">
                                     <a class="font-img" href="">{{friendRequest.username}}</a>                                    
                                     <div>
-                                        <form method="post">
-                                            <input value="11" class="hideblocks text-box single-line" id="request_to_user" name="request_to_user" type="text" style="display: none;"><input value="3" class="hideblocks text-box single-line" id="request_by_user" name="request_by_user" type="text" style="display: none;">
-                                            <button class="btn btn-warning btn-pos1 pull-right">Reject</button>
+                                        <form>
+                                            <input value="3" class="hideblocks text-box single-line" id="request_by_user" name="request_by_user" type="text" style="display: none;" ng-model="friendRequest.user_id">
+                                            <button class="btn btn-warning btn-pos1 pull-right" ng-click="rejectRequest(friendRequest)">Reject</button>
                                         </form>
-                                        <form method="post">
-                                            <input value="11" class="hideblocks text-box single-line" id="request_to_user" name="request_to_user" type="text" style="display: none;"><input value="3" class="hideblocks text-box single-line" id="request_by_user" name="request_by_user" type="text" style="display: none;">       
-                                            <button class="btn btn-primary btn-pos1 pull-right">Accept</button>
+                                        <form>
+                                            <input class="hideblocks text-box single-line" id="request_by_user" name="request_by_user" type="text" style="display: none;" ng-model="friendRequest.user_id">       
+                                            <button class="btn btn-primary btn-pos1 pull-right" ng-click="acceptRequest(friendRequest)">Accept</button>
                                         </form>
                                         <div class="clear"></div>
                                     </div>

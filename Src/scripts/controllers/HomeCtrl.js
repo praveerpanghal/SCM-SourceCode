@@ -18,7 +18,7 @@ app.controller("HomeCtrl", function($scope, $window, $location, $http, $log, $ro
 				$scope.commentsInfo = $scope.userInfo[0].CommentImagePost;
 				$scope.friendRequests = $scope.userInfo[0].FriendRequest;
 				//console.log($scope.userInfo);
-				//console.log($scope.userInfo[0].FriendRequest);
+				console.log($scope.userInfo[0].FriendRequest);
 				//console.log($scope.userInfo[0].PeopleYouMayKnow);
 				//$scope.text = "Hi "+$scope.userProfile.username+", Welcome to SchoolConnect";				
 				}else{
@@ -111,6 +111,37 @@ app.controller("HomeCtrl", function($scope, $window, $location, $http, $log, $ro
             }
             /* post comment code end */
 
+            /* accept request code start */
+            $scope.acceptRequest = function(accept){
+            	var url = ServiceUrls.AcceptFriendRequest;
+            	var data = new Object();
+            	data.request_by_user = accept.user_id;
+            	data.request_to_user = profile.userId;
+            	console.log(data);
+            	HttpService.AcceptFriendRequestService(url, data)
+            			.then(function(response){
+            				console.log(response);
+            			}, function(error){
+            				$log.info(error);
+            			});
+            }
+            /* accept request code end */
+
+            /* reject request code start */
+            $scope.rejectRequest = function(accept){
+            	var url = ServiceUrls.RejectFriendRequest;
+            	var data = new Object();
+            	data.request_by_user = accept.user_id;
+            	data.request_to_user = profile.userId;
+            	console.log(data);
+            	HttpService.RejectFriendRequestService(url, data)
+            			.then(function(response){
+            				console.log(response);
+            			}, function(error){
+            				$log.info(error);
+            			});
+            }
+            /* reject request code end */
 
 
 	}else{

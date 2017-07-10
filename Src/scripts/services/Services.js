@@ -41,6 +41,14 @@ app.factory('HttpService',function($http, SuccessError){
 		ChangePasswordService: function(url, data){
 			return $http.post(url, data)
 				.then(SuccessError.Successresult, SuccessError.Errorresult);
+		},
+		AcceptFriendRequestService: function(url, data){
+			return $http.post(url, data)
+				.then(SuccessError.Successresult, SuccessError.Errorresult);
+		},
+		RejectFriendRequestService: function(url, data){
+			return $http.post(url, data)
+				.then(SuccessError.Successresult, SuccessError.Errorresult);
 		}
 	}
 

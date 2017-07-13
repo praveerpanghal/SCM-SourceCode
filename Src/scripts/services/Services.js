@@ -49,6 +49,10 @@ app.factory('HttpService',function($http, SuccessError){
 		RejectFriendRequestService: function(url, data){
 			return $http.post(url, data)
 				.then(SuccessError.Successresult, SuccessError.Errorresult);
+		},
+		SearchUserService: function(url, data){
+			return $http.post(url, data)
+				.then(SuccessError.Successresult, SuccessError.Errorresult);
 		}
 	}
 

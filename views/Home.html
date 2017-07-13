@@ -83,7 +83,7 @@
                 </div>            
                 <div class="clear"></div>
                 <div class="butt-profile">
-                    <div class="left left-p"><a class="fon-profile" href="/FilesUpload/FileUpload">Change Profile</a></div>
+                    <div class="left left-p"><a class="fon-profile" href="changeprofile">Change Profile</a></div>
                     <div class="left"><a class="fon-photo" href="/FilesUpload/AddPhotos_Videos">Add Photos/Videos</a></div>
                     <div class="left"><a class="fon-frineds" href="/Users/ProfilePage">Friends</a></div>
                     <div class="left dropdown reqfriend">
@@ -96,7 +96,7 @@
                                 </div>
                                 <div class="req_info">
                                     <a class="font-img" href="">{{friendRequest.username}}</a>                                    
-                                    <div>
+                                    <div style="display: none;">
                                         <form>
                                             <input value="3" class="hideblocks text-box single-line" id="request_by_user" name="request_by_user" type="text" style="display: none;" ng-model="friendRequest.user_id">
                                             <button class="btn btn-warning btn-pos1 pull-right" ng-click="rejectRequest(friendRequest)">Reject</button>
@@ -106,6 +106,9 @@
                                             <button class="btn btn-primary btn-pos1 pull-right" ng-click="acceptRequest(friendRequest)">Accept</button>
                                         </form>
                                         <div class="clear"></div>
+                                    </div>
+                                    <div>
+                                        <input type="button" class="btn btn-primary btn-sm" value="Friend Request Sent" ng-disabled="true" style="margin-left: 9px;"></button>
                                     </div>
                                 </div>
                                 <div class="clear"></div>
@@ -138,6 +141,16 @@
                 </div>
                 <div class="clear"></div>
             </div>
+            <h3>Find Your Friend</h3>
+            <div class="row">
+                <div class="col-md-8">
+                    <input type="text" ng-keydown="$event.keyCode === 13 && action(username)" ng-model="username" class="form-control" /></label>                   
+                </div>
+                <div class="col-md-4">
+                    <a href="/friends/{{username}}" class="btn btn-primary btn-md">Find</a>
+                </div>
+            </div>
+            <!--
             <div class="row">
                     <div class="col-md-12 comment-box1">
                         <div class="people-top">
@@ -166,6 +179,7 @@
                         </ul>
                     </div>
                 </div>
+                -->
                 <div class="row gallery-part" ng-repeat="posts in commentsInfo">
                             <div class="col-md-12 col-sm-12 col-xs-12 gallery-inner">
 

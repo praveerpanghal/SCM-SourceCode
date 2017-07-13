@@ -131,8 +131,8 @@ app.controller("HomeCtrl", function($scope, $window, $location, $http, $log, $ro
             $scope.rejectRequest = function(accept){
             	var url = ServiceUrls.RejectFriendRequest;
             	var data = new Object();
-            	data.request_by_user = accept.user_id;
-            	data.request_to_user = profile.userId;
+            	//data.request_by_user = accept.user_id;
+            	data.mapp_id = profile.userId;
             	console.log(data);
             	HttpService.RejectFriendRequestService(url, data)
             			.then(function(response){
@@ -142,7 +142,11 @@ app.controller("HomeCtrl", function($scope, $window, $location, $http, $log, $ro
             			});
             }
             /* reject request code end */
-
+        $scope.action = function(username){
+            if(username){                
+                $location.path('/friends/'+username);
+            }
+        }
 
 	}else{
 		$location.path('/');

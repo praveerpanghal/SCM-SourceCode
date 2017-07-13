@@ -5,69 +5,34 @@
 <div class="container-fluid forgotWizard ">
 <div class="container viewprofile signUpContainer">
 	<div class="row">
-			<div class="col-md-12">			
-				  <div class="col-md-2 col-sm-2 col-xs-4">
+			<div class="col-md-12">
+				<div class="thumbnail" ng-show="emptyList">
+					<h4 class="text-center">{{emptyList}}</h4>
+				</div>
+				<div class="col-md-2 col-sm-2 col-xs-4" ng-repeat="user in usersList">
 				    <div class="thumbnail">
 				      <img src="src/images/profile/Defaultpicture.jpg" alt="..." class="img-circle">
 				      <div class="caption text-center">
-				        <h4>manikanta</h4>
+				        <h4>{{user.username}}</h4>
 				        <p>
-				        	<a href="#" class="btn  btn-default" role="button">
+				        	
+				        	<a href="#" class="btn btn-default" role="button" ng-if="user.friend_request=='W'">
+				        			<i class="fa fa-user-plus" aria-hidden="true"></i>
+				        			Add
+				        	</a>
+				        	<a href="#" class="btn  btn-default" role="button" ng-if="user.friend_request=='A'">
 				        		<i class="fa fa-users" aria-hidden="true"></i>
 				        		friends
 				        	</a> 
-				        	
-				        </p>
-				      </div>
-				    </div>
-				  </div>
-
-				  <div class="col-md-2 col-sm-2 col-xs-4">
-				    <div class="thumbnail">
-				      <img src="src/images/profile/Defaultpicture.jpg" alt="..." class="img-circle">
-				      <div class="caption text-center">
-				        <h4>Ramki</h4>
-				        <p>
-				        	
-				        	<a href="#" class="btn btn-default" role="button">
-				        			<i class="fa fa-user-plus" aria-hidden="true"></i>
-				        			Add
-				        	</a>
-				        </p>
-				      </div>
-				    </div>
-				  </div>
-				  <div class="col-md-2 col-sm-2 col-xs-4">
-				    <div class="thumbnail">
-				      <img src="src/images/profile/Defaultpicture.jpg" alt="..." class="img-circle">
-				      <div class="caption text-center">
-				        <h4>PChandra</h4>
-				        <p>
-				        	<a href="#" class="btn  btn-default" role="button">
+				        	<a href="#" class="btn  btn-default" role="button" ng-if="user.friend_request=='P'">
 				        		<i class="fa fa-paper-plane" aria-hidden="true"></i>
 				        		Request Sent
 				        	</a> 
-				        	
 				        </p>
 				      </div>
 				    </div>
-				  </div>
-
-				  <div class="col-md-2 col-sm-2 col-xs-4">
-				    <div class="thumbnail">
-				      <img src="src/images/profile/Defaultpicture.jpg" alt="..." class="img-circle">
-				      <div class="caption text-center">
-				        <h4>Bala Krishna Vasa</h4>
-				        <p>
-				        	
-				        	<a href="#" class="btn btn-default" role="button">
-				        			<i class="fa fa-user-plus" aria-hidden="true"></i>
-				        			Add
-				        	</a>
-				        </p>
-				      </div>
-				    </div>
-				  </div>
+				</div>
+				  <!--
 				  <div class="col-md-2 col-sm-2 col-xs-4">
 				    <div class="thumbnail">
 				      <img src="src/images/profile/Defaultpicture.jpg" alt="..." class="img-circle">
@@ -99,7 +64,7 @@
 				      </div>
 				    </div>
 				  </div>
-
+				  -->
 			</div>
 	</div>
 </div>

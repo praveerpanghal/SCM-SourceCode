@@ -423,6 +423,20 @@ body
     padding:1px 0;
 }
 
+.viewprofile .thumbnail
+{
+  padding-top: 15px;
+  margin: 0 5px ;
+}
+.viewprofile .thumbnail img
+{
+  width:80px;
+}
+
+.viewprofile .thumbnail .fa{
+  color:#ef6f04;
+}
+
 @media (max-width:1070px){
     .landingTopNav a  
     {

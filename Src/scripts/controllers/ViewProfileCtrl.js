@@ -13,7 +13,7 @@ app.controller("ViewProfileCtrl", function($scope, $routeParams, ServiceUrls, Ht
 			.then(function(response){
 				if(response!=''){
 					$scope.usersList = response;
-					//console.log(response);					
+					console.log(response);					
 				}
 				else{
 					$scope.emptyList = "We couldn't find anything for "+$scope.username;

@@ -64,10 +64,10 @@
                         <div class="image">
                             <img src="{{userProfile.cover_name}}" alt="people" ng-hide="filepreview" />
                             <img ng-src="{{filepreview}}" class="img-responsive" ng-show="filepreview" />
-                            <div class="fileUpload btn btn-default">
+                            <!--<div class="fileUpload btn btn-default">
                                 <span class="glyphicon glyphicon-camera"></span>
                                 <input type="file" class="upload" ng-model="myfile" id="exampleInputFile" fileinput="file" filepreview="filepreview" />
-                            </div>
+                            </div>-->
                         </div>
                     </div>
                 </div>
@@ -82,39 +82,10 @@
                 </div>            
                 <div class="clear"></div>
                 <div class="butt-profile">
-                    <div class="left left-p"><a class="fon-profile" href="changeprofile">Change Profile</a></div>
-                    <div class="left"><a class="fon-photo" href="/FilesUpload/AddPhotos_Videos">Add Photos/Videos</a></div>
-                    <div class="left"><a class="fon-frineds" href="/Users/ProfilePage">Friends</a></div>
-                    <div class="left dropdown reqfriend">
-                        <a href="" class="fon-friendrq dropdown-toggle" data-toggle="dropdown">Friend Requests ({{friendRequests.length}})</a>
-                        <ul class="dropdown-menu frd_req" ng-hide="friendRequests.length==0">
-                        <li ng-repeat="friendRequest in friendRequests" >
-                            <div class="row">
-                                <div class="comm-prof1" style="float:left">
-                                    <img src="{{friendRequest.image_name}}" alt="people">
-                                </div>
-                                <div class="req_info">
-                                    <a class="font-img" href="">{{friendRequest.username}}</a>                                    
-                                    <div style="display: none;">
-                                        <form>
-                                            <input value="3" class="hideblocks text-box single-line" id="request_by_user" name="request_by_user" type="text" style="display: none;" ng-model="friendRequest.user_id">
-                                            <button class="btn btn-warning btn-pos1 pull-right" ng-click="rejectRequest(friendRequest)">Reject</button>
-                                        </form>
-                                        <form>
-                                            <input class="hideblocks text-box single-line" id="request_by_user" name="request_by_user" type="text" style="display: none;" ng-model="friendRequest.user_id">       
-                                            <button class="btn btn-primary btn-pos1 pull-right" ng-click="acceptRequest(friendRequest)">Accept</button>
-                                        </form>
-                                        <div class="clear"></div>
-                                    </div>
-                                    <div>
-                                        <input type="button" class="btn btn-primary btn-sm" value="Friend Request Sent" ng-disabled="true" style="margin-left: 9px;"></button>
-                                    </div>
-                                </div>
-                                <div class="clear"></div>
-                            </div>
-                        </li>                          
-                        </ul>
-                    </div>
+                    <div class=""><a class="fon-frineds" href="/Users/ProfilePage">Friends</a></div>
+                    
+                    
+                    
                 </div>
                 <div class="clear"></div>
     		</div>
@@ -187,7 +158,7 @@
                                 </div>
                                 <div class="clear"></div>
                                 <div class="row">
-                <div class="col-md-12 col-sm-12 col-xs-12 comment-box2">
+                <!--<div class="col-md-12 col-sm-12 col-xs-12 comment-box2">
                     <div class="col-md-2 col-sm-2 col-xs-2 avatar3">
                         <img src="Src/images/profile/user.png" alt="people">
                     </div>
@@ -209,7 +180,7 @@
                             
                         </div>
                     </div>
-                </div>
+                </div>-->
                             </div>
                             </div>
                             <div class="clear"> </div>

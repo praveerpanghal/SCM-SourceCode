@@ -436,6 +436,19 @@ body
 .viewprofile .thumbnail .fa{
   color:#ef6f04;
 }
+.stylish-input-group .input-group-addon{
+    background: white !important; 
+    padding:5px 12px;
+}
+.stylish-input-group .form-control{
+  border-right:0; 
+  box-shadow:0 0 0; 
+  border-color:#ccc;
+}
+.stylish-input-group button{
+    border:0;
+    background:transparent;
+}
 
 @media (max-width:1070px){
     .landingTopNav a  

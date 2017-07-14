@@ -17,7 +17,10 @@
                                 <a href="reset"><i class="glyphicon glyphicon-briefcase"></i><span class="text">Reset Password</span><i class="glyphicon glyphicon-chevron-right arrow"></i></a>
                             </li>
                             <li class="has-submenu">
-                                <a href="#"><i class="glyphicon glyphicon-comment"></i><span class="text">Messages</span><i class="glyphicon glyphicon-chevron-right arrow"></i></a>
+                                <a href="#"><i cl
+
+
+                                    ass="glyphicon glyphicon-comment"></i><span class="text">Messages</span><i class="glyphicon glyphicon-chevron-right arrow"></i></a>
                             </li>
                             <li class="has-submenu">
                                 <a href="#"><i class="glyphicon glyphicon-picture"></i><span class="text">Photos</span><i class="glyphicon glyphicon-chevron-right arrow"></i></a>
@@ -142,12 +145,29 @@
                 <div class="clear"></div>
             </div>
             <h3>Find Your Friend</h3>
-            <div class="row">
+            <!--<div class="row">
                 <div class="col-md-8">
                     <input type="text" ng-keydown="$event.keyCode === 13 && action(username)" ng-model="username" class="form-control" /></label>                   
                 </div>
                 <div class="col-md-4">
                     <a href="/friends/{{username}}" class="btn btn-primary btn-md">Find</a>
+                </div>
+            </div>-->
+            <div class="row">
+                <div class="col-sm-8">
+                    <div id="imaginary_container"> 
+                        <div class="input-group stylish-input-group">
+                            <input type="text" class="form-control"  placeholder="Search" 
+                            ng-keydown="$event.keyCode === 13 && action(username)" ng-model="username" class="form-control">
+                            <span class="input-group-addon">
+                                <button type="submit">
+                                    <a href="/friends/{{username}}">
+                                        <span class="glyphicon glyphicon-search"></span>
+                                    </a>    
+                                </button>  
+                            </span>
+                        </div>
+                    </div>
                 </div>
             </div>
             <!--

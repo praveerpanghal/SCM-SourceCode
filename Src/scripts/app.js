@@ -20,7 +20,8 @@ app.value('ServiceUrls', {
     ChangePassword: BaseUrl + 'ChangePassword',
     AcceptFriendRequest: BaseUrl + 'AcceptFriendRequest',
     RejectFriendRequest: BaseUrl + 'RejectFriendRequest',
-    SearchUser: BaseUrl + 'SearchUser'
+    SearchUser: BaseUrl + 'SearchUser',
+    SendFriendRequest: BaseUrl + 'SendFriendRequest'
 });
 
 /* Password Comapre Code */

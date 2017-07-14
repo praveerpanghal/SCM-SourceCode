@@ -84,7 +84,7 @@ app.controller("HomeCtrl", function($scope, $window, $location, $http, $log, $ro
             		}, 
             		function errorCallback(error){
 						$log.info(error);		
-					})
+					});
             }
             /* friend request sent code end */
 

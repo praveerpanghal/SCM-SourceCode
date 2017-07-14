@@ -53,6 +53,10 @@ app.factory('HttpService',function($http, SuccessError){
 		SearchUserService: function(url, data){
 			return $http.post(url, data)
 				.then(SuccessError.Successresult, SuccessError.Errorresult);
+		},
+		SendFriendRequestService: function(url, data){
+			return $http.post(url, data)
+				.then(SuccessError.Successresult, SuccessError.Errorresult);
 		}
 	}
 

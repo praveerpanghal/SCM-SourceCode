@@ -28,7 +28,7 @@ app.controller("ViewProfileCtrl", function($scope, $routeParams, $route, Service
 		data.user_id = profile.userId;
 		data.friend_id = toUserId;		
 		data.action_user_id = profile.userId;
-		console.log(data);
+		//console.log(data);
     	HttpService.SendFriendRequestService(url, data)
     		.then(function(response){
     			console.log(response);

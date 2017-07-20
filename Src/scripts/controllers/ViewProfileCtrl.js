@@ -13,7 +13,7 @@ app.controller("ViewProfileCtrl", function($scope, $routeParams, $route, Service
 			.then(function(response){
 				if(response!=''){
 					$scope.usersList = response;
-					//console.log(response);					
+					console.log(response);					
 				}
 				else{
 					$scope.emptyList = "We couldn't find anything for "+$scope.username;
@@ -26,7 +26,8 @@ app.controller("ViewProfileCtrl", function($scope, $routeParams, $route, Service
 		var url = ServiceUrls.SendFriendRequest;
         var data = new Object();
 		data.user_id = profile.userId;
-		data.friend_id = toUserId;
+		data.friend_id = toUserId;		
+		data.action_user_id = profile.userId;
 		console.log(data);
     	HttpService.SendFriendRequestService(url, data)
     		.then(function(response){

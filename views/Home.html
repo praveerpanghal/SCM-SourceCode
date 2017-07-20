@@ -99,7 +99,7 @@
                                 </div>
                                 <div class="req_info">
                                     <a class="font-img" href="">{{friendRequest.username}}</a>                                    
-                                    <div style="display: none;">
+                                    <div>
                                         <form>
                                             <input value="3" class="hideblocks text-box single-line" id="request_by_user" name="request_by_user" type="text" style="display: none;" ng-model="friendRequest.user_id">
                                             <button class="btn btn-warning btn-pos1 pull-right" ng-click="rejectRequest(friendRequest)">Reject</button>
@@ -110,7 +110,7 @@
                                         </form>
                                         <div class="clear"></div>
                                     </div>
-                                    <div>
+                                    <div style="display: none;">
                                         <input type="button" class="btn btn-primary btn-sm" value="Friend Request Sent" ng-disabled="true" style="margin-left: 9px;"></button>
                                     </div>
                                 </div>
@@ -132,7 +132,7 @@
                         <div class="col-md-9 col-sm-9 col-xs-9 col-top">
                             <div class="form-group">
                                 <textarea class="form-control cont" cols="20" id="postComment" name="postComment" placeholder="Post your comments here" rows="2"
-                                ng-model="postComment"></textarea>
+                                ng-model="postComment" required="required"></textarea>
                              </div>
                         </div>
                         <div class="col-md-2 col-sm-2 col-xs-2 pull-right">

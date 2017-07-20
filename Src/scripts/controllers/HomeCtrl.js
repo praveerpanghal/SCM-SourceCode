@@ -1,5 +1,5 @@
 /* MainCtrl */
-app.controller("HomeCtrl", function($scope, $window, $location, $http, $log, $route, HttpService, ServiceUrls, LS){	
+app.controller("HomeCtrl", ['$scope', '$window', '$location', '$http', '$log', '$route', 'HttpService', 'ServiceUrls', 'LS', function($scope, $window, $location, $http, $log, $route, HttpService, ServiceUrls, LS){	
 	var user = LS.getData();
 	var encodedProfile = user.split('.')[1];
 	var profile = JSON.parse(LS.url_base64_decode(encodedProfile));
@@ -8,7 +8,6 @@ app.controller("HomeCtrl", function($scope, $window, $location, $http, $log, $ro
 		var url = ServiceUrls.GetUserInfo;
 		var data = new Object();
 		data.user_id = profile.userId;
-		//console.log(data.user_id);
 		HttpService.UserInfoService(url, data)
 			.then(function(response){
 				if(response.GetUserInfoResult!=''){					
@@ -18,51 +17,53 @@ app.controller("HomeCtrl", function($scope, $window, $location, $http, $log, $ro
 				$scope.commentsInfo = $scope.userInfo[0].CommentImagePost;
 				$scope.friendRequests = $scope.userInfo[0].FriendRequest;
 				//console.log($scope.userInfo);
-				//console.log($scope.userInfo[0].FriendRequest);
+				console.log($scope.userInfo[0].FriendRequest);
 				//console.log($scope.userInfo[0].PeopleYouMayKnow);
-				//$scope.text = "Hi "+$scope.userProfile.username+", Welcome to SchoolConnect";				
 				}else{
 					alert('Data Not Found');
 					$location.path('/logout');
 				}
-			}, function errorCallback(error){
+			}, 
+            function errorCallback(error){
 				$log.info(error);		
 			});
 
-			/* upload file code start */
-			$scope.uploadFile = function(){
-				/*
-               var uploadUrl = "/multer";
-			   console.log(uploadUrl);
-			   var data = $scope.myfile;
-               fupservice.post(data, uploadUrl);
-			   */
+		/* upload file code start */
+		$scope.uploadFile = function(){
+		/*
+            var uploadUrl = "/multer";
+            console.log(uploadUrl);
+            var data = $scope.myfile;
+            fupservice.post(data, uploadUrl);
+		*/
 			   
-				var file = $scope.myfile; 
-		        var uploadUrl = "/multer";
-		        var fd = new FormData();
-		        fd.append('file', file);
+			var file = $scope.myfile; 
+            var uploadUrl = "/multer";
+            var fd = new FormData();
+            fd.append('file', file);
 
-		        $http.post(uploadUrl,fd, {
-		            transformRequest: angular.identity,
-		            headers: {'Content-Type': undefined}
-		        })
-		        .success(function(response){
-		        	//console.log(response);
-		        	//console.log("success!!");
-		        	$scope.res = response;
-		        })
-		        .error(function(){
-		          console.log("error!!");
-		        });
-		
+            $http.post(uploadUrl,fd, {
+                transformRequest: angular.identity,
+                headers: {
+                    'Content-Type': undefined
+                }
+		    })
+            .success(function(response){
+		     	//console.log(response);
+		       	//console.log("success!!");
+		       	$scope.res = response;
+		    })
+		    .error(function(){
+		      console.log("error!!");
+            });		
             };
             /* upload file code end */
 
             /* home page data from json start */
-
-            $http.get("Src/jsondata/PostedData.json").success(function(response){$scope.postedData=response.UserData});
-
+            $http.get("Src/jsondata/PostedData.json")
+                .success(function(response){
+                    $scope.postedData=response.UserData;
+            });
             /* home page data from json end */
 
             /* friend request sent code start */
@@ -81,31 +82,30 @@ app.controller("HomeCtrl", function($scope, $window, $location, $http, $log, $ro
             			}else{
             				alret('some thing went wrong, please try again.');
             			}
-            		}, 
-            		function errorCallback(error){
-						$log.info(error);		
-					});
+            	}, 
+            	function errorCallback(error){
+					$log.info(error);		
+				});
             }
             /* friend request sent code end */
 
             /* post comment code start */
             $scope.postComments = function(postComment){
-            	var url = ServiceUrls.PostComment;
-            	var data = new Object();
-            	data.request_by_user = profile.userId;
-            	data.postComment = postComment;
-            	//console.log(url);
-            	//console.log(data);
+                var url = ServiceUrls.PostComment;
+                var data = new Object();
+                data.request_by_user = profile.userId;
+                data.postComment = postComment;                
+                
             	HttpService.PostCommentService(url, data)
             		.then(function(response){
             			if(response==1){
             				$scope.postComment='';
-            				//console.log('your comment is posted.');
             				$route.reload();
             			}else{
             				alert('Error Occured while posting your data.');
             			}
-            		}, function(error){
+            		}, 
+                    function(error){
             			$log.info(error);
             		});
             }
@@ -119,11 +119,11 @@ app.controller("HomeCtrl", function($scope, $window, $location, $http, $log, $ro
             	data.request_to_user = profile.userId;
             	console.log(data);
             	HttpService.AcceptFriendRequestService(url, data)
-            			.then(function(response){
-            				console.log(response);
-            			}, function(error){
-            				$log.info(error);
-            			});
+        			.then(function(response){
+        				console.log(response);
+        			}, function(error){
+        				$log.info(error);
+        			});
             }
             /* accept request code end */
 
@@ -135,23 +135,24 @@ app.controller("HomeCtrl", function($scope, $window, $location, $http, $log, $ro
             	data.mapp_id = profile.userId;
             	console.log(data);
             	HttpService.RejectFriendRequestService(url, data)
-            			.then(function(response){
-            				console.log(response);
-            			}, function(error){
-            				$log.info(error);
-            			});
+        			.then(function(response){
+        				console.log(response);
+        			}, function(error){
+        				$log.info(error);
+        			});
             }
             /* reject request code end */
-        $scope.action = function(username){
-            if(username){                
-                $location.path('/friends/'+username);
+
+            $scope.action = function(username){
+                if(username){                
+                    $location.path('/friends/'+username);
+                }
             }
-        }
 
 	}else{
 		$location.path('/');
 	}
-}).directive("fileinput", [function() {
+}]).directive("fileinput", [function() {
     return {
       scope: {
         fileinput: "=",

@@ -1,5 +1,5 @@
 /* MainCtrl */
-app.controller("MainCtrl", function($scope, LS){
+app.controller("MainCtrl", ['$scope', 'LS', function($scope, LS){
 	// Checks User Details
 	this.latestData = function(){
 		// var encodedProfile = sessionStorage.token.split('.')[1];
@@ -7,4 +7,4 @@ app.controller("MainCtrl", function($scope, LS){
 		// return profile.userId;
 		return LS.getData();
 	} 
-});
+}]);

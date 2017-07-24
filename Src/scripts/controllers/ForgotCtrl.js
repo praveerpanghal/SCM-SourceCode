@@ -1,5 +1,5 @@
 /* MainCtrl */
-app.controller("ForgotCtrl", function($scope, $window, $location, HttpService, ServiceUrls, LS){	
+app.controller("ForgotCtrl", ['$scope', '$window', '$location', 'HttpService', 'ServiceUrls', 'LS', function($scope, $window, $location, HttpService, ServiceUrls, LS){	
 	$scope.forgotPassword = function(user){
 		var url = ServiceUrls.ForgotPassword;
 		var data = new Object();
@@ -22,4 +22,4 @@ app.controller("ForgotCtrl", function($scope, $window, $location, HttpService, S
 				$log.info(error);		
 			});
 	}
-});
+}]);

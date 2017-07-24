@@ -1,4 +1,4 @@
-app.controller("ViewProfileCtrl", function($scope, $routeParams, $route, ServiceUrls, HttpService, LS) {
+app.controller("ViewProfileCtrl", ['$scope', '$routeParams', '$route', 'ServiceUrls', 'HttpService', 'LS', function($scope, $routeParams, $route, ServiceUrls, HttpService, LS) {
 	var user = LS.getData();
 	var encodedProfile = user.split('.')[1];
 	var profile = JSON.parse(LS.url_base64_decode(encodedProfile));
@@ -22,6 +22,7 @@ app.controller("ViewProfileCtrl", function($scope, $routeParams, $route, Service
 				$log.info(error);
 			});
 
+	/* send request code start */
 	$scope.frdRequest = function(toUserId){
 		var url = ServiceUrls.SendFriendRequest;
         var data = new Object();
@@ -43,4 +44,45 @@ app.controller("ViewProfileCtrl", function($scope, $routeParams, $route, Service
 				$log.info(error);		
 			});
 	}
-});
+	/* send request code end */
+
+	/* accept request code start */
+    $scope.acceptRequest = function(accept){
+    	var url = ServiceUrls.ResponseFriendRequest;
+    	var data = new Object();
+    	data.user_id = accept.user_id;
+    	data.action_user_id = profile.userId;
+    	data.status = 1;        
+    	console.log(data);
+    	
+    	HttpService.ResponseFriendRequestService(url, data)
+			.then(function(response){
+				$route.reload();
+				console.log(response);
+			}, function(error){
+				$log.info(error);
+			});
+		
+    }
+    /* accept request code end */
+
+    /* reject request code start */
+    $scope.rejectRequest = function(accept){
+    	console.log(accept);
+    	var url = ServiceUrls.ResponseFriendRequest;
+    	var data = new Object();
+    	data.user_id = accept.user_id;
+    	data.action_user_id = profile.userId;
+    	data.status = 2;        
+    	console.log(data);
+    	
+    	HttpService.ResponseFriendRequestService(url, data)
+			.then(function(response){
+				$route.reload();
+			}, function(error){
+				$log.info(error);
+			});
+		
+    }
+    /* reject request code end */
+}]);

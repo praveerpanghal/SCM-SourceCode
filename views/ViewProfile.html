@@ -28,11 +28,11 @@
 				        		<i class="fa fa-paper-plane" aria-hidden="true"></i>
 				        		Request Sent
 				        	</a> 
-				        	<a href="#" class="btn  btn-default btn-sm" role="button" ng-if="user.request_status=='GetRequest'">
+				        	<a href="#" class="btn  btn-default btn-sm" role="button" ng-if="user.request_status=='GetRequest'" ng-click="acceptRequest(user)">
 				        		<i class="fa fa-check-circle-o" aria-hidden="true"></i>
 				        		Accept
 				        	</a> 
-				        	<a href="#" class="btn  btn-default btn-sm" role="button" ng-if="user.request_status=='GetRequest'">
+				        	<a href="#" class="btn  btn-default btn-sm" role="button" ng-if="user.request_status=='GetRequest'" ng-click="rejectRequest(user)">
 				        		<i class="fa fa-times-circle-o" aria-hidden="true"></i>
 				        		Reject
 				        	</a> 

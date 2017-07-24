@@ -1,4 +1,4 @@
-app.controller('ResetPasswordCtrl', function($scope, $log, $location, ServiceUrls, HttpService, LS) {
+app.controller('ResetPasswordCtrl', ['$scope', '$log', '$location', 'ServiceUrls', 'HttpService', 'LS', function($scope, $log, $location, ServiceUrls, HttpService, LS) {
 	/* to get useid from local storage service */
 	var user = LS.getData();
 	var encodedProfile = user.split('.')[1];
@@ -24,4 +24,4 @@ app.controller('ResetPasswordCtrl', function($scope, $log, $location, ServiceUrl
 				$log.info(error);		
 			});
 	}
-});
+}]);

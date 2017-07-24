@@ -1,5 +1,5 @@
 /* MainCtrl */
-app.controller("RegisterCtrl", function($scope, $http, $window, $log, $location, HttpService, ServiceUrls){	
+app.controller("RegisterCtrl", ['$scope', '$http', '$window', '$log', '$location', 'HttpService', 'ServiceUrls', function($scope, $http, $window, $log, $location, HttpService, ServiceUrls){	
 	//$scope.text = "Register Ctrl.";
 	$scope.emailValid=true;
 	// Path of the current page
@@ -94,4 +94,4 @@ app.controller("RegisterCtrl", function($scope, $http, $window, $log, $location,
 				$log.info(error);		 
 			}); 
 	}
-});
+}]);

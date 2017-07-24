@@ -1,5 +1,5 @@
 /* MainCtrl */
-app.controller("LoginCtrl", function($scope, $location, $log, $http, $window, HttpService, ServiceUrls, LS){	
+app.controller("LoginCtrl", ['$scope', '$location', '$log', '$http', '$window', 'HttpService', 'ServiceUrls', 'LS', function($scope, $location, $log, $http, $window, HttpService, ServiceUrls, LS){	
 	
 	var user = LS.getData();
 	
@@ -25,6 +25,4 @@ app.controller("LoginCtrl", function($scope, $location, $log, $http, $window, Ht
 			delete $window.sessionStorage.token;			
 		});
 	}
-});
-
-
+}]);

@@ -1,3 +1,3 @@
-app.controller("ChangeProfileCtrl", function($scope){
+app.controller("ChangeProfileCtrl", ['$scope', function($scope){
 	$scope.cp = 'Change Profile...';
-});
+}]);

@@ -84,6 +84,7 @@ app.config(['$routeProvider', '$httpProvider', '$locationProvider',
     	.otherwise({
     		redirectTo: "/"
     	});
+        $routeProvider.caseInsensitiveMatch = true;
         $locationProvider.html5Mode(true);
     }
 ]);

@@ -80,6 +80,9 @@ app.config(['$routeProvider', '$httpProvider', '$locationProvider',
         }).when("/ProfileDetail/:userId", {
             templateUrl : "views/ProfileDetail.html",
             controller : "ProfileDetailCtrl"
+        }).when("/friends", {
+            templateUrl : "views/Friends.html",
+            controller : "FriendsCtrl"
         })
     	.otherwise({
     		redirectTo: "/"

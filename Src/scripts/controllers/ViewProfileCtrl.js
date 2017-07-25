@@ -2,7 +2,7 @@ app.controller("ViewProfileCtrl", ['$scope', '$routeParams', '$route', 'ServiceU
 	var user = LS.getData();
 	var encodedProfile = user.split('.')[1];
 	var profile = JSON.parse(LS.url_base64_decode(encodedProfile));
-	//console.log(profile);
+	console.log(profile);
 	$scope.username = $routeParams.username;
 	var url = ServiceUrls.SearchUser;
 	var data = new Object();
@@ -29,7 +29,7 @@ app.controller("ViewProfileCtrl", ['$scope', '$routeParams', '$route', 'ServiceU
 		data.user_id = profile.userId;
 		data.friend_id = toUserId;		
 		data.action_user_id = profile.userId;
-		//console.log(data);
+		console.log(data);
     	HttpService.SendFriendRequestService(url, data)
     		.then(function(response){
     			console.log(response);

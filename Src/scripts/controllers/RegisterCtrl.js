@@ -4,7 +4,7 @@ app.controller("RegisterCtrl", ['$scope', '$http', '$window', '$log', '$location
 	$scope.emailValid=true;
 	// Path of the current page
 	$scope.currentPath = $location.path();
-	console.log($scope.currentPath);
+	//console.log($scope.currentPath);
 	
 	// Country List
 	var url = ServiceUrls.GetCountrylist;

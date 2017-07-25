@@ -5,11 +5,14 @@ body
 }
 .container
 {
-    width:1170px;
+    /*width:1170px;*/
+    width:1100px;
     max-width:100%;
-    padding-left:20px;
-    padding-right:20px;
     /*border:1px solid #000;*/
+}
+h4
+{
+  font-size: 15px;
 }
 .body-content
 {
@@ -449,7 +452,467 @@ body
     border:0;
     background:transparent;
 }
+/*Newsfeed page style starts here */
+.topNavSearchBar
+{
+  padding-top: 8px;
+}
+.scmHeader
+{
+  background-color:#712e3b;
+}
+.scmHeaderNav,.scmLeftNav .navbar-default{
+  margin-bottom:0;
+  border: 0px solid #712e3b;
+  background-color:#712e3b;
+}
+.scmHeader .navbar-brand
+{
+  padding:0;
+}
+.scmHeader .navbar-nav li a {
+  color:#FFF;
+}
+.scmHeader .navbar-nav li a:hover,
+.scmLeftNav .navbar-nav li a:hover
+{
+  color:#ef6f04;
+}
+.newsFeedContent
+{
+  background-color: #FFF;
+}
+.scmLeftNav .navbar-nav li a
+.scmHeader .navbar-nav > li > .dropdown-menu
+{
+  background-color:#712e3b;
+}
+.scmLeftNav .navbar-brand
+{
+  padding:0;
+  float: none;
+  margin-bottom: 10px;
+  margin-top:25px;
+  height: 90px;
+}
+.scmLeftNav .navbar-default{
+  background-color: #fff;
+}
+.scmLeftNav .navbar-nav li a
+{
+  padding: 25px 5px 25px 33px;
+  border-bottom: 1px solid #dfdfdf;
+}
+.scmLeftNav .navbar-nav li a .fa{
+  padding-right: 15px;
+  /*color:#712e3b;*/
+  font-size: 18px;
+}
+.scmLeftNav .navbar-nav li a:hover .fa{
+    color:#ef6f04;
+}
+.icon1LeftNav
+{
+    color:#192E5B;
+}
+.icon2LeftNav
+{
+  color:#824ca7;
+}
+.icon3LeftNav
+{
+  color:#B9C406;
+}
+.icon4LeftNav
+{
+  color:#00743F;
+}
+.icon5LeftNav
+{
+  color:#F2A104;
+}
+.icon6LeftNav
+{
+  color:#BB1924;
+}
+.icon7LeftNav
+{
+  color:#462066;
+}
+.icon8LeftNav
+{
+  color:#00AAA0;
+}
+.userBg
+{
+  width: 257px;
+  height: 100%;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  /*background: linear-gradient(to bottom, rgba(113,46,59,.8), rgba(113,46,59,.8)),
+   url(../../src/images/friends.jpg) no-repeat;*/
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+.userImg{
+  position: absolute;
+  border: 5px solid #e3e3e3;
+  top: 10px;
+  height: 75px;
+  width: 75px;
+  left: 20px;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  border-radius: 100%;
+  overflow: hidden;
+  /*background:url("../../src/images/profile/profile.jpg") no-repeat center center;*/
+  background-size: cover;
+  z-index: 1;
+  cursor: pointer;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+.userName
+{
+  text-align: center;
+  color: #FFF;
+  margin-top: 20px;
+  float: left;
+  width: 100%;
+  padding-left: 55px;
 
+}
+.userPic,.commenterpic
+{
+  height: 50px;
+  width: 50px;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  border-radius: 100%;
+  overflow: hidden;
+  background: url("../../src/images/profile/profile.jpg") no-repeat center center;
+  background-size: cover;
+  float: left;
+  margin-top:0;
+}
+.commenterWizard
+{
+  padding: 15px;
+  overflow:auto;
+}
+.aligncommenterWizard
+{
+  padding-top:5px;
+  padding-bottom: 5px;
+}
+.aligncommenterWizard .commenterpic,.aligncommenterWizard .userPic
+{
+  width: 40px;
+  height: 40px;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+.onlinePeopleWizard
+{
+  float: left;
+  position: relative;
+  margin:5px;
+}
+.onlineWizard
+{
+  padding-top:20px;
+}
+.onlineWizard h4
+{
+  color:#FFF;
+  background-color:#ef6f04;
+  padding: 10px 10px;
+  width: 150px;
+  margin:0 auto;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  border-radius: 100px;
+}
+.onlinePeople
+{
+  width: 60px;
+  height: 60px;
+   -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  border-radius: 100%;
+  overflow: hidden;
+  background-size: cover;
+  float: left;
+  margin-top:0;
+  background-position: center center;
+  background-repeat: no-repeat;
+
+}
+.onlineIcon
+{
+  width: 12px;
+  height: 12px;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  border-radius: 100%;
+  float: left;
+  position: absolute;
+  border: 2px solid #FFF;
+  background-color: green;
+  top: 53px;
+  left: 22px;
+
+}
+.aligncommenterWizard .userPic
+{
+  margin-top: 0;
+}
+.aligncommenterWizard .commenterName
+{
+  margin-bottom: 0;
+}
+.commenterpic
+{ 
+ /*background: url("../../src/images/profile/Defaultpicture.jpg") no-repeat center center;*/
+ background-size: cover;
+ margin-right:15px;
+ background-repeat: no-repeat;
+ background-position: center center;
+}
+.userTxt
+{
+  width:75%;
+  float: left;
+}
+.errTxt
+{
+  color:red;
+  font-size: 14px;
+  display: none;
+}
+.errTxt+ul
+{
+  margin-top:10px;
+}
+.contentPost
+{
+    padding-top: 28px;
+    padding-left: 20px;
+    padding-right: 20px;
+
+}
+.uploadType
+{
+  padding-top:22px;
+}
+.uploadType li{
+  padding-left: 0;
+}
+.uploadType .fa
+{
+  line-height: 33px;
+  color: #454545;
+}
+.uploadType .btn-primary
+{
+  background-color:#ef6f04;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  border-radius: 25px;
+  margin-left: 10px;
+  border: 1px solid #ef6f04;
+}
+.uploadType .btn-primary:hover
+{
+  background:#712e3b;
+  border: 1px solid #712e3b;
+}
+.uploadedImg
+{
+  width:100%;
+  height: 300px;
+  /*background: url("../../src/images/profile/4961075-wallpaper-sweet.jpg") no-repeat center center;*/
+  background-size: contain;
+  float: left;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.commentsWizard
+{
+  padding-top: 10px;
+  border:1px solid #000;
+  overflow: auto;
+  font-size: 15px;
+}
+.commenterDetails
+{
+  overflow: auto;
+  /*border: 1px solid green;*/
+}
+.commenterDetails h4
+{
+  color:#712e3b;
+  float: left;
+}
+.commenterName
+{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #dfdfdf;
+    margin-bottom: 15px;
+}
+.commentTxt
+{
+  
+}
+.profilename
+{
+  color:#712e3b;
+  font-weight: bold;
+  padding-right: 8px;
+}
+.likesWizard{
+  float: right;
+  width: 120px;
+  margin-top: 10px;
+}
+.commenterDetails .likes a{
+  color:#ef6f04;
+  padding-left: 10px;
+}
+.commenterDetails .dislikes a{
+  color:#ef6f04;
+  padding-left: 10px;
+}
+.likesColor
+{
+  color: #000;
+  padding-left: 5px;
+}
+
+.commenterDetails p a{
+  float: left;
+}
+.commenterDetails p a
+{
+  padding-left: 10px;
+}
+.follower
+{
+  color: #ef6f04;
+  font-size: 12px;
+  padding-left: 15px;
+}
+.jumbotron
+{
+  padding: 10px;
+  border-bottom: 1px solid #bdbdbd;
+  margin-bottom: 0;
+}
+.jumbotron p
+{
+  font-size:14px;
+  padding: 10px;
+}
+.whotoFollow h1
+{
+  font-size:19px;
+  color:#333333;
+  margin-bottom:10px;
+}
+.whotoFollow h4
+{
+  color:#712e3b;
+  margin-top:8px;
+  display: inline-block;
+  margin-bottom: 7px;
+}
+.whotoFollow p
+{
+  color: #ef6f04;
+  font-size: 12px;
+}
+.whotoFollow .fa
+{
+  padding-right:10px;
+}
+.followMemeber
+{
+  padding-top: 10px;
+  padding-bottom: 10px; 
+}
+.footer
+{
+  background-color:#712e3b;
+}
+.footer p
+{
+  margin-bottom: 0;
+  color:#FFF;
+  padding:10px 0; 
+  text-align: center;
+}
+.topNavSearchBar .input-group-addon{
+    background:#865056!important; 
+    padding:5px 12px;
+    border-color:#865056;
+    color: #4d111d;
+}
+.topNavSearchBar .form-control{
+  border-right:0; 
+  box-shadow:0 0 0; 
+  border-color:#865056;
+  background-color: #865056;
+  border-radius: 100px;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  border-radius: 100px;
+  color: #FFF;
+}
+.topNavSearchBar .input-group-addon:last-child
+{
+  -webkit-border-top-right-radius: 100px;
+-webkit-border-bottom-right-radius: 100px;
+-moz-border-radius-topright: 100px;
+-moz-border-radius-bottomright: 100px;
+border-top-right-radius: 100px;
+border-bottom-right-radius: 100px;
+}
+.stylish-input-group button{
+    border:0;
+    background:transparent;
+    color:#4d111d;
+}
+/*Newsfeed page style starts ends */
+@media (min-width:768px){
+    .scmLeftNav .navbar-nav
+    { 
+        width:100%;
+    }
+    .scmLeftNav .navbar-nav>li
+    {
+        float: none;
+    }
+    .navbar
+    {
+        border-radius: 0!important;
+    }
+
+  }
+@media (max-width:1070px){
+  .userBg {
+    width: 200px;
+  }
+  .userImg
+  {
+    left: 2px;
+  }
+} 
 @media (max-width:1070px){
     .landingTopNav a  
     {
@@ -461,6 +924,22 @@ body
         font-size: 18px;
         line-height: 36px;
         margin-bottom: 0;
+    }
+    .uploadType
+    {
+      padding-top: 0;
+    }
+    .uploadType li a
+    {
+      padding:0; 
+    }
+    .uploadType .fa {
+      line-height: 22px;
+      color: #454545;
+    }
+    .uploadType .textIcon a
+    {
+      padding-left: 15px;
     }
 }
 @media (max-width:767px){
@@ -506,6 +985,45 @@ body
   {
     padding-top: 1%;
   }
+  .uploadType {
+    padding-top: 22px;
+  }
+  .onlineWizard
+  {
+    padding-top: 0;
+  }
+  .onlineWizard h4
+  {
+    margin-top:10px;
+  }
+  .chatOnline
+  {
+    margin:0 auto;
+    display:table;
+    overflow: auto;
+  }
+  .followMemeber {
+    width: 30%;
+    float: left;
+  }
+  .whotoFollow h1
+  {
+    text-align: center;
+  }
+  .whotoFollow
+  {
+    padding-left: 20px;
+  }
+  .userBg {
+    width: 90%;
+  }
+  .userName
+  {
+    text-align: left;
+    padding-left: 95px;
+  }
+
+
   
 }
 @media (max-width:600px){
@@ -514,11 +1032,71 @@ body
         width: 100%;
         text-align:right;
     }
+    .chatOnline
+  {
+    margin:0 auto;
+    display:table;
+    overflow: auto;
+  }
+  .uploadType
+  {
+    padding-top:10px;
+  }
+  .uploadType .textIcon a
+  {
+    padding-left: 0;
+  }
 }
+@media (max-width:600px){
+  .postContentField
+  {
+    margin-left: 10px;
+  }
+  .uploadType {
+    padding-top: 9px;
+    width: 45%;
+    padding-left: 10px;
+  }
+  .followMemeber {
+    width: 50%;  
+  }
+}
+@media (max-width:480px){
+  .followMemeber
+  {
+    width: 50%;
+  }
+}
+@media (max-width:390px){
+  .postContentField
+  {
+    width:100%;
+  }
+  .uploadType
+  {
+    width: 100%;
+  }
+  .uploadType {
+    width: 100%;
+    padding-left: 67px;
+    padding-top: 0;
+  }
+}
+
 @media (max-width:380px){
     .landingTopNav a  
     {
         padding-left:15px;
         font-size:14px;
     }
+    .chatOnline
+  {
+    margin:0 auto;
+    display:table;
+    overflow: auto;
+  }
+  .followMemeber
+  {
+    width: 100%;
+  }
 }

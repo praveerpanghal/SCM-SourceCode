@@ -3,7 +3,7 @@ app.controller("HomeCtrl", ['$scope', '$window', '$location', '$http', '$log', '
 	var user = LS.getData();
 	var encodedProfile = user.split('.')[1];
 	var profile = JSON.parse(LS.url_base64_decode(encodedProfile));
-
+    //console.log(profile);
 	if(profile.userId){
 		var url = ServiceUrls.GetUserInfo;
 		var data = new Object();
@@ -17,7 +17,7 @@ app.controller("HomeCtrl", ['$scope', '$window', '$location', '$http', '$log', '
 				$scope.commentsInfo = $scope.userInfo[0].CommentImagePost;
 				$scope.friendRequests = $scope.userInfo[0].FriendRequest;
 				//console.log($scope.userInfo);
-				//console.log($scope.userInfo[0].FriendRequest);
+				console.log($scope.userInfo[0].FriendRequest);
 				//console.log($scope.userInfo[0].PeopleYouMayKnow);
 				}else{
 					alert('Data Not Found');
@@ -113,17 +113,18 @@ app.controller("HomeCtrl", ['$scope', '$window', '$location', '$http', '$log', '
 
             /* accept request code start */
             $scope.acceptRequest = function(accept){
-            	var url = ServiceUrls.AcceptFriendRequest;
-            	var data = new Object();
-            	data.request_by_user = accept.user_id;
-            	data.request_to_user = profile.userId;
-            	console.log(data);
+            	var url = ServiceUrls.SendFriendRequest;
+                var data = new Object();
+                data.user_id = profile.userId;
+                data.friend_id = toUserId;      
+                data.action_user_id = profile.userId;
+                console.log(data);/*
             	HttpService.AcceptFriendRequestService(url, data)
         			.then(function(response){
         				console.log(response);
         			}, function(error){
         				$log.info(error);
-        			});
+        			});*/
             }
             /* accept request code end */
 

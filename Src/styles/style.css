@@ -14,6 +14,9 @@ h4
 {
   font-size: 15px;
 }
+ul{
+  margin-bottom: 0;
+}
 .body-content
 {
   position: absolute;
@@ -893,8 +896,38 @@ border-bottom-right-radius: 100px;
 {
   color: #FFF;
   font-size: 16px;
-  line-height: 50px;
+  line-height: 42px;
   padding-left: 10px;
+}
+.requestIcon button
+{
+  background-color: transparent;
+  padding: 0;
+  color:#FFF;
+  border: 0;
+}
+.requestIcon button:hover,requestIcon button:active,
+.requestIcon button:focus, requestIcon button:visited,
+.requestIcon .btn-default:active,.requestIcon .btn-default.active,.requestIcon .open>.dropdown-toggle.btn-default
+{
+  background-color: transparent!important;
+}
+.requestIcon .fa-thumbs-up, .requestIcon .fa-thumbs-down
+{
+  color:#712e3b;
+}
+.requestIcon.open .dropdown-menu> li > a
+{
+  padding: 0 11px;
+  color: #333;
+}
+a.requestIcons{
+  color:#333!important;
+}
+.logOutIcon .dropdown-menu>li a:hover .fa-thumbs-up,
+.logOutIcon .dropdown-menu>li a:hover .fa-thumbs-down
+{
+  color:#ef6f04;
 }
 /*Newsfeed page style starts ends */
 @media (min-width:768px){

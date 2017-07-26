@@ -34,7 +34,7 @@
       <div class="container">   
         <div class="row">
             <div class="col-md-4 col-sm-5 col-xs-6">
-              <a class="navbar-brand" href="#"><img src="src/images/logowhite.png" alt="" /></a>
+              <a class="navbar-brand" href="/"><img src="src/images/logowhite.png" alt="" /></a>
             </div>
             <div class="col-md-5 col-sm-5 col-xs-6 col-md-offset-2 topNavSearchBar">
                 <div class="imaginary_container"> 
@@ -51,8 +51,26 @@
                     </div>
                 </div>
             </div>
-            <div class="logOutIcon">
-              <a href="/logout"><i class="fa fa-power-off" aria-hidden="true"></i></a>
+            <div class="col-md-1 logOutIcon">
+              <ul class="list-inline">
+                <li><a href=""></a>
+                  <div class="dropdown requestIcon">
+                    <button class="btn btn-default dropdown-toggle" id="menu1" type="button" data-toggle="dropdown"><i class="fa fa-users icon1LeftNav" aria-hidden="true"
+                              data-toggle="dropdown" ></i>
+                    <span class="caret"></span></button>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                      <li role="presentation">
+                          <a role="menuitem" tabindex="-1" href="#">Praveer</a>
+                          <ul class="list-inline">
+                              <li><a href="" class="requestIcons" ><i class="fa fa-thumbs-up"></i>Accept</a></li>
+                              <li><a href="" class="requestIcons"><i class="fa fa-thumbs-down"></i>Reject</a></li>
+                          </ul>
+                        </li>    
+                    </ul>
+                  </div>
+                </li>
+                <li><a href="/logout"><i class="fa fa-power-off" aria-hidden="true"></i></a></li>
+            </ul>
             </div>
         </div>
       </div>

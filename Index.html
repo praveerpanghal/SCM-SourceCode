@@ -85,9 +85,10 @@
 			<div class="navbar-fixed-top" ng-include="'views/landingheader.html'" ng-controller="HeaderCtrl"></div>
 			
 			<!--<ng-view></ng-view>-->
-			<div class="body-content" ng-view></div>
+			<div ng-class="{'body-content':location.path()=='/'}" ng-view></div>
 			
 			<div class="navbar-fixed-bottom landingFooter" ng-include="'views/landingfooter.html'"></div>
+
 		<!-- Footer End -->
 	</body>
 </html>

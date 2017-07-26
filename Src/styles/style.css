@@ -481,6 +481,7 @@ h4
 .newsFeedContent
 {
   background-color: #FFF;
+  margin-top: 50px;
 }
 .scmLeftNav .navbar-nav li a
 .scmHeader .navbar-nav > li > .dropdown-menu
@@ -887,6 +888,13 @@ border-bottom-right-radius: 100px;
     border:0;
     background:transparent;
     color:#4d111d;
+}
+.logOutIcon .fa
+{
+  color: #FFF;
+  font-size: 16px;
+  line-height: 50px;
+  padding-left: 10px;
 }
 /*Newsfeed page style starts ends */
 @media (min-width:768px){

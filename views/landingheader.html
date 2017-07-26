@@ -1,4 +1,4 @@
-  <div class="container-fluid landingheader">
+  <div class="container-fluid landingheader" ng-if="location.path()=='/'">
     <div class="container">
       <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
@@ -20,7 +20,7 @@
       </div>
     </div>
     </div>
-  <div class="container-fluid landingNav">
+  <div class="container-fluid landingNav" ng-if="location.path()=='/'">
       <div class="row">
         <div class="col-md-12 col-xs-12">
           <div class="">
@@ -29,3 +29,31 @@
         </div>
       </div>
   </div>
+
+  <div class="container-fluid scmHeader" ng-if="location.path()!='/'">
+      <div class="container">   
+        <div class="row">
+            <div class="col-md-4 col-sm-5 col-xs-6">
+              <a class="navbar-brand" href="#"><img src="src/images/logowhite.png" alt="" /></a>
+            </div>
+            <div class="col-md-5 col-sm-5 col-xs-6 col-md-offset-2 topNavSearchBar">
+                <div class="imaginary_container"> 
+                    <div class="input-group stylish-input-group">
+                        <input type="text" class="form-control"  placeholder="Search" 
+                         class="form-control">
+                        <span class="input-group-addon">
+                            <button type="submit">
+                              
+                                    <span class="glyphicon glyphicon-search"></span>
+                                    
+                            </button>  
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="logOutIcon">
+              <a href="/logout"><i class="fa fa-power-off" aria-hidden="true"></i></a>
+            </div>
+        </div>
+      </div>
+    </div>

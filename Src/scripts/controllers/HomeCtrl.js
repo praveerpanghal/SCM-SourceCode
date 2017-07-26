@@ -73,7 +73,7 @@ app.controller("HomeCtrl", ['$scope', '$window', '$location', '$http', '$log', '
             	var data = new Object();
 				data.request_by_user = profile.userId;
 				data.request_to_user = userId;
-
+                /*
             	HttpService.UserMeetService(url, data)
             		.then(function(response){
             			if(response==1){
@@ -86,6 +86,7 @@ app.controller("HomeCtrl", ['$scope', '$window', '$location', '$http', '$log', '
             	function errorCallback(error){
 					$log.info(error);		
 				});
+                */
             }
             /* friend request sent code end */
 
@@ -95,7 +96,7 @@ app.controller("HomeCtrl", ['$scope', '$window', '$location', '$http', '$log', '
                 var data = new Object();
                 data.request_by_user = profile.userId;
                 data.postComment = postComment;                
-                
+                /*
             	HttpService.PostCommentService(url, data)
             		.then(function(response){
             			if(response==1){
@@ -108,6 +109,7 @@ app.controller("HomeCtrl", ['$scope', '$window', '$location', '$http', '$log', '
                     function(error){
             			$log.info(error);
             		});
+                */
             }
             /* post comment code end */
 
@@ -116,7 +118,7 @@ app.controller("HomeCtrl", ['$scope', '$window', '$location', '$http', '$log', '
             	var url = ServiceUrls.SendFriendRequest;
                 var data = new Object();
                 data.user_id = profile.userId;
-                data.friend_id = toUserId;      
+                data.friend_id = accept.toUserId;      
                 data.action_user_id = profile.userId;
                 console.log(data);/*
             	HttpService.AcceptFriendRequestService(url, data)
@@ -135,12 +137,14 @@ app.controller("HomeCtrl", ['$scope', '$window', '$location', '$http', '$log', '
             	//data.request_by_user = accept.user_id;
             	data.mapp_id = profile.userId;
             	console.log(data);
+                /*
             	HttpService.RejectFriendRequestService(url, data)
         			.then(function(response){
         				console.log(response);
         			}, function(error){
         				$log.info(error);
         			});
+                    */
             }
             /* reject request code end */
 

@@ -1,40 +1,22 @@
-<div class="text-center">
-	<h3 ng-repeat="user in usersList">{{user.username}}</h3>
+<div class="text-center" >	
 	<h3 ng-show="emptyList">{{emptyList}}</h3>
 </div>
-<div class="container-fluid forgotWizard ">
-<div class="container viewprofile signUpContainer">
+<div class="container-fluid forgotWizard " >
+<div class="container viewprofile signUpContainer" style="margin-top: 55px;">
 	<div class="row">
 			<div class="col-md-12">
 				<div class="thumbnail" ng-show="emptyList">
 					<h4 class="text-center">{{emptyList}}</h4>
 				</div>
-				<div class="col-md-2 col-sm-2 col-xs-4" ng-repeat="user in usersList">
+				<div class="col-md-2 col-sm-2 col-xs-4" ng-repeat="friend in friendsData">
 				    <div class="thumbnail">
 				      <img src="src/images/profile/Defaultpicture.jpg" alt="..." class="img-circle">
 				      <div class="caption text-center">
-				        <h4><a href="/ProfileDetail/{{user.user_id}}" ng-model="user.user_id">{{user.username}}</a></h4>
-				        <p>
-				        	
-				        	<a href="#" class="btn btn-default" role="button" ng-click="frdRequest(user.user_id)" ng-if="user.request_status=='NoRequest'">
-				        			<i class="fa fa-user-plus" aria-hidden="true"></i>
-				        			Add
-				        	</a>
-				        	<a href="#" class="btn  btn-default" role="button" ng-if="user.request_status=='Friends'" disabled>
+				        <h4><a href="#" ng-model="firend.user_id">{{friend.username}}</a></h4>
+				        <p>	       	
+				        	<a href="#" class="btn  btn-default" role="button" disabled>
 				        		<i class="fa fa-check" aria-hidden="true"></i>
 				        		Friends 
-				        	</a> 
-				        	<a href="#" class="btn  btn-default" ng-if="user.request_status=='SentRequest'">
-				        		<i class="fa fa-paper-plane" aria-hidden="true"></i>
-				        		Request Sent
-				        	</a> 
-				        	<a href="#" class="btn  btn-default btn-sm" role="button" ng-if="user.request_status=='GetRequest'" ng-click="acceptRequest(user)">
-				        		<i class="fa fa-check-circle-o" aria-hidden="true"></i>
-				        		Accept
-				        	</a> 
-				        	<a href="#" class="btn  btn-default btn-sm" role="button" ng-if="user.request_status=='GetRequest'" ng-click="rejectRequest(user)">
-				        		<i class="fa fa-times-circle-o" aria-hidden="true"></i>
-				        		Reject
 				        	</a> 
 				        </p>
 				      </div>

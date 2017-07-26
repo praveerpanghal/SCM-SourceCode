@@ -1,6 +1,4 @@
-
-			<!-- Profile page starts-->
-				
+		<!-- Profile page starts-->				
 		<div class="container-fluid newsFeedContent">
 			<div class="container">
 				<div class="row">
@@ -21,7 +19,7 @@
 							      <a class="navbar-brand" href="#">
 							      		<div class="userBg" style="background: linear-gradient(to bottom, rgba(113,46,59,.8), rgba(113,46,59,.8)),
    url('src/images/friends.jpg') no-repeat;background-size: cover;">
-   										<p class="userName">Will Smith</p>
+   										<p class="userName">{{userInfo[0].UserProfile[0].username}}</p>
 							      		</div>
 							      </a>
 							    </div>
@@ -30,7 +28,7 @@
 							    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
 							      <ul class="nav navbar-nav">
 							      	 <li>
-							        		<a href="#">
+							        		<a href="/">
 							        			<i class="fa fa-home icon7LeftNav" aria-hidden="true"></i>
 												Home
 											</a>
@@ -48,7 +46,7 @@
 											</a>
 									</li>
 							        <li>
-							        	<a href="#">
+							        	<a href="friends">
 							        		<i class="fa fa-slideshare icon2LeftNav" aria-hidden="true"></i>
 							        		Friends
 							        	</a>
@@ -351,13 +349,13 @@
 								</div>
 							</div>-->
 							<div classs="row">
-									<div class="col-md-12 commenterWizard">
+									<div class="col-md-12 commenterWizard" ng-repeat="posts in commentsInfo">
 										<div class="commenterpic" style="background-image: url('src/images/user5.jpg')">
 											&nbsp	
 										</div>
 										<div class="commenterDetails">
 											<div class="row commenterName">
-												<h4>Ravi Kumar<span class="follower">Following</span></h4>
+												<h4>{{posts.username}}<span class="follower">Following</span></h4>
 												<p class="likesWizard">
 													<span class="likes">
 														<a href="#">
@@ -376,10 +374,10 @@
 										    </div>
 										    <div class="row commentTxt">
 										    	<p>
-										    		Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. 
+										    		{{posts.posted_info}} 
 										    	</p>
 										    	<!-- Inner Comment Box -->
-										    	<div classs="row" >
+										    	<!--<div classs="row" >
 													<div class="col-md-12 aligncommenterWizard">
 														<div class="commenterpic"
 														style="background-image: url('src/images/user6.jpg')">
@@ -411,7 +409,7 @@
 														    </div>
 														</div>
 													</div>
-												</div>
+												</div>-->
 												<div classs="row" >
 													<div class="col-md-12 aligncommenterWizard">
 															<div class="userPic" style="background-image: url('src/images/user3.jpg')"></div>	

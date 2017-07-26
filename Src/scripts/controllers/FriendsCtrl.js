@@ -7,15 +7,15 @@ app.controller("FriendsCtrl", ['$scope', 'ServiceUrls', 'HttpService', 'LS', fun
 	var url = ServiceUrls.GetFriendsList;
 	var data = new Object();
 	data.user_id = profile.userId;
-	console.log(data);
+	
 	HttpService.GetFriendsListService(url, data)
 		.then(function(response){
 			if(response!=''){
-				$scope.data = response;
+				$scope.friendsData = response;
+				console.log($scope.friendsData);
 			}else{
-				$scope.emptyList = 'No Friends Found!'
+				$scope.emptyList = 'Your Friends List is Empty!'
 			}
-			console.log(response);
 		}, function(error){
 				$log.info(error);
 			});

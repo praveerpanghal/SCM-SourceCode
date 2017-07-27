@@ -456,10 +456,6 @@ ul{
     background:transparent;
 }
 /*Newsfeed page style starts here */
-.topNavSearchBar
-{
-  padding-top: 8px;
-}
 .scmHeader
 {
   background-color:#712e3b;
@@ -841,14 +837,24 @@ ul{
   color: #ef6f04;
   font-size: 12px;
 }
-.whotoFollow .fa
-{
-  padding-right:10px;
-}
 .followMemeber
 {
   padding-top: 10px;
   padding-bottom: 10px; 
+}
+.followMemeber .btn-primary
+{
+  background-color:transparent;
+  color:#ef6f04;
+  padding: 0;
+  border:0;
+  margin-right: 10px;
+}
+.followMemeber .btn-primary:hover, .followMemeber .btn-primary:active,
+.followMemeber .btn-primary:focus, .followMemeber .btn-primary:visited
+{
+  background-color: transparent;
+  color: #712e3b;
 }
 .footer
 {
@@ -861,22 +867,27 @@ ul{
   padding:10px 0; 
   text-align: center;
 }
+.topNavSearchBar
+{
+  padding-top:;
+  padding-bottom:20px;
+}
 .topNavSearchBar .input-group-addon{
-    background:#865056!important; 
+    background:#f5f5f5!important; 
     padding:5px 12px;
-    border-color:#865056;
+    border-color:#cccccc;
     color: #4d111d;
 }
 .topNavSearchBar .form-control{
   border-right:0; 
   box-shadow:0 0 0; 
-  border-color:#865056;
-  background-color: #865056;
+  border-color:#cccccc;
+  background-color: #f5f5f5;
   border-radius: 100px;
   -webkit-border-radius: 100px;
   -moz-border-radius: 100px;
   border-radius: 100px;
-  color: #FFF;
+  color: #333;
 }
 .topNavSearchBar .input-group-addon:last-child
 {
@@ -890,7 +901,7 @@ border-bottom-right-radius: 100px;
 .stylish-input-group button{
     border:0;
     background:transparent;
-    color:#4d111d;
+    color:#333;
 }
 .logOutIcon .fa
 {
@@ -898,6 +909,7 @@ border-bottom-right-radius: 100px;
   font-size: 16px;
   line-height: 42px;
   padding-left: 10px;
+  padding-right: 10px;
 }
 .requestIcon button
 {

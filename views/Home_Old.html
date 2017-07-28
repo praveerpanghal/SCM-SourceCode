@@ -1,0 +1,269 @@
+<div class="container">
+	<!-- Begin Page Content -->
+	<div class="col-md-12 content-pre" style="padding-bottom: 50px;">
+		<div class="col-md-2 content">
+		<div id="col-left" class="col-left ">
+                    <ul class="main-menu">
+                        <nav id="main-nav" class="main-nav">
+                            <li class="has-submenu">
+                                <a href="/"><i class="glyphicon glyphicon-home"></i><span class="text">Home</span><i class="glyphicon glyphicon-chevron-right arrow"></i></a>
+                            </li>
+                            <li class="has-submenu active">
+                                <a href="#" class="user-clr"><i class="glyphicon glyphicon-user user-clr"></i><span class="text user-clr arr-pos-left">Users</span><i class="glyphicon glyphicon-chevron-right arrow user-clr arr-pos"></i></a>
+                            </li>
+                            <li class="has-submenu">
+                                <a href="reset"><i class="glyphicon glyphicon-briefcase"></i><span class="text">Reset Password</span><i class="glyphicon glyphicon-chevron-right arrow"></i></a>
+                            </li>
+                            <li class="has-submenu">
+                                <a href="#"><i cl
+
+
+                                    ass="glyphicon glyphicon-comment"></i><span class="text">Messages</span><i class="glyphicon glyphicon-chevron-right arrow"></i></a>
+                            </li>
+                            <li class="has-submenu">
+                                <a href="#"><i class="glyphicon glyphicon-picture"></i><span class="text">Photos</span><i class="glyphicon glyphicon-chevron-right arrow"></i></a>
+                            </li>
+                            <li class="has-submenu">
+                                <a href="#"><i class="glyphicon glyphicon-expand"></i><span class="text">Videos</span><i class="glyphicon glyphicon-chevron-right arrow"></i></a>
+                            </li>
+                            <li class="has-submenu">
+                                <a href="#"><i class="glyphicon glyphicon-user"></i><span class="text">Group</span><i class="glyphicon glyphicon-chevron-right arrow"></i></a>
+                            </li>
+                            <li class="has-submenu">
+                                <a href="#"><i class="glyphicon glyphicon-blackboard"></i><span class="text">Schools</span><i class="glyphicon glyphicon-chevron-right arrow"></i></a>
+                            </li>
+                            <li class="has-submenu">
+                                <a href="friendsList"><i class="glyphicon glyphicon-user"></i><span class="text">Friends</span><i class="glyphicon glyphicon-chevron-right arrow"></i></a>
+                            </li>
+                            <li class="has-submenu1 out-bg">
+                                <a href="logout" class="out-mar">
+                                <i class="glyphicon glyphicon-user"></i>
+                                <span class="text">
+                                	{{userInfo[0].UserProfile[0].username}}
+                                </span><i class="glyphicon glyphicon-share arrow"></i></a>
+                            </li>
+                        </nav>
+                    </ul>
+                </div>
+		</div>
+		<div class="col-md-7 col-sm-12 content1">
+            <!--
+    			<h3 class="text-center">{{text}}</h3>
+                <form ng-submit = "uploadFile()" enctype="multipart/form-data">
+                    <div class="from-group">
+                        <input type="file" class="form-control" id="exampleInputFile" file-model="myfile" />
+                    </div><br/>
+                    <button>upload me</button>                  
+                </form>
+                <div>
+                    <h4 ng-if="res" ng-cloak>{{res}}</h4>
+                </div>
+            -->
+            <div class="profile" style="background-color: white;">
+                <div class="wrapper">
+                    <div class="image">
+                        <div class="image">
+                            <img src="{{userProfile.cover_name}}" alt="people" ng-hide="filepreview" />
+                            <img ng-src="{{filepreview}}" class="img-responsive" ng-show="filepreview" />
+                            <div class="fileUpload btn btn-default">
+                                <span class="glyphicon glyphicon-camera"></span>
+                                <input type="file" class="upload" ng-model="myfile" id="exampleInputFile" fileinput="file" filepreview="filepreview" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p>{{myfile.name}}</p>
+                <img src="{{myfile.name}}" >
+                <div class="clear"></div>
+                <div class="cover-info">
+                    <div class="avatar">
+                        <img src="{{userProfile.image_name}}" alt="people" >
+                    </div>
+                    <div class="name"><a href="#">{{userProfile.username}}</a></div>
+                    <div class="name1"><a href="#">{{userProfile.school_name}}</a></div>
+                </div>            
+                <div class="clear"></div>
+                <div class="butt-profile">
+                    <div class="left left-p"><a class="fon-profile" href="changeprofile">Change Profile</a></div>
+                    <div class="left"><a class="fon-photo" href="#">Add Photos/Videos</a></div>
+                    <div class="left"><a class="fon-frineds" href="/friendsList">Friends</a></div>
+                    <div class="left dropdown reqfriend">
+                        <a href="" class="fon-friendrq dropdown-toggle" data-toggle="dropdown">Friend Requests ({{friendRequests.length}})</a>
+                        <ul class="dropdown-menu frd_req" ng-hide="friendRequests.length==0">
+                        <li ng-repeat="friendRequest in friendRequests" >
+                            <div class="row">
+                                <div class="comm-prof1" style="float:left">
+                                    <img src="{{friendRequest.image_name}}" alt="people">
+                                </div>
+                                <div class="req_info">
+                                    <a class="font-img" href="">{{friendRequest.username}}</a>                                    
+                                    <div>
+                                        <form>
+                                            <input value="3" class="hideblocks text-box single-line" id="request_by_user" name="request_by_user" type="text" style="display: none;" ng-model="friendRequest.user_id">
+                                            <button class="btn btn-warning btn-pos1 pull-right" ng-click="rejectRequest(friendRequest)">Reject</button>
+                                        </form>
+                                        <form>
+                                            <input class="hideblocks text-box single-line" id="request_by_user" name="request_by_user" type="text" style="display: none;" ng-model="friendRequest.user_id">       
+                                            <button class="btn btn-primary btn-pos1 pull-right" ng-click="acceptRequest(friendRequest)">Accept</button>
+                                        </form>
+                                        <div class="clear"></div>
+                                    </div>
+                                    <div style="display: none;">
+                                        <input type="button" class="btn btn-primary btn-sm" value="Friend Request Sent" ng-disabled="true" style="margin-left: 9px;"></button>
+                                    </div>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                        </li>                          
+                        </ul>
+                    </div>
+                </div>
+                <div class="clear"></div>
+    		</div>
+            <div class="clear"></div>
+    		<div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12 comment-box">
+                    <div class="col-md-1 col-sm-1 col-xs-1 comm-prof">
+                        <img src="Src/images/profile/profile.jpg" alt="people">
+                    </div>
+                    <form ng-submit="postComments(postComment)">
+                        <div class="col-md-9 col-sm-9 col-xs-9 col-top">
+                            <div class="form-group">
+                                <textarea class="form-control cont" cols="20" id="postComment" name="postComment" placeholder="Post your comments here" rows="2"
+                                ng-model="postComment" required="required"></textarea>
+                             </div>
+                        </div>
+                        <div class="col-md-2 col-sm-2 col-xs-2 pull-right">
+                            <div class="btn-group " role="group">
+                                <button class="btn btn-primary btn-wid">Post</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <h3>Find Your Friend</h3>
+            <!--<div class="row">
+                <div class="col-md-8">
+                    <input type="text" ng-keydown="$event.keyCode === 13 && action(username)" ng-model="username" class="form-control" /></label>                   
+                </div>
+                <div class="col-md-4">
+                    <a href="/friends/{{username}}" class="btn btn-primary btn-md">Find</a>
+                </div>
+            </div>-->
+            <div class="row">
+                <div class="col-sm-8">
+                    <div id="imaginary_container"> 
+                        <div class="input-group stylish-input-group">
+                            <input type="text" class="form-control"  placeholder="Search" 
+                            ng-keydown="$event.keyCode === 13 && action(username)" ng-model="username" class="form-control">
+                            <span class="input-group-addon">
+                                <button type="submit">
+                                    <a href="/friends/{{username}}">
+                                        <span class="glyphicon glyphicon-search"></span>
+                                    </a>    
+                                </button>  
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--
+            <div class="row">
+                    <div class="col-md-12 comment-box1">
+                        <div class="people-top">
+                            <img src="Src/images/peopleyoumayknow.png" alt="people"><span>People you may know</span>
+                        </div>
+                        <ul class="row people-bottom">
+                                <li class="col-md-12 request" ng-repeat="people in PeopleYouMayKnow">
+                                    <div class="col-md-2 avatar1">
+                                        <img src="{{people.image_name}}" alt="people" >
+                                    </div>
+                                    <div class="col-md-10 request-middle">
+                                        <ul>
+                                            <li>
+                                            <a class="font-img" href="#">{{people.username}}</a>
+                                            </li>
+                                            <li><a href="#" class="fon-img">{{people.school_name}}</a></li>
+                                            <li>
+<form>
+    <button id="btnfrd_request" name="btnfrd_request" ng-model="btnfrd_request" ng-click="frdRequest(people.user_id)" class="btn btn-primary btn-pos pull-right">Meet Me</button>
+</form>
+                                        </li></ul>
+                                    </div>
+                                    <div class="clear"></div>
+                                </li>                                                            
+                            <div class="clear"></div>
+                        </ul>
+                    </div>
+                </div>
+                -->
+                <div class="row gallery-part" ng-repeat="posts in commentsInfo">
+                            <div class="col-md-12 col-sm-12 col-xs-12 gallery-inner">
+
+                                <div class="col-md-2 col-sm-2 col-xs-2 avatar2">
+                                    <img src="{{posts.image_name}}" alt="people" />
+                                    <br />
+                                    <span class="profile-time">{{posts.daydiff}}</span>
+                                </div>
+                                <div class="col-md-10 col-sm-10 col-xs-10 image-box">
+                                    <div class="image-upper">
+                                        <div class="text-left">
+                                            <span class="gallery-font">{{posts.username}}</span>
+                                        </div>
+                                        <div class="text-right">
+                                            <form>
+                                                <button class="glyphicon glyphicon-thumbs-up link-btn" type="button" id="39likes" style="color: rgb(51, 122, 183);" ng-init="noLikes=posts.l_id"
+                                                ng-click="noLikes=noLikes+1">
+                                                <span class="like-space numlike" id="39like">{{noLikes}}</span></button>
+                                            </form>
+                                            <form>
+                                                <button class="glyphicon glyphicon-share link-btn" type="button" id="39shares" style="color:#ef6f04;" ng-init="noShares=posts.s_id" ng-click="noShares=noShares+1">
+                                                <span class="like-space" id="39share">{{noShares}}</span></button>
+                                            </form>
+                                            <button class="glyphicon glyphicon-comment link-btn" id="39comments" style="color: rgb(34, 78, 153);" ng-init="noComments=posts.c_id" ng-click="noComments=noComments+1">
+                                            <span class="like-space" id="39comment">{{noComments}}</span></button>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </div>
+                                    <div class="post_cmt" ng-if="posts.mode=='text'">{{posts.posted_info}}
+
+                                    </div>
+                                    <img src="{{posts.PostedImage}}" class="image-set" title="Click to Zoom the Image" ng-if="posts.mode!='text'">
+                                   <div class="clear"></div>
+                                </div>
+                                <div class="clear"></div>
+                                <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12 comment-box2">
+                    <div class="col-md-2 col-sm-2 col-xs-2 avatar3">
+                        <img src="Src/images/profile/user.png" alt="people">
+                    </div>
+                    <div class="col-md-10 col-sm-10 col-xs-10 ">
+                        <div>
+                            <form>
+                               <div class="form-group col-md-10 cmt_box">
+                                    <input type="text" class="form-control cont1" placeholder="Write a comment..." style="margin-top: 8px;margin-left: -14px;">
+                                </div>
+                                  <div class="btn-group col-md-2 pull-right">
+                                    <button class="btn btn-primary btn-wid1" type="button"
+                                    style="margin-top: 11px; margin-left: 5px;">send</button>
+                                </div>
+                                <div class="clear"></div>
+
+                            </form>
+                        </div>
+                        <div id="45commentnames" style="display: block;">
+                            
+                        </div>
+                    </div>
+                </div>
+                            </div>
+                            </div>
+                            <div class="clear"> </div>
+                        </div>
+            <div class="clear"></div>
+    	</div>
+        <div class="col-md-3 col-sm-12 col-xs-12"></div>
+	   <!-- End Page Content -->
+    </div>
+</div>

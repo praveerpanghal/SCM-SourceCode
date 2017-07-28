@@ -18,7 +18,7 @@ app.controller("HomeCtrl", ['$scope', '$window', '$location', '$http', '$log', '
 				$scope.friendRequests = $scope.userInfo[0].FriendRequest;
 				//console.log($scope.userInfo);
 				console.log($scope.userInfo[0].FriendRequest);
-				//console.log($scope.userInfo[0].PeopleYouMayKnow);
+				console.log($scope.userInfo[0].PeopleYouMayKnow);
 				}else{
 					alert('Data Not Found');
 					$location.path('/logout');
@@ -95,56 +95,55 @@ app.controller("HomeCtrl", ['$scope', '$window', '$location', '$http', '$log', '
                 var url = ServiceUrls.PostComment;
                 var data = new Object();
                 data.request_by_user = profile.userId;
-                data.postComment = postComment;                
-                /*
+                data.postComment = postComment;
             	HttpService.PostCommentService(url, data)
             		.then(function(response){
             			if(response==1){
             				$scope.postComment='';
             				$route.reload();
             			}else{
-            				alert('Error Occured while posting your data.');
+            				$scope.Error = 'Error Occured while posting your data.';
             			}
             		}, 
                     function(error){
             			$log.info(error);
             		});
-                */
             }
             /* post comment code end */
 
             /* accept request code start */
             $scope.acceptRequest = function(accept){
-            	var url = ServiceUrls.SendFriendRequest;
+            	var url = ServiceUrls.ResponseFriendRequest;
                 var data = new Object();
-                data.user_id = profile.userId;
-                data.friend_id = accept.toUserId;      
-                data.action_user_id = profile.userId;
-                console.log(data);/*
-            	HttpService.AcceptFriendRequestService(url, data)
-        			.then(function(response){
-        				console.log(response);
+                data.user_id = accept.user_id;
+                data.action_user_id = profile.userId;      
+                data.status = 1;
+                console.log(data);
+            	HttpService.ResponseFriendRequestService(url, data)
+        			.then(function(response){        				
+                        $route.reload();
         			}, function(error){
         				$log.info(error);
-        			});*/
+        			});
             }
             /* accept request code end */
 
             /* reject request code start */
-            $scope.rejectRequest = function(accept){
-            	var url = ServiceUrls.RejectFriendRequest;
+            $scope.rejectRequest = function(reject){
+                console.log(reject);
+            	var url = ServiceUrls.ResponseFriendRequest;
             	var data = new Object();
-            	//data.request_by_user = accept.user_id;
-            	data.mapp_id = profile.userId;
+            	data.user_id = reject.user_id;
+            	data.action_user_id = profile.userId;
+                data.status = 2;
             	console.log(data);
-                /*
-            	HttpService.RejectFriendRequestService(url, data)
+                
+            	HttpService.ResponseFriendRequestService(url, data)
         			.then(function(response){
-        				console.log(response);
+        				$route.reload();
         			}, function(error){
         				$log.info(error);
-        			});
-                    */
+        			});                
             }
             /* reject request code end */
 

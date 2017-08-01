@@ -58,7 +58,7 @@ app.config(['$routeProvider', '$httpProvider', '$locationProvider',
             templateUrl : "views/Register.html",
     		controller : "RegisterCtrl"
         }).when("/home", {
-            templateUrl : "views/Home_New.html",
+            templateUrl : "views/Home.html",
             controller : "HomeCtrl"
         }).when("/logout", {
             templateUrl : "views/Logout.html",
@@ -78,12 +78,15 @@ app.config(['$routeProvider', '$httpProvider', '$locationProvider',
         }).when("/friends/:username", {
             templateUrl : "views/ViewProfile.html",
             controller : "ViewProfileCtrl"
-        }).when("/ProfileDetail/:userId", {
+        }).when("/profiledetail/:userId", {
             templateUrl : "views/ProfileDetail.html",
             controller : "ProfileDetailCtrl"
-        }).when("/friends", {
+        }).when("/friendslist", {
             templateUrl : "views/Friends.html",
             controller : "FriendsCtrl"
+        }).when("/peopleyoumayknow", {
+            templateUrl : "views/PeopleYouMayKnow.html",
+            controller : "PeopleYouMayKnowCtrl"
         })
     	.otherwise({
     		redirectTo: "/"

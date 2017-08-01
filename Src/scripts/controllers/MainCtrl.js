@@ -1,5 +1,5 @@
 /* MainCtrl */
-app.controller("MainCtrl", ['$scope', '$http', 'LS', 'ServiceUrls', 'HttpService', function($scope, $http, LS, ServiceUrls, HttpService){
+app.controller("MainCtrl", ['$scope', '$http', '$location', 'LS', 'ServiceUrls', 'HttpService', function($scope, $http, $location, LS, ServiceUrls, HttpService){
 	// Checks User Details
 	this.latestData = function(){
 		// var encodedProfile = sessionStorage.token.split('.')[1];
@@ -8,11 +8,11 @@ app.controller("MainCtrl", ['$scope', '$http', 'LS', 'ServiceUrls', 'HttpService
 		return LS.getData();
 	} 
 
+	if(this.latestData()!=null){
 	var user = LS.getData();
 	var encodedProfile = user.split('.')[1];
 	var profile = JSON.parse(LS.url_base64_decode(encodedProfile));
 
-	if(profile.userId){
 		var url = ServiceUrls.GetUserInfo;
 		var data = new Object();
 		data.user_id = profile.userId;
@@ -64,7 +64,7 @@ app.controller("MainCtrl", ['$scope', '$http', 'LS', 'ServiceUrls', 'HttpService
             		});
             }
             /* post comment code end */
-            
+
             /* accept request code start */
             $scope.acceptRequest = function(accept){
             	var url = ServiceUrls.ResponseFriendRequest;

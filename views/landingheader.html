@@ -1,4 +1,4 @@
-  <div class="container-fluid landingheader" ng-if="location.path()=='/'">
+  <div class="container-fluid landingheader"> <!-- ng-if="location.path()=='/'" -->
     <div class="container">
       <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
@@ -14,13 +14,16 @@
                   Sign In
                 </a>
               </li>
+              <li ng-show="path!='/forgot' && path!='/'">
+                  <a href="/logout"><i class="fa fa-power-off" aria-hidden="true"></i></a>
+              </li>
             </ul>
           </div>
         </div>
       </div>
     </div>
     </div>
-  <div class="container-fluid landingNav" ng-if="location.path()=='/'">
+  <div class="container-fluid landingNav"><!--ng-if="location.path()=='/'" -->
       <div class="row">
         <div class="col-md-12 col-xs-12">
           <div class="">
@@ -30,17 +33,17 @@
       </div>
   </div>
 
-  <div class="container-fluid scmHeader" ng-if="location.path()!='/'">
+ <!-- <div class="container-fluid scmHeader" > ng-if="location.path()!='/'" 
       <div class="container">   
         <div class="row">
             <div class="col-md-4 col-sm-5 col-xs-6">
               <a class="navbar-brand" href="/"><img src="src/images/logowhite.png" alt="" /></a>
             </div>
             <div class="col-md-8 col-sm-7 col-xs-6 logOutIcon">
-              
-                <p class="pull-right"><a href="/logout"><i class="fa fa-power-off" aria-hidden="true"></i></a></p>
-            
-            </div>
+                <p class="pull-right">
+                  <a href="/logout"><i class="fa fa-power-off" aria-hidden="true"></i></a>
+                </p>
+              </div>
         </div>
       </div>
-    </div>
+    </div>-->

@@ -2,6 +2,7 @@
 body
 {
   background-color:#efefef;
+  padding-top:185px;
 }
 .container
 {
@@ -16,6 +17,11 @@ h4
 }
 ul{
   margin-bottom: 0;
+}
+.bodyWizard {
+    max-height: calc( 100vh - 190px );
+    /*border: 1px solid red;*/
+    overflow: auto;
 }
 .body-content
 {
@@ -347,9 +353,10 @@ ul{
 }
 .forgotWizard .signUpContainer
 {
-  height: 95%;
+  height:65%;
   position: absolute;
-  top: 3%;
+  /*top: 3%;*/
+  top:195px;
   left: 0;
   right: 0;
   bottom: 3%;
@@ -480,7 +487,7 @@ ul{
 .newsFeedContent
 {
   background-color: #FFF;
-  margin-top: 50px;
+  margin-top: 0;
 }
 .scmLeftNav .navbar-nav li a
 .scmHeader .navbar-nav > li > .dropdown-menu
@@ -842,7 +849,7 @@ ul{
   padding-top: 10px;
   padding-bottom: 10px; 
 }
-.followMemeber .btn-primary
+.followMemeber .btn-primary,.friends .btn-default
 {
   background-color:transparent;
   color:#ef6f04;
@@ -851,7 +858,9 @@ ul{
   margin-right: 10px;
 }
 .followMemeber .btn-primary:hover, .followMemeber .btn-primary:active,
-.followMemeber .btn-primary:focus, .followMemeber .btn-primary:visited
+.followMemeber .btn-primary:focus, .followMemeber .btn-primary:visited,
+.friends .btn-default:hover, .friends .btn-default:active,
+.friends .btn-default:focus, .friends .btn-default:visited
 {
   background-color: transparent;
   color: #712e3b;
@@ -941,6 +950,58 @@ a.requestIcons{
 {
   color:#ef6f04;
 }
+.friendsList
+{
+  padding: 10px;
+}
+.friendsListWizard
+{
+/* padding: 10px;
+ position: relative;*/
+}
+.friendListBg
+{
+  width:100%;
+  height:100px;
+  /*background-image:url('../../src/images/friends.jpg');*/
+  background-size:cover;
+  background-position:center center;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+}
+.friendListImg
+{
+  width: 75px;
+  height: 75px;
+  /* background-image: url(../../src/images/friends.jpg); */
+  background-size: cover;
+  background-position: center center;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  border-radius: 100px;
+  border:3px solid #ef6f04;
+  float: left;
+  margin-top: -36px;
+  margin-left: 10px;
+}
+.friendListName
+{
+  
+  bottom: 0;
+  top: 140px;
+  left: 22px;
+  color: #712e3b;
+  font-size:16px;
+}
+.friends
+{
+    font-size: 16px;
+    color: #ef6f04;
+    text-align:right;
+    padding-top:5px;
+    margin-bottom: 0;
+}
 /*Newsfeed page style starts ends */
 @media (min-width:768px){
     .scmLeftNav .navbar-nav
@@ -1002,7 +1063,7 @@ a.requestIcons{
   right: 0;
   left: 0;
   overflow-y: auto;
-  padding-top: 150px;
+  /*padding-top: 150px;*/
   }
   .navbar-fixed-bottom {
     position: relative;
@@ -1115,6 +1176,10 @@ a.requestIcons{
   }
 }
 @media (max-width:480px){
+  body
+  {
+    padding-top: 160px;
+  }
   .followMemeber
   {
     width: 50%;

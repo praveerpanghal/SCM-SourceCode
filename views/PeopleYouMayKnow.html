@@ -1,12 +1,11 @@
-<div class="text-center" >	
-	<h3 ng-show="emptyList">{{emptyList}}</h3>
-</div>
+
 <div class="container-fluid forgotWizard " >
 <div class="container viewprofile signUpContainer" style="margin-top: 55px;">
 	<div class="row">
 			<div class="col-md-12">
 				<div class="thumbnail" ng-show="emptyList">
 					<h4 class="text-center">{{emptyList}}</h4>
+					<a href="/" class="text-center">Back</a>
 				</div>
 				<div class="col-md-2 col-sm-2 col-xs-4" ng-repeat="people in PeopleYouMayKnow">
 				    <div class="thumbnail">

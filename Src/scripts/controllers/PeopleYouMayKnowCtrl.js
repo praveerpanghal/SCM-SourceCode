@@ -9,10 +9,12 @@ app.controller("PeopleYouMayKnowCtrl", ['$scope', '$routeParams', '$route', 'Ser
 			.then(function(response){
 				if(response.GetUserInfoResult!=''){
 					$scope.userInfo = JSON.parse(response.GetUserInfoResult);
+				
 					$scope.PeopleYouMayKnow = $scope.userInfo[0].PeopleYouMayKnow;
-					console.log($scope.userInfo[0].PeopleYouMayKnow);
-				}else{
+					if($scope.PeopleYouMayKnow.length=='0'){						
 					$scope.emptyList = 'Your List is Empty.'
+					}
+				}else{
 				}
 			}, 
             function errorCallback(error){

@@ -5,29 +5,7 @@ app.controller("HomeCtrl", ['$scope', '$window', '$location', '$http', '$log', '
 	var profile = JSON.parse(LS.url_base64_decode(encodedProfile));
     //console.log(profile);
 	if(profile.userId){
-		var url = ServiceUrls.GetUserInfo;
-		var data = new Object();
-		data.user_id = profile.userId;
-		HttpService.UserInfoService(url, data)
-			.then(function(response){
-				if(response.GetUserInfoResult!=''){					
-				$scope.userInfo = JSON.parse(response.GetUserInfoResult);
-				$scope.userProfile = $scope.userInfo[0].UserProfile[0];
-				$scope.PeopleYouMayKnow = $scope.userInfo[0].PeopleYouMayKnow;
-				$scope.commentsInfo = $scope.userInfo[0].CommentImagePost;
-				$scope.friendRequests = $scope.userInfo[0].FriendRequest;
-				//console.log($scope.userInfo);
-				//console.log($scope.userInfo[0].FriendRequest);
-				//console.log($scope.userInfo[0].PeopleYouMayKnow);
-				}else{
-					alert('Data Not Found');
-					$location.path('/logout');
-				}
-			}, 
-            function errorCallback(error){
-				$log.info(error);		
-			});
-
+		
 		/* upload file code start */
 		$scope.uploadFile = function(){
 		/*
@@ -67,13 +45,13 @@ app.controller("HomeCtrl", ['$scope', '$window', '$location', '$http', '$log', '
             /* home page data from json end */
 
             /* friend request sent code start */
-
+            /*
             $scope.frdRequest = function(userId){
             	var url = ServiceUrls.UserMeet;
             	var data = new Object();
 				data.request_by_user = profile.userId;
 				data.request_to_user = userId;
-                /*
+                
             	HttpService.UserMeetService(url, data)
             		.then(function(response){
             			if(response==1){
@@ -86,8 +64,9 @@ app.controller("HomeCtrl", ['$scope', '$window', '$location', '$http', '$log', '
             	function errorCallback(error){
 					$log.info(error);		
 				});
-                */
+                
             }
+            */
             /* friend request sent code end */
 
             /* post comment code start */

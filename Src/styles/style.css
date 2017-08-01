@@ -11,11 +11,30 @@ body
     max-width:100%;
     /*border:1px solid #000;*/
 }
+h1
+{
+  font-size: 23px;
+  color: #898989;
+  font-weight: 700;
+}
 h4
 {
-  font-size: 15px;
+  font-size: 18px;
+  /*color:#333333;*/
+  color:#712e3b;
+  font-weight: bold;
 }
+/*h4
+{
+  font-size: 15px;
+}*/
 ul{
+  margin-bottom: 0;
+}
+p
+{
+  font-size: 13px;
+  color: #333;
   margin-bottom: 0;
 }
 .bodyWizard {
@@ -387,9 +406,9 @@ ul{
 }
 .signUpContainer .signUpTitle h1,.forgotWizard .signUpTitle h1
 {
-    font-size: 23px;
+    /*font-size: 23px;
     color: #898989;
-    font-weight: 700;
+    font-weight: 700;*/
     padding-left: 24px;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -421,10 +440,8 @@ ul{
     line-height: 140px;
 }
 .landingFooter .media-body h4{
-    font-size:18px;
     margin-top:20px;
     margin-bottom:20px;
-    font-weight:bold;
 }
 .landingCopyRgt
 {
@@ -763,7 +780,7 @@ ul{
 }
 .commenterDetails h4
 {
-  color:#712e3b;
+  /*color:#712e3b;*/
   float: left;
 }
 .commenterName
@@ -828,8 +845,8 @@ ul{
 }
 .whotoFollow h1
 {
-  font-size:19px;
-  color:#333333;
+  /*font-size:19px;
+  color:#333333;*/
   margin-bottom:10px;
 }
 .whotoFollow h4
@@ -838,6 +855,7 @@ ul{
   margin-top:8px;
   display: inline-block;
   margin-bottom: 7px;
+  font-weight: normal;
 }
 .whotoFollow p
 {

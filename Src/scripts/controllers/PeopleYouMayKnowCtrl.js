@@ -11,6 +11,7 @@ app.controller("PeopleYouMayKnowCtrl", ['$scope', '$routeParams', '$route', 'Ser
 					$scope.userInfo = JSON.parse(response.GetUserInfoResult);
 				
 					$scope.PeopleYouMayKnow = $scope.userInfo[0].PeopleYouMayKnow;
+					console.log($scope.PeopleYouMayKnow);
 					if($scope.PeopleYouMayKnow.length=='0'){						
 					$scope.emptyList = 'Your List is Empty.'
 					}

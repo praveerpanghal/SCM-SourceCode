@@ -40,7 +40,7 @@
 									</li>
 							        
 							        <li>
-							        		<a href="#">
+							        		<a href="peopleyoumayknow">
 							        			<i class="fa fa-users icon1LeftNav" aria-hidden="true"></i>
 												People You Know
 											</a>
@@ -207,83 +207,21 @@
 								</div>
 							</div>
 						</div>
-
-
 						<!-- Freinds List Ends here -->
-							
-					
-
-
 					</div>
 					<div class="col-md-3 col-sm-3 col-xs-12 whotoFollow">
 							<h1>Friend Requests</h1>
 							<div class="follow">
-								<div class="followMemeber">
+							<h5 ng-show="friendRequests.length==0">You Have No Friend Requests.</h5>
+								<div class="followMemeber"  ng-repeat="friendRequest in friendRequests">
 									<div class="commenterpic" style="background-image: url('src/images/user3.jpg')"></div>
-									<h4>Srinivas</h4>
+									<h4>{{friendRequest.username}}</h4>
 									<p>
-										<button class="btn btn-primary">
+										<button class="btn btn-primary" ng-click="acceptRequest(friendRequest)">
 											<i class="fa fa fa-thumbs-up" aria-hidden="true"></i>
 											Accept
 										</button>
-										<button class="btn btn-primary">
-											<i class="fa fa fa-thumbs-down" aria-hidden="true"></i>
-											Reject
-										</button>
-
-									</p>
-								</div>
-								<div class="followMemeber">
-									<div class="commenterpic" style="background-image: url('src/images/user4.jpg')"></div>
-									<h4>Srinivas</h4>
-									<p>
-										<button class="btn btn-primary">
-											<i class="fa fa fa-thumbs-up" aria-hidden="true"></i>
-											Accept
-										</button>
-										<button class="btn btn-primary">
-											<i class="fa fa fa-thumbs-down" aria-hidden="true"></i>
-											Reject
-										</button>
-									</p>
-								</div>
-								<div class="followMemeber">
-									<div class="commenterpic" style="background-image: url('src/images/user5.jpg')"></div>
-									<h4>Srinivas</h4>
-									<p>
-										<button class="btn btn-primary">
-											<i class="fa fa fa-thumbs-up" aria-hidden="true"></i>
-											Accept
-										</button>
-										<button class="btn btn-primary">
-											<i class="fa fa fa-thumbs-down" aria-hidden="true"></i>
-											Reject
-										</button>
-									</p>
-								</div>
-								<div class="followMemeber">
-									<div class="commenterpic" style="background-image: url('src/images/user6.jpg')"></div>
-									<h4>Srinivas</h4>
-									<p>
-										<button class="btn btn-primary">
-											<i class="fa fa fa-thumbs-up" aria-hidden="true"></i>
-											Accept
-										</button>
-										<button class="btn btn-primary">
-											<i class="fa fa fa-thumbs-down" aria-hidden="true"></i>
-											Reject
-										</button>
-									</p>
-								</div>
-								<div class="followMemeber">
-									<div class="commenterpic" style="background-image: url('src/images/user2.jpg')"></div>
-									<h4>Srinivas</h4>
-									<p>
-										<button class="btn btn-primary">
-											<i class="fa fa fa-thumbs-up" aria-hidden="true"></i>
-											Accept
-										</button>
-										<button class="btn btn-primary">
+										<button class="btn btn-primary" ng-click="rejectRequest(friendRequest)">
 											<i class="fa fa fa-thumbs-down" aria-hidden="true"></i>
 											Reject
 										</button>

@@ -751,7 +751,7 @@ p
   background-color: #ef6f04;
   color:#FFF;
 }
-.peopleUMyKnow:nth-child(odd)
+.peopleUMyKnow:nth-child(even)
 {
   background-color: #f5f5f5;
 }

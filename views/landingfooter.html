@@ -1,5 +1,5 @@
 <div class="">
-<div class="container">
+<div class="container"  ng-if="location.path()=='/'">
 		<div class="row">
 			<div class="col-md-12">
 				<div class="col-md-4 col-sm-4">
@@ -44,7 +44,7 @@
 			</div>
 		</div>
 </div>
-	<div class="landingCopyRgt">
+	<div class="landingCopyRgt" ng-if="location.path()!='/'">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">

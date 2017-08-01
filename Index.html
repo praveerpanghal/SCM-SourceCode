@@ -55,34 +55,6 @@
 		<!-- styles end -->
 	</head>
 	<body ng-controller="MainCtrl as m">
-		<!--<div class="menucolor">			
-			<div class="container">
-				<div class="col-md-4 col-sm-4 col-xs-4">
-					<a class="loginlogo" href="#/">
-						<img src="/Build/Images/schoolconnect-Me_image.png" alt="">
-					</a>
-				</div>
-				<div class="col-md-4 col-sm-4 col-xs-4  pull-right">
-					<a class="btn btn-primary btn-sm btnset1 dropdown-toggle  col-md-3 col-sm-6 col-xs-12" href="register" ng-if="!m.latestData()" ng-show="location.path()!='/register' && location.path()!='/forgot'" ng-cloak>Register</a>
-					<a class="btn btn-primary btn-sm btnset1 dropdown-toggle  col-md-3 col-sm-6 col-xs-12" href="/" ng-show="location.path()!='/' && location.path()!='/home'" ng-cloak>Login</a>
-					<a class="btn btn-primary btn-sm btnset1 dropdown-toggle  col-md-3 col-sm-6 col-xs-12" href="logout" ng-if="m.latestData()" ng-cloak>Logout</a>
-				</div>
-			</div>
-		</div>
-		<div class="container">
-			<div ng-view></div>			
-		</div>
-		
-		<footer id="footer">
-			<hr class="soften">
-			<div class="container text-center">
-				<div class="col-lg-12 ">
-				</div>
-			</div>
-			<div class="container">
-				<p class="text-center">© 2017. All Rights Reserved.</p>
-			</div>
-		</footer>-->
 			<div class="navbar-fixed-top" ng-include="'views/landingheader.html'" ng-controller="HeaderCtrl"></div>
 			
 			<!--<ng-view></ng-view>-->
@@ -91,7 +63,5 @@
 				
 				<div ng-class="{'navbar-fixed-bottom':location.path()=='/' || location.path()=='/forgot'}" class="landingFooter" ng-include="'views/landingfooter.html'"></div>
 			</div>
-
-		<!-- Footer End -->
 	</body>
 </html>

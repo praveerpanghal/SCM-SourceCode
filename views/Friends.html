@@ -1,28 +1,302 @@
-<div class="text-center" >	
-	<h3 ng-show="emptyList">{{emptyList}}</h3>
-</div>
-<div class="container-fluid forgotWizard " >
-<div class="container viewprofile signUpContainer" style="margin-top: 55px;">
-	<div class="row">
-			<div class="col-md-12">
-				<div class="thumbnail" ng-show="emptyList">
-					<h4 class="text-center">{{emptyList}}</h4>
+		<!-- Profile page starts-->				
+		<div class="container-fluid newsFeedContent">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-3 col-sm-3 col-md-12 scmLeftNav">
+							<nav class="navbar navbar-default">
+							  <div class="container">
+							    <!-- Brand and toggle get grouped for better mobile display -->
+							    <div class="navbar-header">
+							      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2" aria-expanded="false">
+							        <span class="sr-only">Toggle navigation</span>
+							        <span class="icon-bar"></span>
+							        <span class="icon-bar"></span>
+							        <span class="icon-bar"></span>
+							      </button>
+							      <div class="userImg" style="background-image: url('src/images/user3.jpg')">
+							      		<!--<img src="src/images/profile/profile.jpg" alt="" />-->
+							      </div>
+							      <a class="navbar-brand" href="#">
+							      		<div class="userBg" style="background: linear-gradient(to bottom, rgba(113,46,59,.8), rgba(113,46,59,.8)),
+   url('src/images/friends.jpg') no-repeat;background-size: cover;">
+   										<p class="userName">{{userInfo[0].UserProfile[0].username}}</p>
+							      		</div>
+							      </a>
+							    </div>
+
+							    <!-- Collect the nav links, forms, and other content for toggling -->
+							    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+							      <ul class="nav navbar-nav">
+							      	 <li>
+							        		<a href="/">
+							        			<i class="fa fa-home icon7LeftNav" aria-hidden="true"></i>
+												Home
+											</a>
+									</li>
+							      	 <li>
+							        		<a href="#">
+							        			<i class="fa fa-address-card-o icon8LeftNav" aria-hidden="true"></i>Profile
+											</a>
+									</li>
+							        
+							        <li>
+							        		<a href="#">
+							        			<i class="fa fa-users icon1LeftNav" aria-hidden="true"></i>
+												People You Know
+											</a>
+									</li>
+							        <li>
+							        	<a href="friends">
+							        		<i class="fa fa-slideshare icon2LeftNav" aria-hidden="true"></i>
+							        		Friends
+							        	</a>
+							        </li>
+							        <li>
+							        	<a href="#">
+							        		<i class="fa fa-comments icon3LeftNav" aria-hidden="true"></i>		Messages
+							        	</a>
+							        </li>
+							        <li>
+							        	<a href="#">
+							        		<i class="fa fa-picture-o icon4LeftNav" aria-hidden="true"></i>
+											Images
+							        	</a>
+							        </li>
+							        <li>
+							        	<a href="#">
+							        		<i class="fa fa-video-camera icon5LeftNav" aria-hidden="true"></i>	
+							        		Videos
+							        	</a>
+							        </li>
+							        <li>
+							        	<a href="#">
+							        		<i class="fa fa-pencil-square-o icon6LeftNav" aria-hidden="true"></i>Edit Profile
+							        	</a>
+							        </li>
+							        
+							      </ul>		
+							      
+							    </div><!-- /.navbar-collapse -->
+							  </div><!-- /.container-fluid -->
+							</nav>
+							<div class="col-md-10 col-md-offset-1 col-xs-12 onlineWizard">
+								<h4>Online Chat</h4>
+								<div class="chatOnline">	
+									<div class="onlinePeopleWizard">	
+										<div class="onlinePeople" style="background-image: url('src/images/user6.jpg')">
+										</div>
+										<div class="onlineIcon"></div>
+									</div>
+									<div class="onlinePeopleWizard">	
+										<div class="onlinePeople" style="background-image: url('src/images/user2.jpg')">
+										</div>
+										<div class="onlineIcon"></div>
+									</div>
+									<div class="onlinePeopleWizard">	
+										<div class="onlinePeople" style="background-image: url('src/images/user3.jpg')">
+										</div>
+										<div class="onlineIcon"></div>
+									</div>
+									<div class="onlinePeopleWizard">	
+										<div class="onlinePeople" style="background-image: url('src/images/user4.jpg')">
+										</div>
+										<div class="onlineIcon"></div>
+									</div>
+									<div class="onlinePeopleWizard">	
+										<div class="onlinePeople" style="background-image: url('src/images/user5.jpg')">
+										</div>
+										<div class="onlineIcon"></div>
+									</div>
+									<div class="onlinePeopleWizard">	
+										<div class="onlinePeople" style="background-image: url('src/images/user6.jpg')">
+										</div>
+										<div class="onlineIcon"></div>
+									</div>
+									<div class="onlinePeopleWizard">	
+										<div class="onlinePeople" style="background-image: url('src/images/user2.jpg')">
+										</div>
+										<div class="onlineIcon"></div>
+									</div>
+									<div class="onlinePeopleWizard">	
+										<div class="onlinePeople" style="background-image: url('src/images/user3.jpg')">
+										</div>
+										<div class="onlineIcon"></div>
+									</div>
+									<div class="onlinePeopleWizard">	
+										<div class="onlinePeople" style="background-image: url('src/images/user4.jpg')">
+										</div>
+										<div class="onlineIcon"></div>
+									</div>
+								</div>
+							</div>
+					</div>
+					<div class="col-md-6 col-sm-6 col-xs-12 contentPost">
+						<div class="row">
+							<div class="col-md-12 topNavSearchBar">
+								
+					                <div class="imaginary_container"> 
+					                    <div class="input-group stylish-input-group">
+					                        <input type="text" class="form-control"  placeholder="Search" 
+					                         class="form-control">
+					                        <span class="input-group-addon">
+					                            <button type="submit"><span class="glyphicon glyphicon-search"></span>
+					                                    
+					                            </button>  
+					                        </span>
+					                    </div>
+					                </div>
+					            
+							</div>
+						</div>	
+						<div class="row">
+								<div class="col-md-8 col-sm-8 col-xs-6 col-xs-offset-1
+								 col-sm-offset-0 col-md-offset-0 postContentField">
+									<div class="userPic" style="background-image: url('src/images/user3.jpg')">
+									</div>	
+									<div class="form-group userTxt">
+								      <textarea class="form-control" rows="2"></textarea>
+								        <span class="help-block errTxt">Error</span>
+								    </div>
+								</div>
+								<div class="col-md-4 col-sm-4 col-xs-4 uploadType">
+									<ul class="list-inline">
+										<li class="textIcon">
+											<a href="#">
+												<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<i class="fa fa-picture-o" aria-hidden="true"></i>
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<i class="fa fa-video-camera" aria-hidden="true"></i>
+											</a>
+										</li>
+										<li class="">
+												<button type="submit" class="btn btn-primary">Submit</button>
+										</li>
+
+									</ul>
+								</div>
+						</div>
+						
+						<!-- Freinds List starts here -->
+
+						<div class="row">
+							<div class="col-md-12 col-xs-12 col-sm-12">
+								<div class="thumbnail" ng-show="emptyList">
+									<h4 class="text-center">{{emptyList}}</h4>
+								</div>	
+
+								<div class="col-md-6 col-sm-6" ng-repeat="friend in friendsData">
+									<div class="friendsList">
+										<div class="friendListBg" style="background-image:url(	'src/images/friends.jpg');"></div>
+										<div class="friendsListWizard">
+											<div class="friendListImg" style="background-image:url('../../Src/images/user2.jpg')"></div>
+											<p class="friends">
+												<a href="#" class="btn btn-default" disabled>Friends</a>
+											</p>
+
+											<div class="clearfix"></div>
+											<h4 class="friendListName">{{friend.username}}</h4>
+										</div>
+									</div>	
+								</div>
+							</div>
+						</div>
+
+
+						<!-- Freinds List Ends here -->
+							
+					
+
+
+					</div>
+					<div class="col-md-3 col-sm-3 col-xs-12 whotoFollow">
+							<h1>Friend Requests</h1>
+							<div class="follow">
+								<div class="followMemeber">
+									<div class="commenterpic" style="background-image: url('src/images/user3.jpg')"></div>
+									<h4>Srinivas</h4>
+									<p>
+										<button class="btn btn-primary">
+											<i class="fa fa fa-thumbs-up" aria-hidden="true"></i>
+											Accept
+										</button>
+										<button class="btn btn-primary">
+											<i class="fa fa fa-thumbs-down" aria-hidden="true"></i>
+											Reject
+										</button>
+
+									</p>
+								</div>
+								<div class="followMemeber">
+									<div class="commenterpic" style="background-image: url('src/images/user4.jpg')"></div>
+									<h4>Srinivas</h4>
+									<p>
+										<button class="btn btn-primary">
+											<i class="fa fa fa-thumbs-up" aria-hidden="true"></i>
+											Accept
+										</button>
+										<button class="btn btn-primary">
+											<i class="fa fa fa-thumbs-down" aria-hidden="true"></i>
+											Reject
+										</button>
+									</p>
+								</div>
+								<div class="followMemeber">
+									<div class="commenterpic" style="background-image: url('src/images/user5.jpg')"></div>
+									<h4>Srinivas</h4>
+									<p>
+										<button class="btn btn-primary">
+											<i class="fa fa fa-thumbs-up" aria-hidden="true"></i>
+											Accept
+										</button>
+										<button class="btn btn-primary">
+											<i class="fa fa fa-thumbs-down" aria-hidden="true"></i>
+											Reject
+										</button>
+									</p>
+								</div>
+								<div class="followMemeber">
+									<div class="commenterpic" style="background-image: url('src/images/user6.jpg')"></div>
+									<h4>Srinivas</h4>
+									<p>
+										<button class="btn btn-primary">
+											<i class="fa fa fa-thumbs-up" aria-hidden="true"></i>
+											Accept
+										</button>
+										<button class="btn btn-primary">
+											<i class="fa fa fa-thumbs-down" aria-hidden="true"></i>
+											Reject
+										</button>
+									</p>
+								</div>
+								<div class="followMemeber">
+									<div class="commenterpic" style="background-image: url('src/images/user2.jpg')"></div>
+									<h4>Srinivas</h4>
+									<p>
+										<button class="btn btn-primary">
+											<i class="fa fa fa-thumbs-up" aria-hidden="true"></i>
+											Accept
+										</button>
+										<button class="btn btn-primary">
+											<i class="fa fa fa-thumbs-down" aria-hidden="true"></i>
+											Reject
+										</button>
+									</p>
+								</div>
+							</div>
+							
+					</div>
 				</div>
-				<div class="col-md-2 col-sm-2 col-xs-4" ng-repeat="friend in friendsData">
-				    <div class="thumbnail">
-				      <img src="src/images/profile/Defaultpicture.jpg" alt="..." class="img-circle">
-				      <div class="caption text-center">
-				        <h4><a href="#" ng-model="firend.user_id">{{friend.username}}</a></h4>
-				        <p>	       	
-				        	<a href="#" class="btn  btn-default" role="button" disabled>
-				        		<i class="fa fa-check" aria-hidden="true"></i>
-				        		Friends 
-				        	</a> 
-				        </p>
-				      </div>
-				    </div>
-				</div>
-			</div>
-	</div>
-</div>
-</div>
+			</div>	
+		</div>
+		
+
+			
+
+	

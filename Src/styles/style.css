@@ -11,6 +11,11 @@ body
     max-width:100%;
     /*border:1px solid #000;*/
 }
+a
+{
+   color: #333;
+   text-decoration: none;
+}
 h1
 {
   font-size: 23px;
@@ -48,6 +53,24 @@ p
 {
   background:#712e3b;
   border: 1px solid #712e3b;
+}
+.btn-default
+{
+  background-color: #712e3b;
+  border-radius: 25px;
+  border: 1px solid #712e3b;
+  color: #FFF;
+}
+.btn-default:hover, .btn-default:active, .btn-default:focus, .btn-default:visited
+{
+  background:#ef6f04;
+  border: 1px solid #ef6f04; 
+  color:#FFF;
+}
+.btn[disabled]:hover, .btn[disabled]:active, .btn[disabled]:visited, .btn[disabled]:focus
+{
+  background-color:#712e3b;
+  border:1px solid #712e3b;
 }
 .bodyWizard {
     max-height: calc( 100vh - 190px );
@@ -193,6 +216,10 @@ p
 {
   background-color: #712e3b;
   color:#FFF;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
 }
 .signInTxt a
 {
@@ -461,8 +488,6 @@ p
     padding:2px 0;
 }
 .landingCopyRgt p{
-    margin-bottom:0;
-    padding:1px 0;
 }
 
 .viewprofile .thumbnail
@@ -740,16 +765,11 @@ p
 .peopleUMyKnow .btn-default
 {
   margin-top:12px;
-  background-color: #712e3b;
-  border-radius: 25px;
-  border: 1px solid ##712e3b;
-  color: #FFF;
 }
 .peopleUMyKnow .btn-default:active, .peopleUMyKnow .btn-default:focus,
 .peopleUMyKnow .btn-default:hover, .peopleUMyKnow .btn-default:visited
 {
-  background-color: #ef6f04;
-  color:#FFF;
+  
 }
 .peopleUMyKnow:nth-child(even)
 {

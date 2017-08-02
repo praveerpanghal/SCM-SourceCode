@@ -87,7 +87,7 @@ app.config(['$routeProvider', '$httpProvider', '$locationProvider',
         }).when("/peopleyoumayknow", {
             templateUrl : "views/PeopleYouMayKnow.html",
             controller : "PeopleYouMayKnowCtrl"
-        }).when("/EditProfile", {
+        }).when("/editprofile", {
             templateUrl : "views/EditProfile.html",
             controller : "EditProfileCtrl"
         })

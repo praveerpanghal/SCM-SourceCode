@@ -9,9 +9,9 @@ app.controller("MainCtrl", ['$scope', '$http', '$location', 'LS', 'ServiceUrls',
 	} 
 
 	if(this.latestData()!=null){
-	var user = LS.getData();
-	var encodedProfile = user.split('.')[1];
-	var profile = JSON.parse(LS.url_base64_decode(encodedProfile));
+		var user = LS.getData();
+		var encodedProfile = user.split('.')[1];
+		var profile = JSON.parse(LS.url_base64_decode(encodedProfile));
 
 		var url = ServiceUrls.GetUserInfo;
 		var data = new Object();

@@ -4,6 +4,29 @@ app.controller("FriendsCtrl", ['$scope', 'ServiceUrls', 'HttpService', 'LS', fun
 	var encodedProfile = user.split('.')[1];
 	var profile = JSON.parse(LS.url_base64_decode(encodedProfile));
 	
+		var url = ServiceUrls.GetUserInfo;
+        var data = new Object();
+        data.user_id = profile.userId;
+        HttpService.UserInfoService(url, data)
+            .then(function(response){
+                if(response.GetUserInfoResult!=''){                 
+                    $scope.userInfo = JSON.parse(response.GetUserInfoResult);
+                    $scope.userProfile = $scope.userInfo[0].UserProfile[0];
+                    //$scope.PeopleYouMayKnow = $scope.userInfo[0].PeopleYouMayKnow;
+                    //$scope.commentsInfo = $scope.userInfo[0].CommentImagePost;
+                    $scope.friendRequests = $scope.userInfo[0].FriendRequest;
+                    //console.log($scope.userInfo);
+                    //console.log($scope.userInfo[0].FriendRequest);
+                    //console.log($scope.userInfo[0].PeopleYouMayKnow);
+                }else{
+                    alert('Data Not Found');
+                    $location.path('/logout');
+                }
+            }, 
+            function errorCallback(error){
+                $log.info(error);       
+            });
+
 	var url = ServiceUrls.GetFriendsList;
 	var data = new Object();
 	data.user_id = profile.userId;

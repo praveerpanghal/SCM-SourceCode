@@ -5,12 +5,14 @@ app.controller("PeopleYouMayKnowCtrl", ['$scope', '$routeParams', '$route', 'Ser
 		var url = ServiceUrls.GetUserInfo;
 		var data = new Object();
 		data.user_id = profile.userId;
+		console.log(data);
 		HttpService.UserInfoService(url, data)
 			.then(function(response){
 				if(response.GetUserInfoResult!=''){
-					$scope.userInfo = JSON.parse(response.GetUserInfoResult);
-				
+					$scope.userInfo = JSON.parse(response.GetUserInfoResult);	
+					$scope.userProfile = $scope.userInfo[0].UserProfile[0];			
 					$scope.PeopleYouMayKnow = $scope.userInfo[0].PeopleYouMayKnow;
+					$scope.friendRequests = $scope.userInfo[0].FriendRequest;
 					console.log($scope.PeopleYouMayKnow);
 					if($scope.PeopleYouMayKnow.length=='0'){						
 					$scope.emptyList = 'Your List is Empty.'

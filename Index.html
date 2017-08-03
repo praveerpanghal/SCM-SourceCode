@@ -55,11 +55,11 @@
 
 		<!-- styles end -->
 	</head>
-	<body ng-controller="MainCtrl as m">
-			<div class="navbar-fixed-top" ng-include="'views/landingheader.html'" ng-controller="HeaderCtrl"></div>
+	<body ng-controller="MainCtrl as m" ng-class="{'alignBody':location.path!='/'}">
+			<div class="navbar-fixed-top alignFixedNav" ng-include="'views/landingheader.html'" ng-controller="HeaderCtrl"></div>
 			
 			<!--<ng-view></ng-view>-->
-			<div class="bodyWizard" >
+			<div class="bodyWizard" ng-class="{'alignBodyWizard':location.path!='/'}" >
 				<div ng-class="{'body-content':location.path()=='/'}" ng-view></div>
 				
 				<div ng-class="{'navbar-fixed-bottom':location.path()=='/' || location.path()=='/forgot'}" class="landingFooter" ng-include="'views/landingfooter.html'"></div>

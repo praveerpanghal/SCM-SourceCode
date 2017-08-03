@@ -4,6 +4,10 @@ body
   background-color:#efefef;
   padding-top:185px;
 }
+.alignBody
+{
+  padding-top: 122px;
+}
 .container
 {
     /*width:1170px;*/
@@ -77,6 +81,10 @@ p
     /*border: 1px solid red;*/
     overflow: auto;
 }
+.alignBodyWizard
+{
+  max-height: calc( 100vh - 128px );
+}
 .body-content
 {
   position: absolute;
@@ -91,6 +99,18 @@ p
     border-top:8px solid #712e3b;
     padding:28px 0;
     background-color:#efefef;
+}
+.alignFixedNav
+{
+  
+}
+.homeHeader
+{
+   padding:15px 0;
+}
+.homeHeaderLogo
+{
+  width:150px;
 }
 .landingTopNav 
 {
@@ -1082,6 +1102,21 @@ a.requestIcons{
     padding-top:5px;
     margin-bottom: 0;
 }
+
+/*Edit Profile Starts*/
+.editProfile
+{
+  width: 100%;
+  height: 250px;
+  background-image: url(../../src/images/friends.jpg);
+  background-size: cover;
+  background-position: center center;
+  border:1px solid #ef6f04;
+  background-size: auto 100%;
+}
+
+/*Edit Profile Ends*/
+
 /*Newsfeed page style starts ends */
 @media (min-width:768px){
     .scmLeftNav .navbar-nav

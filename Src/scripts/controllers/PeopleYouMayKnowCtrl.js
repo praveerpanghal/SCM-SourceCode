@@ -29,4 +29,39 @@ app.controller("PeopleYouMayKnowCtrl", ['$scope', '$location', '$routeParams', '
                     $location.path('/friends/'+username);
                 }
             }
+        /* accept request code start */
+            $scope.acceptRequest = function(accept){
+            	var url = ServiceUrls.ResponseFriendRequest;
+                var data = new Object();
+                data.user_id = accept.user_id;
+                data.action_user_id = profile.userId;      
+                data.status = 1;
+                console.log(data);
+            	HttpService.ResponseFriendRequestService(url, data)
+        			.then(function(response){        				
+                        $route.reload();
+        			}, function(error){
+        				$log.info(error);
+        			});
+            }
+            /* accept request code end */
+
+            /* reject request code start */
+            $scope.rejectRequest = function(reject){
+                console.log(reject);
+            	var url = ServiceUrls.ResponseFriendRequest;
+            	var data = new Object();
+            	data.user_id = reject.user_id;
+            	data.action_user_id = profile.userId;
+                data.status = 2;
+            	console.log(data);
+                
+            	HttpService.ResponseFriendRequestService(url, data)
+        			.then(function(response){
+        				$route.reload();
+        			}, function(error){
+        				$log.info(error);
+        			});                
+            }
+            /* reject request code end */
 }]);

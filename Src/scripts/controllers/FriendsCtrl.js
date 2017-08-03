@@ -1,4 +1,4 @@
-app.controller("FriendsCtrl", ['$scope', 'ServiceUrls', 'HttpService', 'LS', function($scope, ServiceUrls, HttpService, LS){
+app.controller("FriendsCtrl", ['$scope', '$location', 'ServiceUrls', 'HttpService', 'LS', function($scope, $location, ServiceUrls, HttpService, LS){
 	$scope.data = 'friends page comming soon!';
 	var user = LS.getData();
 	var encodedProfile = user.split('.')[1];
@@ -42,4 +42,9 @@ app.controller("FriendsCtrl", ['$scope', 'ServiceUrls', 'HttpService', 'LS', fun
 		}, function(error){
 				$log.info(error);
 			});
+		$scope.action = function(username){
+                if(username){                
+                    $location.path('/friends/'+username);
+                }
+            }
 }]);

@@ -1,4 +1,4 @@
-app.controller("PeopleYouMayKnowCtrl", ['$scope', '$routeParams', '$route', 'ServiceUrls', 'HttpService', 'LS', function($scope, $routeParams, $route, ServiceUrls, HttpService, LS) {
+app.controller("PeopleYouMayKnowCtrl", ['$scope', '$location', '$routeParams', '$route', 'ServiceUrls', 'HttpService', 'LS', function($scope, $location, $routeParams, $route, ServiceUrls, HttpService, LS) {
 		var user = LS.getData();
 		var encodedProfile = user.split('.')[1];
 		var profile = JSON.parse(LS.url_base64_decode(encodedProfile));
@@ -23,4 +23,10 @@ app.controller("PeopleYouMayKnowCtrl", ['$scope', '$routeParams', '$route', 'Ser
             function errorCallback(error){
 				$log.info(error);		
 			});
+
+			$scope.action = function(username){
+                if(username){                
+                    $location.path('/friends/'+username);
+                }
+            }
 }]);

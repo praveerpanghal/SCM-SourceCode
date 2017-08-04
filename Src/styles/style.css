@@ -6,7 +6,7 @@ body
 }
 .alignBody
 {
-  padding-top: 122px;
+  padding-top: 123px;
 }
 .container
 {
@@ -88,7 +88,7 @@ p
 .body-content
 {
   position: absolute;
-  top: 183px;
+  top: 52px;
   bottom: 172px;
   right: 0;
   left: 0;
@@ -97,20 +97,23 @@ p
 .landingheader
 {
     border-top:8px solid #712e3b;
-    padding:28px 0;
+    padding:15px 0;
     background-color:#efefef;
 }
 .alignFixedNav
 {
   
 }
-.homeHeader
+/*.homeHeader
 {
    padding:15px 0;
-}
+}*/
 .homeHeaderLogo
 {
-  width:150px;
+  width: 150px;
+  background:rgb(239, 239, 239);
+  padding: 2px 10px;
+
 }
 .landingTopNav 
 {
@@ -122,6 +125,7 @@ p
     right: -12px;
     margin: 0;
     bottom: -15px;
+    top:11px;
 }
 .landingTopNav li{
   margin-bottom: 0;
@@ -131,7 +135,7 @@ p
 }
 .landingTopNav a
 {
-    color:#712e3b;
+    color:#FFF;
     padding-left:0;
     font-size:16px;
      display: table-cell;
@@ -143,18 +147,18 @@ p
 }
 .landingTopNav a .fa
 {
-    color:#712d3a;
+    color:#FFF;
     padding-right:8px;
 }
 .landingNav
 {
-    padding:11px 0;
+    padding:4px 0;
     background-color:#712e3b;
 }
 .loginWizard
 {
-    padding-top:12px;
-    padding-bottom:0;
+    padding-top: 20px;
+    padding-bottom: 15px;
     background-color:#f8f5f3;
 }
 .loginWizard .form-control,.signUpContainer .form-control
@@ -1108,11 +1112,10 @@ a.requestIcons{
 {
   width: 100%;
   height: 250px;
-  background-image: url(../../src/images/friends.jpg);
+  /*background-image: url(../../src/images/friends.jpg);*/
   background-size: cover;
   background-position: center center;
   border:1px solid #ef6f04;
-  background-size: auto 100%;
 }
 
 /*Edit Profile Ends*/

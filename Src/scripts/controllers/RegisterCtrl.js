@@ -62,7 +62,7 @@ app.controller("RegisterCtrl", ['$scope', '$http', '$window', '$log', '$location
 		var url = ServiceUrls.UserRegistrationForm;
 		var data = new Object();
 			data.user_fname = person.user_fname;
-			data.user_mname = person.user_mname||""; 
+			data.user_mname = ""; 
 			data.user_lname = person.user_lname;
 		  	data.password = person.passwrd;
 			data.school_id = person.school_id;
@@ -73,6 +73,7 @@ app.controller("RegisterCtrl", ['$scope', '$http', '$window', '$log', '$location
 			data.city_name = "";
 			data.user_dateofbirth = "";
 			data.user_gender = "";
+			console.log(data);
 		HttpService.RegisterUserService(url, data)
 			.then(function successCallback(response){
 				if(response==1){

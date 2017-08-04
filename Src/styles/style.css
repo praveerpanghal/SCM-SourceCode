@@ -715,7 +715,7 @@ p
 .onlineWizard h4
 {
   color:#FFF;
-  background-color:#ef6f04;
+  background-color:#00bcd4;
   padding: 10px 10px;
   width: 150px;
   margin:0 auto;
@@ -893,11 +893,11 @@ p
   margin-top: 10px;
 }
 .commenterDetails .likes a{
-  color:#ef6f04;
+  color:#007e87;
   padding-left: 10px;
 }
 .commenterDetails .dislikes a{
-  color:#ef6f04;
+  color:#ea3e70;
   padding-left: 10px;
 }
 .likesColor
@@ -915,7 +915,7 @@ p
 }
 .follower
 {
-  color: #ef6f04;
+  color: #84b501;
   font-size: 12px;
   padding-left: 15px;
 }

@@ -173,7 +173,7 @@ p
 }
 .landingTopNav a
 {
-    color:#FFF;
+    color:#712e3b;
     padding-left:0;
     font-size:16px;
      display: table-cell;
@@ -196,8 +196,8 @@ p
 }
 .loginWizard
 {
-    padding-top: 20px;
-    padding-bottom: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     background-color:#f8f5f3;
 }
 .loginWizard .form-control,.signUpContainer .form-control

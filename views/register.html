@@ -11,10 +11,6 @@
 					<input class="form-control" name="user_fname" placeholder="First Name" type="text" ng-model="person.user_fname" required>
 					<span class="help-block" ng-show="registerForm.user_fname.$invalid && !registerForm.user_fname.$pristine">First Name Required</span>
 				</div>
-				<div class="form-group">
-					<input class="form-control" id="user_mname" name="user_mname" placeholder="Middle Name" type="text" ng-model="person.user_mname" >
-					<span class="field-validation-valid validate_msg"></span>
-				</div>
 				<div class="form-group" ng-class="{ 'has-error' : registerForm.user_lname.$invalid && !registerForm.user_lname.$pristine }">
 					<input class="form-control" id="user_lname" name="user_lname" placeholder="Last Name" type="text" ng-model="person.user_lname" required>
 					<span class="help-block" ng-show="registerForm.user_lname.$invalid && !registerForm.user_lname.$pristine">Last Name Required</span>

@@ -1,7 +1,8 @@
 /* MainCtrl */
-app.controller("RegisterCtrl", ['$scope', '$http', '$window', '$log', '$location', 'HttpService', 'ServiceUrls', function($scope, $http, $window, $log, $location, HttpService, ServiceUrls){	
+app.controller("RegisterCtrl", ['$scope', '$http', '$window', '$log', '$location', '$timeout', '$route', 'HttpService', 'ServiceUrls', function($scope, $http, $window, $log, $location, $timeout, $route, HttpService, ServiceUrls){	
 	//$scope.text = "Register Ctrl.";
 	$scope.emailValid=true;
+	$scope.resetted=false;
 	// Path of the current page
 	$scope.currentPath = $location.path();
 	//console.log($scope.currentPath);
@@ -62,7 +63,6 @@ app.controller("RegisterCtrl", ['$scope', '$http', '$window', '$log', '$location
 		var url = ServiceUrls.UserRegistrationForm;
 		var data = new Object();
 			data.user_fname = person.user_fname;
-			data.user_mname = ""; 
 			data.user_lname = person.user_lname;
 		  	data.password = person.passwrd;
 			data.school_id = person.school_id;
@@ -73,12 +73,15 @@ app.controller("RegisterCtrl", ['$scope', '$http', '$window', '$log', '$location
 			data.city_name = "";
 			data.user_dateofbirth = "";
 			data.user_gender = "";
-			console.log(data);
+
 		HttpService.RegisterUserService(url, data)
 			.then(function successCallback(response){
 				if(response==1){
-					$scope.successMessage = 'Thanks for Registration';
-					$window.location='/';
+					$scope.resetted = true;			
+					$timeout(function() {
+						$scope.resetted = false;
+						$route.reload();
+					}, 3000);
 				}
 				else if(response==-4){
 					$scope.errorMsg = 'Either Email or Mobile already exists. Please try again!';
@@ -93,6 +96,6 @@ app.controller("RegisterCtrl", ['$scope', '$http', '$window', '$log', '$location
 				
 			}, function errorCallback(error){
 				$log.info(error);		 
-			}); 
+			});
 	}
 }]);

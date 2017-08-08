@@ -5,7 +5,7 @@ app.controller("PeopleYouMayKnowCtrl", ['$scope', '$location', '$routeParams', '
 		var url = ServiceUrls.GetUserInfo;
 		var data = new Object();
 		data.user_id = profile.userId;
-		console.log(data);
+		//console.log(data);
 		HttpService.UserInfoService(url, data)
 			.then(function(response){
 				if(response.GetUserInfoResult!=''){
@@ -64,4 +64,28 @@ app.controller("PeopleYouMayKnowCtrl", ['$scope', '$location', '$routeParams', '
         			});                
             }
             /* reject request code end */
+
+            /* send request code start */
+			$scope.frdRequest = function(toUserId){
+				var url = ServiceUrls.SendFriendRequest;
+		        var data = new Object();
+				data.user_id = profile.userId;
+				data.friend_id = toUserId;		
+				data.action_user_id = profile.userId;
+				console.log(data);
+		    	HttpService.SendFriendRequestService(url, data)
+		    		.then(function(response){
+		    			console.log(response);
+		    			if(response==1){
+		    				//console.log('sending request to user from meet me'+response);
+		    				$route.reload();            				
+		    			}else{
+		    				alert('some thing went wrong, please try again.');
+		    			}
+		    		}, 
+		    		function errorCallback(error){
+						$log.info(error);		
+					});
+			}
+			/* send request code end */
 }]);

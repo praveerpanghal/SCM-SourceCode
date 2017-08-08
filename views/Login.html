@@ -90,6 +90,9 @@
 						<div class="col-md-4 col-md-offset-2 col-sm-4 col-sm-offset-2 signUpTitle">
 							<h1>Sign Up</h1>
 						</div>
+						<div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 alert alert-success text-center alert-dismissable" ng-show="resetted"  style="padding: 4px 15px;">
+						  	<strong>Your are successfully registered with us.</strong>
+						</div>
 					</div>
 					<div class="row">
 						<div class="col-md-4 col-md-offset-2 col-sm-5 col-sm-offset-1">
@@ -123,7 +126,7 @@
 						<div class="col-md-4 col-sm-5">
 							<div class="form-group">
 							  
-								<input class="form-control" id="user_mob" name="user_mob" placeholder="Mobile No" type="tel" ng-model="person.user_mob">
+								<input class="form-control" id="user_mob" name="user_mob" placeholder="Mobile No" type="tel" ng-model="person.user_mob" ng-pattern="/^[0-9]{10,10}$" required>
 								<span class="help-block" style="display:none;color:red;">Error</span>
 							  
 							</div>
@@ -211,8 +214,7 @@
 								<input class="form-control" id="inputEmail" placeholder="Password" type="submit" value="SIGN UP">
 							</div>
 						</div>
-					</div>	
-
+					</div>
 					</form>
 				</div>
 

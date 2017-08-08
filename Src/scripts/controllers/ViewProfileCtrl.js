@@ -34,7 +34,7 @@ app.controller("ViewProfileCtrl", ['$scope', '$routeParams', '$route', 'ServiceU
     		.then(function(response){
     			console.log(response);
     			if(response==1){
-    				console.log('sending request to user from meet me'+response);
+    				//console.log('sending request to user from meet me'+response);
     				$route.reload();            				
     			}else{
     				alert('some thing went wrong, please try again.');

@@ -1027,6 +1027,14 @@ p
   background-color: transparent;
   color: #712e3b;
 }
+.followMemeber .btn-primary:first-child
+{
+  color:#007e87;
+}
+.followMemeber .btn-primary:last-child
+{
+  color:red;
+}
 .footer
 {
   background-color:#712e3b;

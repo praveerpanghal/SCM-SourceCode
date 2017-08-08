@@ -2,15 +2,170 @@
 	<div class="container">
 		<div class="row">	
 			<div class="col-md-12">
-				<!--<div class="editProfile" style="background-image:url('../src/images/friends.jpg');">
+				<div class="editProfile" style="background-image:url('../src/images/friends.jpg');">
+					<div class="col-md-1 col-md-offset-11">
+						<input type="file"  id="upload-cover-photo" />
+						<label id="upload-cover-photo-label" for="upload-photo">
+							<span class="glyphicon glyphicon-camera"></span>
+						</label>
+						<button type="submit" class="btn btn-primary" value="Upload!">Upload</button>
+					</div>
 				</div>
-				<div class="col-md-12editProfileWizard">
-					<div class="editProfileUser"></div>	
-					<p class="editProfileUserDtl">lorem ipsum dummy text</p>
-					<p></p>
+				<div class="col-md-12 editProfileWizard">
+					<form>
+						<div class="editProfileUser">
+							<div class="editProfileUserPic" style="background-image:url('../src/images/user2.jpg');">
+								<input type="file"  id="upload-photo" />
+								<label id="upload-photo-label" for="upload-photo">
+									<span class="glyphicon glyphicon-camera"></span>
+								</label>
+							</div>
+							<h3>Sara Bareilles</h3>
+						</div>	
+						<p class="editProfileUserDtl">&nbsp</p>
+						<div class="editProfileUserTxt col-md-6 col-md-offset-2 text-center">
+							<button type="submit" class="btn btn-primary" value="Upload!">Upload</button>
+						</div>
+					</form>
 				</div>
 			</div>
-			<div class="col-md-12">123456789</div>-->
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+					<div class="container">
+							<div class="row">
+								<div class="col-md-12 col-sm-12 col-xs-12">
+							        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 bhoechie-tab-container">
+							            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-8 bhoechie-tab-menu">
+							              <div class="list-group">
+							                <!--<a href="#" class="list-group-item active text-center">
+							                  <h4 class="glyphicon glyphicon-plane"></h4>Flight
+							                </a>-->
+							                <a href="#" class="list-group-item active text-center">
+							                  <i class="fa fa-info-circle" aria-hidden="true"></i>
+													User Basic Information
+							                </a>
+							                
+							              </div>
+							            </div>
+							            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 bhoechie-tab">
+							                <!-- flight section -->
+							                <!--<div class="bhoechie-tab-content ">
+							                    <center>
+							                      <h1 class="glyphicon glyphicon-plane" style="font-size:14em;color:#55518a"></h1>
+							                      <h2 style="margin-top: 0;color:#55518a">Cooming Soon</h2>
+							                      <h3 style="margin-top: 0;color:#55518a">Flight Reservation</h3>
+							                    </center>
+							                </div>-->
+							                <!-- train section -->
+							                <div class="bhoechie-tab-content active">
+							                    <div class="row">
+									                  <div class="col-md-8 col-sm-8 col-xs-12 text-center">
+								                      		<h5>
+								                      			<i class="fa fa-info-circle" aria-hidden="true"></i>
+								                      			User Basic Information
+								                      		</h5>
+								                      </div>
+							                  	</div>
+							                  	<div class="row">
+								                    <div class="col-md-12 col-sm-12 col-xs-12">
+									                    <div class="col-md-4 col-sm-4 col-xs-12">	
+									                    	<div class="form-group">
+															  <label class="control-label" for="focusedInput">First name</label>
+															  <input class="form-control" id="" type="text" value="This is focused...">
+															</div>
+														</div>
+														<div class="col-md-4 col-sm-4 col-xs-12">	
+									                    	<div class="form-group">
+															  <label class="control-label" for="focusedInput">Last name</label>
+															  <input class="form-control" id="" type="text" value="This is focused...">
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="row">
+								                    <div class="col-md-12 col-sm-12 col-xs-12">
+									                    <div class="col-md-4 col-sm-4 col-xs-12">	
+									                    	<div class="form-group">
+															  <label class="control-label" for="focusedInput">Email ID</label>
+															  <input class="form-control" id="" type="text" value="This is focused...">
+															</div>
+														</div>
+														<div class="col-md-4 col-sm-4 col-xs-12">	
+									                    	<div class="form-group">
+															  <label class="control-label" for="focusedInput">Mobile No</label>
+															  <input class="form-control" id="" type="text" value="This is focused...">
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="row">
+								                    <div class="col-md-12 col-sm-12 col-xs-12">
+									                    <div class="col-md-4 col-sm-4 col-xs-12">	
+									                    	<div class="form-group">
+															  <label class="control-label" for="focusedInput">Password</label>
+															  <input class="form-control" id="" type="text" value="This is focused...">
+															</div>
+														</div>
+														<div class="col-md-4 col-sm-4 col-xs-12">	
+									                    	<div class="form-group">
+															  <label class="control-label" for="focusedInput">Re Password</label>
+															  <input class="form-control" id="" type="text" value="This is focused...">
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="row">
+								                    <div class="col-md-12 col-sm-12 col-xs-12">
+									                    <div class="col-md-4 col-sm-4 col-xs-12">	
+									                    	<div class="form-group">
+															  <label class="control-label" for="focusedInput">Country</label>
+															  <select class="form-control" id="" value="This is focused...">
+															  	<option>Select Country</option>
+															  </select>
+															</div>
+														</div>
+														<div class="col-md-4 col-sm-4 col-xs-12">	
+									                    	<div class="form-group">
+															  <label class="control-label" for="focusedInput">State</label>
+															  <select class="form-control" id="" value="This is focused...">
+															  	<option>Select State</option>
+															  </select>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="row">
+								                    <div class="col-md-12 col-sm-12 col-xs-12">
+									                    <div class="col-md-4 col-sm-4 col-xs-12">	
+									                    	<div class="form-group">
+															  <label class="control-label" for="focusedInput">School</label>
+															  <select class="form-control" id="" value="This is focused...">
+															  	<option>Select a school</option>
+															  </select>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="row">
+								                    <div class="col-md-12 col-sm-12 col-xs-12">
+									                    <div class="col-md-8 col-xs-12">	
+									                    	<div class="form-group">
+															  <button type="submit" class="btn btn-info" value="Upload!">Save</button>
+															</div>
+														</div>
+													</div>
+												</div>
+
+
+							                </div>
+							            </div>
+
+							        </div>
+						    	</div>
+						  </div>
+					</div>
+			</div>
 		</div>
 	</div>
 </div>

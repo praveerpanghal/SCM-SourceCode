@@ -1,6 +1,7 @@
-app.controller("EditProfileCtrl", ['$scope', 'LS', 'HttpService', 'ServiceUrls', function($scope, LS, HttpService, ServiceUrls){
-	$scope.cp = 'Edit Profile';
+app.controller("EditProfileCtrl", ['$scope', '$log', '$timeout', '$route', 'LS', 'HttpService', 'ServiceUrls', function($scope, $log, $timeout, $route, LS, HttpService, ServiceUrls){
 	
+	$scope.cp = 'Edit Profile';
+
 	$(document).ready(function() {
 	    $("div.bhoechie-tab-menu>div.list-group>a").click(function(e) {
 	        e.preventDefault();
@@ -115,7 +116,7 @@ app.controller("EditProfileCtrl", ['$scope', 'LS', 'HttpService', 'ServiceUrls',
 	$scope.UpdateProfile =function(userData){
         var url = ServiceUrls.UpdateProfile;
         var data = new Object();
-        data.user_id = profile.user_id;
+        data.user_id = profile.userId;
         data.user_fname = userData.user_fname;
         data.user_lname = userData.user_lname;
         data.user_email = userData.user_email;
@@ -124,18 +125,25 @@ app.controller("EditProfileCtrl", ['$scope', 'LS', 'HttpService', 'ServiceUrls',
         data.state_id = userData.state_id;
         data.school_id = userData.school_id;
         console.log(data);
-        HttpService.PostCommentService(url, data)
-                    .then(function(response){
-                        console.log(response);
-                        if(response!=0){
-                            $scope.msg = "Profile updated sucessfully";
-                        }else{
-                            $scope.msg = 'All fields must be enter ';
-                        }
-                    }, 
-                    function(error){
-                        $log.info(error);
-                    });
+        
+        HttpService.UpdateProfileService(url, data)
+            .then(function(response){
+                console.log(response);
+                if(response!=0){
+                	$('#myModal').modal('show');
+                    $scope.successMessage = "Profile updated sucessfully.";
+                    $timeout(function() {
+                    	$('#myModal').modal('hide');
+                    	$('.modal-backdrop').remove();
+						$route.reload();
+					}, 3000);
+                }else{
+                    $scope.msg = 'Profile not updated.';
+                }
+            }, 
+            function(error){
+                $log.info(error);
+            });
     }
 
     //Edit Profile Details Ends

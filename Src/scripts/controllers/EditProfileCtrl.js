@@ -124,7 +124,6 @@ app.controller("EditProfileCtrl", ['$scope', '$log', '$timeout', '$route', 'LS',
         data.country_id = userData.country_id;
         data.state_id = userData.state_id;
         data.school_id = userData.school_id;
-        console.log(data);
         
         HttpService.UpdateProfileService(url, data)
             .then(function(response){

@@ -14,8 +14,9 @@
 				<div class="col-md-12 editProfileWizard">
 					<form>
 						<div class="editProfileUser">
-							<div class="editProfileUserPic" style="background-image:url('{{userProfile.image_name}}');">
-								<input type="file"  id="upload-photo" />
+							<div class="editProfileUserPic">
+								<img ngf-thumbnail="userProfile.image_name" class="editProfileUserPic" />
+								<input type="file"  id="upload-photo" ngf-select ng-model="userProfile.image_name" />
 								<label id="upload-photo-label" for="upload-photo">
 									<span class="glyphicon glyphicon-camera"></span>
 								</label>

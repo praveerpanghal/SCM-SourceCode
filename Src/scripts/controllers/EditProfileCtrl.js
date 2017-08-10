@@ -147,6 +147,27 @@ app.controller("EditProfileCtrl", ['$scope', '$log', '$timeout', '$route', 'LS',
 
     //Edit Profile Details Ends
 
+    $scope.uploadCover = function(cover){
+    	//var file = $scope.myfile;
+    	console.log(cover.image_name.name);
+        var uploadUrl = "/multer";
+        var fd = new FormData();
+        fd.append('file', file);
 
+        $http.post(uploadUrl,fd, {
+            transformRequest: angular.identity,
+            headers: {'Content-Type': undefined}
+        })
+        .success(function(response){
+        	console.log(response);
+        	$scope.res = response;
+			$scope.myfile = '';
+        })
+        .error(function(){
+          console.log("error!!");
+        });
+    	$scope.path = 'src/images/cover/'+cover.image_name.name;
+    	console.log($scope.path);
+    }
 
 }]);

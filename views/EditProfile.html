@@ -3,8 +3,9 @@
 		<div class="row">	
 			<div class="col-md-12">
 				<div class="editProfile" style="background-image:url('{{userProfile.cover_name}}');">
+					<img ngf-thumbnail="userProfile.cover_name" class="editProfile"/>
 					<div class="col-md-1 col-md-offset-11">
-						<input type="file"  id="upload-cover-photo" />
+						<input type="file"   ngf-select ng-model="userProfile.cover_name" />
 						<label id="upload-cover-photo-label" for="upload-photo">
 							<span class="glyphicon glyphicon-camera"></span>
 						</label>
@@ -15,7 +16,7 @@
 					<form>
 						<div class="editProfileUser">
 							<div class="editProfileUserPic">
-							<img ngf-thumbnail="userProfile.image_name" class="editProfileUserPic"/>
+								<img ngf-thumbnail="userProfile.image_name" class="editProfileUserPic"/>
 								<input type="file"  id="upload-photo" ngf-select ng-model="userProfile.image_name" />
 								<label id="upload-photo-label" for="upload-photo">
 									<span class="glyphicon glyphicon-camera"></span>

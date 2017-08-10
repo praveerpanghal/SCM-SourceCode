@@ -1212,6 +1212,9 @@ a.requestIcons{
   -moz-border-radius: 100px;
   border-radius: 100px;
 }
+.editProfileUserPic img{
+  position: absolute;
+}
 .editProfileUserDtl
 {
     padding: 20px 20px 20px 10px;

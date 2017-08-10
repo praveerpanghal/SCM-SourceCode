@@ -108,4 +108,38 @@ app.controller("EditProfileCtrl", ['$scope', 'LS', 'HttpService', 'ServiceUrls',
 			$log.info(error);		
 		});
 	// Schools List end
+
+
+	//Edit Profile Details Starts
+
+	$scope.UpdateProfile =function(userData){
+        var url = ServiceUrls.UpdateProfile;
+        var data = new Object();
+        data.user_id = profile.user_id;
+        data.user_fname = userData.user_fname;
+        data.user_lname = userData.user_lname;
+        data.user_email = userData.user_email;
+        data.user_mob = userData.user_mob;
+        data.country_id = userData.country_id;
+        data.state_id = userData.state_id;
+        data.school_id = userData.school_id;
+        console.log(data);
+        HttpService.PostCommentService(url, data)
+                    .then(function(response){
+                        console.log(response);
+                        if(response!=0){
+                            $scope.msg = "Profile updated sucessfully";
+                        }else{
+                            $scope.msg = 'All fields must be enter ';
+                        }
+                    }, 
+                    function(error){
+                        $log.info(error);
+                    });
+    }
+
+    //Edit Profile Details Ends
+
+
+
 }]);

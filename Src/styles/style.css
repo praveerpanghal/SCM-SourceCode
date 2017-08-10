@@ -1356,7 +1356,10 @@ div.bhoechie-tab-content{
 div.bhoechie-tab div.bhoechie-tab-content:not(.active){
   display: none;
 }
-
+#myModal .modal-content
+{
+  width: 200px !important;
+}
 
 /*Edit Profile Ends*/
 

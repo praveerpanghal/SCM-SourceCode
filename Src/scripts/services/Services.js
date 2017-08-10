@@ -65,6 +65,10 @@ app.factory('HttpService',function($http, SuccessError){
 		GetFriendsListService: function(url, data){
 			return $http.post(url, data)
 				.then(SuccessError.Successresult, SuccessError.Errorresult);
+		},
+		UpdateProfileService: function(url, data){
+			return $http.post(url, data)
+				.then(SuccessError.Successresult, SuccessError.Errorresult);
 		}
 	}
 

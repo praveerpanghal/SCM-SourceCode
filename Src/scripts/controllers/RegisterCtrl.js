@@ -87,7 +87,7 @@ app.controller("RegisterCtrl", ['$scope', '$http', '$window', '$log', '$location
 					$scope.errorMsg = 'Either Email or Mobile already exists. Please try again!';
 				}
 				else if(response==-3){
-					$scope.errorMsg = 'Mobile already exists. Please try again!';
+					$scope.errorMsg = 'Mobile number already exists. Please try again!';
 				}
 				else if(response==-2){
 					$scope.errorMsg = 'Email already exists. Please try again!';

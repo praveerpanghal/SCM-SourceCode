@@ -2,7 +2,7 @@
 	<div class="container">
 		<div class="row">	
 			<div class="col-md-12">
-				<div class="editProfile" style="background-image:url('../src/images/friends.jpg');">
+				<div class="editProfile" style="background-image:url('{{userProfile.cover_name}}');">
 					<div class="col-md-1 col-md-offset-11">
 						<input type="file"  id="upload-cover-photo" />
 						<label id="upload-cover-photo-label" for="upload-photo">
@@ -14,13 +14,13 @@
 				<div class="col-md-12 editProfileWizard">
 					<form>
 						<div class="editProfileUser">
-							<div class="editProfileUserPic" style="background-image:url('../src/images/user2.jpg');">
+							<div class="editProfileUserPic" style="background-image:url('{{userProfile.image_name}}');">
 								<input type="file"  id="upload-photo" />
 								<label id="upload-photo-label" for="upload-photo">
 									<span class="glyphicon glyphicon-camera"></span>
 								</label>
 							</div>
-							<h3>Sara Bareilles</h3>
+							<h3>{{userProfile.username}}</h3>
 						</div>	
 						<p class="editProfileUserDtl">&nbsp</p>
 						<div class="editProfileUserTxt col-md-6 col-md-offset-2 text-center">
@@ -72,13 +72,13 @@
 									                    <div class="col-md-4 col-sm-4 col-xs-12">	
 									                    	<div class="form-group">
 															  <label class="control-label" for="focusedInput">First name</label>
-															  <input class="form-control" id="" type="text" value="Enter First name">
+															  <input class="form-control" type="text" value="Enter First name" ng-model="userProfile.user_fname">
 															</div>
 														</div>
 														<div class="col-md-4 col-sm-4 col-xs-12">	
 									                    	<div class="form-group">
 															  <label class="control-label" for="focusedInput">Last name</label>
-															  <input class="form-control" id="" type="text" value="Enter Last name">
+															  <input class="form-control" type="text" value="Enter Last name"  ng-model="userProfile.user_lname">
 															</div>
 														</div>
 													</div>
@@ -88,29 +88,13 @@
 									                    <div class="col-md-4 col-sm-4 col-xs-12">	
 									                    	<div class="form-group">
 															  <label class="control-label" for="focusedInput">Email ID</label>
-															  <input class="form-control" id="" type="text" value="Enter Email ID">
+															  <input class="form-control" type="text" value="Enter Email ID"  ng-model="userProfile.user_email">
 															</div>
 														</div>
 														<div class="col-md-4 col-sm-4 col-xs-12">	
 									                    	<div class="form-group">
 															  <label class="control-label" for="focusedInput">Mobile No</label>
-															  <input class="form-control" id="" type="text" value="Enter Mobile No">
-															</div>
-														</div>
-													</div>
-												</div>
-												<div class="row">
-								                    <div class="col-md-12 col-sm-12 col-xs-12">
-									                    <div class="col-md-4 col-sm-4 col-xs-12">	
-									                    	<div class="form-group">
-															  <label class="control-label" for="focusedInput">Password</label>
-															  <input class="form-control" id="" type="text" value="Enter Password">
-															</div>
-														</div>
-														<div class="col-md-4 col-sm-4 col-xs-12">	
-									                    	<div class="form-group">
-															  <label class="control-label" for="focusedInput">Re Password</label>
-															  <input class="form-control" id="" type="text" value="Enter Re Password">
+															  <input class="form-control" type="text" value="Enter Mobile No"  ng-model="userProfile.user_mob">
 															</div>
 														</div>
 													</div>
@@ -120,16 +104,15 @@
 									                    <div class="col-md-4 col-sm-4 col-xs-12">	
 									                    	<div class="form-group">
 															  <label class="control-label" for="focusedInput">Country</label>
-															  <select class="form-control" id="" value="This is focused...">
-															  	<option>Select Country</option>
+															  <select class="form-control" ng-model="userProfile.country_id" ng-options="country.country_id as country.country_name for country in countryList" ng-change="StateName(userProfile.country_id)">
 															  </select>
 															</div>
 														</div>
 														<div class="col-md-4 col-sm-4 col-xs-12">	
 									                    	<div class="form-group">
 															  <label class="control-label" for="focusedInput">State</label>
-															  <select class="form-control" id="" value="This is focused...">
-															  	<option>Select State</option>
+															  <select class="form-control" ng-model="userProfile.state_id" ng-options="state.state_id as state.state_name for state in stateList">
+															  <option value=''>Select State</option>
 															  </select>
 															</div>
 														</div>
@@ -140,8 +123,7 @@
 									                    <div class="col-md-4 col-sm-4 col-xs-12">	
 									                    	<div class="form-group">
 															  <label class="control-label" for="focusedInput">School</label>
-															  <select class="form-control" id="" value="This is focused...">
-															  	<option>Select a school</option>
+															  <select class="form-control" ng-model="userProfile.school_id" ng-options="school.school_id as school.school_name for school in schoolsList">
 															  </select>
 															</div>
 														</div>
@@ -156,11 +138,8 @@
 														</div>
 													</div>
 												</div>
-
-
 							                </div>
 							            </div>
-
 							        </div>
 						    	</div>
 						  </div>

@@ -134,7 +134,7 @@
 					</div>
 					<div class="row">
 						<div class="col-md-4 col-md-offset-2 col-sm-5 col-sm-offset-1">
-							<div class="form-group" ng-class="{ 'has-error' : registerForm.password.$invalid && !registerForm.password.$pristine }">
+							<div class="form-group has-error" ng-class="{ 'has-error' : registerForm.password.$invalid && !registerForm.password.$pristine }">
 							 
 								<input class="form-control" id="inputEmail" placeholder="Password" type="password"
 								id="passwrd" name="passwrd" placeholder="Password" ng-model="person.passwrd" ng-minlength="8" ng-maxlength="30" ng-pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z])/" required >
@@ -217,10 +217,6 @@
 					</div>
 					</form>
 				</div>
-
 			</div>
 		</div>
 	</div>
-
-
-

@@ -6,7 +6,5 @@ app.controller("MainCtrl", ['$scope', '$http', '$location', 'LS', 'ServiceUrls',
 		// var profile = JSON.parse(LS.url_base64_decode(encodedProfile));
 		// return profile.userId;
 		return LS.getData();
-	} 
-
-	
+	} 	
 }]);

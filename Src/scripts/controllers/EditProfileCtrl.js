@@ -1,22 +1,10 @@
-app.controller("EditProfileCtrl", ['$scope', '$log', '$timeout', '$route', 'LS', 'HttpService', 'ServiceUrls', function($scope, $log, $timeout, $route, LS, HttpService, ServiceUrls){
+app.controller("EditProfileCtrl", ['$scope', '$http', '$log', '$timeout', '$route', 'LS', 'HttpService', 'ServiceUrls', function($scope, $http, $log, $timeout, $route, LS, HttpService, ServiceUrls){
 	
-	$scope.cp = 'Edit Profile';
-
-	$(document).ready(function() {
-	    $("div.bhoechie-tab-menu>div.list-group>a").click(function(e) {
-	        e.preventDefault();
-	        $(this).siblings('a.active').removeClass("active");
-	        $(this).addClass("active");
-	        var index = $(this).index();
-	        $("div.bhoechie-tab>div.bhoechie-tab-content").removeClass("active");
-	        $("div.bhoechie-tab>div.bhoechie-tab-content").eq(index).addClass("active");
-	    });
-	});
-
 	var user = LS.getData();
 	var encodedProfile = user.split('.')[1];
 	var profile = JSON.parse(LS.url_base64_decode(encodedProfile));
 
+	// userinfo service
 	var url = ServiceUrls.GetUserInfo;
     var data = new Object();
     data.user_id = profile.userId;
@@ -149,27 +137,139 @@ app.controller("EditProfileCtrl", ['$scope', '$log', '$timeout', '$route', 'LS',
 
     //Edit Profile Details Ends
 
-    $scope.uploadCover = function(cover){
-    	//var file = $scope.myfile;
-    	console.log(cover.image_name.name);
+    $scope.uploadProfile = function(userProfile){
+    	
+   		var file = userProfile.profile_picture; 
         var uploadUrl = "/multer";
         var fd = new FormData();
         fd.append('file', file);
+		console.log(file.name);
 
+		// to move profile picture into the profile folder
         $http.post(uploadUrl,fd, {
             transformRequest: angular.identity,
-            headers: {'Content-Type': undefined}
-        })
+            headers: {
+                'Content-Type': undefined
+            }
+	    })
         .success(function(response){
-        	console.log(response);
-        	$scope.res = response;
-			$scope.myfile = '';
-        })
-        .error(function(){
-          console.log("error!!");
+	     	console.log(response);
+	       	//console.log("success!!");
+	       	$scope.res = response;
+	    })
+	    .error(function(){
+	      console.log("error!!");
         });
-    	$scope.path = 'Src/images/cover/'+cover.image_name.name;
-    	console.log($scope.path);
+
+        //profile picture path
+        $scope.profile_picture = 'Src/images/profile/'+file.name;
+
+	    //to update profile data in database
+	    var url = ServiceUrls.UpdateProfile;
+        var data = new Object();
+        data.user_id = profile.userId;
+        data.user_fname = userProfile.user_fname;
+        data.user_lname = userProfile.user_lname;
+        data.user_email = userProfile.user_email;
+        data.user_mob = userProfile.user_mob;
+        data.country_id = userProfile.country_id;
+        data.state_id = userProfile.state_id;
+        data.school_id = userProfile.school_id;
+        data.profile_picture = $scope.profile_picture;
+        data.cover_picture = userProfile.cover_picture;
+        console.log(data);
+        HttpService.UpdateProfileService(url, data)
+            .then(function(response){
+                console.log(response);
+                if(response!=0){
+                	$('#myModal').modal('show');
+                    $scope.successMessage = "Profile updated sucessfully.";
+                    $timeout(function() {
+                    	$('#myModal').modal('hide');
+                    	$('.modal-backdrop').remove();
+						$route.reload();
+					}, 3000);
+                }else{
+                    $scope.msg = 'Profile not updated.';
+                }
+            }, 
+            function(error){
+                $log.info(error);
+            });
+
     }
+
+    $scope.uploadCover = function(cover){
+    	
+    	var file = cover.cover_picture; 
+        var uploadUrl = "/multerC";
+        var fd = new FormData();
+        fd.append('file', file);
+		console.log(file.name);
+
+		// to move profile picture into the profile folder
+        $http.post(uploadUrl,fd, {
+            transformRequest: angular.identity,
+            headers: {
+                'Content-Type': undefined
+            }
+	    })
+        .success(function(response){
+	     	console.log(response);
+	       	//console.log("success!!");
+	       	$scope.res = response;
+	    })
+	    .error(function(){
+	      console.log("error!!");
+        });
+
+	    //profile picture path
+        $scope.cover_picture = 'Src/images/cover/'+file.name;
+
+	    //to update profile data in database
+	    var url = ServiceUrls.UpdateProfile;
+        var data = new Object();
+        data.user_id = profile.userId;
+        data.user_fname = cover.user_fname;
+        data.user_lname = cover.user_lname;
+        data.user_email = cover.user_email;
+        data.user_mob = cover.user_mob;
+        data.country_id = cover.country_id;
+        data.state_id = cover.state_id;
+        data.school_id = cover.school_id;
+        data.profile_picture = cover.profile_picture;
+        data.cover_picture = $scope.cover_picture;
+        console.log(data);
+        HttpService.UpdateProfileService(url, data)
+            .then(function(response){
+                console.log(response);
+                if(response!=0){
+                	$('#myModal').modal('show');
+                    $scope.successMessage = "Profile updated sucessfully.";
+                    $timeout(function() {
+                    	$('#myModal').modal('hide');
+                    	$('.modal-backdrop').remove();
+						$route.reload();
+					}, 3000);
+                }else{
+                    $scope.msg = 'Profile not updated.';
+                }
+            }, 
+            function(error){
+                $log.info(error);
+            });
+    }
+
+
+	$(document).ready(function() {
+	    $("div.bhoechie-tab-menu>div.list-group>a").click(function(e) {
+	        e.preventDefault();
+	        $(this).siblings('a.active').removeClass("active");
+	        $(this).addClass("active");
+	        var index = $(this).index();
+	        $("div.bhoechie-tab>div.bhoechie-tab-content").removeClass("active");
+	        $("div.bhoechie-tab>div.bhoechie-tab-content").eq(index).addClass("active");
+	    });
+	});
 
 }]);

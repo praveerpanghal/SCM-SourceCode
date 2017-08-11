@@ -1281,6 +1281,8 @@ a.requestIcons{
     line-height: 10px;
     width: 100%;
     margin-top: 10px;
+    position: absolute;
+    top: 25px
 }
 #upload-cover-photo-label+.btn.btn-primary
 {
@@ -1289,7 +1291,11 @@ a.requestIcons{
   background-color:transparent;
   border:0;
   padding-left: 12px;
-  color:#949494;
+  color:#fff;
+  position: absolute;
+  top: 55px;
+  margin-left: 12px;
+  font-weight: 600;
 }
 #upload-cover-photo-label+.btn.btn-primary:hover,
 #upload-cover-photo-label+.btn.btn-primary:active,

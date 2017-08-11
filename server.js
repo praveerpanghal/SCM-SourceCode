@@ -56,11 +56,11 @@ server.get('/*', function(req, res){
     res.sendFile(__dirname + '/index.html');
 });
 
-/* upload image code start */
+/* upload profile image code start */
 var multer = require('multer');
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, './Src/images/cover/')
+        cb(null, './Src/images/profile/')
     },
     filename: function (req, file, cb) {
     	//cb(null, file.originalname+ '-' + Date.now()+'.jpg')
@@ -72,7 +72,26 @@ var upload = multer({storage: storage});
 server.post('/multer', upload.single('file'), function (req, res) {
 	res.end("File uploaded successfully.");
 });
-/* upload image code end */
+/* upload profile image code end */
+
+/* upload cover image code start */
+var multerC = require('multer');
+var storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, './Src/images/cover/')
+    },
+    filename: function (req, file, cb) {
+		cb(null, file.originalname)
+    }
+});
+
+var upload = multer({storage: storage});
+server.post('/multerC', upload.single('file'), function (req, res) {
+	res.end("File uploaded successfully.");
+});
+/* upload cover image code end */
+
+
 
 server.listen(SERVER_PORT,function(){ });
 console.log("Server listening on "+SERVER_PORT+" port...");	

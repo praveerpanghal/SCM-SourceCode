@@ -24,8 +24,7 @@
 			</div>
 			<div class="form-height">				
 				<div class="col-md-12 form-group">				
-					<input class="form-control" id="user_mob" name="user_mob" placeholder="Mobile No" type="tel" ng-model="person.user_mob" ><!--
-					<span class="help-block" ng-show="registerForm.user_mob.$invalid && !registerForm.user_mob.$pristine">Mobile Number Required</span>-->
+					<input class="form-control" id="user_mob" name="user_mob" placeholder="Mobile No" type="tel" ng-model="person.user_mob" >
 				</div>
 			</div>
 			<div class="form-height ">				
@@ -57,11 +56,7 @@
 						<option ng-repeat="state in stateList" value={{state.state_id}}>{{state.state_name}}</option>
 					</select>
 					<span class="help-block" ng-show="registerForm.state_id.$invalid && !registerForm.state_id.$pristine">State Name Required</span>
-				</div><!--
-				<div class="form-spacing col-md-4 form-group" ng-class="{ 'has-error' : registerForm.city_name.$invalid && !registerForm.city_name.$pristine }">				
-					<input type="text" class="form-control" id="city_name" name="city_name" title="Please Select your City" placeholder="Please Enter your City" ng-model="person.city_name" required>
-					<span class="help-block" ng-show="registerForm.city_name.$invalid && !registerForm.city_name.$pristine">City Name Required</span>
-				</div>-->
+				</div>
 			</div>
 			<div class="form-height">				
 				<div class="col-md-12  form-group" ng-class="{ 'has-error' : registerForm.school_id.$invalid && !registerForm.school_id.$pristine }">

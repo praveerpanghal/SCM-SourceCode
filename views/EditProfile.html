@@ -2,22 +2,24 @@
 	<div class="container">
 		<div class="row">	
 			<div class="col-md-12">
-				<div class="editProfile" style="background-image:url('{{userProfile.cover_name}}');">
-					<img ngf-thumbnail="userProfile.cover_name" class="editProfile"/>
+				<div class="" >
+				<form name="CoverPictureForm" ng-submit="uploadCover(userProfile)" enctype="multipart/form-data">
 					<div class="col-md-1 col-md-offset-11">
-						<input type="file"   ngf-select ng-model="userProfile.cover_name" />
-						<label id="upload-cover-photo-label" for="upload-photo">
+						<input type="file" name="cover_picture" id="upload-cover-photo" ngf-select ng-model="userProfile.cover_picture" ng-required="true" />
+						<label id="upload-cover-photo-label" for="upload-cover-photo">
 							<span class="glyphicon glyphicon-camera"></span>
 						</label>
-						<button type="submit" class="btn btn-primary" value="Upload!">Upload</button>
+						<button type="submit" ng-disabled="CoverPictureForm.cover_picture.$invalid" class="btn btn-primary" value="Upload!">Upload</button>
 					</div>
+					<img ngf-thumbnail="userProfile.cover_picture" class="editProfile" ng-model="userProfile.cover_picture"/>
+				</form>
 				</div>
 				<div class="col-md-12 editProfileWizard">
-					<form>
+					<form ng-submit="uploadProfile(userProfile)" enctype="multipart/form-data">
 						<div class="editProfileUser">
 							<div class="editProfileUserPic">
-								<img ngf-thumbnail="userProfile.image_name" class="editProfileUserPic"/>
-								<input type="file"  id="upload-photo" ngf-select ng-model="userProfile.image_name" />
+								<img ngf-thumbnail="userProfile.profile_picture" class="editProfileUserPic" ng-model="userProfile.profile_picture" />
+								<input type="file"  id="upload-photo" ngf-select ng-model="userProfile.profile_picture" />
 								<label id="upload-photo-label" for="upload-photo">
 									<span class="glyphicon glyphicon-camera"></span>
 								</label>
@@ -52,15 +54,6 @@
 							              </div>
 							            </div>
 							            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 bhoechie-tab">
-							                <!-- flight section -->
-							                <!--<div class="bhoechie-tab-content ">
-							                    <center>
-							                      <h1 class="glyphicon glyphicon-plane" style="font-size:14em;color:#55518a"></h1>
-							                      <h2 style="margin-top: 0;color:#55518a">Cooming Soon</h2>
-							                      <h3 style="margin-top: 0;color:#55518a">Flight Reservation</h3>
-							                    </center>
-							                </div>-->
-							                <!-- train section -->
 							                <div class="bhoechie-tab-content active">
 							                    <div class="row">
 									                  <div class="col-md-8 col-sm-8 col-xs-12 text-center">

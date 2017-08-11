@@ -1,36 +1,3 @@
-<!--<div id="content-pre" >
-	
-	<div class="loginForm">
-		<div class="text-center">
-			<h3>Login</h3>
-		</div>
-		<div class="modal-body">
-			<form name="LoginForm" ng-submit="loginUser(user)">
-				<div class="form-group" ng-class="{ 'has-error' : LoginForm.user_email.$invalid && !LoginForm.user_email.$pristine }">                                
-					<input class="form-control text-box single-line" id="user_email" name="user_email" placeholder="Email" title="Please enter Email or Mobile No" type="text" ng-model="user.user_email" required ng-pattern = '/^[^\s@]+@[a-zA-Z]+\.[a-zA-Z]{2,}$/'>
-					<span class="help-block" ng-show="LoginForm.user_email.$invalid && !LoginForm.user_email.$pristine">Valid Email Required</span>
-				</div>
-				<div class="form-group">                                
-					<input class="form-control text-box single-line password" id="password" name="password" placeholder="password" title="Please enter your Password" type="password" ng-model="user.password" required>
-					<span class="field-validation-valid text-danger"></span>
-				</div>
-				<div ng-show="err_message" class="err">{{err_message}}</div>
-				<div class="form-group">
-					<input type="submit" value="Sign In" class="btn btn-large btn-block btn-warning standard-color">
-				</div>
-			</form>
-		</div>
-		<div class="text-center ">
-			<h4>
-				<a class="linkup" href="forgot">Forgot Password ?</a> 
-			</h4>
-			<div class="cls"></div>
-		</div>
-	</div>
-	<div class="clearfix"></div>
-	
-</div>-->
-
 	<div class="container-fluid loginWizard">
 		<div class="container">
 			<div class="row">
@@ -144,16 +111,13 @@
 							 <span class="help-block" ng-show="registerForm.passwrd.$error.required && registerForm.passwrd.$invalid && registerForm.passwrd.$dirty && registerForm.passwrd.$pristine">This is a required field</span>
 <span class="help-block" ng-show="!registerForm.passwrd.$error.required && (registerForm.passwrd.$error.minlength || registerForm.passwrd.$error.maxlength) && registerForm.passwrd.$dirty">Passwords must be between 8 and 20 characters</span>
 
-<span help-block ng-show="!registerForm.passwrd.$error.required && !registerForm.passwrd.$error.minlength && !registerForm.passwrd.$error.maxlength && registerForm.passwrd.$error.pattern && registerForm.passwrd.$dirty">Must contain one lower & uppercase letter, and one numeric</span>
+<span class="help-block" ng-show="!registerForm.passwrd.$error.required && !registerForm.passwrd.$error.minlength && !registerForm.passwrd.$error.maxlength && registerForm.passwrd.$error.pattern && registerForm.passwrd.$dirty">Must contain one lower & uppercase letter, and one numeric</span>
 							</div>
 						</div>
 						<div class="col-md-4 col-sm-5">
-							<div class="form-group" ng-class="{ 'has-error' : registerForm.re_password.$invalid && !registerForm.re_password.$pristine }">
-							  
+							<div class="form-group" ng-class="{ 'has-error' : registerForm.re_password.$invalid && !registerForm.re_password.$pristine }"> 
 								<input class="form-control" id="re_password" name="re_password" placeholder="Re-Password" type="password" ng-model="person.re_password" nx-equal="person.passwrd" required>
 								<span class="help-block" ng-show="!registerForm.passwrd.$error.required && registerForm.re_password.$error.nxEqual && registerForm.re_password.$dirty">Password do not match</span>
-								
-							  
 							</div>
 						</div>
 					</div>
@@ -211,7 +175,7 @@
 					<div class="row">
 						<div class="col-md-2 col-md-offset-5 col-sm-2 col-sm-offset-5 col-xs-12 signUpBtn">
 							<div class="form-group">
-								<input class="form-control" id="inputEmail" placeholder="Password" type="submit" value="SIGN UP">
+								<input class="form-control" type="submit" value="SIGN UP" />
 							</div>
 						</div>
 					</div>

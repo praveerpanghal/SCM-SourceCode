@@ -1,8 +1,10 @@
 /* MainCtrl */
 app.controller("RegisterCtrl", ['$scope', '$http', '$window', '$log', '$location', '$timeout', '$route', 'HttpService', 'ServiceUrls', function($scope, $http, $window, $log, $location, $timeout, $route, HttpService, ServiceUrls){	
+	
 	//$scope.text = "Register Ctrl.";
 	$scope.emailValid=true;
 	$scope.resetted=false;
+
 	// Path of the current page
 	$scope.currentPath = $location.path();
 	//console.log($scope.currentPath);

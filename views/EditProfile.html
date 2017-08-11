@@ -2,11 +2,11 @@
 	<div class="container">
 		<div class="row">	
 			<div class="col-md-12">
-				<div class="editProfile" >
-					<img ngf-thumbnail="userProfile.cover_name" class=""/>
-					<div class="col-md-1 col-md-offset-11 coverPhotoWizard">
-						<input type="file" id="upload-cover-photo"   ngf-select ng-model="userProfile.cover_name" />
-						<label id="upload-cover-photo-label" for="upload-cover-photo">
+				<div class="editProfile" style="background-image:url('{{userProfile.cover_name}}');">
+					<img ngf-thumbnail="userProfile.cover_name" class="editProfile"/>
+					<div class="col-md-1 col-md-offset-11">
+						<input type="file"   ngf-select ng-model="userProfile.cover_name" />
+						<label id="upload-cover-photo-label" for="upload-photo">
 							<span class="glyphicon glyphicon-camera"></span>
 						</label>
 						<button type="submit" class="btn btn-primary" value="Upload!">Upload</button>

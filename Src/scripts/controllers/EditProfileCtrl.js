@@ -124,7 +124,9 @@ app.controller("EditProfileCtrl", ['$scope', '$log', '$timeout', '$route', 'LS',
         data.country_id = userData.country_id;
         data.state_id = userData.state_id;
         data.school_id = userData.school_id;
-        
+        data.profile_picture = userData.profile_picture;
+        data.cover_picture = userData.cover_picture;
+        console.log(data);
         HttpService.UpdateProfileService(url, data)
             .then(function(response){
                 console.log(response);
@@ -166,7 +168,7 @@ app.controller("EditProfileCtrl", ['$scope', '$log', '$timeout', '$route', 'LS',
         .error(function(){
           console.log("error!!");
         });
-    	$scope.path = 'src/images/cover/'+cover.image_name.name;
+    	$scope.path = 'Src/images/cover/'+cover.image_name.name;
     	console.log($scope.path);
     }
 

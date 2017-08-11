@@ -1,6 +1,6 @@
 /* app configuration */
 'use strict'
-var app = angular.module("scm", ['ngStorage', 'ngRoute', 'ngFileUpload']).run(function($rootScope, $location){
+var app = angular.module("scm", ['ngStorage', 'ngRoute']).run(function($rootScope, $location){
     $rootScope.location = $location;
 });
 

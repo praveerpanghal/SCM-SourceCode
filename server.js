@@ -60,7 +60,7 @@ server.get('/*', function(req, res){
 var multer = require('multer');
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, './Src/images/profile/')
+        cb(null, './Src/images/cover/')
     },
     filename: function (req, file, cb) {
     	//cb(null, file.originalname+ '-' + Date.now()+'.jpg')

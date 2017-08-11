@@ -7,4 +7,8 @@ app.controller("MainCtrl", ['$scope', '$http', '$location', 'LS', 'ServiceUrls',
 		// return profile.userId;
 		return LS.getData();
 	} 	
+	//alert(this.latestData());
+	if(!this.latestData()){
+		$location.path('/');
+	}
 }]);

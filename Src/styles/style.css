@@ -1185,6 +1185,7 @@ a.requestIcons{
   /*background-image: url(../../src/images/friends.jpg);*/
   background-size: cover;
   background-position: center center;
+  overflow: hidden;
 }
 .editProfileWizard{
   margin-top: -184px;
@@ -1240,6 +1241,18 @@ a.requestIcons{
     height: 0;
     width: 0;
 }
+#upload-cover-photo {
+    width:0;
+    height:0;
+    position: relative;
+    top: 33px;
+    left: -85px;
+    z-index: 999;
+}
+.coverPhotoWizard {
+    position: absolute;
+    top: 0;
+}
 #upload-photo-label{
     text-align: right;
     float: right;
@@ -1250,7 +1263,7 @@ a.requestIcons{
 }
 #upload-cover-photo-label {
     text-align: center;
-    color: #FFF;
+    color: #000;
     font-size: 22px;
     line-height: 10px;
     width: 100%;
@@ -1263,6 +1276,7 @@ a.requestIcons{
   background-color:transparent;
   border:0;
   padding-left: 12px;
+  color:#949494;
 }
 #upload-cover-photo-label+.btn.btn-primary:hover,
 #upload-cover-photo-label+.btn.btn-primary:active,

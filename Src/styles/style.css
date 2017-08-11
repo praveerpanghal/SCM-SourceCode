@@ -626,7 +626,7 @@ p
   float: none;
   margin-bottom: 10px;
   margin-top:25px;
-  height: 90px;
+  height: 180px;
 }
 .scmLeftNav .navbar-default{
   background-color: #fff;
@@ -678,7 +678,7 @@ p
 }
 .userBg
 {
-  width: 257px;
+  width: 272px;
   height: 100%;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -695,7 +695,8 @@ p
   top: 10px;
   height: 75px;
   width: 75px;
-  left: 20px;
+  left:0px;
+  right: 0;
   -webkit-border-radius: 100%;
   -moz-border-radius: 100%;
   border-radius: 100%;
@@ -706,18 +707,27 @@ p
   cursor: pointer;
   background-position: center center;
   background-repeat: no-repeat;
+  margin:0 auto;
+  top:35px; 
 }
 .userName
 {
   text-align: center;
   color: #FFF;
-  margin-top: 20px;
   float: left;
   width: 100%;
-  padding-left: 55px;
-  font-size: 18px;
+  font-size: 16px;
   text-decoration: underline;
-
+  margin-top: 98px;
+  margin-bottom: 10px;
+}
+.schoolName
+{
+  text-align: center;
+  color: #FFF;
+  float: left;
+  width: 100%;
+  font-size: 14px;
 }
 .userPic,.commenterpic
 {
@@ -1518,8 +1528,8 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
   }
   .userName
   {
-    text-align: left;
-    padding-left: 95px;
+    text-align: center;
+    width: 100%;
   }
 
 

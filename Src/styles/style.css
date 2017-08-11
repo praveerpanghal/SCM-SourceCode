@@ -1051,8 +1051,10 @@ p
   margin-bottom: 2px;
   height: 42px;
 }
-.topNavSearchBar .form-control
-{
+.topNavSearchBar .imaginary_container
+{ 
+  margin-top: 3px;
+  
 }
 .topNavSearchBar .input-group-addon{
     background:#FFF!important; 
@@ -1071,6 +1073,7 @@ p
   -moz-border-radius: 100px;
   border-radius: 100px;
   color: #333;
+  height: 35px;
 }
 .topNavSearchBar .input-group-addon:last-child
 {
@@ -1554,6 +1557,19 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
   .followMemeber {
     width: 50%;  
   }
+  .topNavSearchBar
+  {
+    width: 50%;
+  }
+  .landingTopNav
+  {
+    top: 47px;
+    right: 0;
+  }
+  .landingTopNav a .fa
+  {
+    color: #FFF;
+  }
 }
 @media (max-width:600px){
   
@@ -1566,6 +1582,36 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
   .followMemeber
   {
     width: 50%;
+  }
+  .homeHeaderLogo
+  {
+    width:145px;
+  }
+  .topNavSearchBar .form-control
+  {
+    height: 26px;
+  }
+  .topNavSearchBar .input-group-addon
+  {
+    padding: 2px 12px;
+  }
+  .landingNav
+  {
+    margin-top: -15px;
+  }
+  .landingNav
+  {
+    padding:3px 0; 
+  }
+  .landingTopNav {
+    top: 29px;
+    right: 0;
+    font-size:12px;
+  }
+  .landingTopNav a  
+  {
+      padding-left:15px;
+      font-size:14px;
   }
 }
 @media (max-width:390px){
@@ -1589,11 +1635,7 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
 }
 
 @media (max-width:380px){
-  .landingTopNav a  
-  {
-      padding-left:15px;
-      font-size:14px;
-  }
+  
   .chatOnline
   {
     margin:0 auto;

@@ -112,6 +112,11 @@ p
 {
   background-color: #058798;
 }
+.btn[disabled].btn-info:hover, .btn[disabled].btn-info:active, .btn[disabled].btn-info:visited,
+.btn[disabled].btn-info:focus
+{
+  background-color: #058798;
+}
 .bodyWizard {
     max-height: calc( 100vh - 190px );
     /*border: 1px solid red;*/

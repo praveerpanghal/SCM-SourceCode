@@ -39,7 +39,6 @@
 		<div class="row">
 			<div class="col-md-12">
 					<div class="container">
-						<form name="UpdateProfileForm" ng-submit="UpdateProfile(userProfile)">
 							<div class="row">
 								<div class="col-md-12 col-sm-12 col-xs-12">
 							        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 bhoechie-tab-container">
@@ -61,6 +60,7 @@
 							            </div>
 							            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 bhoechie-tab">
 							                <div class="bhoechie-tab-content active">
+							                <form name="UpdateProfileForm" ng-submit="UpdateProfile(userProfile)">
 							                    <div class="row">
 									                  <div class="col-md-8 col-sm-8 col-xs-12 text-center">
 								                      		<h5>
@@ -142,8 +142,10 @@
 														</div>
 													</div>
 												</div>
+											</form>
 							                </div>
 							                <div class="bhoechie-tab-content">
+							                <form name="changePasswordForm" ng-sbumit="changePassword(user)">
 							                    <div class="row">
 									                  <div class="col-md-8 col-sm-8 col-xs-12 text-center">
 								                      		<h5>
@@ -159,7 +161,10 @@
 															  <label class="control-label" for="focusedInput"> 
 															  	Old password
 															  </label>
-															  <input class="form-control" type="password" value="Enter First name" ng-model="">
+															  <input class="form-control" type="password" name="old_password" ng-model="user.old_password" ng-minlength="8" ng-maxlength="30" ng-pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z])/" required />
+															  <span class="text-danger" ng-show="!changePasswordForm.old_password.$error.required && (changePasswordForm.old_password.$error.minlength || changePasswordForm.old_password.$error.maxlength) && changePasswordForm.old_password.$dirty">Passwords must be between 8 and 20 characters</span>
+
+<span class="text-danger" ng-show="!changePasswordForm.old_password.$error.required && !changePasswordForm.old_password.$error.minlength && !changePasswordForm.old_password.$error.maxlength && changePasswordForm.old_password.$error.pattern && changePasswordForm.old_password.$dirty">Must contain one lower & uppercase letter, and one numeric</span>
 															</div>
 														</div>
 													</div>
@@ -171,7 +176,7 @@
 															  <label class="control-label" for="focusedInput"> 
 															  	New password
 															  </label>
-															  <input class="form-control" type="password" value="Enter First name" ng-model="">
+															  <input class="form-control" type="password" ng-model="user.new_password" required />
 															</div>
 														</div>
 														<div class="col-md-4 col-sm-4 col-xs-12">	
@@ -179,26 +184,21 @@
 															  <label class="control-label" for="focusedInput"> 
 															  	Confirm password
 															  </label>
-															  <input class="form-control" type="password" value="Enter First name" ng-model="">
+															  <input class="form-control" type="password" ng-model="user.confirm_password" required />
 															</div>
 														</div>
 													</div>
 												</div>
-
-												
-												
-												
 												<div class="row">
 								                    <div class="col-md-12 col-sm-12 col-xs-12">
 									                    <div class="col-md-8 col-xs-12">	
 									                    	<div class="form-group">
-															  <button type="submit" class="btn btn-info" >Save</button>
-															  <!--
-															  data-toggle="modal" data-target="#myModal"-->
+															  <button type="submit" class="btn btn-info" ng-disabled="changePasswordForm.$invalid || changePasswordForm.$pristine">Change Password</button>
 															</div>
 														</div>
 													</div>
 												</div>
+											</form>
 							                </div>
 							            </div>
 							        </div>
@@ -215,7 +215,6 @@
 							    </div>
 							  </div>
 							</div>
-						</form>
 					</div><!-- Container for UpdateProfileForm -->
 			</div>
 		</div><!-- Row Ends -->

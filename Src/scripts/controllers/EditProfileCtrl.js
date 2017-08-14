@@ -260,6 +260,29 @@ app.controller("EditProfileCtrl", ['$scope', '$http', '$log', '$timeout', '$rout
             });
     }
 
+    $scope.changePassword = function(){
+    	var url = ServiceUrls.ChangePassword;
+    	var data = new Object();
+    	data.user_id = profile.userId;
+    	data.old_password = user.old_password;
+    	data.new_password = user.new_password;
+    	console.log(data);
+    	HttpService.ChangePasswordService(url, data)
+    		.then(function(response){
+    			if(response!=0){
+    				$('#myModal').modal('show');
+    				$scope.successMessage = 'Password changed sucessfully.'
+    				$timeout(function() {
+                    	$('#myModal').modal('hide');
+                    	$('.modal-backdrop').remove();
+    					$location.path('/logout');						
+					}, 3000);
+    			}else{
+    				$scope.errorMessage = 'Password change failed.';
+    			}
+    		});
+    }
+
 	$(document).ready(function() {
 	    $("div.bhoechie-tab-menu>div.list-group>a").click(function(e) {
 	        e.preventDefault();

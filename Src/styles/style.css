@@ -1360,6 +1360,11 @@ div.bhoechie-tab-menu div.list-group>a.active .fa{
   color: #00bcd4;
   border-color:transparent; 
 }
+div.bhoechie-tab-menu div.list-group>a
+{
+  border:0;
+  border-left: 1px solid #ddd;
+}
 div.bhoechie-tab-menu div.list-group>a.active
 {
   border-left: 1px solid #00bcd4;

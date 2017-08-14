@@ -260,7 +260,6 @@ app.controller("EditProfileCtrl", ['$scope', '$http', '$log', '$timeout', '$rout
             });
     }
 
-
 	$(document).ready(function() {
 	    $("div.bhoechie-tab-menu>div.list-group>a").click(function(e) {
 	        e.preventDefault();

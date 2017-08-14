@@ -9,26 +9,28 @@
 						<label id="upload-cover-photo-label" for="upload-cover-photo">
 							<span class="glyphicon glyphicon-camera"></span>
 						</label>
-						<button type="submit" ng-disabled="CoverPictureForm.$invalid" class="btn btn-primary" value="Upload!">Upload</button>
+						<button type="submit" class="btn btn-primary" value="Upload!" ng-disabled="CoverPictureForm.$invalid || CoverPictureForm.$pristine">Upload</button>
 					</div>
 					<img ngf-thumbnail="userProfile.cover_picture" class="editProfile" ng-model="userProfile.cover_picture"/>
 				</form>
 				</div>
 				<div class="col-md-12 editProfileWizard">
-					<form ng-submit="uploadProfile(userProfile)" enctype="multipart/form-data">
+					<form name="ProfilePictureForm" ng-submit="uploadProfile(userProfile)" enctype="multipart/form-data">
 						<div class="editProfileUser">
 							<div class="editProfileUserPic">
 								<img ngf-thumbnail="userProfile.profile_picture" class="editProfileUserPic" ng-model="userProfile.profile_picture" />
-								<input type="file"  id="upload-photo" ngf-select ng-model="userProfile.profile_picture" />
+								<input type="file"  id="upload-photo" ngf-select ng-model="userProfile.profile_picture" required />
 								<label id="upload-photo-label" for="upload-photo">
 									<span class="glyphicon glyphicon-camera"></span>
 								</label>
 							</div>
+							{{profileBtn}}
 							<h3>{{userProfile.username}}</h3>
 						</div>	
 						<p class="editProfileUserDtl">&nbsp</p>
 						<div class="editProfileUserTxt col-md-6 col-md-offset-2 col-sm-6 col-sm-offset-2 col-xs-1 col-xs-offset-8 text-center">
-							<button type="submit" class="btn btn-primary" value="Upload!">Upload</button>
+							<button type="submit" class="btn btn-primary" value="Upload!"
+							ng-disabled="ProfilePictureForm.$invalid || ProfilePictureForm.$pristine">Upload</button>
 						</div>
 					</form>
 				</div>

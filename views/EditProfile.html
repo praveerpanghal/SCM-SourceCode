@@ -5,11 +5,11 @@
 				<div class="" >
 				<form name="CoverPictureForm" ng-submit="uploadCover(userProfile)" enctype="multipart/form-data">
 					<div class="col-md-1 col-md-offset-11">
-						<input type="file" name="cover_picture" id="upload-cover-photo" ngf-select ng-model="userProfile.cover_picture" ng-required="true" />
+						<input type="file" name="cover_picture" id="upload-cover-photo" ngf-select ng-model="userProfile.cover_picture" required />
 						<label id="upload-cover-photo-label" for="upload-cover-photo">
 							<span class="glyphicon glyphicon-camera"></span>
 						</label>
-						<button type="submit" ng-disabled="CoverPictureForm.cover_picture.$invalid" class="btn btn-primary" value="Upload!">Upload</button>
+						<button type="submit" ng-disabled="CoverPictureForm.$invalid" class="btn btn-primary" value="Upload!">Upload</button>
 					</div>
 					<img ngf-thumbnail="userProfile.cover_picture" class="editProfile" ng-model="userProfile.cover_picture"/>
 				</form>

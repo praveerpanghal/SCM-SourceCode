@@ -145,7 +145,7 @@
 											</form>
 							                </div>
 							                <div class="bhoechie-tab-content">
-							                <form name="changePasswordForm" ng-sbumit="changePassword(user)">
+							                <form name="changePasswordForm" ng-submit="changePassword(user)">
 							                    <div class="row">
 									                  <div class="col-md-8 col-sm-8 col-xs-12 text-center">
 								                      		<h5>
@@ -161,10 +161,8 @@
 															  <label class="control-label" for="focusedInput"> 
 															  	Old password
 															  </label>
-															  <input class="form-control" type="password" name="old_password" ng-model="user.old_password" ng-minlength="8" ng-maxlength="30" ng-pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z])/" required />
-															  <span class="text-danger" ng-show="!changePasswordForm.old_password.$error.required && (changePasswordForm.old_password.$error.minlength || changePasswordForm.old_password.$error.maxlength) && changePasswordForm.old_password.$dirty">Passwords must be between 8 and 20 characters</span>
-
-<span class="text-danger" ng-show="!changePasswordForm.old_password.$error.required && !changePasswordForm.old_password.$error.minlength && !changePasswordForm.old_password.$error.maxlength && changePasswordForm.old_password.$error.pattern && changePasswordForm.old_password.$dirty">Must contain one lower & uppercase letter, and one numeric</span>
+															  <input class="form-control" type="password" name="old_password" ng-model="user.old_password" placeholder="Enter old password" required />					  
+													<span class="text-danger" ng-if="errorMessage">{{errorMessage}}</span>
 															</div>
 														</div>
 													</div>
@@ -176,7 +174,9 @@
 															  <label class="control-label" for="focusedInput"> 
 															  	New password
 															  </label>
-															  <input class="form-control" type="password" ng-model="user.new_password" required />
+															  <input class="form-control" type="password" ng-model="user.new_password" name="new_password" ng-minlength="8" ng-maxlength="30" ng-pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z])/" placeholder="Enter new password" required /> 
+															  <span class="text-danger" ng-show="!changePasswordForm.new_password.$error.required && (changePasswordForm.new_password.$error.minlength || changePasswordForm.new_password.$error.maxlength) && changePasswordForm.new_password.$dirty">Passwords must be between 8 and 20 characters</span>
+<span class="text-danger" ng-show="!changePasswordForm.new_password.$error.required && !changePasswordForm.new_password.$error.minlength && !changePasswordForm.new_password.$error.maxlength && changePasswordForm.new_password.$error.pattern && changePasswordForm.new_password.$dirty">Must contain one lower & uppercase letter, and one numeric</span>
 															</div>
 														</div>
 														<div class="col-md-4 col-sm-4 col-xs-12">	
@@ -184,9 +184,10 @@
 															  <label class="control-label" for="focusedInput"> 
 															  	Confirm password
 															  </label>
-															  <input class="form-control" type="password" ng-model="user.confirm_password" required />
+															  <input class="form-control" type="password" name="confirm_password" ng-model="user.confirm_password" placeholder="Enter confirm password" nx-equal="user.new_password" required />
+					<span class="text-danger" ng-show="!changePasswordForm.new_password.$error.required && changePasswordForm.confirm_password.$error.nxEqual && changePasswordForm.confirm_password.$dirty">Password do not match</span>
 															</div>
-														</div>
+														</div>	
 													</div>
 												</div>
 												<div class="row">

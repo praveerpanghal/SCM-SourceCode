@@ -1,4 +1,4 @@
-app.controller("EditProfileCtrl", ['$scope', '$http', '$log', '$timeout', '$route', 'LS', 'HttpService', 'ServiceUrls', function($scope, $http, $log, $timeout, $route, LS, HttpService, ServiceUrls){
+app.controller("EditProfileCtrl", ['$scope', '$http', '$log', '$timeout', '$route', '$location', 'LS', 'HttpService', 'ServiceUrls', function($scope, $http, $log, $timeout, $route, $location, LS, HttpService, ServiceUrls){
 	
 	var user = LS.getData();
 	var encodedProfile = user.split('.')[1];
@@ -260,7 +260,7 @@ app.controller("EditProfileCtrl", ['$scope', '$http', '$log', '$timeout', '$rout
             });
     }
 
-    $scope.changePassword = function(){
+    $scope.changePassword = function(user){
     	var url = ServiceUrls.ChangePassword;
     	var data = new Object();
     	data.user_id = profile.userId;
@@ -269,7 +269,8 @@ app.controller("EditProfileCtrl", ['$scope', '$http', '$log', '$timeout', '$rout
     	console.log(data);
     	HttpService.ChangePasswordService(url, data)
     		.then(function(response){
-    			if(response!=0){
+    			console.log(response.ChangePasswordResult);
+    			if(response.ChangePasswordResult==1){
     				$('#myModal').modal('show');
     				$scope.successMessage = 'Password changed sucessfully.'
     				$timeout(function() {
@@ -278,7 +279,11 @@ app.controller("EditProfileCtrl", ['$scope', '$http', '$log', '$timeout', '$rout
     					$location.path('/logout');						
 					}, 3000);
     			}else{
-    				$scope.errorMessage = 'Password change failed.';
+    				$scope.errorMessage = 'Please enter correct old password.';
+    				$timeout(function() {
+                    	$scope.errorMessage = '';
+					}, 3000);
+    				console.log($scope.errorMessage);
     			}
     		});
     }

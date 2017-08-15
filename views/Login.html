@@ -85,16 +85,15 @@
 						<div class="col-md-4 col-md-offset-2 col-sm-5 col-sm-offset-1">
 							<div class="form-group" ng-class="{ 'has-error' : registerForm.email.$invalid && !registerForm.email.$pristine }">
 							 
-								<input class="form-control" id="email" name="email" placeholder="Email id" type="email" ng-model="person.email" required ng-pattern = '/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i'>
+								<input class="form-control" id="email" name="email" placeholder="Email id" type="email" ng-model="person.email" required ng-pattern='/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i'>
 								<span class="help-block" ng-show="registerForm.email.$invalid && !registerForm.email.$pristine">Valid Email Required</span>
 							 
 							</div>
 						</div>
 						<div class="col-md-4 col-sm-5">
-							<div class="form-group">
-							  
-								<input class="form-control" id="user_mob" name="user_mob" placeholder="Mobile No" type="tel" ng-model="person.user_mob" ng-pattern="/^[0-9]{10,10}$" required>
-								<span class="help-block" style="display:none;color:red;">Error</span>
+							<div class="form-group">							  
+								<input class="form-control" id="user_mob" name="user_mob" placeholder="Mobile No" type="tel" ng-model="person.user_mob" ng-pattern="/^[0-9]{10,10}$/" required>
+								<span class="text-danger" ng-show="registerForm.user_mob.$invalid && !registerForm.user_mob.$pristine">Enter only numbers</span>
 							  
 							</div>
 						</div>

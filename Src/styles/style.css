@@ -131,10 +131,12 @@ p
 {
   position: absolute;
   top: 82px;
-  bottom: 172px;
+  /*bottom: 172px;*/
+  bottom: 147px;
   right: 0;
   left: 0;
   overflow-y: auto;
+  background-color: #efefef;
 }
 .landingheader
 {
@@ -142,9 +144,12 @@ p
     padding:8px 0 0 0;
     background-color:#efefef;
 }
-.alignFixedNav
+.landingFooter .media-left{
+    vertical-align: top;
+}
+.landingFooter .media-body
 {
-  
+  padding-bottom: 20px;
 }
 /*.homeHeader
 {
@@ -553,7 +558,7 @@ p
 {
     font-size:39px;
     color:#ef6f04;
-    line-height: 140px;
+    line-height: 82px;
 }
 .landingFooter .media-body h4{
     margin-top:20px;

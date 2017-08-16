@@ -22,6 +22,26 @@ app.controller("ViewProfileCtrl", ['$scope', '$routeParams', '$route', 'ServiceU
 				$log.info(error);
 			});
 
+	// userinfo service
+	var url = ServiceUrls.GetUserInfo;
+    var data = new Object();
+    data.user_id = profile.userId;
+    HttpService.UserInfoService(url, data)
+        .then(function(response){
+            if(response.GetUserInfoResult!=''){                 
+                $scope.userInfo = JSON.parse(response.GetUserInfoResult);
+                $scope.userProfile = $scope.userInfo[0].UserProfile[0];
+                console.log($scope.userProfile);
+				$scope.DefaultStateName($scope.userProfile.country_id, $scope.userProfile.state_id);
+            }else{
+                alert('Data Not Found');
+                $location.path('/logout');
+            }
+        }, 
+        function errorCallback(error){
+            $log.info(error);       
+        });
+        
 	/* send request code start */
 	$scope.frdRequest = function(toUserId){
 		var url = ServiceUrls.SendFriendRequest;

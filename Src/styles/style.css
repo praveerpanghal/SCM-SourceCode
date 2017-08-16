@@ -1,8 +1,13 @@
 
+html
+{
+  height: 100%;
+}
 body
 {
   background-color:#FFF;
   padding-top:185px;
+  height: 100%;
 }
 .alignBody
 {
@@ -209,6 +214,7 @@ p
     padding-top: 10px;
     padding-bottom: 10px;
     background-color:#f8f5f3;
+    border-bottom: 4px solid #e8e8e8;
 }
 .loginWizard .form-control,.signUpContainer .form-control
 {
@@ -473,8 +479,13 @@ p
 {
     background:#efefef;
     padding:10px;
-    border-top:4px solid #e8e8e8;
-    /*border-bottom:4px solid #e8e8e8;*/
+    /*border-top:4px solid #e8e8e8;
+    border-bottom:4px solid #e8e8e8;*/
+}
+.signUpWizard
+{
+  height: calc(100% - 153px);
+  position: relative;
 }
 .forgotWizard
 {
@@ -490,6 +501,14 @@ p
     -moz-border-radius: 8px;
     border-radius: 8px;
     background-color:#ffffff;
+}
+.signUpForm
+{
+  position: absolute;
+  top: 17px;
+  left: 0;
+  right: 0;
+  bottom: 13px;
 }
 .forgotWizard .signUpContainer
 {

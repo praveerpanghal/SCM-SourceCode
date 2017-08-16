@@ -8,7 +8,7 @@ app.controller("EditProfileCtrl", ['$scope', '$http', '$log', '$timeout', '$rout
 	var url = ServiceUrls.GetUserInfo;
     var data = new Object();
     data.user_id = profile.userId;
-    HttpService.UserInfoService(url, data)
+    HttpService.PostMethod(url, data)
         .then(function(response){
             if(response.GetUserInfoResult!=''){                 
                 $scope.userInfo = JSON.parse(response.GetUserInfoResult);
@@ -26,7 +26,7 @@ app.controller("EditProfileCtrl", ['$scope', '$http', '$log', '$timeout', '$rout
 
 	// Country List start
 	var url = ServiceUrls.GetCountrylist;
-	HttpService.CountryListService(url)
+	HttpService.GetMethod(url)
 		.then(function successCallback(response){
 			if(response.GetCountryListResult!==''){
 				$scope.countryList = response.GetCountryListResult;
@@ -44,7 +44,7 @@ app.controller("EditProfileCtrl", ['$scope', '$http', '$log', '$timeout', '$rout
 		var url = ServiceUrls.GetStateList;
 		var data = {"country_id"  : c};
 
-		HttpService.StateListService(url, data)
+		HttpService.PostMethod(url, data)
 			.then(function successCallback(response){
 				if(response.GetStateListResult !== ''){
 					$scope.stateList = response.GetStateListResult;
@@ -68,7 +68,7 @@ app.controller("EditProfileCtrl", ['$scope', '$http', '$log', '$timeout', '$rout
 		var url = ServiceUrls.GetStateList;
 		var data = {"country_id"  : countryId};
 
-		HttpService.StateListService(url, data)
+		HttpService.PostMethod(url, data)
 			.then(function successCallback(response){
 				if(response.GetStateListResult !== ''){
 					$scope.stateList = response.GetStateListResult;
@@ -84,7 +84,7 @@ app.controller("EditProfileCtrl", ['$scope', '$http', '$log', '$timeout', '$rout
 	
 	// Schools List start
 	var url = ServiceUrls.GetSchoolList;
-	HttpService.SchoolsListService(url)
+	HttpService.GetMethod(url)
 		.then(function successCallback(response){
 			if(response.GetSchoolListResult!==''){
 				$scope.schoolsList = response.GetSchoolListResult;
@@ -115,7 +115,7 @@ app.controller("EditProfileCtrl", ['$scope', '$http', '$log', '$timeout', '$rout
         data.profile_picture = userData.profile_picture;
         data.cover_picture = userData.cover_picture;
         console.log(data);
-        HttpService.UpdateProfileService(url, data)
+        HttpService.PostMethod(url, data)
             .then(function(response){
                 console.log(response);
                 if(response!=0){
@@ -178,7 +178,7 @@ app.controller("EditProfileCtrl", ['$scope', '$http', '$log', '$timeout', '$rout
         data.profile_picture = $scope.profile_picture;
         data.cover_picture = userProfile.cover_picture;
         console.log(data);
-        HttpService.UpdateProfileService(url, data)
+        HttpService.PostMethod(url, data)
             .then(function(response){
                 console.log(response);
                 if(response!=0){
@@ -240,7 +240,7 @@ app.controller("EditProfileCtrl", ['$scope', '$http', '$log', '$timeout', '$rout
         data.profile_picture = cover.profile_picture;
         data.cover_picture = $scope.cover_picture;
         console.log(data);
-        HttpService.UpdateProfileService(url, data)
+        HttpService.PostMethod(url, data)
             .then(function(response){
                 console.log(response);
                 if(response!=0){
@@ -267,7 +267,7 @@ app.controller("EditProfileCtrl", ['$scope', '$http', '$log', '$timeout', '$rout
     	data.old_password = user.old_password;
     	data.new_password = user.new_password;
     	console.log(data);
-    	HttpService.ChangePasswordService(url, data)
+    	HttpService.PostMethod(url, data)
     		.then(function(response){
     			console.log(response.ChangePasswordResult);
     			if(response.ChangePasswordResult==1){

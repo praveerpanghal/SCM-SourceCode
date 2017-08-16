@@ -9,7 +9,7 @@ app.controller("ViewProfileCtrl", ['$scope', '$routeParams', '$route', 'ServiceU
 	data.username  = $scope.username;
 	data.user_id = profile.userId;
 	//console.log(data);
-	HttpService.SearchUserService(url, data)
+	HttpService.PostMethod(url, data)
 			.then(function(response){
 				if(response!=''){
 					$scope.usersList = response;
@@ -26,7 +26,7 @@ app.controller("ViewProfileCtrl", ['$scope', '$routeParams', '$route', 'ServiceU
 	var url = ServiceUrls.GetUserInfo;
     var data = new Object();
     data.user_id = profile.userId;
-    HttpService.UserInfoService(url, data)
+    HttpService.PostMethod(url, data)
         .then(function(response){
             if(response.GetUserInfoResult!=''){                 
                 $scope.userInfo = JSON.parse(response.GetUserInfoResult);
@@ -50,7 +50,7 @@ app.controller("ViewProfileCtrl", ['$scope', '$routeParams', '$route', 'ServiceU
 		data.friend_id = toUserId;		
 		data.action_user_id = profile.userId;
 		console.log(data);
-    	HttpService.SendFriendRequestService(url, data)
+    	HttpService.PostMethod(url, data)
     		.then(function(response){
     			console.log(response);
     			if(response==1){
@@ -75,7 +75,7 @@ app.controller("ViewProfileCtrl", ['$scope', '$routeParams', '$route', 'ServiceU
     	data.status = 1;        
     	console.log(data);
     	
-    	HttpService.ResponseFriendRequestService(url, data)
+    	HttpService.PostMethod(url, data)
 			.then(function(response){
 				$route.reload();
 				console.log(response);
@@ -96,7 +96,7 @@ app.controller("ViewProfileCtrl", ['$scope', '$routeParams', '$route', 'ServiceU
     	data.status = 2;        
     	console.log(data);
     	
-    	HttpService.ResponseFriendRequestService(url, data)
+    	HttpService.PostMethod(url, data)
 			.then(function(response){
 				$route.reload();
 			}, function(error){
@@ -105,4 +105,26 @@ app.controller("ViewProfileCtrl", ['$scope', '$routeParams', '$route', 'ServiceU
 		
     }
     /* reject request code end */
+
+    $scope.DefaultStateName = function(c, s){
+        var url = ServiceUrls.GetStateList;
+        var data = {"country_id"  : c};
+
+        HttpService.PostMethod(url, data)
+            .then(function successCallback(response){
+                if(response.GetStateListResult !== ''){
+                    $scope.stateList = response.GetStateListResult;
+                    //console.log($scope.stateList);
+                    var index =$scope.stateList.map(function(e) { return e.state_id; }).indexOf(s);
+                    //console.log(index);
+                    $scope.state_id=$scope.stateList[index].state_name;
+                    //console.log($scope.state_id);
+                }
+                else{
+                    $log.info(response);
+                }
+            }, function errorCallback(error){
+                $log.info(error);       
+            });
+    }
 }]);

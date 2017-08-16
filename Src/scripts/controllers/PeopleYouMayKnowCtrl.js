@@ -6,7 +6,7 @@ app.controller("PeopleYouMayKnowCtrl", ['$scope', '$location', '$routeParams', '
 		var data = new Object();
 		data.user_id = profile.userId;
 		//console.log(data);
-		HttpService.UserInfoService(url, data)
+		HttpService.PostMethod(url, data)
 			.then(function(response){
 				if(response.GetUserInfoResult!=''){
 					$scope.userInfo = JSON.parse(response.GetUserInfoResult);	
@@ -37,7 +37,7 @@ app.controller("PeopleYouMayKnowCtrl", ['$scope', '$location', '$routeParams', '
                 data.action_user_id = profile.userId;      
                 data.status = 1;
                 console.log(data);
-            	HttpService.ResponseFriendRequestService(url, data)
+            	HttpService.PostMethod(url, data)
         			.then(function(response){        				
                         $route.reload();
         			}, function(error){
@@ -56,7 +56,7 @@ app.controller("PeopleYouMayKnowCtrl", ['$scope', '$location', '$routeParams', '
                 data.status = 2;
             	console.log(data);
                 
-            	HttpService.ResponseFriendRequestService(url, data)
+            	HttpService.PostMethod(url, data)
         			.then(function(response){
         				$route.reload();
         			}, function(error){
@@ -73,7 +73,7 @@ app.controller("PeopleYouMayKnowCtrl", ['$scope', '$location', '$routeParams', '
 				data.friend_id = toUserId;		
 				data.action_user_id = profile.userId;
 				console.log(data);
-		    	HttpService.SendFriendRequestService(url, data)
+		    	HttpService.PostMethod(url, data)
 		    		.then(function(response){
 		    			console.log(response);
 		    			if(response==1){

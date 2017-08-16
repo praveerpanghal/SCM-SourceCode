@@ -7,7 +7,7 @@ console.log(profile);
 	var data = new Object();
 	data.user_id = $routeParams.userId;
 	console.log(data.user_id);
-	HttpService.UserInfoService(url, data)
+	HttpService.PostMethod(url, data)
 		.then(function(response){
 			console.log(response);
 			if(response.GetUserInfoResult!=''){					

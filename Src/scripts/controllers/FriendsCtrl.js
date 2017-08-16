@@ -7,7 +7,7 @@ app.controller("FriendsCtrl", ['$scope', '$location', '$route', 'ServiceUrls', '
 		var url = ServiceUrls.GetUserInfo;
         var data = new Object();
         data.user_id = profile.userId;
-        HttpService.UserInfoService(url, data)
+        HttpService.PostMethod(url, data)
             .then(function(response){
                 if(response.GetUserInfoResult!=''){                 
                     $scope.userInfo = JSON.parse(response.GetUserInfoResult);
@@ -31,7 +31,7 @@ app.controller("FriendsCtrl", ['$scope', '$location', '$route', 'ServiceUrls', '
 		var data = new Object();
 		data.user_id = profile.userId;
 	
-		HttpService.GetFriendsListService(url, data)
+		HttpService.PostMethod(url, data)
 			.then(function(response){
 				if(response!=''){
 					$scope.friendsData = response;
@@ -57,7 +57,7 @@ app.controller("FriendsCtrl", ['$scope', '$location', '$route', 'ServiceUrls', '
                 data.action_user_id = profile.userId;      
                 data.status = 1;
                 console.log(data);
-            	HttpService.ResponseFriendRequestService(url, data)
+            	HttpService.PostMethod(url, data)
         			.then(function(response){        				
                         $route.reload();
         			}, function(error){
@@ -76,7 +76,7 @@ app.controller("FriendsCtrl", ['$scope', '$location', '$route', 'ServiceUrls', '
                 data.status = 2;
             	console.log(data);
                 
-            	HttpService.ResponseFriendRequestService(url, data)
+            	HttpService.PostMethod(url, data)
         			.then(function(response){
         				$route.reload();
         			}, function(error){

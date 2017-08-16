@@ -9,7 +9,7 @@ app.controller("HomeCtrl", ['$scope', '$window', '$location', '$http', '$log', '
         var url = ServiceUrls.GetUserInfo;
         var data = new Object();
         data.user_id = profile.userId;
-        HttpService.UserInfoService(url, data)
+        HttpService.PostMethod(url, data)
             .then(function(response){
                 if(response.GetUserInfoResult!=''){                 
                     $scope.userInfo = JSON.parse(response.GetUserInfoResult);
@@ -75,7 +75,7 @@ app.controller("HomeCtrl", ['$scope', '$window', '$location', '$http', '$log', '
 				data.request_by_user = profile.userId;
 				data.request_to_user = userId;
                 
-            	HttpService.UserMeetService(url, data)
+            	HttpService.PostMethod(url, data)
             		.then(function(response){
             			if(response==1){
             				console.log('sending request to user from meet me'+response);
@@ -98,7 +98,7 @@ app.controller("HomeCtrl", ['$scope', '$window', '$location', '$http', '$log', '
                 var data = new Object();
                 data.request_by_user = profile.userId;
                 data.postComment = postComment;
-            	HttpService.PostCommentService(url, data)
+            	HttpService.PostMethod(url, data)
             		.then(function(response){
             			if(response==1){
             				$scope.postComment='';
@@ -121,7 +121,7 @@ app.controller("HomeCtrl", ['$scope', '$window', '$location', '$http', '$log', '
                 data.action_user_id = profile.userId;      
                 data.status = 1;
                 console.log(data);
-            	HttpService.ResponseFriendRequestService(url, data)
+            	HttpService.PostMethod(url, data)
         			.then(function(response){        				
                         $route.reload();
         			}, function(error){
@@ -140,7 +140,7 @@ app.controller("HomeCtrl", ['$scope', '$window', '$location', '$http', '$log', '
                 data.status = 2;
             	console.log(data);
                 
-            	HttpService.ResponseFriendRequestService(url, data)
+            	HttpService.PostMethod(url, data)
         			.then(function(response){
         				$route.reload();
         			}, function(error){

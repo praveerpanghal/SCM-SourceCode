@@ -11,7 +11,7 @@ app.controller('ResetPasswordCtrl', ['$scope', '$log', '$location', 'ServiceUrls
 		data.old_password = reset.oldPassword;
 		data.new_password = reset.confirmPassword;
 		console.log(data);
-		HttpService.ChangePasswordService(url, data)
+		HttpService.PostMethod(url, data)
 			.then(function(response){
 				if(response.ChangePasswordResult == 1){
 					alert('Your password has been changed successfully.');

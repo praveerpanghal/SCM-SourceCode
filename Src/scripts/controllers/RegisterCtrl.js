@@ -12,7 +12,7 @@ app.controller("RegisterCtrl", ['$scope', '$http', '$window', '$log', '$location
 	// Country List
 	var url = ServiceUrls.GetCountrylist;
 
-	HttpService.CountryListService(url)
+	HttpService.GetMethod(url)
 		.then(function successCallback(response){
 			if(response.GetCountryListResult!==''){
 				$scope.countryList = response.GetCountryListResult;
@@ -31,7 +31,7 @@ app.controller("RegisterCtrl", ['$scope', '$http', '$window', '$log', '$location
 		var url = ServiceUrls.GetStateList;
 		var data = {"country_id"  : countryId};
 
-		HttpService.StateListService(url, data)
+		HttpService.PostMethod(url, data)
 			.then(function successCallback(response){
 				if(response.GetStateListResult !== ''){
 					$scope.stateList = response.GetStateListResult;
@@ -46,7 +46,7 @@ app.controller("RegisterCtrl", ['$scope', '$http', '$window', '$log', '$location
 	
 	// Schools List
 	var url = ServiceUrls.GetSchoolList;
-	HttpService.SchoolsListService(url)
+	HttpService.GetMethod(url)
 		.then(function successCallback(response){
 			if(response.GetSchoolListResult!==''){
 				$scope.schoolsList = response.GetSchoolListResult;
@@ -76,7 +76,7 @@ app.controller("RegisterCtrl", ['$scope', '$http', '$window', '$log', '$location
 			data.user_dateofbirth = "";
 			data.user_gender = "";
 
-		HttpService.RegisterUserService(url, data)
+		HttpService.PostMethod(url, data)
 			.then(function successCallback(response){
 				if(response==1){
 					$scope.resetted = true;			

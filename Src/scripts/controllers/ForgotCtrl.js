@@ -5,7 +5,7 @@ app.controller("ForgotCtrl", ['$scope', '$window', '$location', 'HttpService', '
 		var data = new Object();
 		data.login_name = user.user_email;
 
-		HttpService.ForgotPasswordService(url, data)
+		HttpService.PostMethod(url, data)
 			.then(function successCallback(response){
 				if(response.ForgotPasswordResult == 1){
 					$scope.reset_message = "Thank you, your password has been sent to registered email id.";

@@ -1,75 +1,37 @@
 /* API call methods(GET, POST) */
-app.factory('HttpService',function($http, SuccessError){
+app.factory('HttpService',function($http, $q, SuccessError){
 
 	return {
-		CountryListService: function(url){
-			return $http.get(url)
-				.then(SuccessError.Successresult, SuccessError.Errorresult);
-		},
-		StateListService: function(url, data){
-			return $http.post(url, data)
-				.then(SuccessError.Successresult, SuccessError.Errorresult);
-		},
-		SchoolsListService: function(url){
-			return $http.get(url)
-				.then(SuccessError.Successresult, SuccessError.Errorresult);
-		},
-		RegisterUserService: function(url, data){
-			return $http.post(url, data)
-				.then(SuccessError.Successresult, SuccessError.Errorresult);
-		},
-		LoginUserService: function(url, data){
-			return $http.post(url, data)
-				.then(SuccessError.Successresult, SuccessError.Errorresult);
-		},
-		UserInfoService: function(url, data){
-			return $http.post(url, data)
-				.then(SuccessError.Successresult, SuccessError.Errorresult);
-		},
-		ForgotPasswordService: function(url, data){
-			return $http.post(url, data)
-				.then(SuccessError.Successresult, SuccessError.Errorresult);
-		},
-		UserMeetService: function(url, data){
-			return $http.post(url, data)
-				.then(SuccessError.Successresult, SuccessError.Errorresult);
-		},
-		PostCommentService: function(url, data){
-			return $http.post(url, data)
-				.then(SuccessError.Successresult, SuccessError.Errorresult);
-		},
-		ChangePasswordService: function(url, data){
-			return $http.post(url, data)
-				.then(SuccessError.Successresult, SuccessError.Errorresult);
-		},
-		AcceptFriendRequestService: function(url, data){
-			return $http.post(url, data)
-				.then(SuccessError.Successresult, SuccessError.Errorresult);
-		},
-		RejectFriendRequestService: function(url, data){
-			return $http.post(url, data)
-				.then(SuccessError.Successresult, SuccessError.Errorresult);
-		},
-		SearchUserService: function(url, data){
-			return $http.post(url, data)
-				.then(SuccessError.Successresult, SuccessError.Errorresult);
-		},
-		SendFriendRequestService: function(url, data){
-			return $http.post(url, data)
-				.then(SuccessError.Successresult, SuccessError.Errorresult);
-		},
-		ResponseFriendRequestService: function(url, data){
-			return $http.post(url, data)
-				.then(SuccessError.Successresult, SuccessError.Errorresult);
-		},
-		GetFriendsListService: function(url, data){
-			return $http.post(url, data)
-				.then(SuccessError.Successresult, SuccessError.Errorresult);
-		},
-		UpdateProfileService: function(url, data){
-			return $http.post(url, data)
-				.then(SuccessError.Successresult, SuccessError.Errorresult);
-		}
+			PostMethod: function(url,data) { 
+             	var deferred = $q.defer();
+                return $http.post(url,data)
+                    .then(function (response) {
+                // promise is fulfilled
+                deferred.resolve(response.data);
+                // promise is returned
+                return deferred.promise;
+                 }, function (response) {
+                // the following line rejects the promise
+                deferred.reject(response);
+                // promise is returned
+                return deferred.promise;
+            	})
+            },
+     		GetMethod: function(url) { 
+              	var deferred = $q.defer();
+                return $http.get(url)
+                    .then(function (response) {
+                // promise is fulfilled
+                deferred.resolve(response.data);
+                // promise is returned
+                return deferred.promise;
+                 }, function (response) {
+                // the following line rejects the promise
+                deferred.reject(response);
+                // promise is returned
+                return deferred.promise;
+            	})
+            }
 	}
 
 });

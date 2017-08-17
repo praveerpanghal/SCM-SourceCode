@@ -544,6 +544,14 @@ p
 {
     margin-bottom:5px;
 }
+.signUpContainer
+{
+      position: absolute;
+    left: 0;
+    right: 0;
+    top: 23px;
+    bottom: 20px;
+}
 .signUpContainer .signUpTitle h1,.forgotWizard .signUpTitle h1
 {
     /*font-size: 23px;
@@ -1571,8 +1579,9 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
     text-align: center;
     width: 100%;
   }
-
-
+  .signUpContainer {
+    position: static;
+  }
   
 }
 @media (max-width:600px){

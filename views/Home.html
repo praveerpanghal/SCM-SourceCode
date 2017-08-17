@@ -147,10 +147,10 @@
 					        </div>
 						</div>-->	
 						<div class="row">
-							<form ng-uploadFile="postComments(postComment)">
+							<form ng-submit="postComments(postComment)">
 								<div class="col-md-8 col-sm-8 col-xs-6 col-xs-offset-1
 								 col-sm-offset-0 col-md-offset-0 postContentField">
-									<div class="userPic" style="background-image: url('src/images/user3.jpg')">
+									<div class="userPic" style="background-image: url('{{userProfile.profile_picture}}')">
 									</div>	
 									<div class="form-group userTxt">
 								      		<textarea class="form-control" rows="2" placeholder="Post your comments here" ng-model="postComment" required="required"></textarea>
@@ -253,7 +253,7 @@
 												</div>
 												<div classs="row" >
 													<div class="col-md-12 aligncommenterWizard">
-															<div class="userPic" style="background-image: url('src/images/user5.jpg')"></div>	
+															<div class="userPic" style="background-image: url('{{src/images/user5.jpg}}')"></div>	
 															<div class="form-group userTxt">
 														      <textarea class="form-control" rows="1"></textarea>
 														        <span class="help-block errTxt">Error</span>
@@ -370,7 +370,7 @@
 							</div>-->
 							<div classs="row">
 									<div class="col-md-12 commenterWizard" ng-repeat="posts in commentsInfo">
-										<div class="commenterpic" style="background-image: url('src/images/user5.jpg')">
+										<div class="commenterpic" style="background-image: url('{{userProfile.profile_picture}}')">
 											&nbsp	
 										</div>
 										<div class="commenterDetails">

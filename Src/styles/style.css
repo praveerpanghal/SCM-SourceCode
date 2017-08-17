@@ -95,6 +95,46 @@ p
   border: 1px solid #712e3b;
   color: #FFF;
 }
+.addBtn
+{
+  background-color: #00bcd4;
+  border-radius: 25px;
+  border: 1px solid #00bcd4;
+  color: #FFF; 
+  width: 135px;
+}
+.friendsBtn
+{
+  background-color: #462066;
+  border-radius: 25px;
+  border: 1px solid #462066;
+  color: #FFF; 
+  width: 135px;
+}
+.requestSentBtn
+{
+  background-color: #00743F;
+  border-radius: 25px;
+  border: 1px solid #00743F;
+  color: #FFF; 
+  width: 135px;
+}
+.acceptBtn
+{
+  background-color: #B9C406;
+  border-radius: 25px;
+  border: 1px solid #B9C406;
+  color: #FFF; 
+  width: 135px;
+}
+.rejectBtn
+{
+  background-color: #712e3b;
+  border-radius: 25px;
+  border: 1px solid #712e3b;
+  color: #FFF; 
+  width: 135px;
+}
 .btn-default:hover, .btn-default:active, .btn-default:focus, .btn-default:visited
 {
   background:#ef6f04;
@@ -871,11 +911,11 @@ p
   margin-top: 10px;
   border-top: 1px solid #cccccc;
 }
-.peopleUMyKnow
+.peopleUMyKnow,.searchFriendsList
 {
   padding-top: 10px;
   padding-bottom:10px;
-  border-bottom: 1px solid #cccccc;
+  border-bottom: 1px solid #dfdfdf;
 }
 .peopleUMyKnow .commenterpic
 {
@@ -1443,6 +1483,11 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
 }
 
 /*Edit Profile Ends*/
+.thumbnail .caption  h4
+{
+  white-space: nowrap;
+  overflow: hidden;
+}
 
 /*Newsfeed page style starts ends */
 @media (min-width:768px){

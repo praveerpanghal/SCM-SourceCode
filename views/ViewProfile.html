@@ -130,10 +130,10 @@ url('src/images/friends.jpg') no-repeat;background-size: cover;">
 			</div>
 		</div>
 	</div>
-	<div class="col-md-9 col-sm-6 col-xs-12 contentPost">
-		<div class="row" style="background: #f5f5f5;padding: 9px;border-radius: 3px;">
+	<div class="col-md-6 col-sm-6 col-xs-12 contentPost">
+		<div class="row"><!--style="background: #f5f5f5;padding: 9px;border-radius: 3px;"-->
 			<div class="col-md-12">
-				<div class="thumbnail" ng-show="emptyList">
+				<!--<div class="thumbnail" ng-show="emptyList">
 					<h4 class="text-center">{{emptyList}}</h4>
 				</div>
 				<div class="col-md-4 col-sm-6 col-xs-6" ng-repeat="user in usersList">
@@ -166,7 +166,48 @@ url('src/images/friends.jpg') no-repeat;background-size: cover;">
 				        </p>
 				      </div>
 				    </div>
-				</div>				  
+				   
+
+				</div>-->
+
+					<div class="row">
+								<div class="col-md-12 col-sm-12 col-xs-12">
+									<div class="thumbnail" ng-show="emptyList">
+										<h4 class="text-center">{{emptyList}}</h4>
+										<a href="/" class="text-center">Back</a>
+									</div>
+								</div>	
+								<div class="col-md-12 col-sm-12 col-xs-12 searchFriendsList" ng-repeat="user in usersList">
+										<div class="col-md-9 col-sm-9 col-xs-7">
+											<div class="commenterpic" style="background-image: url('src/images/user2.jpg')">
+												&nbsp;	
+											</div>
+											<h4><a href="/profiledetail/{{user.user_id}}" ng-model="user.user_id">{{user.username}}</a></h4>
+											<p>Want to fallow</p>
+										</div>
+										<div class="col-md-3 col-sm-3 col-xs-3">
+											<button class="btn addBtn" ng-click="frdRequest(user.user_id)" ng-if="user.request_status=='NoRequest'">
+												<i class="fa fa-user-plus" aria-hidden="true"></i>Add
+											</button>
+											<button class="btn friendsBtn" ng-if="user.request_status=='Friends'" disabled>
+												<i class="fa fa-check" aria-hidden="true"></i>
+				        						Friends
+											</button>
+											<button class="btn requestSentBtn" ng-if="user.request_status=='SentRequest'" disabled>
+												<i class="fa fa-paper-plane" aria-hidden="true"></i>
+				        						Request Sent
+											</button>
+											<button class="btn acceptBtn" ng-if="user.request_status=='GetRequest'" ng-click="acceptRequest(user)">
+												<i class="fa fa-check-circle-o" aria-hidden="true"></i>
+				        						Accept
+											</button>
+											<button class="btn rejectBtn" ng-if="user.request_status=='GetRequest'" ng-click="rejectRequest(user)">
+												<i class="fa fa-times-circle-o" aria-hidden="true"></i>
+				        						Reject
+											</button>
+										</div>
+								</div>	
+						</div>			  
 			</div>
 		</div>
 	</div>

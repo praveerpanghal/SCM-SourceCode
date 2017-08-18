@@ -129,9 +129,9 @@ p
 }
 .rejectBtn
 {
-  background-color: #712e3b;
+  background-color: red;
   border-radius: 25px;
-  border: 1px solid #712e3b;
+  border: 1px solid red;
   color: #FFF; 
   width: 100%;
 }

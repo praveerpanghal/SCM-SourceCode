@@ -101,7 +101,7 @@ p
   border-radius: 25px;
   border: 1px solid #00bcd4;
   color: #FFF; 
-  width: 135px;
+  width: 100%;
 }
 .friendsBtn
 {
@@ -109,7 +109,7 @@ p
   border-radius: 25px;
   border: 1px solid #462066;
   color: #FFF; 
-  width: 135px;
+  width: 100%;
 }
 .requestSentBtn
 {
@@ -117,7 +117,7 @@ p
   border-radius: 25px;
   border: 1px solid #00743F;
   color: #FFF; 
-  width: 135px;
+  width: 100%;
 }
 .acceptBtn
 {
@@ -125,7 +125,7 @@ p
   border-radius: 25px;
   border: 1px solid #B9C406;
   color: #FFF; 
-  width: 135px;
+  width: 100%;
 }
 .rejectBtn
 {
@@ -133,7 +133,7 @@ p
   border-radius: 25px;
   border: 1px solid #712e3b;
   color: #FFF; 
-  width: 135px;
+  width: 100%;
 }
 .btn-default:hover, .btn-default:active, .btn-default:focus, .btn-default:visited
 {
@@ -916,6 +916,10 @@ p
   padding-top: 10px;
   padding-bottom:10px;
   border-bottom: 1px solid #dfdfdf;
+}
+.searchFriendsList .acceptBtn
+{
+  margin-bottom:10px;
 }
 .peopleUMyKnow .commenterpic
 {

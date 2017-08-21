@@ -17,7 +17,7 @@ app.controller("HomeCtrl", ['$scope', '$window', '$location', '$http', '$log', '
                     $scope.PeopleYouMayKnow = $scope.userInfo[0].PeopleYouMayKnow;
                     $scope.commentsInfo = $scope.userInfo[0].CommentImagePost;
                     $scope.friendRequests = $scope.userInfo[0].FriendRequest;
-                    console.log($scope.FriendRequest);
+                    console.log($scope.friendRequests);
                     //console.log($scope.userInfo[0].FriendRequest);
                     //console.log($scope.userInfo[0].PeopleYouMayKnow);
                 }else{

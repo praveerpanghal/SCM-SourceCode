@@ -12,12 +12,12 @@
 		        <span class="icon-bar"></span>
 		        <span class="icon-bar"></span>
 		      </button>
-		      <div class="userImg" style="background-image: url('src/images/user3.jpg')">
+		      <div class="userImg" style="background-image: url('{{userProfile.profile_picture}}')">
 		      		<!--<img src="src/images/profile/profile.jpg" alt="" />-->
 		      </div>
 		      <div class="navbar-brand" href="#">
 		      		<div class="userBg" style="background: linear-gradient(to bottom, rgba(113,46,59,.8), rgba(113,46,59,.8)),
-url('src/images/friends.jpg') no-repeat;background-size: cover;">
+url('{{userProfile.cover_picture}}') no-repeat;background-size: cover;">
 						<p class="userName">{{userProfile.username}}</p>
 						<p class="schoolName">Atlantic County Institute of Technology, Mays Landing</p>
 		      		</div>
@@ -179,7 +179,7 @@ url('src/images/friends.jpg') no-repeat;background-size: cover;">
 								</div>	
 								<div class="col-md-12 col-sm-12 col-xs-12 searchFriendsList" ng-repeat="user in usersList">
 										<div class="col-md-9 col-sm-9 col-xs-7">
-											<div class="commenterpic" style="background-image: url('src/images/user2.jpg')">
+											<div class="commenterpic" style="background-image: url('{{user.profile_picture}}')">
 												&nbsp;	
 											</div>
 											<h4><a href="/profiledetail/{{user.user_id}}" ng-model="user.user_id">{{user.username}}</a></h4>

@@ -3,16 +3,16 @@
 		<div class="row">	
 			<div class="col-md-12">
 				<div class="" >
-				<form name="CoverPictureForm" ng-submit="uploadCover(userProfile)" enctype="multipart/form-data">
-					<div class="col-md-1 col-md-offset-11">
-						<input type="file" name="cover_picture" id="upload-cover-photo" ngf-select ng-model="userProfile.cover_picture" required />
-						<label id="upload-cover-photo-label" for="upload-cover-photo">
-							<span class="glyphicon glyphicon-camera"></span>
-						</label>
-						<button type="submit" class="btn btn-primary" value="Upload!" ng-disabled="CoverPictureForm.$invalid || CoverPictureForm.$pristine">Upload</button>
-					</div>
-					<img ngf-thumbnail="userProfile.cover_picture" class="editProfile" ng-model="userProfile.cover_picture"/>
-				</form>
+					<form name="CoverPictureForm" ng-submit="uploadCover(userProfile)" enctype="multipart/form-data">
+						<div class="col-md-1 col-md-offset-11">
+							<input type="file" name="cover_picture" id="upload-cover-photo" ngf-select ng-model="userProfile.cover_picture" required />
+							<label id="upload-cover-photo-label" for="upload-cover-photo">
+								<span class="glyphicon glyphicon-camera"></span>
+							</label>
+							<button type="submit" class="btn btn-primary" value="Upload!" ng-disabled="CoverPictureForm.$invalid || CoverPictureForm.$pristine">Upload</button>
+						</div>
+						<img ngf-thumbnail="userProfile.cover_picture" class="editProfile" ng-model="userProfile.cover_picture"/>
+					</form>
 				</div>
 				<div class="col-md-12 editProfileWizard">
 					<form name="ProfilePictureForm" ng-submit="uploadProfile(userProfile)" enctype="multipart/form-data">
@@ -38,104 +38,104 @@
 		</div>
 		<div class="row">
 			<div class="col-md-12">
-					<div class="container">
-							<div class="row">
-								<div class="col-md-12 col-sm-12 col-xs-12">
-							        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 bhoechie-tab-container">
-							            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-8 bhoechie-tab-menu">
-							              <div class="list-group">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12 col-sm-12 col-xs-12">
+							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 bhoechie-tab-container">
+								<div class="col-lg-3 col-md-3 col-sm-3 col-xs-8 bhoechie-tab-menu">
+									<div class="list-group">
 							                <!--<a href="#" class="list-group-item active text-center">
 							                  <h4 class="glyphicon glyphicon-plane"></h4>Flight
-							                </a>-->
-							                <a href="#" class="list-group-item active text-center">
-							                  <i class="fa fa-info-circle" aria-hidden="true"></i>
-													Basic Information
-							                </a>
-							                <a href="#" class="list-group-item text-center">
-							                  <i class="fa fa-info-circle" aria-hidden="true"></i>
-													Change password
-							                </a>
-							                
-							              </div>
-							            </div>
-							            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 bhoechie-tab">
-							                <div class="bhoechie-tab-content active">
-							                <form name="UpdateProfileForm" ng-submit="UpdateProfile(userProfile)">
-							                    <div class="row">
-									                  <div class="col-md-8 col-sm-8 col-xs-12 text-center">
-								                      		<h5>
-								                      			<i class="fa fa-info-circle" aria-hidden="true"></i>
-								                      			Basic Information
-								                      		</h5>
-								                      </div>
-							                  	</div>
-							                  	<div class="row">
-								                    <div class="col-md-12 col-sm-12 col-xs-12">
-									                    <div class="col-md-4 col-sm-4 col-xs-12">	
-									                    	<div class="form-group">
-															  <label class="control-label" for="focusedInput">First name</label>
-															  <input class="form-control" type="text" value="Enter First name" ng-model="userProfile.user_fname">
-															</div>
-														</div>
-														<div class="col-md-4 col-sm-4 col-xs-12">	
-									                    	<div class="form-group">
-															  <label class="control-label" for="focusedInput">Last name</label>
-															  <input class="form-control" type="text" value="Enter Last name"  ng-model="userProfile.user_lname">
-															</div>
-														</div>
-													</div>
-												</div>
-												<div class="row">
-								                    <div class="col-md-12 col-sm-12 col-xs-12">
-									                    <div class="col-md-4 col-sm-4 col-xs-12">	
-									                    	<div class="form-group">
-															  <label class="control-label" for="focusedInput">Email ID</label>
-															  <input class="form-control" type="text" value="Enter Email ID"  ng-model="userProfile.user_email">
-															</div>
-														</div>
-														<div class="col-md-4 col-sm-4 col-xs-12">	
-									                    	<div class="form-group">
-															  <label class="control-label" for="focusedInput">Mobile No</label>
-															  <input class="form-control" type="text" value="Enter Mobile No"  ng-model="userProfile.user_mob">
-															</div>
-														</div>
-													</div>
-												</div>
-												<div class="row">
-								                    <div class="col-md-12 col-sm-12 col-xs-12">
-									                    <div class="col-md-4 col-sm-4 col-xs-12">	
-									                    	<div class="form-group">
-															  <label class="control-label" for="focusedInput">Country</label>
-															  <select class="form-control" ng-model="userProfile.country_id" ng-options="country.country_id as country.country_name for country in countryList" ng-change="StateName(userProfile.country_id)">
-															  </select>
-															</div>
-														</div>
-														<div class="col-md-4 col-sm-4 col-xs-12">	
-									                    	<div class="form-group">
-															  <label class="control-label" for="focusedInput">State</label>
-															  <select class="form-control" ng-model="userProfile.state_id" ng-options="state.state_id as state.state_name for state in stateList">
-															  <option value=''>Select State</option>
-															  </select>
-															</div>
-														</div>
-													</div>
-												</div>
-												<div class="row">
-								                    <div class="col-md-12 col-sm-12 col-xs-12">
-									                    <div class="col-md-4 col-sm-4 col-xs-12">	
-									                    	<div class="form-group">
-															  <label class="control-label" for="focusedInput">School</label>
-															  <select class="form-control" ng-model="userProfile.school_id" ng-options="school.school_id as school.school_name for school in schoolsList">
-															  </select>
-															</div>
-														</div>
-													</div>
-												</div>
-												<div class="row">
-								                    <div class="col-md-12 col-sm-12 col-xs-12">
-									                    <div class="col-md-8 col-xs-12">	
-									                    	<div class="form-group">
-															  <button type="submit" class="btn btn-info" >Save</button>
+							              </a>-->
+							              <a href="#" class="list-group-item active text-center">
+							              	<i class="fa fa-info-circle" aria-hidden="true"></i>
+							              	Basic Information
+							              </a>
+							              <a href="#" class="list-group-item text-center">
+							              	<i class="fa fa-info-circle" aria-hidden="true"></i>
+							              	Change password
+							              </a>
+							              
+							          </div>
+							      </div>
+							      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 bhoechie-tab">
+							      	<div class="bhoechie-tab-content active">
+							      		<form name="UpdateProfileForm" ng-submit="UpdateProfile(userProfile)">
+							      			<div class="row">
+							      				<div class="col-md-8 col-sm-8 col-xs-12 text-center">
+							      					<h5>
+							      						<i class="fa fa-info-circle" aria-hidden="true"></i>
+							      						Basic Information
+							      					</h5>
+							      				</div>
+							      			</div>
+							      			<div class="row">
+							      				<div class="col-md-12 col-sm-12 col-xs-12">
+							      					<div class="col-md-4 col-sm-4 col-xs-12">	
+							      						<div class="form-group">
+							      							<label class="control-label" for="focusedInput">First name</label>
+							      							<input class="form-control" type="text" value="Enter First name" ng-model="userProfile.user_fname">
+							      						</div>
+							      					</div>
+							      					<div class="col-md-4 col-sm-4 col-xs-12">	
+							      						<div class="form-group">
+							      							<label class="control-label" for="focusedInput">Last name</label>
+							      							<input class="form-control" type="text" value="Enter Last name"  ng-model="userProfile.user_lname">
+							      						</div>
+							      					</div>
+							      				</div>
+							      			</div>
+							      			<div class="row">
+							      				<div class="col-md-12 col-sm-12 col-xs-12">
+							      					<div class="col-md-4 col-sm-4 col-xs-12">	
+							      						<div class="form-group">
+							      							<label class="control-label" for="focusedInput">Email ID</label>
+							      							<input class="form-control" type="text" value="Enter Email ID"  ng-model="userProfile.user_email">
+							      						</div>
+							      					</div>
+							      					<div class="col-md-4 col-sm-4 col-xs-12">	
+							      						<div class="form-group">
+							      							<label class="control-label" for="focusedInput">Mobile No</label>
+							      							<input class="form-control" type="text" value="Enter Mobile No"  ng-model="userProfile.user_mob">
+							      						</div>
+							      					</div>
+							      				</div>
+							      			</div>
+							      			<div class="row">
+							      				<div class="col-md-12 col-sm-12 col-xs-12">
+							      					<div class="col-md-4 col-sm-4 col-xs-12">	
+							      						<div class="form-group">
+							      							<label class="control-label" for="focusedInput">Country</label>
+							      							<select class="form-control" ng-model="userProfile.country_id" ng-options="country.country_id as country.country_name for country in countryList" ng-change="StateName(userProfile.country_id)">
+							      							</select>
+							      						</div>
+							      					</div>
+							      					<div class="col-md-4 col-sm-4 col-xs-12">	
+							      						<div class="form-group">
+							      							<label class="control-label" for="focusedInput">State</label>
+							      							<select class="form-control" ng-model="userProfile.state_id" ng-options="state.state_id as state.state_name for state in stateList">
+							      								<option value=''>Select State</option>
+							      							</select>
+							      						</div>
+							      					</div>
+							      				</div>
+							      			</div>
+							      			<div class="row">
+							      				<div class="col-md-12 col-sm-12 col-xs-12">
+							      					<div class="col-md-4 col-sm-4 col-xs-12">	
+							      						<div class="form-group">
+							      							<label class="control-label" for="focusedInput">School</label>
+							      							<select class="form-control" ng-model="userProfile.school_id" ng-options="school.school_id as school.school_name for school in schoolsList">
+							      							</select>
+							      						</div>
+							      					</div>
+							      				</div>
+							      			</div>
+							      			<div class="row">
+							      				<div class="col-md-12 col-sm-12 col-xs-12">
+							      					<div class="col-md-8 col-xs-12">	
+							      						<div class="form-group">
+							      							<button type="submit" class="btn btn-info" >Save</button>
 															  <!--
 															  data-toggle="modal" data-target="#myModal"-->
 															</div>
@@ -143,81 +143,81 @@
 													</div>
 												</div>
 											</form>
-							                </div>
-							                <div class="bhoechie-tab-content">
-							                <form name="changePasswordForm" ng-submit="changePassword(user)">
-							                    <div class="row">
-									                  <div class="col-md-8 col-sm-8 col-xs-12 text-center">
-								                      		<h5>
-								                      			<i class="fa fa-info-circle" aria-hidden="true"></i>
-								                      			Change password
-								                      		</h5>
-								                      </div>
-							                  	</div>
-							                  	<div class="row">
-								                    <div class="col-md-12 col-sm-12 col-xs-12">
-									                    <div class="col-md-4 col-sm-4 col-xs-12">	
-									                    	<div class="form-group">
-															  <label class="control-label" for="focusedInput"> 
-															  	Old password
-															  </label>
-															  <input class="form-control" type="password" name="old_password" ng-model="user.old_password" placeholder="Enter old password" required />					  
-													<span class="text-danger" ng-if="errorMessage">{{errorMessage}}</span>
+										</div>
+										<div class="bhoechie-tab-content">
+											<form name="changePasswordForm" ng-submit="changePassword(user)">
+												<div class="row">
+													<div class="col-md-8 col-sm-8 col-xs-12 text-center">
+														<h5>
+															<i class="fa fa-info-circle" aria-hidden="true"></i>
+															Change password
+														</h5>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-md-12 col-sm-12 col-xs-12">
+														<div class="col-md-4 col-sm-4 col-xs-12">	
+															<div class="form-group">
+																<label class="control-label" for="focusedInput"> 
+																	Old password
+																</label>
+																<input class="form-control" type="password" name="old_password" ng-model="user.old_password" placeholder="Enter old password" required />					  
+																<span class="text-danger" ng-if="errorMessage">{{errorMessage}}</span>
 															</div>
 														</div>
 													</div>
 												</div>
 												<div class="row">
-								                    <div class="col-md-12 col-sm-12 col-xs-12">
-									                    <div class="col-md-4 col-sm-4 col-xs-12">	
-									                    	<div class="form-group">
-															  <label class="control-label" for="focusedInput"> 
-															  	New password
-															  </label>
-															  <input class="form-control" type="password" ng-model="user.new_password" name="new_password" ng-minlength="8" ng-maxlength="30" ng-pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z])/" placeholder="Enter new password" required /> 
-															  <span class="text-danger" ng-show="!changePasswordForm.new_password.$error.required && (changePasswordForm.new_password.$error.minlength || changePasswordForm.new_password.$error.maxlength) && changePasswordForm.new_password.$dirty">Passwords must be between 8 and 20 characters</span>
-<span class="text-danger" ng-show="!changePasswordForm.new_password.$error.required && !changePasswordForm.new_password.$error.minlength && !changePasswordForm.new_password.$error.maxlength && changePasswordForm.new_password.$error.pattern && changePasswordForm.new_password.$dirty">Must contain one lower & uppercase letter, and one numeric</span>
+													<div class="col-md-12 col-sm-12 col-xs-12">
+														<div class="col-md-4 col-sm-4 col-xs-12">	
+															<div class="form-group">
+																<label class="control-label" for="focusedInput"> 
+																	New password
+																</label>
+																<input class="form-control" type="password" ng-model="user.new_password" name="new_password" ng-minlength="8" ng-maxlength="30" ng-pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z])/" placeholder="Enter new password" required /> 
+																<span class="text-danger" ng-show="!changePasswordForm.new_password.$error.required && (changePasswordForm.new_password.$error.minlength || changePasswordForm.new_password.$error.maxlength) && changePasswordForm.new_password.$dirty">Passwords must be between 8 and 20 characters</span>
+																<span class="text-danger" ng-show="!changePasswordForm.new_password.$error.required && !changePasswordForm.new_password.$error.minlength && !changePasswordForm.new_password.$error.maxlength && changePasswordForm.new_password.$error.pattern && changePasswordForm.new_password.$dirty">Must contain one lower & uppercase letter, and one numeric</span>
 															</div>
 														</div>
 														<div class="col-md-4 col-sm-4 col-xs-12">	
-									                    	<div class="form-group">
-															  <label class="control-label" for="focusedInput"> 
-															  	Confirm password
-															  </label>
-															  <input class="form-control" type="password" name="confirm_password" ng-model="user.confirm_password" placeholder="Enter confirm password" nx-equal="user.new_password" required />
-					<span class="text-danger" ng-show="!changePasswordForm.new_password.$error.required && changePasswordForm.confirm_password.$error.nxEqual && changePasswordForm.confirm_password.$dirty">Password do not match</span>
+															<div class="form-group">
+																<label class="control-label" for="focusedInput"> 
+																	Confirm password
+																</label>
+																<input class="form-control" type="password" name="confirm_password" ng-model="user.confirm_password" placeholder="Enter confirm password" nx-equal="user.new_password" required />
+																<span class="text-danger" ng-show="!changePasswordForm.new_password.$error.required && changePasswordForm.confirm_password.$error.nxEqual && changePasswordForm.confirm_password.$dirty">Password do not match</span>
 															</div>
 														</div>	
 													</div>
 												</div>
 												<div class="row">
-								                    <div class="col-md-12 col-sm-12 col-xs-12">
-									                    <div class="col-md-8 col-xs-12">	
-									                    	<div class="form-group">
-															  <button type="submit" class="btn btn-info" ng-disabled="changePasswordForm.$invalid || changePasswordForm.$pristine">Change Password</button>
+													<div class="col-md-12 col-sm-12 col-xs-12">
+														<div class="col-md-8 col-xs-12">	
+															<div class="form-group">
+																<button type="submit" class="btn btn-info" ng-disabled="changePasswordForm.$invalid || changePasswordForm.$pristine">Change Password</button>
 															</div>
 														</div>
 													</div>
 												</div>
 											</form>
-							                </div>
-							            </div>
-							        </div>
-						    	</div>
-						  </div>
-						  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static" data-keyboard="false">
-							  <div class="modal-dialog" role="document">
-							    <div class="modal-content">
-							      <div class="modal-header">							        
-							        <p class="modal-title text-center" id="myModalLabel">
-							        	{{successMessage}}
-							        </p>							       
-							      </div>							      
-							    </div>
-							  </div>
+										</div>
+									</div>
+								</div>
 							</div>
+						</div>
+						<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static" data-keyboard="false">
+							<div class="modal-dialog" role="document">
+								<div class="modal-content">
+									<div class="modal-header">							        
+										<p class="modal-title text-center" id="myModalLabel">
+											{{successMessage}}
+										</p>							       
+									</div>							      
+								</div>
+							</div>
+						</div>
 					</div><!-- Container for UpdateProfileForm -->
-			</div>
-		</div><!-- Row Ends -->
-	</div><!-- Container Ends -->
+				</div>
+			</div><!-- Row Ends -->
+		</div><!-- Container Ends -->
 </div><!-- ContainerFluid Ends -->

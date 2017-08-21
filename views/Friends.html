@@ -13,12 +13,12 @@
 							        <span class="icon-bar"></span>
 							        <span class="icon-bar"></span>
 							      </button>
-							      <div class="userImg" style="background-image: url('src/images/user3.jpg')">
+							      <div class="userImg" style="background-image: url('{{userProfile.profile_picture}}')">
 							      		<!--<img src="src/images/profile/profile.jpg" alt="" />-->
 							      </div>
 							      <div class="navbar-brand" href="#">
 							      		<div class="userBg" style="background: linear-gradient(to bottom, rgba(113,46,59,.8), rgba(113,46,59,.8)),
-   url('src/images/friends.jpg') no-repeat;background-size: cover;">
+   url('{{userProfile.cover_picture}}') no-repeat;background-size: cover;">
    										<p class="userName">{{userProfile.username}}</p>
    										<p class="schoolName">Atlantic County Institute of Technology, Mays Landing</p>
 							      		</div>
@@ -153,10 +153,11 @@
 							<form ng-submit="postComments(postComment)">
 								<div class="col-md-8 col-sm-8 col-xs-6 col-xs-offset-1
 								 col-sm-offset-0 col-md-offset-0 postContentField">
-									<div class="userPic" style="background-image: url('src/images/user3.jpg')">
+									<div class="userPic" style="background-image: url('{{userProfile.profile_picture}}')">
 									</div>	
 									<div class="form-group userTxt">
-								      <textarea class="form-control" rows="2" required="required"></textarea>
+								      <textarea class="form-control" rows="2" required="required"
+								      placeholder="Post your comments here"></textarea>
 								        <span class="help-block errTxt">Error</span>
 								    </div>
 								</div>
@@ -196,9 +197,9 @@
 
 								<div class="col-md-6 col-sm-6" ng-repeat="friend in friendsData">
 									<div class="friendsList">
-										<div class="friendListBg" style="background-image:url(	'src/images/friends.jpg');"></div>
+										<div class="friendListBg" style="background-image:url('{{friend.cover_picture}}');"></div>
 										<div class="friendsListWizard">
-											<div class="friendListImg" style="background-image:url('../../Src/images/user2.jpg')"></div>
+											<div class="friendListImg" style="background-image:url('{{friend.profile_picture}}')"></div>
 											<p class="friends">
 												<a href="#" class="btn btn-default" disabled>Friends</a>
 											</p>

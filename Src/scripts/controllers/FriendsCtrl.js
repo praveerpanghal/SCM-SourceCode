@@ -12,12 +12,7 @@ app.controller("FriendsCtrl", ['$scope', '$location', '$route', 'ServiceUrls', '
                 if(response.GetUserInfoResult!=''){                 
                     $scope.userInfo = JSON.parse(response.GetUserInfoResult);
                     $scope.userProfile = $scope.userInfo[0].UserProfile[0];
-                    //$scope.PeopleYouMayKnow = $scope.userInfo[0].PeopleYouMayKnow;
-                    //$scope.commentsInfo = $scope.userInfo[0].CommentImagePost;
                     $scope.friendRequests = $scope.userInfo[0].FriendRequest;
-                    //console.log($scope.userInfo);
-                    //console.log($scope.userInfo[0].FriendRequest);
-                    //console.log($scope.userInfo[0].PeopleYouMayKnow);
                 }else{
                     alert('Data Not Found');
                     $location.path('/logout');

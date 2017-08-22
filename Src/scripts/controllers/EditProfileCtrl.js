@@ -8,36 +8,36 @@ app.controller("EditProfileCtrl", ['$scope', '$http', '$log', '$timeout', '$rout
 	var url = ServiceUrls.GetUserInfo;
     var data = new Object();
     data.user_id = profile.userId;
+
     HttpService.PostMethod(url, data)
-        .then(function(response){
-            if(response.GetUserInfoResult!=''){                 
-                $scope.userInfo = JSON.parse(response.GetUserInfoResult);
-                $scope.userProfile = $scope.userInfo[0].UserProfile[0];
-                console.log($scope.userProfile);
-				$scope.DefaultStateName($scope.userProfile.country_id, $scope.userProfile.state_id);
-            }else{
-                alert('Data Not Found');
-                $location.path('/logout');
-            }
-        }, 
-        function errorCallback(error){
-            $log.info(error);       
-        });
+    .then(function(response){
+        if(response.GetUserInfoResult!=''){                 
+            $scope.userInfo = JSON.parse(response.GetUserInfoResult);
+            $scope.userProfile = $scope.userInfo[0].UserProfile[0];
+            $scope.DefaultStateName($scope.userProfile.country_id, $scope.userProfile.state_id);
+        }else{
+            alert('Data Not Found');
+            $location.path('/logout');
+        }
+    }, 
+    function errorCallback(error){
+        $log.info(error);       
+    });
 
 	// Country List start
 	var url = ServiceUrls.GetCountrylist;
 	HttpService.GetMethod(url)
-		.then(function successCallback(response){
-			if(response.GetCountryListResult!==''){
-				$scope.countryList = response.GetCountryListResult;
-			}
-			else{
-				console.log(response);
-			}
-			
-		}, function errorCallback(error){
-			console.log(error);		
-		});
+    .then(function successCallback(response){
+     if(response.GetCountryListResult!==''){
+        $scope.countryList = response.GetCountryListResult;
+    }
+    else{
+        console.log(response);
+    }
+
+    }, function errorCallback(error){
+         console.log(error);		
+    });
 	// Country List end
 
 	$scope.DefaultStateName = function(c, s){
@@ -45,22 +45,19 @@ app.controller("EditProfileCtrl", ['$scope', '$http', '$log', '$timeout', '$rout
 		var data = {"country_id"  : c};
 
 		HttpService.PostMethod(url, data)
-			.then(function successCallback(response){
-				if(response.GetStateListResult !== ''){
-					$scope.stateList = response.GetStateListResult;
-					//console.log($scope.stateList);
-					var index =$scope.stateList.map(function(e) { return e.state_id; }).indexOf(s);
-					//console.log(index);
-    				$scope.state_id=$scope.stateList[index].state_name;
-    				//console.log($scope.state_id);
-				}
-				else{
-					$log.info(response);
-				}
-			}, function errorCallback(error){
-				$log.info(error);		
-			});
-	}
+     .then(function successCallback(response){
+        if(response.GetStateListResult !== ''){
+            $scope.stateList = response.GetStateListResult;
+			var index = $scope.stateList.map(function(e) { return e.state_id; }).indexOf(s);
+            $scope.state_id=$scope.stateList[index].state_name;
+        }
+        else{
+            $log.info(response);
+        }
+        }, function errorCallback(error){
+            $log.info(error);		
+        });
+    }
 
 	// State List start
 	$scope.StateName = function(countryId){
@@ -69,33 +66,33 @@ app.controller("EditProfileCtrl", ['$scope', '$http', '$log', '$timeout', '$rout
 		var data = {"country_id"  : countryId};
 
 		HttpService.PostMethod(url, data)
-			.then(function successCallback(response){
-				if(response.GetStateListResult !== ''){
-					$scope.stateList = response.GetStateListResult;
-				}
-				else{
-					$log.info(response);
-				}
-			}, function errorCallback(error){
-				$log.info(error);		
-			});
-	}
+     .then(function successCallback(response){
+        if(response.GetStateListResult !== ''){
+           $scope.stateList = response.GetStateListResult;
+       }
+       else{
+           $log.info(response);
+       }
+   }, function errorCallback(error){
+    $log.info(error);		
+});
+ }
 	// State List end
 	
 	// Schools List start
 	var url = ServiceUrls.GetSchoolList;
 	HttpService.GetMethod(url)
-		.then(function successCallback(response){
-			if(response.GetSchoolListResult!==''){
-				$scope.schoolsList = response.GetSchoolListResult;
-			}
-			else{
-				$log.info(response);
-			}
-			
-		}, function errorCallback(error){
-			$log.info(error);		
-		});
+  .then(function successCallback(response){
+     if(response.GetSchoolListResult!==''){
+        $scope.schoolsList = response.GetSchoolListResult;
+    }
+    else{
+        $log.info(response);
+    }
+
+}, function errorCallback(error){
+ $log.info(error);		
+});
 	// Schools List end
 
 
@@ -114,36 +111,33 @@ app.controller("EditProfileCtrl", ['$scope', '$http', '$log', '$timeout', '$rout
         data.school_id = userData.school_id;
         data.profile_picture = userData.profile_picture;
         data.cover_picture = userData.cover_picture;
-        console.log(data);
         HttpService.PostMethod(url, data)
-            .then(function(response){
-                console.log(response);
-                if(response!=0){
-                	$('#myModal').modal('show');
-                    $scope.successMessage = "Profile updated sucessfully.";
-                    $timeout(function() {
-                    	$('#myModal').modal('hide');
-                    	$('.modal-backdrop').remove();
-						$route.reload();
-					}, 3000);
-                }else{
-                    $scope.msg = 'Profile not updated.';
-                }
-            }, 
-            function(error){
-                $log.info(error);
-            });
+        .then(function(response){
+            if(response!=0){
+               $('#myModal').modal('show');
+               $scope.successMessage = "Profile updated sucessfully.";
+               $timeout(function() {
+                   $('#myModal').modal('hide');
+                   $('.modal-backdrop').remove();
+                   $route.reload();
+               }, 3000);
+           }else{
+            $scope.msg = 'Profile not updated.';
+        }
+    }, 
+    function(error){
+        $log.info(error);
+    });
     }
 
     //Edit Profile Details Ends
 
     $scope.uploadProfile = function(userProfile){
     	
-   		var file = userProfile.profile_picture; 
-        var uploadUrl = "/multer";
-        var fd = new FormData();
-        fd.append('file', file);
-		console.log(file.name);
+       var file = userProfile.profile_picture; 
+       var uploadUrl = "/multer";
+       var fd = new FormData();
+       fd.append('file', file);
 
 		// to move profile picture into the profile folder
         $http.post(uploadUrl,fd, {
@@ -151,15 +145,13 @@ app.controller("EditProfileCtrl", ['$scope', '$http', '$log', '$timeout', '$rout
             headers: {
                 'Content-Type': undefined
             }
-	    })
+        })
         .success(function(response){
-	     	console.log(response);
-	       	//console.log("success!!");
-	       	$scope.res = response;
-	    })
-	    .error(function(){
-	      console.log("error!!");
-        });
+            $scope.res = response;
+        })
+        .error(function(){
+         console.log("error!!");
+     });
 
         //profile picture path
         $scope.profile_picture = 'Src/images/profile/'+file.name;
@@ -177,25 +169,24 @@ app.controller("EditProfileCtrl", ['$scope', '$http', '$log', '$timeout', '$rout
         data.school_id = userProfile.school_id;
         data.profile_picture = $scope.profile_picture;
         data.cover_picture = userProfile.cover_picture;
-        console.log(data);
+
         HttpService.PostMethod(url, data)
-            .then(function(response){
-                console.log(response);
-                if(response!=0){
-                	$('#myModal').modal('show');
-                    $scope.successMessage = "Profile updated sucessfully.";
-                    $timeout(function() {
-                    	$('#myModal').modal('hide');
-                    	$('.modal-backdrop').remove();
-						$route.reload();
-					}, 3000);
-                }else{
-                    $scope.msg = 'Profile not updated.';
-                }
-            }, 
-            function(error){
-                $log.info(error);
-            });
+        .then(function(response){
+            if(response!=0){
+               $('#myModal').modal('show');
+               $scope.successMessage = "Profile updated sucessfully.";
+               $timeout(function() {
+                   $('#myModal').modal('hide');
+                   $('.modal-backdrop').remove();
+                   $route.reload();
+               }, 3000);
+           }else{
+            $scope.msg = 'Profile not updated.';
+        }
+    }, 
+    function(error){
+        $log.info(error);
+    });
 
     }
 
@@ -205,7 +196,6 @@ app.controller("EditProfileCtrl", ['$scope', '$http', '$log', '$timeout', '$rout
         var uploadUrl = "/multerC";
         var fd = new FormData();
         fd.append('file', file);
-		console.log(file.name);
 
 		// to move profile picture into the profile folder
         $http.post(uploadUrl,fd, {
@@ -213,20 +203,18 @@ app.controller("EditProfileCtrl", ['$scope', '$http', '$log', '$timeout', '$rout
             headers: {
                 'Content-Type': undefined
             }
-	    })
+        })
         .success(function(response){
-	     	console.log(response);
-	       	//console.log("success!!");
 	       	$scope.res = response;
-	    })
-	    .error(function(){
-	      console.log("error!!");
-        });
+          })
+        .error(function(){
+         console.log("error!!");
+     });
 
-	    //profile picture path
+	    //cover picture path
         $scope.cover_picture = 'Src/images/cover/'+file.name;
 
-	    //to update profile data in database
+	    //to update cover data in database
 	    var url = ServiceUrls.UpdateProfile;
         var data = new Object();
         data.user_id = profile.userId;
@@ -239,25 +227,24 @@ app.controller("EditProfileCtrl", ['$scope', '$http', '$log', '$timeout', '$rout
         data.school_id = cover.school_id;
         data.profile_picture = cover.profile_picture;
         data.cover_picture = $scope.cover_picture;
-        console.log(data);
+
         HttpService.PostMethod(url, data)
-            .then(function(response){
-                console.log(response);
-                if(response!=0){
-                	$('#myModal').modal('show');
-                    $scope.successMessage = "Profile updated sucessfully.";
-                    $timeout(function() {
-                    	$('#myModal').modal('hide');
-                    	$('.modal-backdrop').remove();
-						$route.reload();
-					}, 3000);
-                }else{
-                    $scope.msg = 'Profile not updated.';
-                }
-            }, 
-            function(error){
-                $log.info(error);
-            });
+        .then(function(response){
+            if(response!=0){
+               $('#myModal').modal('show');
+               $scope.successMessage = "Profile updated sucessfully.";
+               $timeout(function() {
+                   $('#myModal').modal('hide');
+                   $('.modal-backdrop').remove();
+                   $route.reload();
+               }, 3000);
+           }else{
+            $scope.msg = 'Profile not updated.';
+        }
+    }, 
+    function(error){
+        $log.info(error);
+    });
     }
 
     $scope.changePassword = function(user){
@@ -266,37 +253,35 @@ app.controller("EditProfileCtrl", ['$scope', '$http', '$log', '$timeout', '$rout
     	data.user_id = profile.userId;
     	data.old_password = user.old_password;
     	data.new_password = user.new_password;
-    	console.log(data);
-    	HttpService.PostMethod(url, data)
-    		.then(function(response){
-    			console.log(response.ChangePasswordResult);
-    			if(response.ChangePasswordResult==1){
-    				$('#myModal').modal('show');
-    				$scope.successMessage = 'Password changed sucessfully.'
-    				$timeout(function() {
-                    	$('#myModal').modal('hide');
-                    	$('.modal-backdrop').remove();
-    					$location.path('/logout');						
-					}, 3000);
-    			}else{
-    				$scope.errorMessage = 'Please enter correct old password.';
-    				$timeout(function() {
-                    	$scope.errorMessage = '';
-					}, 3000);
-    				console.log($scope.errorMessage);
-    			}
-    		});
-    }
 
-	$(document).ready(function() {
-	    $("div.bhoechie-tab-menu>div.list-group>a").click(function(e) {
-	        e.preventDefault();
-	        $(this).siblings('a.active').removeClass("active");
-	        $(this).addClass("active");
-	        var index = $(this).index();
-	        $("div.bhoechie-tab>div.bhoechie-tab-content").removeClass("active");
-	        $("div.bhoechie-tab>div.bhoechie-tab-content").eq(index).addClass("active");
-	    });
-	});
+    	HttpService.PostMethod(url, data)
+        .then(function(response){
+         if(response.ChangePasswordResult==1){
+            $('#myModal').modal('show');
+            $scope.successMessage = 'Password changed sucessfully.'
+            $timeout(function() {
+               $('#myModal').modal('hide');
+               $('.modal-backdrop').remove();
+               $location.path('/logout');						
+           }, 3000);
+        }else{
+            $scope.errorMessage = 'Please enter correct old password.';
+            $timeout(function() {
+               $scope.errorMessage = '';
+           }, 3000);
+        }
+    });
+  }
+
+  $(document).ready(function() {
+   $("div.bhoechie-tab-menu>div.list-group>a").click(function(e) {
+       e.preventDefault();
+       $(this).siblings('a.active').removeClass("active");
+       $(this).addClass("active");
+       var index = $(this).index();
+       $("div.bhoechie-tab>div.bhoechie-tab-content").removeClass("active");
+       $("div.bhoechie-tab>div.bhoechie-tab-content").eq(index).addClass("active");
+   });
+});
 
 }]);

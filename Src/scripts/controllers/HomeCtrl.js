@@ -3,7 +3,7 @@ app.controller("HomeCtrl", ['$scope', '$window', '$location', '$http', '$log', '
 	var user = LS.getData();
 	var encodedProfile = user.split('.')[1];
 	var profile = JSON.parse(LS.url_base64_decode(encodedProfile));
-    //console.log(profile);
+
 	if(profile.userId){
 
         var url = ServiceUrls.GetUserInfo;
@@ -17,9 +17,6 @@ app.controller("HomeCtrl", ['$scope', '$window', '$location', '$http', '$log', '
                     $scope.PeopleYouMayKnow = $scope.userInfo[0].PeopleYouMayKnow;
                     $scope.commentsInfo = $scope.userInfo[0].CommentImagePost;
                     $scope.friendRequests = $scope.userInfo[0].FriendRequest;
-                    console.log($scope.friendRequests);
-                    //console.log($scope.userInfo[0].FriendRequest);
-                    //console.log($scope.userInfo[0].PeopleYouMayKnow);
                 }else{
                     alert('Data Not Found');
                     $location.path('/logout');
@@ -31,13 +28,6 @@ app.controller("HomeCtrl", ['$scope', '$window', '$location', '$http', '$log', '
 		
 		/* upload file code start */
 		$scope.uploadFile = function(){
-		/*
-            var uploadUrl = "/multer";
-            console.log(uploadUrl);
-            var data = $scope.myfile;
-            fupservice.post(data, uploadUrl);
-		*/
-			   
 			var file = $scope.myfile; 
             var uploadUrl = "/multer";
             var fd = new FormData();
@@ -50,8 +40,6 @@ app.controller("HomeCtrl", ['$scope', '$window', '$location', '$http', '$log', '
                 }
 		    })
             .success(function(response){
-		     	//console.log(response);
-		       	//console.log("success!!");
 		       	$scope.res = response;
 		    })
 		    .error(function(){
@@ -68,30 +56,7 @@ app.controller("HomeCtrl", ['$scope', '$window', '$location', '$http', '$log', '
             /* home page data from json end */
 
             /* friend request sent code start */
-            /*
-            $scope.frdRequest = function(userId){
-            	var url = ServiceUrls.UserMeet;
-            	var data = new Object();
-				data.request_by_user = profile.userId;
-				data.request_to_user = userId;
-                
-            	HttpService.PostMethod(url, data)
-            		.then(function(response){
-            			if(response==1){
-            				console.log('sending request to user from meet me'+response);
-            				$route.reload();            				
-            			}else{
-            				alret('some thing went wrong, please try again.');
-            			}
-            	}, 
-            	function errorCallback(error){
-					$log.info(error);		
-				});
-                
-            }
-            */
-            /* friend request sent code end */
-
+            
             /* post comment code start */
             $scope.postComments = function(postComment){
                 var url = ServiceUrls.PostComment;

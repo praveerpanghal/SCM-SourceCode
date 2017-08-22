@@ -2,13 +2,12 @@ app.controller("ViewProfileCtrl", ['$scope', '$routeParams', '$route', 'ServiceU
 	var user = LS.getData();
 	var encodedProfile = user.split('.')[1];
 	var profile = JSON.parse(LS.url_base64_decode(encodedProfile));
-	//console.log(profile);
 	$scope.username = $routeParams.username;
 	var url = ServiceUrls.SearchUser;
 	var data = new Object();
 	data.username  = $scope.username;
 	data.user_id = profile.userId;
-	//console.log(data);
+    
 	HttpService.PostMethod(url, data)
 			.then(function(response){
 				if(response!=''){

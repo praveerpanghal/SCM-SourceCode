@@ -15,15 +15,17 @@ app.controller("HomeCtrl", ['$scope', '$window', '$location', '$http', '$log', '
                     $scope.userInfo = JSON.parse(response.GetUserInfoResult);
                     $scope.userProfile = $scope.userInfo[0].UserProfile[0];
                     $scope.PeopleYouMayKnow = $scope.userInfo[0].PeopleYouMayKnow;
-                    $scope.commentsInfo = $scope.userInfo[0].CommentImagePost;
+                    $scope.commentsInfo = '';//$scope.userInfo[0].CommentImagePost;
                     $scope.friendRequests = $scope.userInfo[0].FriendRequest;
                 }else{
+                    console.log(response);
                     alert('Data Not Found');
                     $location.path('/logout');
                 }
             }, 
-            function errorCallback(error){
-                $log.info(error);       
+            function(error) { 
+              console.log(error.statusText);
+              $log.info(error);
             });
 		
 		/* upload file code start */
@@ -61,10 +63,14 @@ app.controller("HomeCtrl", ['$scope', '$window', '$location', '$http', '$log', '
             $scope.postComments = function(postComment){
                 var url = ServiceUrls.PostComment;
                 var data = new Object();
-                data.request_by_user = profile.userId;
-                data.postComment = postComment;
+                data.user_id = profile.userId;
+                data.friend_id = profile.userId;
+                data.comment = postComment;
+                //console.log(data);
+                
             	HttpService.PostMethod(url, data)
             		.then(function(response){
+                        //console.log(response);
             			if(response==1){
             				$scope.postComment='';
             				$route.reload();

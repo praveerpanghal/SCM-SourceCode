@@ -15,8 +15,9 @@ app.controller("HomeCtrl", ['$scope', '$window', '$location', '$http', '$log', '
                     $scope.userInfo = JSON.parse(response.GetUserInfoResult);
                     $scope.userProfile = $scope.userInfo[0].UserProfile[0];
                     $scope.PeopleYouMayKnow = $scope.userInfo[0].PeopleYouMayKnow;
-                    $scope.commentsInfo = '';//$scope.userInfo[0].CommentImagePost;
+                    $scope.commentsInfo = $scope.userInfo[0].CommentImagePost;
                     $scope.friendRequests = $scope.userInfo[0].FriendRequest;
+                    console.log($scope.userInfo);
                 }else{
                     console.log(response);
                     alert('Data Not Found');
@@ -65,14 +66,12 @@ app.controller("HomeCtrl", ['$scope', '$window', '$location', '$http', '$log', '
                 var data = new Object();
                 data.user_id = profile.userId;
                 data.friend_id = profile.userId;
-                data.comment = postComment;
-                //console.log(data);
-                
+                data.comment = postComment;                
             	HttpService.PostMethod(url, data)
             		.then(function(response){
-                        //console.log(response);
-            			if(response==1){
-            				$scope.postComment='';
+                        console.log(response);
+            			if(response==2){
+            				$scope.postSuccess='Comment posted successfully.';
             				$route.reload();
             			}else{
             				$scope.Error = 'Error Occured while posting your data.';

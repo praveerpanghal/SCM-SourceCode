@@ -3,31 +3,31 @@
 		<div class="row">	
 			<div class="col-md-12">
 				<div class="" >
-					<form name="CoverPictureForm" ng-submit="uploadCover(userProfile)" enctype="multipart/form-data">
+					<form name="CoverPictureForm" ng-submit="vm.uploadCover(userProfile)" enctype="multipart/form-data">
 						<div class="col-md-1 col-md-offset-11">
-							<input type="file" name="cover_picture" id="upload-cover-photo" ngf-select ng-model="userProfile.cover_picture" required />
+							<input type="file" name="cover_picture" id="upload-cover-photo" ngf-select ng-model="vm.userProfile.cover_picture" required />
 							<label id="upload-cover-photo-label" for="upload-cover-photo">
 								<span class="glyphicon glyphicon-camera"></span>
 							</label>
 							<button type="submit" class="btn btn-primary" value="Upload!" ng-disabled="CoverPictureForm.$invalid || CoverPictureForm.$pristine">Upload</button>
 						</div>
-						<img ngf-thumbnail="userProfile.cover_picture" class="editProfile" ng-model="userProfile.cover_picture"/>
+						<img ngf-thumbnail="vm.userProfile.cover_picture" class="editProfile" ng-model="vm.userProfile.cover_picture"/>
 					</form>
 				</div>
 				<div class="col-md-12 editProfileWizard">
 					<form name="ProfilePictureForm" ng-submit="uploadProfile(userProfile)" enctype="multipart/form-data">
 						<div class="editProfileUser">
 							<div class="editProfileUserPic">
-								<img ngf-thumbnail="userProfile.profile_picture" class="editProfileUserPic" ng-model="userProfile.profile_picture" />
-								<input type="file"  id="upload-photo" ngf-select ng-model="userProfile.profile_picture" required />
+								<img ngf-thumbnail="vm.userProfile.profile_picture" class="editProfileUserPic" ng-model="vm.userProfile.profile_picture" />
+								<input type="file"  id="upload-photo" ngf-select ng-model="vm.userProfile.profile_picture" required />
 								<label id="upload-photo-label" for="upload-photo">
 									<span class="glyphicon glyphicon-camera"></span>
 								</label>
 							</div>
-							{{profileBtn}}
-							<h3>{{userProfile.username}}</h3>
+							{{vm.profileBtn}}
+							<h3>{{vm.userProfile.username}}</h3>
 						</div>	
-						<p class="editProfileUserDtl">&nbsp</p>
+						<p class="editProfileUserDtl">&nbsp;</p>
 						<div class="editProfileUserTxt col-md-6 col-md-offset-2 col-sm-6 col-sm-offset-2 col-xs-1 col-xs-offset-8 text-center">
 							<button type="submit" class="btn btn-primary" value="Upload!"
 							ng-disabled="ProfilePictureForm.$invalid || ProfilePictureForm.$pristine">Upload</button>
@@ -60,7 +60,7 @@
 							      </div>
 							      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 bhoechie-tab">
 							      	<div class="bhoechie-tab-content active">
-							      		<form name="UpdateProfileForm" ng-submit="UpdateProfile(userProfile)">
+							      		<form name="UpdateProfileForm" ng-submit="vm.UpdateProfile(vm.userProfile)">
 							      			<div class="row">
 							      				<div class="col-md-8 col-sm-8 col-xs-12 text-center">
 							      					<h5>
@@ -74,13 +74,13 @@
 							      					<div class="col-md-4 col-sm-4 col-xs-12">	
 							      						<div class="form-group">
 							      							<label class="control-label" for="focusedInput">First name</label>
-							      							<input class="form-control" type="text" value="Enter First name" ng-model="userProfile.user_fname">
+							      							<input class="form-control" type="text" value="Enter First name" ng-model="vm.userProfile.user_fname">
 							      						</div>
 							      					</div>
 							      					<div class="col-md-4 col-sm-4 col-xs-12">	
 							      						<div class="form-group">
 							      							<label class="control-label" for="focusedInput">Last name</label>
-							      							<input class="form-control" type="text" value="Enter Last name"  ng-model="userProfile.user_lname">
+							      							<input class="form-control" type="text" value="Enter Last name"  ng-model="vm.userProfile.user_lname">
 							      						</div>
 							      					</div>
 							      				</div>
@@ -90,13 +90,13 @@
 							      					<div class="col-md-4 col-sm-4 col-xs-12">	
 							      						<div class="form-group">
 							      							<label class="control-label" for="focusedInput">Email ID</label>
-							      							<input class="form-control" type="text" value="Enter Email ID"  ng-model="userProfile.user_email">
+							      							<input class="form-control" type="text" value="Enter Email ID"  ng-model="vm.userProfile.user_email">
 							      						</div>
 							      					</div>
 							      					<div class="col-md-4 col-sm-4 col-xs-12">	
 							      						<div class="form-group">
 							      							<label class="control-label" for="focusedInput">Mobile No</label>
-							      							<input class="form-control" type="text" value="Enter Mobile No"  ng-model="userProfile.user_mob">
+							      							<input class="form-control" type="text" value="Enter Mobile No"  ng-model="vm.userProfile.user_mob">
 							      						</div>
 							      					</div>
 							      				</div>
@@ -106,14 +106,14 @@
 							      					<div class="col-md-4 col-sm-4 col-xs-12">	
 							      						<div class="form-group">
 							      							<label class="control-label" for="focusedInput">Country</label>
-							      							<select class="form-control" ng-model="userProfile.country_id" ng-options="country.country_id as country.country_name for country in countryList" ng-change="StateName(userProfile.country_id)">
+							      							<select class="form-control" ng-model="vm.userProfile.country_id" ng-options="country.country_id as country.country_name for country in vm.countryList" ng-change="vm.StateName(vm.userProfile.country_id)">
 							      							</select>
 							      						</div>
 							      					</div>
 							      					<div class="col-md-4 col-sm-4 col-xs-12">	
 							      						<div class="form-group">
 							      							<label class="control-label" for="focusedInput">State</label>
-							      							<select class="form-control" ng-model="userProfile.state_id" ng-options="state.state_id as state.state_name for state in stateList">
+							      							<select class="form-control" ng-model="vm.userProfile.state_id" ng-options="state.state_id as state.state_name for state in vm.stateList">
 							      								<option value=''>Select State</option>
 							      							</select>
 							      						</div>
@@ -125,7 +125,7 @@
 							      					<div class="col-md-4 col-sm-4 col-xs-12">	
 							      						<div class="form-group">
 							      							<label class="control-label" for="focusedInput">School</label>
-							      							<select class="form-control" ng-model="userProfile.school_id" ng-options="school.school_id as school.school_name for school in schoolsList">
+							      							<select class="form-control" ng-model="vm.userProfile.school_id" ng-options="school.school_id as school.school_name for school in vm.schoolsList">
 							      							</select>
 							      						</div>
 							      					</div>
@@ -210,7 +210,7 @@
 								<div class="modal-content">
 									<div class="modal-header">							        
 										<p class="modal-title text-center" id="myModalLabel">
-											{{successMessage}}
+											{{vm.successMessage}}
 										</p>							       
 									</div>							      
 								</div>

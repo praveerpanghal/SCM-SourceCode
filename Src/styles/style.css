@@ -121,9 +121,9 @@ p
 }
 .acceptBtn
 {
-  background-color: #B9C406;
+  background-color: #006495;
   border-radius: 25px;
-  border: 1px solid #B9C406;
+  border: 1px solid #006495;
   color: #FFF; 
   width: 100%;
 }
@@ -177,7 +177,7 @@ p
   position: absolute;
   top: 82px;
   /*bottom: 172px;*/
-  bottom: 147px;
+  bottom: 88px;
   right: 0;
   left: 0;
   overflow-y: auto;
@@ -194,7 +194,7 @@ p
 }
 .landingFooter .media-body
 {
-  padding-bottom: 20px;
+  padding-bottom:0;
 }
 /*.homeHeader
 {
@@ -589,7 +589,7 @@ p
       position: absolute;
     left: 0;
     right: 0;
-    top: 23px;
+    top: 48px;
     bottom: 20px;
 }
 .signUpContainer .signUpTitle h1,.forgotWizard .signUpTitle h1
@@ -625,7 +625,7 @@ p
 {
     font-size:39px;
     color:#ef6f04;
-    line-height: 82px;
+    line-height: 60px;
 }
 .landingFooter .media-body h4{
     margin-top:20px;

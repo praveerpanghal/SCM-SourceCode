@@ -1,26 +1,27 @@
-app.controller("FriendsCtrl", ['$scope', '$location', '$route', 'ServiceUrls', 'HttpService', 'LS', function($scope, $location, $route, ServiceUrls, HttpService, LS){
-	$scope.data = 'friends page comming soon!';
+app.controller("FriendsCtrl", ['$location', '$route', 'ServiceUrls', 'HttpService', 'LS', function($location, $route, ServiceUrls, HttpService, LS){
+	
 	var user = LS.getData();
 	var encodedProfile = user.split('.')[1];
 	var profile = JSON.parse(LS.url_base64_decode(encodedProfile));
-	
-		var url = ServiceUrls.GetUserInfo;
-        var data = new Object();
-        data.user_id = profile.userId;
-        HttpService.PostMethod(url, data)
-            .then(function(response){
-                if(response.GetUserInfoResult!=''){                 
-                    $scope.userInfo = JSON.parse(response.GetUserInfoResult);
-                    $scope.userProfile = $scope.userInfo[0].UserProfile[0];
-                    $scope.friendRequests = $scope.userInfo[0].FriendRequest;
-                }else{
-                    alert('Data Not Found');
-                    $location.path('/logout');
-                }
-            }, 
-            function errorCallback(error){
-                $log.info(error);       
-            });
+	var vm = this;
+
+	var url = ServiceUrls.GetUserInfo;
+    var data = new Object();
+    data.user_id = profile.userId;
+    HttpService.PostMethod(url, data)
+        .then(function(response){
+            if(response.GetUserInfoResult!=''){                 
+                vm.userInfo = JSON.parse(response.GetUserInfoResult);
+                vm.userProfile = vm.userInfo[0].UserProfile[0];
+                vm.friendRequests = vm.userInfo[0].FriendRequest;
+            }else{
+                alert('Data Not Found');
+                $location.path('/logout');
+            }
+        }, 
+        function errorCallback(error){
+            $log.info(error);       
+        });
 
 		var url = ServiceUrls.GetFriendsList;
 		var data = new Object();
@@ -29,23 +30,23 @@ app.controller("FriendsCtrl", ['$scope', '$location', '$route', 'ServiceUrls', '
 		HttpService.PostMethod(url, data)
 			.then(function(response){
 				if(response!=''){
-					$scope.friendsData = response;
-					console.log($scope.friendsData);
+					vm.friendsData = response;
+					console.log(vm.friendsData);
 				}else{
-					$scope.emptyList = 'Your Friends List is Empty!'
+					vm.emptyList = 'Your Friends List is Empty!'
 				}
 			}, function(error){
 					$log.info(error);
 				});
 
-			$scope.action = function(username){
+			vm.action = function(username){
 	            if(username){                
 	                $location.path('/friends/'+username);
 	            }
 	        }
 
         	/* accept request code start */
-            $scope.acceptRequest = function(accept){
+            vm.acceptRequest = function(accept){
             	var url = ServiceUrls.ResponseFriendRequest;
                 var data = new Object();
                 data.user_id = accept.user_id;
@@ -62,7 +63,7 @@ app.controller("FriendsCtrl", ['$scope', '$location', '$route', 'ServiceUrls', '
             /* accept request code end */
 
             /* reject request code start */
-            $scope.rejectRequest = function(reject){
+            vm.rejectRequest = function(reject){
                 console.log(reject);
             	var url = ServiceUrls.ResponseFriendRequest;
             	var data = new Object();
@@ -79,4 +80,29 @@ app.controller("FriendsCtrl", ['$scope', '$location', '$route', 'ServiceUrls', '
         			});                
             }
             /* reject request code end */
+            
+            /* post comment code start */
+            vm.postComments = function(postComment){
+                var url = ServiceUrls.PostComment;
+                var data = new Object();
+                data.user_id = profile.userId;
+                data.friend_id = profile.userId;
+                data.comment = postComment;
+                console.log(data);                
+                HttpService.PostMethod(url, data)
+                    .then(function(response){
+                        console.log(response);
+                        if(response==2){
+                            vm.postSuccess='Comment posted successfully.';
+                            $route.reload();
+                            //$location.path('/');
+                        }else{
+                            vm.Error = 'Error Occured while posting your data.';
+                        }
+                    }, 
+                    function(error){
+                        $log.info(error);
+                    });
+            }
+            /* post comment code end */
 }]);

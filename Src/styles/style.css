@@ -1492,6 +1492,9 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
   white-space: nowrap;
   overflow: hidden;
 }
+.modal-header{
+  border: 0;
+}
 
 /*Newsfeed page style starts ends */
 @media (min-width:768px){

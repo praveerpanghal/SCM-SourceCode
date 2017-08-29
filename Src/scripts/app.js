@@ -54,13 +54,15 @@ app.config(['$routeProvider', '$httpProvider', '$locationProvider',
         $routeProvider   
         .when("/", {
             templateUrl : "views/Login.html",
-    		controller : "LoginCtrl"
+    		controller : "LoginCtrl",
+            controllerAs : "vm"
         }).when("/register", {
             templateUrl : "views/Register.html",
     		controller : "RegisterCtrl"
         }).when("/home", {
             templateUrl : "views/Home.html",
-            controller : "HomeCtrl"
+            controller : "HomeCtrl",
+            controllerAs : "vm"
         }).when("/logout", {
             templateUrl : "views/Logout.html",
             controller : "LogoutCtrl"
@@ -84,13 +86,16 @@ app.config(['$routeProvider', '$httpProvider', '$locationProvider',
             controller : "ProfileDetailCtrl"
         }).when("/friendslist", {
             templateUrl : "views/Friends.html",
-            controller : "FriendsCtrl"
+            controller : "FriendsCtrl",
+            controllerAs : "vm"
         }).when("/peopleyoumayknow", {
             templateUrl : "views/PeopleYouMayKnow.html",
-            controller : "PeopleYouMayKnowCtrl"
+            controller : "PeopleYouMayKnowCtrl",
+            controllerAs : "vm"
         }).when("/editprofile", {
             templateUrl : "views/EditProfile.html",
-            controller : "EditProfileCtrl"
+            controller : "EditProfileCtrl",
+            controllerAs : "vm"
         })
     	.otherwise({
     		redirectTo: "/"

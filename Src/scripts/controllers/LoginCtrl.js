@@ -1,20 +1,20 @@
 /* MainCtrl */
-app.controller("LoginCtrl", ['$scope', '$location', '$log', '$http', '$window', 'HttpService', 'ServiceUrls', 'LS', function($scope, $location, $log, $http, $window, HttpService, ServiceUrls, LS){	
+app.controller("LoginCtrl", ['$location', '$log', '$http', '$window', 'HttpService', 'ServiceUrls', 'LS', function($location, $log, $http, $window, HttpService, ServiceUrls, LS){	
 	
 	var user = LS.getData();
-	
+	var vm = this;
 	if(user){
 		$location.path('/home');
 	}else{
 		$location.path('/');
 	}
 
-	$scope.loginUser = function(user){		
+	vm.loginUser = function(user){		
 		$http
-	      .post('/authenticate', $scope.user)
+	      .post('/authenticate', user)
 	      .success(function (data, status, headers, config) {      	
 	      	if(data.err_status==0){
-	      		$scope.err_message = data.token;      		
+	      		vm.err_message = data.token;      		
 	      	}else{
 	      		LS.setData(data.token);
 	      		$location.path('/home');

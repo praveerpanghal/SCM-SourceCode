@@ -3,7 +3,7 @@ app.controller("HomeCtrl", ['$scope', '$window', '$location', '$http', '$log', '
 	var user = LS.getData();
 	var encodedProfile = user.split('.')[1];
 	var profile = JSON.parse(LS.url_base64_decode(encodedProfile));
-
+    var vm = this;
 	if(profile.userId){
 
         var url = ServiceUrls.GetUserInfo;
@@ -12,18 +12,21 @@ app.controller("HomeCtrl", ['$scope', '$window', '$location', '$http', '$log', '
         HttpService.PostMethod(url, data)
             .then(function(response){
                 if(response.GetUserInfoResult!=''){                 
-                    $scope.userInfo = JSON.parse(response.GetUserInfoResult);
-                    $scope.userProfile = $scope.userInfo[0].UserProfile[0];
-                    $scope.PeopleYouMayKnow = $scope.userInfo[0].PeopleYouMayKnow;
-                    $scope.commentsInfo = $scope.userInfo[0].CommentImagePost;
-                    $scope.friendRequests = $scope.userInfo[0].FriendRequest;
+                    vm.userInfo = JSON.parse(response.GetUserInfoResult);
+                    vm.userProfile = vm.userInfo[0].UserProfile[0];
+                    vm.PeopleYouMayKnow = vm.userInfo[0].PeopleYouMayKnow;
+                    vm.commentsInfo = vm.userInfo[0].CommentImagePost;
+                    vm.friendRequests = vm.userInfo[0].FriendRequest;
+                    console.log(vm.userInfo);
                 }else{
+                    console.log(response);
                     alert('Data Not Found');
                     $location.path('/logout');
                 }
             }, 
-            function errorCallback(error){
-                $log.info(error);       
+            function(error) { 
+              console.log(error.statusText);
+              $log.info(error);
             });
 		
 		/* upload file code start */
@@ -56,20 +59,23 @@ app.controller("HomeCtrl", ['$scope', '$window', '$location', '$http', '$log', '
             /* home page data from json end */
 
             /* friend request sent code start */
-            
+
             /* post comment code start */
             $scope.postComments = function(postComment){
                 var url = ServiceUrls.PostComment;
                 var data = new Object();
-                data.request_by_user = profile.userId;
-                data.postComment = postComment;
+                data.user_id = profile.userId;
+                data.friend_id = profile.userId;
+                data.comment = postComment;                
             	HttpService.PostMethod(url, data)
             		.then(function(response){
-            			if(response==1){
-            				$scope.postComment='';
-            				$route.reload();
+                        console.log(response);
+            			if(response==2){
+            				vm.postSuccess='Comment posted successfully.';
+            				//$route.reload();
+                            $location.path('/');
             			}else{
-            				$scope.Error = 'Error Occured while posting your data.';
+            				vm.Error = 'Error Occured while posting your data.';
             			}
             		}, 
                     function(error){

@@ -56,9 +56,6 @@ app.config(['$routeProvider', '$httpProvider', '$locationProvider',
             templateUrl : "views/Login.html",
     		controller : "LoginCtrl",
             controllerAs : "vm"
-        }).when("/register", {
-            templateUrl : "views/Register.html",
-    		controller : "RegisterCtrl"
         }).when("/home", {
             templateUrl : "views/Home.html",
             controller : "HomeCtrl",

@@ -48,16 +48,16 @@
 			</div>
 		</div>
 	</div>
-	<div class="container-fluid signUpWizard" ng-controller="RegisterCtrl">
+	<div class="container-fluid signUpWizard">
 		<div class="container signUpContainer">
 			<div class="row">
 				<div class="col-md-12">
-					<form name="registerForm" ng-submit="registerUser(person)">	
+					<form name="registerForm" ng-submit="vm.registerUser(person)">	
 					<div class="row">
 						<div class="col-md-4 col-md-offset-2 col-sm-4 col-sm-offset-2 signUpTitle">
-							<h1>Sign Up</h1>
+							<h1>Sign Up {{vmr.test}}</h1>
 						</div>
-						<div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 alert alert-success text-center alert-dismissable" ng-show="resetted"  style="padding: 4px 15px;">
+						<div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 alert alert-success text-center alert-dismissable" ng-show="vm.resetted"  style="padding: 4px 15px;">
 						  	<strong>Your are successfully registered with us.</strong>
 						</div>
 					</div>
@@ -123,9 +123,9 @@
 					<div class="row">
 						<div class="col-md-4 col-md-offset-2 col-sm-5 col-sm-offset-1">
 							<div class="form-group" ng-class="{ 'has-error' : registerForm.country_id.$invalid && !registerForm.country_id.$pristine }">
-								<select class="form-control" id="country_id" name="country_id" ng-model="person.country_id" ng-change="StateName(person.country_id)" required>
+								<select class="form-control" id="country_id" name="country_id" ng-model="person.country_id" ng-change="vm.StateName(person.country_id)" required>
 								<option value="">Select Country</option>
-								<option ng-repeat="country in countryList" value={{country.country_id}}>{{country.country_name}}</option>
+								<option ng-repeat="country in vm.countryList" value={{country.country_id}}>{{country.country_name}}</option>
 								</select>
 								<span class="help-block" ng-show="registerForm.country_id.$invalid && !registerForm.country_id.$pristine">Country Name Required</span>
 							</div>
@@ -134,7 +134,7 @@
 							<div class="form-group">
 								<select class="form-control" id="state_id" name="state_id" ng-model="person.state_id" required>
 								  <option value="">Please select a State</option>
-									<option ng-repeat="state in stateList" value={{state.state_id}}>{{state.state_name}}</option>
+									<option ng-repeat="state in vm.stateList" value={{state.state_id}}>{{state.state_name}}</option>
 								</select>
 								<span class="help-block" ng-show="registerForm.state_id.$invalid && !registerForm.state_id.$pristine">State Name Required</span>
 							</div>
@@ -145,7 +145,7 @@
 							<div class="form-group" ng-class="{ 'has-error' : registerForm.school_id.$invalid && !registerForm.school_id.$pristine }">
 							<select class="form-control" id="school_id" name="school_id"  title="Please Select your school" ng-model="person.school_id" required>
 								<option value="">Please select a school</option>
-								<option ng-repeat="school in schoolsList" value={{school.school_id}}>{{school.school_name}}</option>
+								<option ng-repeat="school in vm.schoolsList" value={{school.school_id}}>{{school.school_name}}</option>
 							</select>					
 							<span class="help-block" ng-show="registerForm.school_id.$invalid && !registerForm.school_id.$pristine">School Name Required</span>
 							</div>

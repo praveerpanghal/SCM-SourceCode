@@ -1,4 +1,4 @@
-/* MainCtrl */
+/* Login & Register controller */
 app.controller("LoginCtrl", ['$location', '$log', '$http', '$window', '$timeout', '$route', 'HttpService', 'ServiceUrls', 'LS', function($location, $log, $http, $window, $timeout, $route, HttpService, ServiceUrls, LS){	
 	
 	var user = LS.getData();

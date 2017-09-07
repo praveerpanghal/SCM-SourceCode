@@ -93,8 +93,12 @@ app.config(['$routeProvider', '$httpProvider', '$locationProvider',
             templateUrl : "views/EditProfile.html",
             controller : "EditProfileCtrl",
             controllerAs : "vm"
+        }).when("/pages", {
+            templateUrl : "views/Pages.html",
+            controller : "PagesCtrl",
+            controllerAs : "vm"
         })
-    	.otherwise({
+        .otherwise({
     		redirectTo: "/"
     	});
         $routeProvider.caseInsensitiveMatch = true;

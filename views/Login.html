@@ -103,14 +103,14 @@
 							<div class="form-group has-error" ng-class="{ 'has-error' : registerForm.password.$invalid && !registerForm.password.$pristine }">
 							 
 								<input class="form-control" id="inputEmail" placeholder="Password" type="password"
-								id="passwrd" name="passwrd" placeholder="Password" ng-model="person.passwrd" ng-minlength="8" ng-maxlength="30" ng-pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z])/" required >
+								id="passwrd" name="passwrd" placeholder="Password" ng-model="person.passwrd" ng-minlength="8" ng-maxlength="30" ng-pattern="/^(?=.*[a-z])(?=.*\d)(?=.*[$@$!%*?&])[a-z\d$@$!%*?&]{8,20}/" required >
 								<span class="help-block" style="display:none;color:red;">Error</span>
 							 
 
 							 <span class="help-block" ng-show="registerForm.passwrd.$error.required && registerForm.passwrd.$invalid && registerForm.passwrd.$dirty && registerForm.passwrd.$pristine">This is a required field</span>
 <span class="help-block" ng-show="!registerForm.passwrd.$error.required && (registerForm.passwrd.$error.minlength || registerForm.passwrd.$error.maxlength) && registerForm.passwrd.$dirty">Passwords must be between 8 and 20 characters</span>
 
-<span class="help-block" ng-show="!registerForm.passwrd.$error.required && !registerForm.passwrd.$error.minlength && !registerForm.passwrd.$error.maxlength && registerForm.passwrd.$error.pattern && registerForm.passwrd.$dirty">Must contain one lower & uppercase letter, and one numeric</span>
+<span class="help-block" ng-show="!registerForm.passwrd.$error.required && !registerForm.passwrd.$error.minlength && !registerForm.passwrd.$error.maxlength && registerForm.passwrd.$error.pattern && registerForm.passwrd.$dirty">Password must contain lowercase, special character and numeric, uppercase characters are not allowed.</span>
 							</div>
 						</div>
 						<div class="col-md-4 col-sm-5">

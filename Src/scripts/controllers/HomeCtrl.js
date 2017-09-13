@@ -29,6 +29,22 @@ app.controller("HomeCtrl", ['$scope', '$filter', '$window', '$location', '$http'
               console.log(error.statusText);
               $log.info(error);
             });
+
+        // Schools List start
+        var url = ServiceUrls.GetSchoolList;
+        HttpService.GetMethod(url)
+          .then(function successCallback(response){
+             if(response.GetSchoolListResult!==''){
+                vm.schoolsList = response.GetSchoolListResult;
+            }
+            else{
+                $log.info(response);
+            }
+
+        }, function errorCallback(error){
+           $log.info(error);        
+        });
+        // Schools List end
 		
 		/* upload file code start */
 		$scope.uploadFile = function(){

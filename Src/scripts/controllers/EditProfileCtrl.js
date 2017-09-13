@@ -90,9 +90,9 @@ app.controller("EditProfileCtrl", ['$http', '$log', '$timeout', '$route', '$loca
         $log.info(response);
     }
 
-}, function errorCallback(error){
- $log.info(error);		
-});
+  }, function errorCallback(error){
+   $log.info(error);		
+  });
 	// Schools List end
 
 
@@ -247,7 +247,7 @@ app.controller("EditProfileCtrl", ['$http', '$log', '$timeout', '$route', '$loca
     });
     }
 
-    vm.changePassword = function(user){
+    vm.changePassword = function(user){console.log(user);
     	var url = ServiceUrls.ChangePassword;
     	var data = new Object();
     	data.user_id = profile.userId;
@@ -256,6 +256,7 @@ app.controller("EditProfileCtrl", ['$http', '$log', '$timeout', '$route', '$loca
 
     	HttpService.PostMethod(url, data)
         .then(function(response){
+          console.log(response);
          if(response.ChangePasswordResult==1){
             $('#myModal').modal('show');
             vm.successMessage = 'Password changed sucessfully.'

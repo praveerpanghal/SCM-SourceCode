@@ -20,7 +20,7 @@
 							<div class="userBg" style="background: linear-gradient(to bottom, rgba(113,46,59,.8), rgba(113,46,59,.8)),
 							url('{{vm.userProfile.cover_picture}}') no-repeat;background-size: cover;">
 							<p class="userName">{{vm.userProfile.username}}</p>
-							<p class="schoolName">Atlantic County Institute of Technology, Mays Landing</p>
+							<p class="schoolName" ng-repeat="school in vm.schoolsList | filter:{school_id:vm.userProfile.school_id}">{{school.school_name}}</p>
 						</div>
 					</div>
 				</div>

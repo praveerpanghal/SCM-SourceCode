@@ -10,7 +10,7 @@
           </div>
           <div class="col-md-6 col-sm-6 col-xs-5 topNavSearchBar">
             <div class="imaginary_container" ng-show="path!='/forgot' && path!='/'"> 
-              <div class="input-group stylish-input-group" ng-show={{keySearch}}>
+              <div class="input-group stylish-input-group">
                 <input type="text" class="form-control" placeholder="Search" ng-keydown="$event.keyCode === 13 && action(username)" ng-model="username">
                 <span class="input-group-addon">
                   <a href="/friends/{{username}}">
@@ -28,7 +28,7 @@
                 </a>
               </li>
               <li ng-show="path!='/forgot' && path!='/'">
-                <a href="/logout" ng-show={{keySearch}}><i class="fa fa-power-off" aria-hidden="true"></i></a>
+                <a href="/logout"><i class="fa fa-power-off" aria-hidden="true"></i></a>
               </li>
             </ul>
           </div>

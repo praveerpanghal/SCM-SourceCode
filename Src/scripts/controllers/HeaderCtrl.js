@@ -11,9 +11,4 @@ app.controller("HeaderCtrl" ,function($scope, $location, LS){
             $location.path('/friends/'+username);
         }
 	}
-	
-	if(user == null && $location.path() == '/pages'){
-		$scope.keySearch = false;
-		console.log($scope.keySearch);
-	}
 });

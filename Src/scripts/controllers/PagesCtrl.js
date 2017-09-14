@@ -14,9 +14,9 @@ app.controller("PagesCtrl", ['$location', '$route', 'ServiceUrls', 'HttpService'
             });
       });
 
-      if(user!=null){
+      /*if(user!=null){
             vm.key = true;
 
-      }
+      }*/
 	
 }]);

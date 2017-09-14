@@ -4,7 +4,7 @@
 			<div class="col-md-12">
 				<div class="col-md-2">
 					<div class="leftImg">
-						<div class="col-md-1 col-md-offset-11">
+						<div class="col-md-1 col-md-offset-11" ng-show={{vm.key}}>
 							<input type="file" name="" id="upload-cover-photo"  />
 							<label id="upload-cover-photo-label" for="upload-cover-photo">
 								<span class="glyphicon glyphicon-camera"></span>
@@ -19,7 +19,7 @@
 				<div class="col-md-10 coverImg" >
 					<div class="row">
 						<form name="">
-							<div class="col-md-1 col-md-offset-11">
+							<div class="col-md-1 col-md-offset-11" ng-show={{vm.key}}>
 								<input type="file" name="" id="upload-cover-photo"  />
 								<label id="upload-cover-photo-label" for="upload-cover-photo">
 									<span class="glyphicon glyphicon-camera"></span>
@@ -93,7 +93,7 @@
 							      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 bhoechie-tab">
 							      		<div class="bhoechie-tab-content active">
 							      			<p>Home</p>
-							      			<div class="row">
+							      			<div class="row" ng-show={{vm.key}}>
 											    <form>
 											    	<div class="col-md-8 col-sm-8 col-xs-6 col-xs-offset-1
 											    		col-sm-offset-0 col-md-offset-0 postContentField">
@@ -220,7 +220,7 @@
 																			</div>
 																		</div>-->
 																		<div classs="row" >
-																			<div class="col-md-12 aligncommenterWizard">
+																			<div class="col-md-12 aligncommenterWizard"  ng-show={{vm.show}}>
 																					<div class="userPic" style="background-image: url('src/images/user6.jpg')"></div>	
 																					<div class="form-group userTxt">
 																				      <textarea class="form-control" rows="1"></textarea>
@@ -323,7 +323,7 @@
 																			</div>
 																		</div>-->
 																		<div classs="row" >
-																			<div class="col-md-12 aligncommenterWizard">
+																			<div class="col-md-12 aligncommenterWizard"  ng-show={{vm.show}}>
 																					<div class="userPic" style="background-image: url('src/images/user6.jpg')"></div>	
 																					<div class="form-group userTxt">
 																				      <textarea class="form-control" rows="1"></textarea>

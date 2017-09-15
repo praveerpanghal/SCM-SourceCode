@@ -4,9 +4,9 @@ var app = angular.module("scm", ['ngStorage', 'ngRoute', 'ngFileUpload']).run(fu
     $rootScope.location = $location;
 });
 
-/* Service URL's */
+/* Service URL's 
 var BaseUrl = 'http://162.17.231.114:1212/ServiceSCM.svc/';
-
+*/
 app.value('ServiceUrls', {
     GetCountrylist: BaseUrl + 'GetCountrylist',
     GetStateList: BaseUrl + 'GetStateList',
@@ -93,7 +93,7 @@ app.config(['$routeProvider', '$httpProvider', '$locationProvider',
             templateUrl : "views/EditProfile.html",
             controller : "EditProfileCtrl",
             controllerAs : "vm"
-        }).when("/US-Institute-of-Technology-Healthcare", {
+        }).when("/usith", {
             templateUrl : "views/US-Institute-of-Technology-Healthcare.html",
             controller : "PagesCtrl",
             controllerAs : "vm"

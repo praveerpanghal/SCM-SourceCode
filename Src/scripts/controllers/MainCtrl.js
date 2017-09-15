@@ -9,8 +9,8 @@ app.controller("MainCtrl", ['$scope', '$http', '$location', 'LS', 'ServiceUrls',
 	} 	
 	//alert($location.path());
 	if(!this.latestData()){
-		if($location.path()=='/usith'){
-			$location.path('/usith');
+		if($location.path()=='/US-Institute-of-Technology-Healthcare'){
+			$location.path('/US-Institute-of-Technology-Healthcare');
 		}else{
 		$location.path('/');}
 	}

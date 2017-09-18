@@ -72,9 +72,6 @@ app.config(['$routeProvider', '$httpProvider', '$locationProvider',
         }).when("/reset", {
             templateUrl : "views/ResetPassword.html",
             controller : "ResetPasswordCtrl"
-        }).when("/changeprofile", {
-            templateUrl : "views/ChangeProfile.html",
-            controller : "ChangeProfileCtrl"
         }).when("/friends/:username", {
             templateUrl : "views/ViewProfile.html",
             controller : "ViewProfileCtrl"

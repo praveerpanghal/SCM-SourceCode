@@ -28,7 +28,9 @@ server.post('/authenticate', function (req, res) {
     	headers: { "Content-Type": "application/json" }
 	};
 
-	client.post("http://162.17.231.114:1212/ServiceSCM.svc/LoginDetails", args, 
+	var webUrl = BaseUrl+'LoginDetails';
+
+	client.post("webUrl", args, 
 		function (data, response) {
 			var loginID = data[0];
 			// invalid user details return error message

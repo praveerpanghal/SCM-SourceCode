@@ -95,6 +95,10 @@ p
 {
   padding-right: 0!important;
 }
+b a{
+  color:#333;
+  font-weight: bold;
+}
 .form-control
 {
   height: 42px;
@@ -1087,7 +1091,6 @@ p
 }
 .likesColor
 {
-  /*color: #000;*/
   color:#333;
   padding-left: 5px;
   font-size: 13px;

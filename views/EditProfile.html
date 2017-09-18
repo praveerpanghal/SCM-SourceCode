@@ -3,7 +3,7 @@
 		<div class="row">	
 			<div class="col-md-12">
 				<div class="" >
-					<form name="CoverPictureForm" ng-submit="vm.uploadCover(userProfile)" enctype="multipart/form-data">
+					<form name="CoverPictureForm" ng-submit="vm.uploadCover(vm.userProfile)" enctype="multipart/form-data">
 						<div class="col-md-1 col-md-offset-11">
 							<input type="file" name="cover_picture" id="upload-cover-photo" ngf-select ng-model="vm.userProfile.cover_picture" required />
 							<label id="upload-cover-photo-label" for="upload-cover-photo">
@@ -15,7 +15,7 @@
 					</form>
 				</div>
 				<div class="col-md-12 editProfileWizard">
-					<form name="ProfilePictureForm" ng-submit="uploadProfile(userProfile)" enctype="multipart/form-data">
+					<form name="ProfilePictureForm" ng-submit="vm.uploadProfile(vm.userProfile)" enctype="multipart/form-data">
 						<div class="editProfileUser">
 							<div class="editProfileUserPic">
 								<img ngf-thumbnail="vm.userProfile.profile_picture" class="editProfileUserPic" ng-model="vm.userProfile.profile_picture" />

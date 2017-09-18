@@ -93,7 +93,7 @@ app.config(['$routeProvider', '$httpProvider', '$locationProvider',
             templateUrl : "views/EditProfile.html",
             controller : "EditProfileCtrl",
             controllerAs : "vm"
-        }).when("/usith", {
+        }).when("/US-Institute-of-Technology-Healthcare", {
             templateUrl : "views/US-Institute-of-Technology-Healthcare.html",
             controller : "PagesCtrl",
             controllerAs : "vm"

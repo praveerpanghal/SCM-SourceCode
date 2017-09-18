@@ -24,6 +24,7 @@ a
 {
    color: #333;
    text-decoration: none;
+   font-size: 13px;
 }
 h1
 {
@@ -1054,8 +1055,10 @@ p
 }
 .likesColor
 {
-  color: #000;
+  /*color: #000;*/
+  color:#333;
   padding-left: 5px;
+  font-size: 13px;
 }
 
 .commenterDetails p a{
@@ -1423,6 +1426,8 @@ div.bhoechie-tab-menu div.list-group>a{
   margin-bottom: 0;
   background-color: transparent;
   text-align: left;
+  color: #333;
+  font-size: 13px;
 }
 div.bhoechie-tab-menu div.list-group>a .glyphicon,
 div.bhoechie-tab-menu div.list-group>a .fa {

@@ -63,6 +63,38 @@ p
   color: #333;
   margin-bottom: 0;
 }
+.margin_top
+{
+  margin-top: 0!important;
+}
+.margin_bottom
+{
+  margin-bottom: 0;
+}
+.margin_left
+{
+  margin-left:0;
+}
+.margin_right
+{
+  margin-right: 0;
+}
+.padding_top
+{
+  padding-top: 0!important;
+}
+.padding_bottom
+{
+  padding-bottom: 0!important;
+}
+.padding_left
+{
+  padding-left:0!important;
+}
+.padding_right
+{
+  padding-right: 0!important;
+}
 .form-control
 {
   height: 42px;
@@ -1132,6 +1164,10 @@ p
 .followMemeber .btn-primary:last-child
 {
   color:red;
+}
+.toFollow
+{
+  padding-top: 8px;
 }
 .footer
 {

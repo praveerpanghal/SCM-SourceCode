@@ -13,7 +13,7 @@ app.controller("PeopleYouMayKnowCtrl", ['$scope', '$location', '$routeParams', '
 			vm.userProfile = vm.userInfo[0].UserProfile[0];			
 			vm.PeopleYouMayKnow = vm.userInfo[0].PeopleYouMayKnow;
 			vm.friendRequests = vm.userInfo[0].FriendRequest;
-			console.log(vm.PeopleYouMayKnow);
+			//console.log(vm.PeopleYouMayKnow);
 			if(vm.PeopleYouMayKnow.length=='0'){						
 				vm.emptyList = 'Your List is Empty.'
 			}
@@ -37,7 +37,7 @@ app.controller("PeopleYouMayKnowCtrl", ['$scope', '$location', '$routeParams', '
 		data.user_id = accept.user_id;
 		data.action_user_id = profile.userId;      
 		data.status = 1;
-		console.log(data);
+		//console.log(data);
 		HttpService.PostMethod(url, data)
 		.then(function(response){        				
 			$route.reload();
@@ -49,7 +49,7 @@ app.controller("PeopleYouMayKnowCtrl", ['$scope', '$location', '$routeParams', '
 
 	/* reject request code start */
 	vm.rejectRequest = function(reject){
-		console.log(reject);
+		//console.log(reject);
 		var url = ServiceUrls.ResponseFriendRequest;
 		var data = new Object();
 		data.user_id = reject.user_id;
@@ -98,7 +98,7 @@ app.controller("PeopleYouMayKnowCtrl", ['$scope', '$location', '$routeParams', '
         console.log(data);                
         HttpService.PostMethod(url, data)
             .then(function(response){
-                console.log(response);
+                //console.log(response);
                 if(response==2){
                     vm.postSuccess='Comment posted successfully.';
                     $route.reload();

@@ -31,7 +31,7 @@ app.controller("FriendsCtrl", ['$location', '$route', 'ServiceUrls', 'HttpServic
 			.then(function(response){
 				if(response!=''){
 					vm.friendsData = response;
-					console.log(vm.friendsData);
+					///console.log(vm.friendsData);
 				}else{
 					vm.emptyList = 'Your Friends List is Empty!'
 				}
@@ -91,7 +91,7 @@ app.controller("FriendsCtrl", ['$location', '$route', 'ServiceUrls', 'HttpServic
                 console.log(data);                
                 HttpService.PostMethod(url, data)
                     .then(function(response){
-                        console.log(response);
+                       // console.log(response);
                         if(response==2){
                             vm.postSuccess='Comment posted successfully.';
                             $route.reload();

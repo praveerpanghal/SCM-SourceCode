@@ -18,7 +18,7 @@ app.controller("HomeCtrl", ['$scope', '$filter', '$window', '$location', '$http'
                     vm.PeopleYouMayKnow = vm.userInfo[0].PeopleYouMayKnow;
                     vm.commentsInfo = vm.userInfo[0].CommentImagePost;
                     vm.friendRequests = vm.userInfo[0].FriendRequest;
-                    console.log(vm.userInfo);
+                   // console.log(vm.userInfo);
                 }else{
                     console.log(response);
                     alert('Data Not Found');

@@ -1635,6 +1635,22 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
   padding:10px;
   border-bottom: 1px solid #ebebeb;
 }
+.usithImgs .usithImgsCont
+{
+  padding: 10px;
+}
+.usithImgsCont img
+{
+  border:1px solid #dfdfdf;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: 2px 3px 9px -4px rgba(0,0,0,0.75);
+  -moz-box-shadow: 2px 3px 9px -4px rgba(0,0,0,0.75);
+  box-shadow: 2px 3px 9px -4px rgba(0,0,0,0.75);
+
+
+}
 /* pages styles start here ends*/
 
 /*Newsfeed page style starts ends */

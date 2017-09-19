@@ -5,7 +5,7 @@
 				<div class="" >
 					<form name="CoverPictureForm" ng-submit="vm.uploadCover(vm.userProfile)" enctype="multipart/form-data">
 						<div class="col-md-1 col-md-offset-11">
-							<input type="file" name="cover_picture" id="upload-cover-photo" ngf-select ng-model="vm.userProfile.cover_picture" required />
+							<input type="file" name="cover_picture" id="upload-cover-photo"  ng-model="vm.userProfile.cover_picture" required />
 							<label id="upload-cover-photo-label" for="upload-cover-photo">
 								<span class="glyphicon glyphicon-camera"></span>
 							</label>
@@ -15,17 +15,22 @@
 					</form>
 				</div>
 				<div class="col-md-12 editProfileWizard">
-					<form name="ProfilePictureForm" ng-submit="vm.uploadProfile(vm.userProfile)" enctype="multipart/form-data">
+					<form name="ProfilePictureForm" ng-submit="vm.uploadProfile(croppedDataUrl,vm.userProfile)" enctype="multipart/form-data">
 						<div class="editProfileUser">
 							<div class="editProfileUserPic">
 								<img ngf-thumbnail="vm.userProfile.profile_picture" class="editProfileUserPic" ng-model="vm.userProfile.profile_picture" />
-								<input type="file"  id="upload-photo" ngf-select ng-model="vm.userProfile.profile_picture" required />
+								<div ngf-drop class="cropArea editProfileUserPic" ng-model="vm.profile_picture">
+									<img-crop image="vm.profile_picture  | ngfDataUrl"                 
+											  result-image="croppedDataUrl" ng-init="croppedDataUrl=''">
+									</img-crop>
+								</div>
+								<input id="upload-photo" ngf-select ng-model="vm.profile_picture" />
 								<label id="upload-photo-label" for="upload-photo">
 									<span class="glyphicon glyphicon-camera"></span>
 								</label>
 							</div>
-							{{vm.profileBtn}}
 							<h3>{{vm.userProfile.username}}</h3>
+							
 						</div>	
 						<p class="editProfileUserDtl">&nbsp;</p>
 						<div class="editProfileUserTxt col-md-6 col-md-offset-2 col-sm-6 col-sm-offset-2 col-xs-1 col-xs-offset-8 text-center">

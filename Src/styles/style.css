@@ -1555,8 +1555,8 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
 }
 .creatPageWizard .leftImg
 {
-  width:180px;
-  height:180px;
+  /*width:180px;
+  height:180px;*/
   /*background:url('../images/friends.jpg');*/
   background-size:cover!important;
   margin-top: 15px;
@@ -1621,8 +1621,8 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
 }
 .commentImg
 {
-    width: 710px;
-    height: 380px;
+    /*width: 710px;*/
+    /*height: 380px;*/
     overflow: hidden;
 }
 .pageCommentWizard .pageCommentTxt
@@ -1770,7 +1770,7 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
     overflow: auto;
   }
   .followMemeber {
-    width: 30%;
+    width: 24%;
     float: left;
   }
   .whotoFollow h1
@@ -1791,6 +1791,37 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
   }
   .signUpContainer {
     position: static;
+  }
+  .coverImg
+  {
+    padding:5px;
+  }
+  div.bhoechie-tab-menu div.list-group > a
+  {
+    float: left;
+  }
+  .creatPageWizard .leftImg
+  {
+    width: 80px;
+    height: 80px;
+    float: left;
+    margin-right: 15px;
+  }
+  .creatPageWizard .leftImg+h4
+  {
+    margin-top: 22px;
+  }
+  .creatPageWizard p
+  {
+    display: none;
+    border:1px solid red;
+  }
+  .follow,div.bhoechie-tab-content
+  {
+    padding: 5px;
+  }
+  .alignBody {
+    padding-top: 70px;
   }
   
 }
@@ -1883,6 +1914,9 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
       padding-left:15px;
       font-size:14px;
   }
+  .alignBody {
+    padding-top: 53px;
+  }
 }
 @media (max-width:390px){
   .postContentField
@@ -1898,9 +1932,9 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
     padding-left: 67px;
     padding-top: 0;
   }
-  .logoWizard
-  {
-    
+  .followMemeber {
+    width: 24%;
+    float: left;
   }
 }
 

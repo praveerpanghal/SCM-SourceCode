@@ -131,10 +131,25 @@ app.controller("EditProfileCtrl", ['$http', '$log', '$timeout', '$route', '$loca
     }
 
     //Edit Profile Details Ends
+    function fixBinary (bin) {
+        var length = bin.length;
+        var buf = new ArrayBuffer(length);
+        var arr = new Uint8Array(buf);
+        for (var i = 0; i < length; i++) {
+          arr[i] = bin.charCodeAt(i);
+        }
+        return buf;
+      }
+    vm.uploadProfile = function(croppedDataUrl,userProfile){
+        //  console.log(vm.profile_picture.name);
+        //  console.log(userProfile);
+        //  console.log(croppedDataUrl);
 
-    vm.uploadProfile = function(userProfile){
+        var binary = fixBinary(atob(croppedDataUrl.split(',')[1]));  
+        var file = new File([binary], vm.profile_picture.name, {type: "'image/jpeg"});
+        //console.log(file);
     	
-       var file = userProfile.profile_picture; 
+      var fileOrginal = vm.profile_picture.name; 
        var uploadUrl = "/multer";
        var fd = new FormData();
        fd.append('file', file);
@@ -147,6 +162,7 @@ app.controller("EditProfileCtrl", ['$http', '$log', '$timeout', '$route', '$loca
             }
         })
         .success(function(response){
+            console.log(response);
             vm.res = response;
         })
         .error(function(){
@@ -154,7 +170,7 @@ app.controller("EditProfileCtrl", ['$http', '$log', '$timeout', '$route', '$loca
      });
 
         //profile picture path
-        vm.profile_picture = 'Src/images/profile/'+file.name;
+        vm.profile_picture_path = 'Src/images/profile/'+fileOrginal;        
 
 	    //to update profile data in database
 	    var url = ServiceUrls.UpdateProfile;
@@ -167,9 +183,9 @@ app.controller("EditProfileCtrl", ['$http', '$log', '$timeout', '$route', '$loca
         data.country_id = userProfile.country_id;
         data.state_id = userProfile.state_id;
         data.school_id = userProfile.school_id;
-        data.profile_picture = vm.profile_picture;
+        data.profile_picture = vm.profile_picture_path;
         data.cover_picture = userProfile.cover_picture;
-
+console.log(data);
         HttpService.PostMethod(url, data)
         .then(function(response){
             if(response!=0){

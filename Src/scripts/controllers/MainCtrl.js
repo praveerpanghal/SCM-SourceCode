@@ -8,10 +8,10 @@ app.controller("MainCtrl", ['$scope', '$http', '$location', 'LS', 'ServiceUrls',
 		return LS.getData();
 	} 	
 	//alert($location.path());
-	if(!this.latestData()){
-		if($location.path()=='/US-Institute-of-Technology-Healthcare'){
-			$location.path('/US-Institute-of-Technology-Healthcare');
-		}else{
-		$location.path('/');}
-	}
+	// if(!this.latestData()){
+	// 	if($location.path()=='/US-Institute-of-Technology-Healthcare'){
+	// 		$location.path('/US-Institute-of-Technology-Healthcare');
+	// 	}else{
+	// 	$location.path('/');}
+	// }
 }]);

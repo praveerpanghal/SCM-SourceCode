@@ -16,7 +16,8 @@ app.controller("LoginCtrl", ['$location', '$log', '$http', '$window', '$timeout'
 	      	if(data.err_status==0){
 	      		vm.err_message = data.token;      		
 	      	}else{
-	      		LS.setData(data.token);
+				LS.setData(data.token);
+				sessionStorage.setItem('loginKey', 'show and hide items'); /* creating session key value */
 	      		$location.path('/home');
 	      	}
     	})

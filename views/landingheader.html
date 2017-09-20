@@ -4,15 +4,15 @@
       <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
           <div class="col-md-3 col-sm-4 col-xs-6 logoWizard">
-            <a href="home" ng-if="path!='/'">
+            <a href="home">
               <img src="/Src/Images/logo.png" class="img-responsive homeHeaderLogo" alt="" />
             </a>
-            <span ng-if="path=='/'">
+            <span ng-if="!manageKey">
               <img src="/Src/Images/logo.png" class="img-responsive homeHeaderLogo" alt="" />
             </span>
           </div>
           <div class="col-md-6 col-sm-6 col-xs-5 topNavSearchBar">
-            <div class="imaginary_container" ng-show="path!='/forgot' && path!='/'"> 
+            <div class="imaginary_container" ng-if='manageKey'> 
               <div class="input-group stylish-input-group">
                 <input type="text" class="form-control" placeholder="Search" ng-keydown="$event.keyCode === 13 && action(username)" ng-model="username">
                 <span class="input-group-addon">
@@ -25,12 +25,12 @@
           </div>
           <div class="col-md-3 col-sm-2 col-xs-1 landingTopNav ">
             <ul class="list-inline">
-              <li ng-hide="path!='/forgot'">
+              <li ng-show="path=='/forgot' || path=='/US-Institute-of-Technology-Healthcare'">
                 <a href="/">
                   Sign In
                 </a>
               </li>
-              <li ng-show="path!='/forgot' && path!='/'">
+              <li ng-if='manageKey'>
                 <a href="/logout"><i class="fa fa-power-off" aria-hidden="true"></i></a>
               </li>
             </ul>

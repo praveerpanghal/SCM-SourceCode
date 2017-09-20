@@ -1,12 +1,13 @@
 /* MainCtrl */
 app.controller("HomeCtrl", ['$scope', '$filter', '$window', '$location', '$http', '$log', '$route', 'HttpService', 'ServiceUrls', 'LS', function($scope, $filter, $window, $location, $http, $log, $route, HttpService, ServiceUrls, LS){	
-	var user = LS.getData();
-	var encodedProfile = user.split('.')[1];
-	var profile = JSON.parse(LS.url_base64_decode(encodedProfile));
+    var user = LS.getData();
     var vm = this;
 
-    if(profile.userId){
-
+    if(user){
+        
+    	var encodedProfile = user.split('.')[1];
+        var profile = JSON.parse(LS.url_base64_decode(encodedProfile));
+        
         var url = ServiceUrls.GetUserInfo;
         var data = new Object();
         data.user_id = profile.userId;

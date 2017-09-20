@@ -25,7 +25,7 @@
           </div>
           <div class="col-md-3 col-sm-2 col-xs-1 landingTopNav ">
             <ul class="list-inline">
-              <li ng-show="path=='/forgot' || path=='/US-Institute-of-Technology-Healthcare'">
+              <li ng-if="!manageKey && path!='/'">
                 <a href="/">
                   Sign In
                 </a>

@@ -1,2 +1,2 @@
 /* Service URL's */
-var BaseUrl = 'http://162.17.231.114:1212/ServiceSCM.svc/';
+var BaseUrl = 'http://162.17.231.115:1212/ServiceSCM.svc/';

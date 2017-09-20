@@ -1327,6 +1327,10 @@ a.requestIcons{
   background-position: center center;
   overflow: hidden;
 }
+.alignHeight
+{
+  height: auto;
+}
 .editProfileWizard{
   margin-top: -184px;
 }
@@ -1821,11 +1825,6 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
   .creatPageWizard .leftImg+h4
   {
     margin-top: 22px;
-  }
-  .creatPageWizard p
-  {
-    display: none;
-    border:1px solid red;
   }
   .follow,div.bhoechie-tab-content
   {

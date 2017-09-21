@@ -185,17 +185,17 @@ app.controller("EditProfileCtrl", ['$http', '$log', '$timeout', '$route', '$loca
         data.school_id = userProfile.school_id;
         data.profile_picture = vm.profile_picture_path;
         data.cover_picture = userProfile.cover_picture;
-console.log(data);
+        //console.log(data);
         HttpService.PostMethod(url, data)
         .then(function(response){
             if(response!=0){
-               $('#myModal').modal('show');
+               //$('#myModal').modal('show');
                vm.successMessage = "Profile updated sucessfully.";
                $timeout(function() {
-                   $('#myModal').modal('hide');
-                   $('.modal-backdrop').remove();
+                   //$('#myModal').modal('hide');
+                   //$('.modal-backdrop').remove();
                    $route.reload();
-               }, 3000);
+               }, 1000); 
            }else{
             vm.msg = 'Profile not updated.';
         }
@@ -247,13 +247,13 @@ console.log(data);
         HttpService.PostMethod(url, data)
         .then(function(response){
             if(response!=0){
-               $('#myModal').modal('show');
-               vm.successMessage = "Profile updated sucessfully.";
+               //$('#myModal').modal('show');
+               vm.successMessage = "Cover updated sucessfully.";
                $timeout(function() {
-                   $('#myModal').modal('hide');
-                   $('.modal-backdrop').remove();
+                //    $('#myModal').modal('hide');
+                //    $('.modal-backdrop').remove();
                    $route.reload();
-               }, 3000);
+               }, 1000); 
            }else{
             vm.msg = 'Profile not updated.';
         }
@@ -276,11 +276,11 @@ console.log(data);
          if(response.ChangePasswordResult==1){
             $('#myModal').modal('show');
             vm.successMessage = 'Password changed sucessfully.'
-            $timeout(function() {
+            /* $timeout(function() {
                $('#myModal').modal('hide');
                $('.modal-backdrop').remove();
                $location.path('/logout');						
-           }, 3000);
+           }, 3000); */
         }else{
             vm.errorMessage = 'Please enter correct old password.';
             $timeout(function() {

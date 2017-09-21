@@ -94,6 +94,10 @@ app.config(['$routeProvider', '$httpProvider', '$locationProvider',
             templateUrl : "views/US-Institute-of-Technology-Healthcare.html",
             controller : "PagesCtrl",
             controllerAs : "vm"
+        }).when("/school-connect-me", {
+            templateUrl : "views/school-connect-me.html",
+            controller : "PagesCtrl",
+            controllerAs : "vm"
         })
         .otherwise({
     		redirectTo: "/"

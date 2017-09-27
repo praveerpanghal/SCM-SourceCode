@@ -98,6 +98,10 @@ app.config(['$routeProvider', '$httpProvider', '$locationProvider',
             templateUrl : "views/school-connect-me.html",
             controller : "PagesCtrl",
             controllerAs : "vm"
+        }).when("/spino-tuts", {
+            templateUrl : "views/spino-tuts.html",
+            controller : "PagesCtrl",
+            controllerAs : "vm"
         })
         .otherwise({
     		redirectTo: "/"

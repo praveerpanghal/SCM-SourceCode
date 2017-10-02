@@ -105,6 +105,7 @@ app.controller("LoginCtrl", ['$location', '$log', '$http', '$window', '$timeout'
 
 		HttpService.PostMethod(url, data)
 			.then(function successCallback(response){
+				console.log(response);
 				if(response==1){
 					vm.resetted = true;			
 					$timeout(function() {

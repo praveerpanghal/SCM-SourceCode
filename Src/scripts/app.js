@@ -98,8 +98,8 @@ app.config(['$routeProvider', '$httpProvider', '$locationProvider',
             templateUrl : "views/school-connect-me.html",
             controller : "PagesCtrl",
             controllerAs : "vm"
-        }).when("/spino-tuts", {
-            templateUrl : "views/spino-tuts.html",
+        }).when("/spinotuts", {
+            templateUrl : "views/spinotuts.html",
             controller : "PagesCtrl",
             controllerAs : "vm"
         })

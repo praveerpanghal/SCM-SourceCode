@@ -99,7 +99,7 @@ app.config(['$routeProvider', '$httpProvider', '$locationProvider',
             controller : "PagesCtrl",
             controllerAs : "vm"
         }).when("/spinotuts", {
-            templateUrl : "views/spinotuts.html",
+            templateUrl : "views/spino-tuts.html",
             controller : "PagesCtrl",
             controllerAs : "vm"
         })

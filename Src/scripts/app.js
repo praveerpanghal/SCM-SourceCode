@@ -106,6 +106,7 @@ app.config(['$routeProvider', '$httpProvider', '$locationProvider',
             templateUrl : "views/Messages.html",
             controller : "MessagesCtrl",
             controllerAs : "vm"
+            
         })
         .otherwise({
     		redirectTo: "/"

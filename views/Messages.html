@@ -1,0 +1,396 @@
+<!-- Profile page starts-->				
+<div class="container-fluid newsFeedContent">
+<div class="container">
+	<div class="row">
+		<div class="col-md-3 col-sm-3 col-md-12 scmLeftNav">
+			<nav class="navbar navbar-default">
+				<div class="container">
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2" aria-expanded="false">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<div class="userImg" style="background-image: url('{{vm.userProfile.profile_picture}}')">
+							<!--<img src="src/images/profile/profile.jpg" alt="" />-->
+						</div>
+						<div class="navbar-brand" href="#">
+							<div class="userBg" style="background: linear-gradient(to bottom, rgba(113,46,59,.8), rgba(113,46,59,.8)),
+							url('{{vm.userProfile.cover_picture}}') no-repeat;background-size: cover;">
+							<p class="userName">{{vm.userProfile.username}}</p>
+							<p class="schoolName" ng-repeat="school in vm.schoolsList | filter:{school_id:vm.userProfile.school_id}">{{school.school_name}}</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+					<ul class="nav navbar-nav">
+						<li>
+							<a href="home">
+								<i class="fa fa-home icon7LeftNav" aria-hidden="true"></i>
+								Home
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<i class="fa fa-address-card-o icon8LeftNav" aria-hidden="true"></i>Profile
+							</a>
+						</li>
+						
+						<li>
+							<a href="peopleyoumayknow">
+								<i class="fa fa-users icon1LeftNav" aria-hidden="true"></i>
+								People You Know
+							</a>
+						</li>
+						<li>
+							<a href="friendslist">
+								<i class="fa fa-slideshare icon2LeftNav" aria-hidden="true"></i>
+								Friends
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<i class="fa fa-comments icon3LeftNav" aria-hidden="true"></i>		Messages
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<i class="fa fa-picture-o icon4LeftNav" aria-hidden="true"></i>
+								Images
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<i class="fa fa-video-camera icon5LeftNav" aria-hidden="true"></i>	
+								Videos
+							</a>
+						</li>
+						<li>
+							<a href="editprofile">
+								<i class="fa fa-pencil-square-o icon6LeftNav" aria-hidden="true"></i>Edit Profile
+							</a>
+						</li>
+						<li>
+							<a href="US-Institute-of-Technology-Healthcare">
+								<i class="fa fa-file-text icon6LeftNav" aria-hidden="true"></i>Pages
+							</a>
+						</li>
+						
+					</ul>		
+					
+				</div><!-- /.navbar-collapse -->
+			</div><!-- /.container-fluid -->
+		</nav>
+		<div class="col-md-10 col-md-offset-1 col-xs-12 onlineWizard">
+			<h4>Online Chat</h4>
+			<div class="chatOnline">	
+				<div class="onlinePeopleWizard">	
+					<div class="onlinePeople" style="background-image: url('src/images/user6.jpg')">
+					</div>
+					<div class="onlineIcon"></div>
+				</div>
+				<div class="onlinePeopleWizard">	
+					<div class="onlinePeople" style="background-image: url('src/images/user2.jpg')">
+					</div>
+					<div class="onlineIcon"></div>
+				</div>
+				<div class="onlinePeopleWizard">	
+					<div class="onlinePeople" style="background-image: url('src/images/user3.jpg')">
+					</div>
+					<div class="onlineIcon"></div>
+				</div>
+				<div class="onlinePeopleWizard">	
+					<div class="onlinePeople" style="background-image: url('src/images/user4.jpg')">
+					</div>
+					<div class="onlineIcon"></div>
+				</div>
+				<div class="onlinePeopleWizard">	
+					<div class="onlinePeople" style="background-image: url('src/images/user5.jpg')">
+					</div>
+					<div class="onlineIcon"></div>
+				</div>
+				<div class="onlinePeopleWizard">	
+					<div class="onlinePeople" style="background-image: url('src/images/user6.jpg')">
+					</div>
+					<div class="onlineIcon"></div>
+				</div>
+				<div class="onlinePeopleWizard">	
+					<div class="onlinePeople" style="background-image: url('src/images/user2.jpg')">
+					</div>
+					<div class="onlineIcon"></div>
+				</div>
+				<div class="onlinePeopleWizard">	
+					<div class="onlinePeople" style="background-image: url('src/images/user3.jpg')">
+					</div>
+					<div class="onlineIcon"></div>
+				</div>
+				<div class="onlinePeopleWizard">	
+					<div class="onlinePeople" style="background-image: url('src/images/user4.jpg')">
+					</div>
+					<div class="onlineIcon"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6 col-sm-6 col-xs-12 contentPost">						
+		
+		
+			<div class="col-md-5 col-sm-6 col-xs-12">
+				<div class="msgMembersLst">
+
+
+					<div class="media">
+						  <div class="media-left" style="background-image: url('Src/images/user2.jpg');">
+						  </div>
+						  <div class="media-body" >
+							    <p class="media-heading">
+							    	<span>Vasudev</span>
+							    	<span class="timeConversation">a min ago</span>
+							    </p>
+							    <div class="msgBlock">
+							    	<p class="msgFirstLine">Lorem Ipsum is simply dummy text of the printing </p>
+							    	<p class="msgCount">5</p>
+							    </div>
+						  </div>
+					</div>
+					<div class="media">
+						  <div class="media-left" style="background-image: url('Src/images/user2.jpg');">
+						  </div>
+						  <div class="media-body" >
+							    <p class="media-heading">
+							    	<span>Vasudev</span>
+							    	<span class="timeConversation">a min ago</span>
+							    </p>
+							    <div class="msgBlock">
+							    	<p class="msgFirstLine">Lorem Ipsum is simply dummy text of the printing </p>
+							    	<p class="msgCount">5</p>
+							    </div>
+						  </div>
+					</div>
+					<div class="media">
+						  <div class="media-left" style="background-image: url('Src/images/user2.jpg');">
+						  </div>
+						  <div class="media-body" >
+							    <p class="media-heading">
+							    	<span>Vasudev</span>
+							    	<span class="timeConversation">a min ago</span>
+							    </p>
+							    <div class="msgBlock">
+							    	<p class="msgFirstLine">Lorem Ipsum is simply dummy text of the printing </p>
+							    	<p class="msgCount">5</p>
+							    </div>
+						  </div>
+					</div>
+					<div class="media">
+						  <div class="media-left" style="background-image: url('Src/images/user2.jpg');">
+						  </div>
+						  <div class="media-body" >
+							    <p class="media-heading">
+							    	<span>Vasudev</span>
+							    	<span class="timeConversation">a min ago</span>
+							    </p>
+							    <div class="msgBlock">
+							    	<p class="msgFirstLine">Lorem Ipsum is simply dummy text of the printing </p>
+							    	<p class="msgCount">5</p>
+							    </div>
+						  </div>
+					</div>
+					<div class="media">
+						  <div class="media-left" style="background-image: url('Src/images/user2.jpg');">
+						  </div>
+						  <div class="media-body" >
+							    <p class="media-heading">
+							    	<span>Vasudev</span>
+							    	<span class="timeConversation">a min ago</span>
+							    </p>
+							    <div class="msgBlock">
+							    	<p class="msgFirstLine">Lorem Ipsum is simply dummy text of the printing </p>
+							    	<p class="msgCount">5</p>
+							    </div>
+						  </div>
+					</div>
+					<div class="media">
+						  <div class="media-left" style="background-image: url('Src/images/user2.jpg');">
+						  </div>
+						  <div class="media-body" >
+							    <p class="media-heading">
+							    	<span>Vasudev</span>
+							    	<span class="timeConversation">a min ago</span>
+							    </p>
+							    <div class="msgBlock">
+							    	<p class="msgFirstLine">Lorem Ipsum is simply dummy text of the printing </p>
+							    	<p class="msgCount">5</p>
+							    </div>
+						  </div>
+					</div>
+					<div class="media">
+						  <div class="media-left" style="background-image: url('Src/images/user2.jpg');">
+						  </div>
+						  <div class="media-body" >
+							    <p class="media-heading">
+							    	<span>Vasudev</span>
+							    	<span class="timeConversation">a min ago</span>
+							    </p>
+							    <div class="msgBlock">
+							    	<p class="msgFirstLine">Lorem Ipsum is simply dummy text of the printing </p>
+							    	<p class="msgCount">5</p>
+							    </div>
+						  </div>
+					</div>
+
+
+				</div>
+			</div>    					
+			<div class="col-md-7 col-sm-6 col-xs-12">
+				<div class="chatConversationList">
+
+
+					<div class="rightChatMsg">	
+							<div class="chatConversationUser" style="background-image: url('src/images/user3.jpg')"></div>
+							<div class="chatMessages" >
+								    <p class="media-heading">
+								    	<span>Vasudev</span>
+								    	<span class="timeConversation">a min ago</span>
+								    </p>
+								    <div class="msgBlock">
+								    	<p>Lorem Ipsum is simply dummy text of the printing </p>
+								    	<!-- <p class="msgCount">5</p> -->
+								    </div>
+							  </div>
+					</div>
+					<div class="leftChatMsg">	
+							<div class="chatMessages" >
+								    <p class="media-heading">
+								    	<span>Vasudev</span>
+								    	<span class="timeConversation">a min ago</span>
+								    </p>
+								    <div class="msgBlock">
+								    	<p>Lorem Ipsum is simply dummy text of the printing </p>
+								    	<!-- <p class="msgCount">5</p> -->
+								    </div>
+							  </div>
+							<div class="chatConversationUser" style="background-image: url('src/images/user4.jpg')"></div>
+					</div>
+					<div class="rightChatMsg">	
+							<div class="chatConversationUser" style="background-image: url('src/images/user3.jpg')"></div>
+							<div class="chatMessages" >
+								    <p class="media-heading">
+								    	<span>Vasudev</span>
+								    	<span class="timeConversation">a min ago</span>
+								    </p>
+								    <div class="msgBlock">
+								    	<p>Lorem Ipsum is simply dummy text of the printing </p>
+								    	<!-- <p class="msgCount">5</p> -->
+								    </div>
+							  </div>
+					</div>
+					<div class="leftChatMsg">	
+							<div class="chatMessages" >
+								    <p class="media-heading">
+								    	<span>Vasudev</span>
+								    	<span class="timeConversation">a min ago</span>
+								    </p>
+								    <div class="msgBlock">
+								    	<p>Lorem Ipsum is simply dummy text of the printing </p>
+								    	<!-- <p class="msgCount">5</p> -->
+								    </div>
+							  </div>
+							<div class="chatConversationUser" style="background-image: url('src/images/user4.jpg')"></div>
+					</div>
+					<div class="rightChatMsg">	
+							<div class="chatConversationUser" style="background-image: url('src/images/user3.jpg')"></div>
+							<div class="chatMessages" >
+								    <p class="media-heading">
+								    	<span>Vasudev</span>
+								    	<span class="timeConversation">a min ago</span>
+								    </p>
+								    <div class="msgBlock">
+								    	<p>Lorem Ipsum is simply dummy text of the printing </p>
+								    	<!-- <p class="msgCount">5</p> -->
+								    </div>
+							  </div>
+					</div>
+					<div class="leftChatMsg">	
+							<div class="chatMessages" >
+								    <p class="media-heading">
+								    	<span>Vasudev</span>
+								    	<span class="timeConversation">a min ago</span>
+								    </p>
+								    <div class="msgBlock">
+								    	<p>Lorem Ipsum is simply dummy text of the printing </p>
+								    	<!-- <p class="msgCount">5</p> -->
+								    </div>
+							  </div>
+							<div class="chatConversationUser" style="background-image: url('src/images/user4.jpg')"></div>
+					</div>
+					<div class="rightChatMsg">	
+							<div class="chatConversationUser" style="background-image: url('src/images/user3.jpg')"></div>
+							<div class="chatMessages" >
+								    <p class="media-heading">
+								    	<span>Vasudev</span>
+								    	<span class="timeConversation">a min ago</span>
+								    </p>
+								    <div class="msgBlock">
+								    	<p>Lorem Ipsum is simply dummy text of the printing </p>
+								    	<!-- <p class="msgCount">5</p> -->
+								    </div>
+							  </div>
+					</div>
+					<div class="leftChatMsg">	
+							<div class="chatMessages" >
+								    <p class="media-heading">
+								    	<span>Vasudev</span>
+								    	<span class="timeConversation">a min ago</span>
+								    </p>
+								    <div class="msgBlock">
+								    	<p>Lorem Ipsum is simply dummy text of the printing </p>
+								    	<!-- <p class="msgCount">5</p> -->
+								    </div>
+							  </div>
+							<div class="chatConversationUser" style="background-image: url('src/images/user4.jpg')"></div>
+					</div>
+
+
+				</div>
+				<div class="chatConverstionPost">
+					<div class="form-group">
+					  <!-- <label class="control-label">Input addons</label> -->
+					  <div class="input-group">
+					    <input type="text" class="form-control" placeholder="Type your message">
+					    <span class="input-group-btn">
+					      <button class="btn btn-default" type="button">Send</button>
+					    </span>
+					  </div>
+					</div>
+				</div>
+			</div>
+		
+
+	</div>
+			<div class="col-md-3 col-sm-3 col-xs-12 whotoFollow">
+				<h1>Friend Requests</h1>
+				<div class="follow">
+					<h5 ng-show="vm.friendRequests.length==0">No friend request.</h5>
+					<div class="followMemeber"  ng-repeat="friendRequest in vm.friendRequests">
+						<div class="commenterpic" style="background-image: url('{{friendRequest.profile_picture}}')"></div>
+						<h4>{{friendRequest.username}}</h4>
+						<p>
+							<button class="btn btn-primary" ng-click="acceptRequest(friendRequest)">
+								<i class="fa fa fa-thumbs-up" aria-hidden="true"></i>
+								Accept
+							</button>
+							<button class="btn btn-primary" ng-click="rejectRequest(friendRequest)">
+								<i class="fa fa fa-thumbs-down" aria-hidden="true"></i>
+								Reject
+							</button>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>	
+</div>

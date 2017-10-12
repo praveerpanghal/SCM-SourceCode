@@ -102,6 +102,10 @@ app.config(['$routeProvider', '$httpProvider', '$locationProvider',
             templateUrl : "views/spinotuts.html",
             controller : "PagesCtrl",
             controllerAs : "vm"
+        }).when("/messages", {
+            templateUrl : "views/Messages.html",
+            controller : "MessagesCtrl",
+            controllerAs : "vm"
         })
         .otherwise({
     		redirectTo: "/"

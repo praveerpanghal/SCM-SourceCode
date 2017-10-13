@@ -48,6 +48,19 @@ app.directive('nxEqual', function() {
     };
 });
 
+var onlyLoggedIn = function($location,$q,LS){
+    var deferred = $q.defer();
+
+    if (LS.getData()) {
+        deferred.resolve();
+    } else {
+        deferred.reject();
+        $location.url('/login');
+    }
+    console.log(deferred.promise);
+    return deferred.promise;
+}
+
 /* Routing Pages */
 app.config(['$routeProvider', '$httpProvider', '$locationProvider', 
     function($routeProvider, $httpProvider, $locationProvider) {
@@ -55,11 +68,17 @@ app.config(['$routeProvider', '$httpProvider', '$locationProvider',
         .when("/", {
             templateUrl : "views/Login.html",
     		controller : "LoginCtrl",
-            controllerAs : "vm"
+            controllerAs : "vm",
+            resolve:{
+                
+            }
         }).when("/home", {
             templateUrl : "views/Home.html",
             controller : "HomeCtrl",
-            controllerAs : "vm"
+            controllerAs : "vm",
+            resolve:{
+                loggedIn:onlyLoggedIn
+            }
         }).when("/logout", {
             templateUrl : "views/Logout.html",
             controller : "LogoutCtrl"
@@ -68,28 +87,49 @@ app.config(['$routeProvider', '$httpProvider', '$locationProvider',
             controller : "ForgotCtrl"
         }).when("/profile", {
             templateUrl : "views/Profile.html",
-            controller : "ProfileCtrl"
+            controller : "ProfileCtrl",
+            resolve:{
+                loggedIn:onlyLoggedIn
+            }
         }).when("/reset", {
             templateUrl : "views/ResetPassword.html",
-            controller : "ResetPasswordCtrl"
+            controller : "ResetPasswordCtrl",
+            resolve:{
+                loggedIn:onlyLoggedIn
+            }
         }).when("/friends/:username", {
             templateUrl : "views/ViewProfile.html",
-            controller : "ViewProfileCtrl"
+            controller : "ViewProfileCtrl",
+            resolve:{
+                loggedIn:onlyLoggedIn
+            }
         }).when("/profiledetail/:userId", {
             templateUrl : "views/ProfileDetail.html",
-            controller : "ProfileDetailCtrl"
+            controller : "ProfileDetailCtrl",
+            resolve:{
+                loggedIn:onlyLoggedIn
+            }
         }).when("/friendslist", {
             templateUrl : "views/Friends.html",
             controller : "FriendsCtrl",
-            controllerAs : "vm"
+            controllerAs : "vm",
+            resolve:{
+                loggedIn:onlyLoggedIn
+            }
         }).when("/peopleyoumayknow", {
             templateUrl : "views/PeopleYouMayKnow.html",
             controller : "PeopleYouMayKnowCtrl",
-            controllerAs : "vm"
+            controllerAs : "vm",
+            resolve:{
+                loggedIn:onlyLoggedIn
+            }
         }).when("/editprofile", {
             templateUrl : "views/EditProfile.html",
             controller : "EditProfileCtrl",
-            controllerAs : "vm"
+            controllerAs : "vm",
+            resolve:{
+                loggedIn:onlyLoggedIn
+            }
         }).when("/US-Institute-of-Technology-Healthcare", {
             templateUrl : "views/US-Institute-of-Technology-Healthcare.html",
             controller : "PagesCtrl",
@@ -105,7 +145,10 @@ app.config(['$routeProvider', '$httpProvider', '$locationProvider',
         }).when("/messages", {
             templateUrl : "views/Messages.html",
             controller : "MessagesCtrl",
-            controllerAs : "vm"
+            controllerAs : "vm",
+            resolve:{
+                loggedIn:onlyLoggedIn
+            }
         })
         .otherwise({
     		redirectTo: "/"

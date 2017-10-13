@@ -57,7 +57,6 @@ var onlyLoggedIn = function($location,$q,LS){
         deferred.reject();
         $location.url('/login');
     }
-    console.log(deferred.promise);
     return deferred.promise;
 }
 
@@ -68,10 +67,7 @@ app.config(['$routeProvider', '$httpProvider', '$locationProvider',
         .when("/", {
             templateUrl : "views/Login.html",
     		controller : "LoginCtrl",
-            controllerAs : "vm",
-            resolve:{
-                
-            }
+            controllerAs : "vm"
         }).when("/home", {
             templateUrl : "views/Home.html",
             controller : "HomeCtrl",

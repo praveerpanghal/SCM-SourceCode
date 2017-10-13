@@ -3,8 +3,6 @@ app.controller("HomeCtrl", ['$scope', '$filter', '$window', '$location', '$http'
     var user = LS.getData();
     var vm = this;
 
-    if(user){
-        
     	var encodedProfile = user.split('.')[1];
         var profile = JSON.parse(LS.url_base64_decode(encodedProfile));
         
@@ -143,10 +141,6 @@ app.controller("HomeCtrl", ['$scope', '$filter', '$window', '$location', '$http'
                     $location.path('/friends/'+username);
                 }
             }
-
-	}else{
-		$location.path('/');
-	}
 }]).directive("fileinput", [function() {
     return {
       scope: {

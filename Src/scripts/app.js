@@ -145,6 +145,10 @@ app.config(['$routeProvider', '$httpProvider', '$locationProvider',
             resolve:{
                 loggedIn:onlyLoggedIn
             }
+        }).when("/userauth/:activationkey", {
+            templateUrl : "views/UserAuth.html",
+            controller : "UserAuthCtrl",
+            controllerAs : "vm"
         })
         .otherwise({
     		redirectTo: "/"

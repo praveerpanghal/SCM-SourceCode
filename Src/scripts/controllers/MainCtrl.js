@@ -1,5 +1,5 @@
 /* MainCtrl */
-app.controller("MainCtrl", ['$scope', '$http', '$location', 'LS', 'ServiceUrls', 'HttpService', function($scope, $http, $location, LS, ServiceUrls, HttpService){
+app.controller("MainCtrl", ['$scope', '$http', '$location', '$rootScope', 'LS', 'ServiceUrls', 'HttpService', function($scope, $http, $location, $rootScope, LS, ServiceUrls, HttpService){
 	// Checks User Details
 	this.latestData = function(){
 		// var encodedProfile = sessionStorage.token.split('.')[1];
@@ -14,4 +14,5 @@ app.controller("MainCtrl", ['$scope', '$http', '$location', 'LS', 'ServiceUrls',
 	// 	}else{
 	// 	$location.path('/');}
 	// }
+	
 }]);

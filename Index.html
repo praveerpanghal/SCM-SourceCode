@@ -66,7 +66,7 @@
 			<div class="bodyWizard" ng-class="{'alignBodyWizard':location.path!='/'}" >
 				<div ng-class="{'body-content':location.path()=='/'}" ng-view></div>
 				
-				<div ng-class="{'navbar-fixed-bottom':location.path()=='/' || location.path()=='/forgot'}" class="landingFooter" ng-include="'views/landingfooter.html'"></div>
+				<div ng-class="{'navbar-fixed-bottom':location.path()=='/' || location.path()=='/forgot' || location.path()=='/userauth/{{keygen}}'}" class="landingFooter" ng-include="'views/landingfooter.html'"></div>
 			</div>
 	</body>
 </html>

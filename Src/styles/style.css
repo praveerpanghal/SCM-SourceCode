@@ -1898,7 +1898,7 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
 }
 .modalVideo
 {
-  object-fit: fill;
+  object-fit: cover;
 }
 
 @media (min-width:768px){

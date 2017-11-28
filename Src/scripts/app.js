@@ -150,6 +150,14 @@ app.config(['$routeProvider', '$httpProvider', '$locationProvider',
             templateUrl : "views/UserAuth.html",
             controller : "UserAuthCtrl",
             controllerAs : "vm"
+        }).when("/images", {
+            templateUrl : "views/Images.html",
+            controller : "ImagesCtrl",
+            controllerAs : "vm"
+        }).when("/videos", {
+            templateUrl : "views/Videos.html",
+            controller : "VideosCtrl",
+            controllerAs : "vm"
         })
         .otherwise({
     		redirectTo: "/"

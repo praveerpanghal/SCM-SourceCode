@@ -1845,6 +1845,62 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
   border: 1px solid #ef6f04;
 }
 
+/* images page styles start */
+
+.postedPersonDtl
+{
+  height: auto;
+  overflow-y: auto;
+  background-color: #faf7f7;
+}
+.grid-item 
+{
+  padding:10px; 
+}
+.postedPersonDtl .commenterDetails
+{
+    padding-bottom: 5px;
+    border-bottom: 1px solid #dfdfdf;
+    margin-bottom: 5px;
+}
+.articleWizard {
+  -moz-column-width: 13em;
+  -webkit-column-width: 13em;
+  -moz-column-gap: 1em;
+  -webkit-column-gap: 1em;
+}
+
+.sectionWizard {
+  display: inline-block;
+  margin: 0.25rem;
+  padding: 1rem;
+  width: 100%;
+}
+.articleWizard .uploadedImg
+{
+  background-size: cover;
+}
+.articleWizard #myModal .modal-content
+{
+  width: auto!important;
+}
+.articleWizard .modal-body
+{
+  padding:2px;
+}
+
+/* images page styles Ends */
+
+.video{
+  object-fit: fill;
+  width: 225px;
+  height: 150px;
+}
+.modalVideo
+{
+  object-fit: fill;
+}
+
 @media (min-width:768px){
     .scmLeftNav .navbar-nav
     { 
@@ -1894,6 +1950,26 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
     .uploadType .textIcon a
     {
       padding-left: 15px;
+    }
+    .video {
+      object-fit: fill;
+      width: 150px;
+      height: 100px;
+    }
+    .video+.msgMembersLst.postedPersonDtl
+    {
+      width:150px;
+    }
+    .video+.msgMembersLst.postedPersonDtl .media-left
+    {
+      height: 45px;
+      width: 45px;
+    }
+    .video+.msgMembersLst.postedPersonDtl .media-body
+    {
+      width: 90px;
+      display: table-cell;
+      padding-left: 0;
     }
 }
 @media (max-width:767px){
@@ -2005,7 +2081,6 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
   .alignBody {
     padding-top: 70px;
   }
-  
 }
 @media (max-width:600px){
     .landingTopNav li  
@@ -2052,9 +2127,6 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
   {
     color: #FFF;
   }
-}
-@media (max-width:600px){
-  
 }
 @media (max-width:480px){
   body
@@ -2117,6 +2189,15 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
   .followMemeber {
     width: 24%;
     float: left;
+  }
+  .video{
+    object-fit: fill;
+    width: 225px;
+    height: 150px;
+  }
+  .video+.msgMembersLst.postedPersonDtl
+  {
+    width:225px;
   }
 }
 

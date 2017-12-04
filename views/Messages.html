@@ -137,7 +137,43 @@
 		</div>
 	</div>
 	<div class="col-md-6 col-sm-6 col-xs-12 contentPost">						
-		
+			<div class="row">
+			    <form ng-submit="postComments(postComment)">
+			    	<div class="col-md-8 col-sm-8 col-xs-6 col-xs-offset-1
+			    		col-sm-offset-0 col-md-offset-0 postContentField">
+			    		<div class="userPic" style="background-image: url('{{vm.userProfile.profile_picture}}')">
+			    		</div>	
+			    		<div class="form-group userTxt">
+			    			<textarea class="form-control" rows="2" placeholder="Post your comments here" ng-model="postComment" required="required"></textarea>
+							<span class="help-block">{{vm.postSuccess}}</span>
+							<span class="help-block" style="color:#ec0404;">{{vm.Error}}</span>
+			    		</div>					
+			    	</div>
+			    	<div class="col-md-4 col-sm-4 col-xs-4 uploadType">
+			    		<ul class="list-inline">
+			    			<li class="textIcon">
+			    				<a href="#">
+			    					<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+			    				</a>
+			    			</li>
+			    			<li>
+			    				<a href="#">
+			    					<i class="fa fa-picture-o" aria-hidden="true"></i>
+			    				</a>
+			    			</li>
+			    			<li>
+			    				<a href="#">
+			    					<i class="fa fa-video-camera" aria-hidden="true"></i>
+			    				</a>
+			    			</li>
+			    			<li class="">
+			    				<button type="submit" class="btn btn-primary">Submit</button>
+			    			</li>
+
+			    		</ul>
+					</div>	
+			    </form>
+			</div>
 		
 			<div class="col-md-5 col-sm-6 col-xs-12">
 				<div class="msgMembersLst">

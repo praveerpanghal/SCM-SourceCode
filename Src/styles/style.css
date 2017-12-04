@@ -9,14 +9,15 @@ body
   padding-top:185px;
   height: 100%;
 }
+
 .alignBody
 {
   padding-top: 85px;
 }
 .container
 {
-    /*width:1170px;*/
-    width:1100px;
+    width:1170px;
+    /*width:1100px;*/
     max-width:100%;
     /*border:1px solid #000;*/
 }
@@ -98,6 +99,12 @@ p
 b a{
   color:#333;
   font-weight: bold;
+}
+.border-radius
+{
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
 }
 .form-control
 {
@@ -1003,8 +1010,8 @@ b a{
 .contentPost
 {
     padding-top: 28px;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 0;
+    padding-right: 0;
 
 }
 .uploadType
@@ -1022,6 +1029,8 @@ b a{
 .uploadType .btn-primary
 {
   margin-left: 10px;
+  padding-left: 25px;
+  padding-right: 25px;
 }
 .uploadType .btn-primary:hover
 {
@@ -1031,8 +1040,9 @@ b a{
 .uploadedImg
 {
   width:100%;
-  height: 300px;
+  height: 326px;
   /*background: url("../../src/images/profile/4961075-wallpaper-sweet.jpg") no-repeat center center;*/
+  /*height: 504px;*/
   background-size: contain;
   float: left;
   background-repeat: no-repeat;
@@ -1119,6 +1129,10 @@ b a{
 {
   font-size:14px;
   padding: 10px;
+}
+.whotoFollow
+{
+  padding-left: 20px;
 }
 .whotoFollow h1
 {
@@ -1864,17 +1878,39 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
     margin-bottom: 5px;
 }
 .articleWizard {
-  -moz-column-width: 13em;
-  -webkit-column-width: 13em;
-  -moz-column-gap: 1em;
-  -webkit-column-gap: 1em;
+  -moz-column-width: 15em;
+  -webkit-column-width: 15em;
+  -moz-column-gap: 1.6em;
+  -webkit-column-gap: 1.6em;
 }
 
 .sectionWizard {
   display: inline-block;
-  margin: 0.25rem;
-  padding: 1rem;
+  margin:0;
+  padding: 0;
   width: 100%;
+  margin-bottom: 19px;
+}
+.sectionWizard .media
+{
+  padding:0;
+  padding-bottom: 10px;
+}
+.sectionWizard .media-body
+{
+  margin-top:5px;
+  margin-bottom: 8px;
+}
+.mediaWizard
+{
+  margin-top: 10px;
+  padding-bottom: 7px;
+}
+.sectionWizard .commenterDetails
+{
+  margin-bottom: 0;
+  padding-top: 16px;
+  padding-bottom: 16px;
 }
 .articleWizard .uploadedImg
 {
@@ -1888,12 +1924,23 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
 {
   padding:2px;
 }
-
+.articleWizard .aligncommenterWizard .commenterDetails,.articleWizard .commenterName
+{
+  border:0;
+}
+.articleWizard .profilename
+{
+  display: block;
+}
+.postedImages .uploadedImg {
+    width: 100%;
+    height: 504px;
+}
 /* images page styles Ends */
 
 .video{
   object-fit: fill;
-  width: 225px;
+  width: 280px;
   height: 150px;
 }
 .modalVideo
@@ -1904,7 +1951,7 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
 @media (min-width:768px){
     .scmLeftNav .navbar-nav
     { 
-        width:100%;
+        width:90%;
     }
     .scmLeftNav .navbar-nav>li
     {
@@ -1914,7 +1961,11 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
     {
         border-radius: 0!important;
     }
-
+    .modal-dialog {
+      width: 900px;
+      max-width:100%;
+      margin: 30px auto;
+    }
   }
 @media (max-width:1070px){
   .userBg {
@@ -1951,14 +2002,21 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
     {
       padding-left: 15px;
     }
+    .articleWizard {
+      -moz-column-width: 12em;
+      -webkit-column-width: 12em;
+      -moz-column-gap: 1.6em;
+      -webkit-column-gap: 1.6em;
+    }
     .video {
-      object-fit: fill;
+      /*object-fit: fill;
       width: 150px;
-      height: 100px;
+      height: 100px;*/
     }
     .video+.msgMembersLst.postedPersonDtl
     {
-      width:150px;
+      /*width:150px;*/
+      max-width:100%;
     }
     .video+.msgMembersLst.postedPersonDtl .media-left
     {
@@ -2081,6 +2139,12 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
   .alignBody {
     padding-top: 70px;
   }
+  .articleWizard {
+    -moz-column-width: 15em;
+    -webkit-column-width: 15em;
+    -moz-column-gap: 1.6em;
+    -webkit-column-gap: 1.6em;
+  }
 }
 @media (max-width:600px){
     .landingTopNav li  
@@ -2172,6 +2236,18 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
     padding-top: 53px;
   }
 }
+@media (max-width:411px){
+  .video+.msgMembersLst.postedPersonDtl
+  {
+    /*width:225px;*/
+    width: 100%;
+  }
+  .video {
+    object-fit: fill;
+    width: 402px;
+    height: 250px;
+  }
+}
 @media (max-width:390px){
   .postContentField
   {
@@ -2190,14 +2266,15 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
     width: 24%;
     float: left;
   }
-  .video{
+  /*.video{
     object-fit: fill;
     width: 225px;
     height: 150px;
-  }
+  }*/
   .video+.msgMembersLst.postedPersonDtl
   {
-    width:225px;
+    /*width:225px;*/
+    /*width: 280px;*/
   }
 }
 
@@ -2212,6 +2289,9 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
   .followMemeber
   {
     width: 100%;
+  }
+  .postContentField {
+    margin-left: 0px;
   }
   
 }

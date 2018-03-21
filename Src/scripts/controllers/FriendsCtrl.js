@@ -19,7 +19,7 @@ app.controller("FriendsCtrl", ['$location', '$route', 'ServiceUrls', 'HttpServic
                 $location.path('/logout');
             }
         }, 
-        function errorCallback(error){
+        function errorCallback(error){      
             $log.info(error);       
         });
 

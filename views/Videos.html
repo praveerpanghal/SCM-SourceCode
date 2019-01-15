@@ -1,0 +1,522 @@
+<!-- Profile page starts-->				
+<div class="container-fluid newsFeedContent">
+<div class="container">
+	<div class="row">
+		<div class="col-md-3 col-sm-3 col-md-12 scmLeftNav">
+			<nav class="navbar navbar-default">
+				<div class="container">
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2" aria-expanded="false">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<div class="userImg" style="background-image: url('{{vm.userProfile.profile_picture}}')">
+							<!--<img src="src/images/profile/profile.jpg" alt="" />-->
+						</div>
+						<div class="navbar-brand" href="#">
+							<div class="userBg" style="background: linear-gradient(to bottom, rgba(113,46,59,.8), rgba(113,46,59,.8)),
+							url('{{vm.userProfile.cover_picture}}') no-repeat;background-size: cover;">
+							<p class="userName">{{vm.userProfile.username}}</p>
+							<p class="schoolName" ng-repeat="school in vm.schoolsList | filter:{school_id:vm.userProfile.school_id}">{{school.school_name}}</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+					<ul class="nav navbar-nav">
+						<li>
+							<a href="home">
+								<i class="fa fa-home icon7LeftNav" aria-hidden="true"></i>
+								Home
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<i class="fa fa-address-card-o icon8LeftNav" aria-hidden="true"></i>Profile
+							</a>
+						</li>
+						
+						<li>
+							<a href="peopleyoumayknow">
+								<i class="fa fa-users icon1LeftNav" aria-hidden="true"></i>
+								People You Know
+							</a>
+						</li>
+						<li>
+							<a href="friendslist">
+								<i class="fa fa-slideshare icon2LeftNav" aria-hidden="true"></i>
+								Friends
+							</a>
+						</li>
+						<li>
+							<a href="messages">
+								<i class="fa fa-comments icon3LeftNav" aria-hidden="true"></i>		Messages
+							</a>
+						</li>
+						<li>
+							<a href="images">
+								<i class="fa fa-picture-o icon4LeftNav" aria-hidden="true"></i>
+								Images
+							</a>
+						</li>
+						<li>
+							<a href="vidoes">
+								<i class="fa fa-video-camera icon5LeftNav" aria-hidden="true"></i>	
+								Videos
+							</a>
+						</li>
+						<li>
+							<a href="editprofile">
+								<i class="fa fa-pencil-square-o icon6LeftNav" aria-hidden="true"></i>Edit Profile
+							</a>
+						</li>
+						<li>
+							<a href="US-Institute-of-Technology-Healthcare">
+								<i class="fa fa-file-text icon6LeftNav" aria-hidden="true"></i>Pages
+							</a>
+						</li>
+						
+					</ul>		
+					
+				</div><!-- /.navbar-collapse -->
+			</div><!-- /.container-fluid -->
+		</nav>
+		<div class="col-md-10 col-md-offset-1 col-xs-12 onlineWizard">
+			<h4>Online Chat</h4>
+			<div class="chatOnline">	
+				<div class="onlinePeopleWizard">	
+					<div class="onlinePeople" style="background-image: url('src/images/user6.jpg')">
+					</div>
+					<div class="onlineIcon"></div>
+				</div>
+				<div class="onlinePeopleWizard">	
+					<div class="onlinePeople" style="background-image: url('src/images/user2.jpg')">
+					</div>
+					<div class="onlineIcon"></div>
+				</div>
+				<div class="onlinePeopleWizard">	
+					<div class="onlinePeople" style="background-image: url('src/images/user3.jpg')">
+					</div>
+					<div class="onlineIcon"></div>
+				</div>
+				<div class="onlinePeopleWizard">	
+					<div class="onlinePeople" style="background-image: url('src/images/user4.jpg')">
+					</div>
+					<div class="onlineIcon"></div>
+				</div>
+				<div class="onlinePeopleWizard">	
+					<div class="onlinePeople" style="background-image: url('src/images/user5.jpg')">
+					</div>
+					<div class="onlineIcon"></div>
+				</div>
+				<div class="onlinePeopleWizard">	
+					<div class="onlinePeople" style="background-image: url('src/images/user6.jpg')">
+					</div>
+					<div class="onlineIcon"></div>
+				</div>
+				<div class="onlinePeopleWizard">	
+					<div class="onlinePeople" style="background-image: url('src/images/user2.jpg')">
+					</div>
+					<div class="onlineIcon"></div>
+				</div>
+				<div class="onlinePeopleWizard">	
+					<div class="onlinePeople" style="background-image: url('src/images/user3.jpg')">
+					</div>
+					<div class="onlineIcon"></div>
+				</div>
+				<div class="onlinePeopleWizard">	
+					<div class="onlinePeople" style="background-image: url('src/images/user4.jpg')">
+					</div>
+					<div class="onlineIcon"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6 col-sm-6 col-xs-12 contentPost">
+		<div class="row">
+		    	<form ng-submit="postComments(postComment)">
+		    		<div class="col-md-8 col-sm-8 col-xs-6 col-xs-offset-1
+		    		col-sm-offset-0 col-md-offset-0 postContentField">
+		    		<div class="userPic" style="background-image: url('{{vm.userProfile.profile_picture}}')">
+		    		</div>	
+		    		<div class="form-group userTxt">
+		    			<textarea class="form-control" rows="2" placeholder="Post your comments here" ng-model="postComment" required="required"></textarea>
+						<span class="help-block">{{vm.postSuccess}}</span>
+						<span class="help-block" style="color:#ec0404;">{{vm.Error}}</span>
+		    		</div>					
+		    	</div>
+		    	<div class="col-md-4 col-sm-4 col-xs-4 uploadType">
+		    		<ul class="list-inline">
+		    			<li class="textIcon">
+		    				<a href="#">
+		    					<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+		    				</a>
+		    			</li>
+		    			<li>
+		    				<a href="#">
+		    					<i class="fa fa-picture-o" aria-hidden="true"></i>
+		    				</a>
+		    			</li>
+		    			<li>
+		    				<a href="#">
+		    					<i class="fa fa-video-camera" aria-hidden="true"></i>
+		    				</a>
+		    			</li>
+		    			<li class="">
+		    				<button type="submit" class="btn btn-primary">Submit</button>
+		    			</li>
+
+		    		</ul>
+				</div>	
+		    </form>
+		</div>						
+		<div class="postedImages" >
+ 			<div class="articleWizard">
+
+			<div class="sectionWizard" data-toggle="modal" data-target="#myModal">
+ 				<video width="" controls class="video img-responsive" >
+					  <source src="Src/videos/3.mp4" type="video/mp4">
+					  <source src="Src/videos/3.ogg" type="video/ogg">
+					  Your browser does not support HTML5 video.
+				</video> 
+				<!-- <div>
+					<iframe width="222" height="222" src="Src/videos/polina.mp4" style="border:1px solid red"></iframe>
+				</div> -->
+				<div class="msgMembersLst postedPersonDtl">
+					<div class="media">
+							<div class="commenterDetails">
+									<p class="">
+										<span class="likes">
+											<a href="#">
+												<i class="fa fa-thumbs-up" aria-hidden="true"></i>
+												<span class="likesColor">12</span>
+											</a>
+										</span>
+										<span class="dislikes">
+											<a href="#">	
+												<i class="fa fa-thumbs-down" aria-hidden="true">
+												</i><span class="likesColor">24</span>
+											</a>
+										</span>
+									</p>
+								</div>		
+						  	<div class="mediaWizard">			
+								  <div class="media-left" style="background-image: url('Src/images/user2.jpg');">
+								  </div>
+								  <div class="media-body" >
+									    <p class="media-heading">
+									    	<span>Vasudev</span>
+									    </p>
+									    <div class="msgBlock">
+									    	<p class="follower padding_left">Friend</p>
+									    </div>
+								  </div>
+							</div>
+					</div>
+				</div>	
+ 			</div>
+ 			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			  <div class="modal-dialog" role="document">
+			    <div class="modal-content">
+			      <!-- <div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+			      </div> -->
+			      <div class="modal-body">
+			        <div class="row">
+						<div classs="row" >
+							<div class="col-md-12">	
+								<div align="center" class="embed-responsive embed-responsive-16by9">
+								    <div class="uploadedImg">
+								    	<video class="modalVideo" controls>
+											  <source src="Src/videos/WhatsAppVideo.mp4" type="video/mp4">
+											  <source src="Src/videos/WhatsAppVideo.ogg" type="video/ogg">
+											  Your browser does not support HTML5 video.
+										</video> 
+								    </div>
+								</div>
+							</div>
+						</div>
+						<div classs="row">
+								<div class="col-md-12 commenterWizard">
+									<div class="commenterpic" style="background-image: url('src/images/user6.jpg')">
+										&nbsp	
+									</div>
+									<div class="commenterDetails">
+										<div class="row commenterName">
+											<h4>Ravi Kumar<span class="follower">Following</span></h4>
+											<p class="likesWizard">
+												<span class="likes">
+													<a href="#">
+														<i class="fa fa-thumbs-up" aria-hidden="true"></i>
+														<span class="likesColor">12</span>
+													</a>
+												</span>
+												<span class="dislikes">
+													<a href="#">	
+														<i class="fa fa-thumbs-down" aria-hidden="true">
+														</i><span class="likesColor">24</span>
+													</a>
+												</span>
+
+											</p>
+									    </div>
+									    <div class="row commentTxt">
+									    	<p>
+									    		Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+									    	</p>
+									    	<!-- Inner Comment Box -->
+									    	<div classs="row" >
+												<div class="col-md-12 aligncommenterWizard">
+													<div class="commenterpic"
+													style="background-image: url('src/images/user4.jpg')">
+														&nbsp	
+													</div>
+													<div class="commenterDetails">
+														
+													    <div class="row commenterName">
+													    	<p>
+													    		<span class="profilename">Kiran</span>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+													    	</p>
+													    </div>
+													</div>
+												</div>
+											</div>
+											<div classs="row" >
+												<div class="col-md-12 aligncommenterWizard">
+													<div class="commenterpic"
+													style="background-image: url('src/images/user5.jpg')">
+														&nbsp	
+													</div>
+													<div class="commenterDetails">
+														
+													    <div class="row commenterName">
+													    	<p>
+													    		<span class="profilename">Rathod</span>
+													    		Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+													    	</p>
+													    </div>
+													</div>
+												</div>
+											</div>
+											<div classs="row" >
+												<div class="col-md-12 aligncommenterWizard">
+														<div class="userPic" style="background-image: url('src/images/user6.jpg')"></div>	
+														<div class="form-group userTxt">
+													      <textarea class="form-control" rows="1"></textarea>
+													        <span class="help-block errTxt">Error</span>
+													    </div>
+												</div>
+											</div>
+										<!-- Inner Comment Box Ends -->
+									    </div>
+									</div>
+								</div>
+						</div>
+					</div>
+			      </div>
+			      <!--<div class="modal-footer">
+			        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			        <button type="button" class="btn btn-primary">Save changes</button>
+			      </div>-->
+			    </div>
+			  </div>
+			</div>
+		
+ 			 
+			   <div class="sectionWizard">
+ 			    	<video width="" controls class="video img-responsive">
+					  <source src="Src/videos/4.mp4" type="video/mp4">
+					  <source src="Src/videos/4.ogg" type="video/ogg">
+					  Your browser does not support HTML5 video.
+					</video> 
+					<!-- <iframe width="222" height="222" src="Src/videos/WhatsAppVideo.mp4" style="border:1px solid red"></iframe> -->
+	 			    <div class="msgMembersLst postedPersonDtl">
+						<div class="media">
+								<div class="commenterDetails">
+										<p class="">
+											<span class="likes">
+												<a href="#">
+													<i class="fa fa-thumbs-up" aria-hidden="true"></i>
+													<span class="likesColor">12</span>
+												</a>
+											</span>
+											<span class="dislikes">
+												<a href="#">	
+													<i class="fa fa-thumbs-down" aria-hidden="true">
+													</i><span class="likesColor">24</span>
+												</a>
+											</span>
+										</p>
+									</div>		
+							  	<div class="mediaWizard">			
+								  <div class="media-left" style="background-image: url('Src/images/user2.jpg');">
+								  </div>
+								  <div class="media-body" >
+									    <p class="media-heading">
+									    	<span>Vasudev</span>
+									    </p>
+									    <div class="msgBlock">
+									    	<p class="follower padding_left">Friend</p>
+									    </div>
+								  </div>
+								</div>
+						</div>
+					</div>
+ 			   </div>
+ 			   <div class="sectionWizard">
+ 			    	<video width="" controls class="video img-responsive">
+					  <source src="Src/videos/2.mp4" type="video/mp4">
+					  <source src="Src/videos/movie.mp4" type="video/ogg">
+					  Your browser does not support HTML5 video.
+					</video>
+					<!-- <iframe width="222" height="222" src="Src/videos/movie.mp4" style="border:1px solid red;"></iframe> -->
+
+	 			    <div class="msgMembersLst postedPersonDtl">
+						<div class="media">
+								<div class="commenterDetails">
+										<p class="">
+											<span class="likes">
+												<a href="#">
+													<i class="fa fa-thumbs-up" aria-hidden="true"></i>
+													<span class="likesColor">12</span>
+												</a>
+											</span>
+											<span class="dislikes">
+												<a href="#">	
+													<i class="fa fa-thumbs-down" aria-hidden="true">
+													</i><span class="likesColor">24</span>
+												</a>
+											</span>
+										</p>
+									</div>		
+							  	<div class="mediaWizard">			
+								  <div class="media-left" style="background-image: url('Src/images/user2.jpg');">
+								  </div>
+								  <div class="media-body" >
+									    <p class="media-heading">
+									    	<span>Vasudev</span>
+									    </p>
+									    <div class="msgBlock">
+									    	<p class="follower padding_left">Friend</p>
+									    </div>
+								  </div>
+								</div>
+						</div>
+					</div>
+ 			   </div>
+ 			   <div class="sectionWizard" data-toggle="modal" data-target="#myModal">
+ 				<video width="226" controls class="video img-responsive">
+					  <source src="Src/videos/movie.mp4" type="video/mp4">
+					  <source src="Src/videos/movie.ogg" type="video/ogg">
+					  Your browser does not support HTML5 video.
+				</video> 
+				<!-- <div>
+					<iframe width="222" height="222" src="Src/videos/polina.mp4" style="border:1px solid red"></iframe>
+				</div> -->
+				<div class="msgMembersLst postedPersonDtl">
+					<div class="media">
+							<div class="commenterDetails">
+									<p class="">
+										<span class="likes">
+											<a href="#">
+												<i class="fa fa-thumbs-up" aria-hidden="true"></i>
+												<span class="likesColor">12</span>
+											</a>
+										</span>
+										<span class="dislikes">
+											<a href="#">	
+												<i class="fa fa-thumbs-down" aria-hidden="true">
+												</i><span class="likesColor">24</span>
+											</a>
+										</span>
+									</p>
+								</div>		
+						  	<div class="mediaWizard">			
+								  <div class="media-left" style="background-image: url('Src/images/user2.jpg');">
+								  </div>
+								  <div class="media-body" >
+									    <p class="media-heading">
+									    	<span>Vasudev</span>
+									    </p>
+									    <div class="msgBlock">
+									    	<p class="follower padding_left">Friend</p>
+									    </div>
+								  </div>
+							</div>
+					</div>
+				</div>	
+ 			</div>
+ 			<div class="sectionWizard" data-toggle="modal" data-target="#myModal">
+ 				<video width="" controls class="video img-responsive">
+					  <source src="Src/videos/WhatsAppVideo.mp4" type="video/mp4">
+					  <source src="Src/videos/WhatsAppVideo.ogg" type="video/ogg">
+					  Your browser does not support HTML5 video.
+				</video> 
+				<!-- <div>
+					<iframe width="222" height="222" src="Src/videos/polina.mp4" style="border:1px solid red"></iframe>
+				</div> -->
+				<div class="msgMembersLst postedPersonDtl">
+					<div class="media">
+							<div class="commenterDetails">
+									<p class="">
+										<span class="likes">
+											<a href="#">
+												<i class="fa fa-thumbs-up" aria-hidden="true"></i>
+												<span class="likesColor">12</span>
+											</a>
+										</span>
+										<span class="dislikes">
+											<a href="#">	
+												<i class="fa fa-thumbs-down" aria-hidden="true">
+												</i><span class="likesColor">24</span>
+											</a>
+										</span>
+									</p>
+								</div>		
+						  	<div class="mediaWizard">			
+								  <div class="media-left" style="background-image: url('Src/images/user2.jpg');">
+								  </div>
+								  <div class="media-body" >
+									    <p class="media-heading">
+									    	<span>Vasudev</span>
+									    </p>
+									    <div class="msgBlock">
+									    	<p class="follower padding_left">Friend</p>
+									    </div>
+								  </div>
+							</div>
+					</div>
+				</div>	
+ 			</div>		
+
+			</div>
+		</div>
+	</div>
+			<div class="col-md-3 col-sm-3 col-xs-12 whotoFollow">
+				<h1>Friend Requests</h1>
+				<div class="follow">
+					<h5 ng-show="vm.friendRequests.length==0">No friend request.</h5>
+					<div class="followMemeber"  ng-repeat="friendRequest in vm.friendRequests">
+						<div class="commenterpic" style="background-image: url('{{friendRequest.profile_picture}}')"></div>
+						<h4>{{friendRequest.username}}</h4>
+						<p>
+							<button class="btn btn-primary" ng-click="acceptRequest(friendRequest)">
+								<i class="fa fa fa-thumbs-up" aria-hidden="true"></i>
+								Accept
+							</button>
+							<button class="btn btn-primary" ng-click="rejectRequest(friendRequest)">
+								<i class="fa fa fa-thumbs-down" aria-hidden="true"></i>
+								Reject
+							</button>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>	
+</div>

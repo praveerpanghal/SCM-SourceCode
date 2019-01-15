@@ -14,7 +14,10 @@
 		<script src="Src/scripts/bootstrap.min.js"></script>
 		<script src="Src/scripts/angular.min.js"></script>
 		<script src="Src/scripts/angular-route.min.js"></script>
-		<script src="Src/scripts/ngStorage.js"></script>
+		<script src="Src/scripts/ngStorage.js"></script>		
+		<script src="Src/scripts/ng-file-upload.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/ng-img-crop/0.3.2/ng-img-crop.js"></script>
+		<script src="serviceUrl.js"></script>
 		<script src="Src/scripts/app.js"></script>
 		
 		<!-- services start -->
@@ -30,20 +33,26 @@
 		
 		<!-- controllers start -->
 		<script src="Src/scripts/controllers/MainCtrl.js"></script>
-		<script src="Src/scripts/controllers/RegisterCtrl.js"></script>
 		<script src="Src/scripts/controllers/LoginCtrl.js"></script>
 		<script src="Src/scripts/controllers/LogoutCtrl.js"></script>
 		<script src="Src/scripts/controllers/HomeCtrl.js"></script>
 		<script src="Src/scripts/controllers/ForgotCtrl.js"></script>
 		<script src="Src/scripts/controllers/ResetPasswordCtrl.js"></script>
 		<script src="Src/scripts/controllers/HeaderCtrl.js"></script>
-		<script src="Src/scripts/controllers/ChangeProfileCtrl.js"></script>
 		<script src="Src/scripts/controllers/ViewProfileCtrl.js"></script>
 		<script src="Src/scripts/controllers/ProfileDetailCtrl.js"></script>
+		<script src="Src/scripts/controllers/FriendsCtrl.js"></script>		
+		<script src="Src/scripts/controllers/PeopleYouMayKnowCtrl.js"></script>
+		<script src="Src/scripts/controllers/EditProfileCtrl.js"></script>
+		<script src="Src/scripts/controllers/PagesCtrl.js"></script>
+		<script src="Src/scripts/controllers/MessagesCtrl.js"></script>
+		<script src="Src/scripts/controllers/UserAuthCtrl.js"></script>
+		<script src="Src/scripts/controllers/ImagesCtrl.js"></script>
+		<script src="Src/scripts/controllers/VideosCtrl.js"></script>
 		<!-- controllers end -->
 		
 		<!-- scripts end -->
-		
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/ng-img-crop/0.3.2/ng-img-crop.css" rel="stylesheet"/>
 		<!-- styles start -->		
 		<link href="Src/styles/bootstrap.min.css" type="text/css" rel="stylesheet" />
 		<link href="Src/styles/style.css" type="text/css" rel="stylesheet" />
@@ -52,41 +61,14 @@
 
 		<!-- styles end -->
 	</head>
-	<body ng-controller="MainCtrl as m">
-		<!--<div class="menucolor">			
-			<div class="container">
-				<div class="col-md-4 col-sm-4 col-xs-4">
-					<a class="loginlogo" href="#/">
-						<img src="/Build/Images/schoolconnect-Me_image.png" alt="">
-					</a>
-				</div>
-				<div class="col-md-4 col-sm-4 col-xs-4  pull-right">
-					<a class="btn btn-primary btn-sm btnset1 dropdown-toggle  col-md-3 col-sm-6 col-xs-12" href="register" ng-if="!m.latestData()" ng-show="location.path()!='/register' && location.path()!='/forgot'" ng-cloak>Register</a>
-					<a class="btn btn-primary btn-sm btnset1 dropdown-toggle  col-md-3 col-sm-6 col-xs-12" href="/" ng-show="location.path()!='/' && location.path()!='/home'" ng-cloak>Login</a>
-					<a class="btn btn-primary btn-sm btnset1 dropdown-toggle  col-md-3 col-sm-6 col-xs-12" href="logout" ng-if="m.latestData()" ng-cloak>Logout</a>
-				</div>
-			</div>
-		</div>
-		<div class="container">
-			<div ng-view></div>			
-		</div>
-		
-		<footer id="footer">
-			<hr class="soften">
-			<div class="container text-center">
-				<div class="col-lg-12 ">
-				</div>
-			</div>
-			<div class="container">
-				<p class="text-center">© 2017. All Rights Reserved.</p>
-			</div>
-		</footer>-->
-			<div class="navbar-fixed-top" ng-include="'views/landingheader.html'" ng-controller="HeaderCtrl"></div>
+	<body ng-controller="MainCtrl as m" ng-class="{'alignBody':location.path!='/'}">
+			<div class="navbar-fixed-top alignFixedNav" ng-include="'views/landingheader.html'" ng-controller="HeaderCtrl"></div>
 			
 			<!--<ng-view></ng-view>-->
-			<div class="body-content" ng-view></div>
-			
-			<div class="navbar-fixed-bottom landingFooter" ng-include="'views/landingfooter.html'"></div>
-		<!-- Footer End -->
+			<div class="bodyWizard" ng-class="{'alignBodyWizard':location.path!='/'}" >
+				<div ng-class="{'body-content':location.path()=='/'}" ng-view></div>
+				
+				<div ng-class="{'navbar-fixed-bottom':location.path()=='/' || location.path()=='/forgot' || location.path()=='/userauth/{{keygen}}'}" class="landingFooter" ng-include="'views/landingfooter.html'"></div>
+			</div>
 	</body>
 </html>

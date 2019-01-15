@@ -1,40 +1,7 @@
-<!--<div id="content-pre" >
-	
-	<div class="loginForm">
-		<div class="text-center">
-			<h3>Login</h3>
-		</div>
-		<div class="modal-body">
-			<form name="LoginForm" ng-submit="loginUser(user)">
-				<div class="form-group" ng-class="{ 'has-error' : LoginForm.user_email.$invalid && !LoginForm.user_email.$pristine }">                                
-					<input class="form-control text-box single-line" id="user_email" name="user_email" placeholder="Email" title="Please enter Email or Mobile No" type="text" ng-model="user.user_email" required ng-pattern = '/^[^\s@]+@[a-zA-Z]+\.[a-zA-Z]{2,}$/'>
-					<span class="help-block" ng-show="LoginForm.user_email.$invalid && !LoginForm.user_email.$pristine">Valid Email Required</span>
-				</div>
-				<div class="form-group">                                
-					<input class="form-control text-box single-line password" id="password" name="password" placeholder="password" title="Please enter your Password" type="password" ng-model="user.password" required>
-					<span class="field-validation-valid text-danger"></span>
-				</div>
-				<div ng-show="err_message" class="err">{{err_message}}</div>
-				<div class="form-group">
-					<input type="submit" value="Sign In" class="btn btn-large btn-block btn-warning standard-color">
-				</div>
-			</form>
-		</div>
-		<div class="text-center ">
-			<h4>
-				<a class="linkup" href="forgot">Forgot Password ?</a> 
-			</h4>
-			<div class="cls"></div>
-		</div>
-	</div>
-	<div class="clearfix"></div>
-	
-</div>-->
-
 	<div class="container-fluid loginWizard">
 		<div class="container">
 			<div class="row">
-				<form name="LoginForm" ng-submit="loginUser(user)">
+				<form name="LoginForm" ng-submit="vm.loginUser(user)">
 					<div class="col-md-1 col-md-offset-1 col-sm-1">
 						<div class="form-group">
 						  <label for="inputEmail" class="control-label">Log In</label>
@@ -52,8 +19,8 @@
 						<div class="form-group" >
 						  <div class="col-md-11 col-sm-11">
 							<input class="form-control" id="password" placeholder="Password" name="password" type="password" ng-model="user.password" required >
-							<span class="help-block" style="color:red;" ng-show="err_message">
-								{{err_message}}
+							<span class="help-block" style="color:red;" ng-show="vm.err_message">
+								{{vm.err_message}}
 							</span>
 						  </div>
 						  <div class="forgotPwd">
@@ -67,7 +34,7 @@
 						<div class="form-group keepMeLog">
 						  <div class="col-md-9 col-sm-9">
 							<!--<button type="submit" class="btn btn-default">Log In</button>-->
-							<input class="form-control" id="inputEmail" type="submit" value="Sign In">
+							<input class="form-control" type="submit" value="Sign In">
 							 <div class="checkbox">
 								  <p>
 									<input type="checkbox" id="test2" checked="checked" />
@@ -81,23 +48,28 @@
 			</div>
 		</div>
 	</div>
-	<div class="container-fluid signUpWizard" ng-controller="RegisterCtrl">
+	<div class="container-fluid signUpWizard">
 		<div class="container signUpContainer">
 			<div class="row">
 				<div class="col-md-12">
-					<form name="registerForm" ng-submit="registerUser(person)">	
+					<form name="registerForm" ng-submit="vm.registerUser(person)">	
 					<div class="row">
 						<div class="col-md-4 col-md-offset-2 col-sm-4 col-sm-offset-2 signUpTitle">
-							<h1>Sign Up</h1>
+							<h1>Sign Up {{vmr.test}}</h1>
+						</div>						
+					<div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2" style="color:red;font-size:14px;text-align:center;padding-bottom:15px;">
+						{{vm.errorMsg}}
+					</div>
+						<div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 alert alert-success text-center alert-dismissable" ng-show="vm.resetted"  style="padding: 4px 15px;">
+						  	<strong>Your are successfully registered with us.</strong>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-md-4 col-md-offset-2 col-sm-5 col-sm-offset-1">
 							<div class="form-group"
-								ng-class="{ 'has-error' : registerForm.user_fname.$invalid && !registerForm.user_fname.$pristine }"
-							>
+								ng-class="{ 'has-error' : registerForm.user_fname.$invalid && !registerForm.user_fname.$pristine }">
 							  
-								<input class="form-control" id="inputEmail" placeholder="First Name" type="text" name="user_fname" placeholder="First Name" ng-model="person.user_fname" required>
+								<input class="form-control" placeholder="First Name" type="text" name="user_fname" placeholder="First Name" ng-model="person.user_fname" required>
 								<span class="help-block" ng-show="registerForm.user_fname.$invalid && !registerForm.user_fname.$pristine">First Name Required</span>
 							  
 							</div>
@@ -115,51 +87,47 @@
 						<div class="col-md-4 col-md-offset-2 col-sm-5 col-sm-offset-1">
 							<div class="form-group" ng-class="{ 'has-error' : registerForm.email.$invalid && !registerForm.email.$pristine }">
 							 
-								<input class="form-control" id="email" name="email" placeholder="Email id" type="email" ng-model="person.email" required ng-pattern = '/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i'>
+								<input class="form-control" id="email" name="email" placeholder="Email id" type="email" ng-model="person.email" required ng-pattern='/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i'>
 								<span class="help-block" ng-show="registerForm.email.$invalid && !registerForm.email.$pristine">Valid Email Required</span>
 							 
 							</div>
 						</div>
 						<div class="col-md-4 col-sm-5">
-							<div class="form-group">
-							  
-								<input class="form-control" id="user_mob" name="user_mob" placeholder="Mobile No" type="tel" ng-model="person.user_mob">
-								<span class="help-block" style="display:none;color:red;">Error</span>
+							<div class="form-group">							  
+								<input class="form-control" id="user_mob" name="user_mob" placeholder="Mobile No" type="tel" ng-model="person.user_mob" ng-pattern="/^[0-9]{10,10}$/" required>
+								<span class="text-danger" ng-show="registerForm.user_mob.$invalid && !registerForm.user_mob.$pristine">Enter only numbers</span>
 							  
 							</div>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-md-4 col-md-offset-2 col-sm-5 col-sm-offset-1">
-							<div class="form-group" ng-class="{ 'has-error' : registerForm.password.$invalid && !registerForm.password.$pristine }">
+							<div class="form-group has-error" ng-class="{ 'has-error' : registerForm.password.$invalid && !registerForm.password.$pristine }">
 							 
-								<input class="form-control" id="inputEmail" placeholder="Password" type="password"
-								id="passwrd" name="passwrd" placeholder="Password" ng-model="person.passwrd" ng-minlength="8" ng-maxlength="30" ng-pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z])/" required >
+								<input class="form-control" placeholder="Password" type="password"
+								id="passwrd" name="passwrd" placeholder="Password" ng-model="person.passwrd" ng-minlength="8" ng-maxlength="30" ng-pattern="/^(?=.*[a-z])(?=.*\d)(?=.*[$@$!%*?&])[a-z\d$@$!%*?&]{8,20}/" required >
 								<span class="help-block" style="display:none;color:red;">Error</span>
 							 
 
 							 <span class="help-block" ng-show="registerForm.passwrd.$error.required && registerForm.passwrd.$invalid && registerForm.passwrd.$dirty && registerForm.passwrd.$pristine">This is a required field</span>
 <span class="help-block" ng-show="!registerForm.passwrd.$error.required && (registerForm.passwrd.$error.minlength || registerForm.passwrd.$error.maxlength) && registerForm.passwrd.$dirty">Passwords must be between 8 and 20 characters</span>
 
-<span help-block ng-show="!registerForm.passwrd.$error.required && !registerForm.passwrd.$error.minlength && !registerForm.passwrd.$error.maxlength && registerForm.passwrd.$error.pattern && registerForm.passwrd.$dirty">Must contain one lower & uppercase letter, and one numeric</span>
+<span class="help-block" ng-show="!registerForm.passwrd.$error.required && !registerForm.passwrd.$error.minlength && !registerForm.passwrd.$error.maxlength && registerForm.passwrd.$error.pattern && registerForm.passwrd.$dirty">Password must contain lowercase, special character and numeric, uppercase characters are not allowed.</span>
 							</div>
 						</div>
 						<div class="col-md-4 col-sm-5">
-							<div class="form-group" ng-class="{ 'has-error' : registerForm.re_password.$invalid && !registerForm.re_password.$pristine }">
-							  
+							<div class="form-group" ng-class="{ 'has-error' : registerForm.re_password.$invalid && !registerForm.re_password.$pristine }"> 
 								<input class="form-control" id="re_password" name="re_password" placeholder="Re-Password" type="password" ng-model="person.re_password" nx-equal="person.passwrd" required>
 								<span class="help-block" ng-show="!registerForm.passwrd.$error.required && registerForm.re_password.$error.nxEqual && registerForm.re_password.$dirty">Password do not match</span>
-								
-							  
 							</div>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-md-4 col-md-offset-2 col-sm-5 col-sm-offset-1">
 							<div class="form-group" ng-class="{ 'has-error' : registerForm.country_id.$invalid && !registerForm.country_id.$pristine }">
-								<select class="form-control" id="country_id" name="country_id" ng-model="person.country_id" ng-change="StateName(person.country_id)" required>
+								<select class="form-control" id="country_id" name="country_id" ng-model="person.country_id" ng-change="vm.StateName(person.country_id)" required>
 								<option value="">Select Country</option>
-								<option ng-repeat="country in countryList" value={{country.country_id}}>{{country.country_name}}</option>
+								<option ng-repeat="country in vm.countryList" value={{country.country_id}}>{{country.country_name}}</option>
 								</select>
 								<span class="help-block" ng-show="registerForm.country_id.$invalid && !registerForm.country_id.$pristine">Country Name Required</span>
 							</div>
@@ -168,7 +136,7 @@
 							<div class="form-group">
 								<select class="form-control" id="state_id" name="state_id" ng-model="person.state_id" required>
 								  <option value="">Please select a State</option>
-									<option ng-repeat="state in stateList" value={{state.state_id}}>{{state.state_name}}</option>
+									<option ng-repeat="state in vm.stateList" value={{state.state_id}}>{{state.state_name}}</option>
 								</select>
 								<span class="help-block" ng-show="registerForm.state_id.$invalid && !registerForm.state_id.$pristine">State Name Required</span>
 							</div>
@@ -179,7 +147,7 @@
 							<div class="form-group" ng-class="{ 'has-error' : registerForm.school_id.$invalid && !registerForm.school_id.$pristine }">
 							<select class="form-control" id="school_id" name="school_id"  title="Please Select your school" ng-model="person.school_id" required>
 								<option value="">Please select a school</option>
-								<option ng-repeat="school in schoolsList" value={{school.school_id}}>{{school.school_name}}</option>
+								<option ng-repeat="school in vm.schoolsList" value={{school.school_id}}>{{school.school_name}}</option>
 							</select>					
 							<span class="help-block" ng-show="registerForm.school_id.$invalid && !registerForm.school_id.$pristine">School Name Required</span>
 							</div>
@@ -203,22 +171,15 @@
 						</div>
 						
 					</div>
-					<div class="row" style="color:red;font-size:14px;text-align:center;padding-bottom:15px;" ng-show='errorMsg'>
-						{{errorMsg}}</div>
 					<div class="row">
 						<div class="col-md-2 col-md-offset-5 col-sm-2 col-sm-offset-5 col-xs-12 signUpBtn">
 							<div class="form-group">
-								<input class="form-control" id="inputEmail" placeholder="Password" type="submit" value="SIGN UP">
+								<input class="form-control" type="submit" value="SIGN UP" />
 							</div>
 						</div>
-					</div>	
-
+					</div>
 					</form>
 				</div>
-
 			</div>
 		</div>
 	</div>
-
-
-

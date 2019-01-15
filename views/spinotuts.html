@@ -1,0 +1,431 @@
+<div class="container-fluid">
+	<div class="container creatPageWizard">
+		<div class="row">	
+			<div class="col-md-12">
+				<div class="col-md-2 col-sm-2 col-xs-12">
+					<div class="leftImg">
+						<div class="col-md-1 col-md-offset-11" ng-show={{vm.keyUpload}}>
+							<input type="file" name="" id="upload-cover-photo"  />
+							<label id="upload-cover-photo-label" for="upload-cover-photo">
+								<span class="glyphicon glyphicon-camera"></span>
+							</label>
+							<button type="submit" class="btn btn-primary" value="Upload">Upload</button>
+						</div>	
+						<a href="http://www.spinotuts.com/" target="_blank">
+							<img src="../../Src/images/tuts_logo.jpg" class="img-responsive" alt="" />
+						</a>
+					</div>
+					<h4>SpinoTuts</h4>
+					<p>
+						It is a online tutorial, with virtual environment, have Instructors for learners with strong coding standards.
+					</p>
+					<p><b><a href="http://www.spinotuts.com/" target="_blank">www.spinotuts.com</a></b></p>
+				</div>	
+				<div class="col-md-10 col-sm-10 col-xs-12 coverImg" >
+					<div class="row">
+						<form name="">
+							<div class="col-md-1 col-md-offset-11" ng-show={{vm.keyUpload}}>
+								<input type="file" name="" id="upload-cover-photo"  />
+								<label id="upload-cover-photo-label" for="upload-cover-photo">
+									<span class="glyphicon glyphicon-camera"></span>
+								</label>
+								<button type="submit" class="btn btn-primary" value="Upload">Upload</button>
+							</div>
+							<a href="http://www.spinotuts.com/" target="_blank">
+								<img src="../../Src/images/tuts_cover.jpg" class="editProfile img-responsive alignHeight" />
+							</a>
+						</form>
+					</div>
+					<div class="row commentPannel">
+						<div class="col-md-4 col-md-offset-8">
+							<ul class="list-inline">
+								<li>
+									<span class="likes">
+											<a href="#">
+												<i class="fa fa-thumbs-up" aria-hidden="true"></i>
+												<span class="likesColor">Likes</span>
+											</a>
+									</span>
+								</li>
+								<li>
+									<span class="likes">
+											<a href="#">
+												<i class="fa fa-share" aria-hidden="true"></i>
+												<span class="likesColor">Share</span>
+											</a>
+									</span>
+								</li>
+								<li>
+									<span class="likes">
+											<a href="#">
+												<i class="fa fa-file-text-o" aria-hidden="true"></i>
+												<span class="likesColor">Messages</span>
+											</a>
+									</span>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		<div class="row creatPageContent">
+			<div class="col-md-12">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12 col-sm-12 col-xs-12">
+							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 bhoechie-tab-container">
+								<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 bhoechie-tab-menu">
+									<div class="list-group">
+							                <!--<a href="#" class="list-group-item active text-center">
+							                  <h4 class="glyphicon glyphicon-plane"></h4>Flight
+							              </a>-->
+							              <a href="#" class="list-group-item active text-center">
+							              	<i class="fa fa-home" aria-hidden="true"></i>
+							              	Home
+							              </a>
+							              <a href="#" class="list-group-item text-center">
+							              	<i class="fa fa-info-circle" aria-hidden="true"></i>
+							              	About
+							              </a>
+							           
+							              <a href="#" class="list-group-item text-center">
+							              	<i class="fa fa-file-image-o" aria-hidden="true"></i>
+											Images
+							              </a>
+							            <div class="col-md-12 col-sm-12 col-xs-12"> 
+								            <div class="follow">
+												<h3>Who to Follow</h3>
+												<div class="followMemeber">
+													<div class="commenterpic margin_top" style="background-image: url('images/user6.jpg')"></div>
+													<p class="toFollow">Praveer</p>
+													<p>
+														<span class="follower padding_left">Following</span>
+													</p>
+												</div>
+												<div class="followMemeber">
+													<div class="commenterpic margin_top" style="background-image: url('images/user2.jpg')"></div>
+													<p class="toFollow">Poorna</p>
+													<p>
+														<span class="follower padding_left">Following</span>
+													</p>
+												</div>
+												<div class="followMemeber">
+													<div class="commenterpic margin_top" style="background-image: url('images/user3.jpg')"></div>
+													<p class="toFollow">Bala Krishna</p>
+													<p>
+														<span class="follower padding_left">Following</span>
+													</p>
+												</div>
+												<div class="followMemeber">
+													<div class="commenterpic margin_top" style="background-image: url('images/user5.jpg')"></div>
+													<p class="toFollow">Manikanta</p>
+													<p>
+														<span class="follower padding_left">Following</span>
+													</p>
+												</div>
+
+											</div>
+										</div>
+							          </div>
+							      </div>
+							      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 bhoechie-tab">
+							      		<div class="bhoechie-tab-content active">
+							      			
+							      			<div class="row" ng-show={{vm.key}}>
+											    <form>
+											    	<div class="col-md-8 col-sm-8 col-xs-6 col-xs-offset-1
+											    		col-sm-offset-0 col-md-offset-0 postContentField">
+											    		<div class="userPic" style="background-image: url('images/profile/2vintage-wallpaper-1920x1080.jpg')">
+											    		</div>	
+											    		<div class="form-group userTxt">
+											    			<textarea class="form-control" rows="2" placeholder="Post your comments here"></textarea>
+											    		</div>
+											    		
+											    	</div>
+											    	<div class="col-md-4 col-sm-4 col-xs-4 uploadType">
+											    		<ul class="list-inline">
+											    			<li class="textIcon">
+											    				<a href="#">
+											    					<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+											    				</a>
+											    			</li>
+											    			<li>
+											    				<a href="#">
+											    					<i class="fa fa-picture-o" aria-hidden="true"></i>
+											    				</a>
+											    			</li>
+											    			<li>
+											    				<a href="#">
+											    					<i class="fa fa-video-camera" aria-hidden="true"></i>
+											    				</a>
+											    			</li>
+											    			<li class="">
+											    				<button type="submit" class="btn btn-primary">Submit</button>
+											    			</li>
+
+											    		</ul>
+											    	</div>								
+											    </form>
+											</div>
+											<div class="row">
+													<div classs="row">
+															<div class="col-md-12 col-sm-12 col-xs-12">
+																
+																<div class="commentContainer">
+																	<div class="row commenterName">
+																		<div class="commenterpic" style="background-image: url('../../Src/images/tuts_logo.jpg')">
+																			&nbsp
+																		</div>	
+																		<h4>SPINO TUTS</h4>
+																		<p>
+																			<i class="fa fa-calendar-check-o" aria-hidden="true"></i>
+																			<span class="likesColor">March 15</span>
+																		</p>
+																	</div>
+																	<div class="commentImg">
+																		<a href="http://www.spinotuts.com/" target="_blank"><img src="../../Src/images/tuts_web.jpg" alt="" class="img-responsive" /></a>
+																	</div>
+																    <div class="row pageCommentWizard">
+																    	<div class="row pageCommentTxt">
+																	    	<h4>SPINO TUTS</h4>
+																	    	<p>
+																	    		Spinotuts provides a series of self-guided tutorials for beginners to learn the basics of web application programming, An self-contained development environment is created.where you can learn the basic structures of front-end code like HTML, CSS, BOOTSTRAP etc.
+																	    	</p>
+																	    	<p><b><a href="http://www.spinotuts.com/" target="_blank">www.spinotuts.com</a></b></p>
+																   		 </div>
+																    	<div class="row pageCommentIcons">
+																			<div class="col-md-12">
+																				<ul class="list-inline">
+																					<li>
+																						<span class="likes">
+																								<a href="#">
+																									<i class="fa fa-thumbs-up" aria-hidden="true"></i>
+																									<span class="likesColor">Likes</span>
+																								</a>
+																						</span>
+																					</li>
+																					<li>
+																						<span class="icon5LeftNav">
+																								<a href="#" class="icon5LeftNav">
+																									<i class="fa fa-share" aria-hidden="true"></i>
+																									<span class="likesColor">Share</span>
+																								</a>
+																						</span>
+																					</li>
+																					<li>
+																						<span>
+																								<a href="#" class="icon7LeftNav">
+																									<i class="fa fa-file-text-o" aria-hidden="true"></i>
+																									<span class="likesColor ">Comments</span>
+																								</a>
+																						</span>
+																					</li>
+																				</ul>
+																			</div>
+																		</div>
+																    	<!-- Inner Comment Box -->
+																    	<!--<div classs="row" >
+																			<div class="col-md-12 aligncommenterWizard">
+																				<div class="commenterpic"
+																				style="background-image: url('src/images/user4.jpg')">
+																					&nbsp	
+																				</div>
+																				<div class="commenterDetails">
+																					
+																				    <div class="row commenterName">
+																				    	<p>
+																				    		<span class="profilename">Kiran</span>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+																				    	</p>
+																				    </div>
+																				</div>
+																			</div>
+																		</div>-->
+																		<!--<div classs="row" >
+																			<div class="col-md-12 aligncommenterWizard">
+																				<div class="commenterpic"
+																				style="background-image: url('src/images/user5.jpg')">
+																					&nbsp	
+																				</div>
+																				<div class="commenterDetails">
+																					
+																				    <div class="row commenterName">
+																				    	<p>
+																				    		<span class="profilename">Rathod</span>
+																				    		Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+																				    	</p>
+																				    </div>
+																				</div>
+																			</div>
+																		</div>-->
+																		<div classs="row" >
+																			<div class="col-md-12 aligncommenterWizard"  ng-show={{vm.key}}>
+																					<div class="userPic" style="background-image: url('src/images/user6.jpg')"></div>	
+																					<div class="form-group userTxt">
+																				      <textarea class="form-control" rows="1"></textarea>
+																				        <span class="help-block errTxt">Error</span>
+																				    </div>
+																			</div>
+																		</div>
+																	<!-- Inner Comment Box Ends -->
+																    </div>
+																</div>
+															</div>
+													</div><!-- 1st Image -->
+													<div classs="row">
+															<div class="col-md-12">
+																
+																<div class="commentContainer">
+																	<div class="row commenterName">
+																		<div class="commenterpic" style="background-image: url('../../Src/images/tuts_logo.jpg')">
+																			&nbsp	
+																		</div>	
+																		<h4>SPINO TUTS</h4>
+																		<p>
+																			<i class="fa fa-calendar-check-o" aria-hidden="true"></i>
+																			<span class="likesColor">Feb 10th</span>
+																		</p>
+																	</div>
+																	<div class="commentImg">
+																		<a href="http://www.spinotuts.com/" target="_blank">
+																			<img src="../../Src/images/tuts_articles.jpg" alt="" class="img-responsive" />
+																		</a>
+																	</div>
+																    <div class="row pageCommentWizard">
+																    	<div class="row pageCommentTxt">
+																	    	<h4>SPINO TUTS</h4>
+																	    	<p>
+																	    		Spinotuts provides a series of self-guided tutorials for beginners to learn the basics of web application programming, An self-contained development environment is created.where you can learn the basic structures of front-end code like HTML, CSS, BOOTSTRAP etc.
+																	    	</p>
+																	    	<p><b><a href="http://www.spinotuts.com/" target="_blank">www.spinotuts.com</a></b></p>
+																   		 </div>
+																    	<div class="row pageCommentIcons">
+																			<div class="col-md-12">
+																				<ul class="list-inline">
+																					<li>
+																						<span class="likes">
+																								<a href="#">
+																									<i class="fa fa-thumbs-up" aria-hidden="true"></i>
+																									<span class="likesColor">Likes</span>
+																								</a>
+																						</span>
+																					</li>
+																					<li>
+																						<span class="icon5LeftNav">
+																								<a href="#" class="icon5LeftNav">
+																									<i class="fa fa-share" aria-hidden="true"></i>
+																									<span class="likesColor">Share</span>
+																								</a>
+																						</span>
+																					</li>
+																					<li>
+																						<span>
+																								<a href="#" class="icon7LeftNav">
+																									<i class="fa fa-file-text-o" aria-hidden="true"></i>
+																									<span class="likesColor ">Comments</span>
+																								</a>
+																						</span>
+																					</li>
+																				</ul>
+																			</div>
+																		</div>
+																    	<!-- Inner Comment Box -->
+																    	<!--<div classs="row" >
+																			<div class="col-md-12 aligncommenterWizard">
+																				<div class="commenterpic"
+																				style="background-image: url('src/images/user4.jpg')">
+																					&nbsp	
+																				</div>
+																				<div class="commenterDetails">
+																					
+																				    <div class="row commenterName">
+																				    	<p>
+																				    		<span class="profilename">Kiran</span>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+																				    	</p>
+																				    </div>
+																				</div>
+																			</div>
+																		</div>-->
+																		<!--<div classs="row" >
+																			<div class="col-md-12 aligncommenterWizard">
+																				<div class="commenterpic"
+																				style="background-image: url('src/images/user5.jpg')">
+																					&nbsp	
+																				</div>
+																				<div class="commenterDetails">
+																					
+																				    <div class="row commenterName">
+																				    	<p>
+																				    		<span class="profilename">Rathod</span>
+																				    		Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+																				    	</p>
+																				    </div>
+																				</div>
+																			</div>
+																		</div>-->
+																		<div classs="row" >
+																			<div class="col-md-12 aligncommenterWizard"  ng-show={{vm.key}}>
+																					<div class="userPic" style="background-image: url('src/images/user6.jpg')"></div>	
+																					<div class="form-group userTxt">
+																				      <textarea class="form-control" rows="1"></textarea>
+																				        <span class="help-block errTxt">Error</span>
+																				    </div>
+																			</div>
+																		</div>
+																	<!-- Inner Comment Box Ends -->
+																    </div>
+																</div>
+															</div>
+													</div><!-- second Image -->
+
+
+												
+												
+											</div><!-- parent row -->
+
+										</div><!--Home Ends-->
+										<div class="bhoechie-tab-content">
+											<h4>About SCM</h4>
+											<p>
+												Spinotuts is a global marketplace for online learners.  where students are mastering new skills and achieving their goals by learning from an extensive library of many tutorials explained by our expert team of instructors. Spinotuts has focused on simplicity, started from an basic level and move all the way up to professional level to build the career for the learners. The learning environment is in the form of online Tutorials, E-books, Interview Questions, Latest Articles etc. 
+											</p>
+											<p>
+												Spinotuts offers a plethora of online tutorials, articles and interview questions for all programming courses. These resources, articles, and tutorials are perfect for those who absorb information and learn best using the tried-and-true method of reading words and seeing examples right there on the page.
+											</p>
+										</div>
+										
+										<div class="bhoechie-tab-content">
+											<div class="col-md-12 col-sm-12 col-xs-12 usithImgs">
+												<div class="friendListBg scmBg" style="background-image:url('../../Src/images/cover/warriorangel.jpg');">
+												</div>
+												<div class="friendListBg scmBg" style="background-image:url('../../Src/images/cover/4961075-wallpaper-sweet.jpg');">
+												</div>
+												<div class="friendListBg scmBg" style="background-image:url('../../Src/images/cover/20150816_135303.jpg');">
+												</div>
+												<div class="friendListBg scmBg" style="background-image:url('../../Src/images/cover/colorful_bench-wallpaper-1920x1080.jpg');">
+												</div>
+												<div class="friendListBg scmBg" style="background-image:url('../../Src/images/cover/coverimage.jpg');">
+												</div>
+												<div class="friendListBg scmBg" style="background-image:url('../../Src/images/cover/widescreen-wallpaper-1920x1080-4.jpg');">
+												</div>
+												<div class="friendListBg scmBg" style="background-image:url('../../Src/images/cover/widescreen-wallpaper-1920x1080-4.jpg');">
+												</div>
+												<div class="friendListBg scmBg" style="background-image:url('../../Src/images/cover/warriorangel.jpg');">
+												</div>
+												<div class="friendListBg scmBg" style="background-image:url('../../Src/images/cover/4961075-wallpaper-sweet.jpg');">
+												</div>
+												<div class="friendListBg scmBg" style="background-image:url('../../Src/images/cover/20150816_135303.jpg');">
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+					</div><!-- Container for UpdateProfileForm -->
+				</div>
+			</div><!-- Row Ends -->
+		</div><!-- Container Ends -->
+</div><!-- ContainerFluid Ends -->

@@ -1,11 +1,11 @@
 /* MainCtrl */
-app.controller("ForgotCtrl", function($scope, $window, $location, HttpService, ServiceUrls, LS){	
+app.controller("ForgotCtrl", ['$scope', '$window', '$location', 'HttpService', 'ServiceUrls', 'LS', function($scope, $window, $location, HttpService, ServiceUrls, LS){	
 	$scope.forgotPassword = function(user){
 		var url = ServiceUrls.ForgotPassword;
 		var data = new Object();
 		data.login_name = user.user_email;
 
-		HttpService.ForgotPasswordService(url, data)
+		HttpService.PostMethod(url, data)
 			.then(function successCallback(response){
 				if(response.ForgotPasswordResult == 1){
 					$scope.reset_message = "Thank you, your password has been sent to registered email id.";
@@ -22,4 +22,4 @@ app.controller("ForgotCtrl", function($scope, $window, $location, HttpService, S
 				$log.info(error);		
 			});
 	}
-});
+}]);

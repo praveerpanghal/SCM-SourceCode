@@ -1,4 +1,4 @@
-app.controller('ResetPasswordCtrl', function($scope, $log, $location, ServiceUrls, HttpService, LS) {
+app.controller('ResetPasswordCtrl', ['$scope', '$log', '$location', 'ServiceUrls', 'HttpService', 'LS', function($scope, $log, $location, ServiceUrls, HttpService, LS) {
 	/* to get useid from local storage service */
 	var user = LS.getData();
 	var encodedProfile = user.split('.')[1];
@@ -11,7 +11,7 @@ app.controller('ResetPasswordCtrl', function($scope, $log, $location, ServiceUrl
 		data.old_password = reset.oldPassword;
 		data.new_password = reset.confirmPassword;
 		console.log(data);
-		HttpService.ChangePasswordService(url, data)
+		HttpService.PostMethod(url, data)
 			.then(function(response){
 				if(response.ChangePasswordResult == 1){
 					alert('Your password has been changed successfully.');
@@ -24,4 +24,4 @@ app.controller('ResetPasswordCtrl', function($scope, $log, $location, ServiceUrl
 				$log.info(error);		
 			});
 	}
-});
+}]);

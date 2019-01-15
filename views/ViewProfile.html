@@ -143,11 +143,7 @@ url('{{userProfile.cover_picture}}') no-repeat;background-size: cover;">
 				        <h4><a href="/profiledetail/{{user.user_id}}" ng-model="user.user_id">{{user.username}}</a></h4>
 				        <p>
 				        	
-<<<<<<< HEAD
 				        	<a href="#" class="btn btn-default" role="button" ng-click="frdRequest(user.user_id)" ng-if="user.friend_request=='W'">
-=======
-				        	<a href="#" class="btn btn-default" role="button" ng-click="frdRequest(user.user_id)" ng-if="user.request_status=='NoRequest'">
->>>>>>> 5eab81ea4f18521e6d121ad3fda82e883bd367f2
 				        			<i class="fa fa-user-plus" aria-hidden="true"></i>
 				        			Add
 				        	</a>
@@ -155,11 +151,7 @@ url('{{userProfile.cover_picture}}') no-repeat;background-size: cover;">
 				        		<i class="fa fa-check" aria-hidden="true"></i>
 				        		Friends 
 				        	</a> 
-<<<<<<< HEAD
 				        	<a href="#" class="btn  btn-default" role="button" ng-if="user.friend_request=='P'">
-=======
-				        	<a href="#" class="btn  btn-default" ng-if="user.request_status=='SentRequest'" disabled>
->>>>>>> 5eab81ea4f18521e6d121ad3fda82e883bd367f2
 				        		<i class="fa fa-paper-plane" aria-hidden="true"></i>
 				        		Request Sent
 				        	</a> 

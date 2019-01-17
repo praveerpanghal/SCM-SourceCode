@@ -1,13 +1,13 @@
 app.controller('ResetPasswordCtrl', ['$scope', '$log', '$location', 'ServiceUrls', 'HttpService', 'LS', function($scope, $log, $location, ServiceUrls, HttpService, LS) {
 	/* to get useid from local storage service */
 	var user = LS.getData();
-	var encodedProfile = user.split('.')[1];
-	var profile = JSON.parse(LS.url_base64_decode(encodedProfile));
+	// var encodedProfile = user.split('.')[1];
+	// var profile = JSON.parse(LS.url_base64_decode(encodedProfile));
 
 	$scope.resetPassword = function(reset){
 		var url = ServiceUrls.ChangePassword;
 		var data = new Object();
-		data.user_id = profile.userId;
+		data.user_id = user;
 		data.old_password = reset.oldPassword;
 		data.new_password = reset.confirmPassword;
 		console.log(data);

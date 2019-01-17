@@ -10,21 +10,44 @@ app.controller("LoginCtrl", ['$location', '$log', '$http', '$window', '$timeout'
 	}
 
 	vm.loginUser = function(user){		
-		$http
-	      .post('/authenticate', user)
-	      .success(function (data, status, headers, config) {      	
-	      	if(data.err_status==0){
-	      		vm.err_message = data.token;      		
-	      	}else{
-				LS.setData(data.token);
-				sessionStorage.setItem('loginKey', 'show and hide items'); /* creating session key value */
-	      		$location.path('/home');
-	      	}
-    	})
-		.error(function (data, status, headers, config) {
-			// Erase the token if the user fails to log in
-			delete $window.sessionStorage.token;			
-		});
+		// $http
+	    //   .post('/authenticate', user)
+	    //   .success(function (data, status, headers, config) {      console.log(data);	
+	    //   	if(data.err_status==0){
+	    //   		vm.err_message = data.token;      		
+	    //   	}else{
+		// 		LS.setData(data.token);
+		// 		sessionStorage.setItem('loginKey', 'show and hide items'); /* creating session key value */
+	    //   		$location.path('/home');
+	    //   	}
+    	// })
+		// .error(function (data, status, headers, config) {
+		// 	// Erase the token if the user fails to log in
+		// 	delete $window.sessionStorage.token;			
+		// });
+
+		var url = ServiceUrls.LoginDetails;
+		var data = new Object();
+
+		data.user_email = user.user_email;
+		data.password = user.password;
+
+		HttpService.PostMethod(url, data)
+			.then(function successCallback(response){
+				var res = response[0].ReturnVal;
+				// console.log(response);
+				if(res != 1){
+					vm.err_message = res;
+				}else{
+					console.log(response[0].UserId);
+					LS.setData(response[0].UserId);
+					sessionStorage.setItem('loginKey', 'show and hide items');
+					$location.path('/home');
+				}
+				
+			}, function errorCallback(error){
+				$log.info(error);		 
+			});
 	}
 
 

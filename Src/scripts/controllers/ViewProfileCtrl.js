@@ -1,12 +1,12 @@
 app.controller("ViewProfileCtrl", ['$scope', '$routeParams', '$route', 'ServiceUrls', 'HttpService', 'LS', function($scope, $routeParams, $route, ServiceUrls, HttpService, LS) {
 	var user = LS.getData();
-	var encodedProfile = user.split('.')[1];
-	var profile = JSON.parse(LS.url_base64_decode(encodedProfile));
+	// var encodedProfile = user.split('.')[1];
+	// var profile = JSON.parse(LS.url_base64_decode(encodedProfile));
 	$scope.username = $routeParams.username;
 	var url = ServiceUrls.SearchUser;
 	var data = new Object();
 	data.username  = $scope.username;
-	data.user_id = profile.userId;
+	data.user_id = user;
     
 	HttpService.PostMethod(url, data)
 			.then(function(response){
@@ -24,7 +24,7 @@ app.controller("ViewProfileCtrl", ['$scope', '$routeParams', '$route', 'ServiceU
 	// userinfo service
 	var url = ServiceUrls.GetUserInfo;
     var data = new Object();
-    data.user_id = profile.userId;
+    data.user_id = user;
     HttpService.PostMethod(url, data)
         .then(function(response){
             if(response.GetUserInfoResult!=''){                 
@@ -45,9 +45,9 @@ app.controller("ViewProfileCtrl", ['$scope', '$routeParams', '$route', 'ServiceU
 	$scope.frdRequest = function(toUserId){
 		var url = ServiceUrls.SendFriendRequest;
         var data = new Object();
-		data.user_id = profile.userId;
+		data.user_id = user;
 		data.friend_id = toUserId;		
-		data.action_user_id = profile.userId;
+		data.action_user_id = user;
 		console.log(data);
     	HttpService.PostMethod(url, data)
     		.then(function(response){
@@ -70,7 +70,7 @@ app.controller("ViewProfileCtrl", ['$scope', '$routeParams', '$route', 'ServiceU
     	var url = ServiceUrls.ResponseFriendRequest;
     	var data = new Object();
     	data.user_id = accept.user_id;
-    	data.action_user_id = profile.userId;
+    	data.action_user_id = user;
     	data.status = 1;        
     	console.log(data);
     	
@@ -91,7 +91,7 @@ app.controller("ViewProfileCtrl", ['$scope', '$routeParams', '$route', 'ServiceU
     	var url = ServiceUrls.ResponseFriendRequest;
     	var data = new Object();
     	data.user_id = accept.user_id;
-    	data.action_user_id = profile.userId;
+    	data.action_user_id = user;
     	data.status = 2;        
     	console.log(data);
     	

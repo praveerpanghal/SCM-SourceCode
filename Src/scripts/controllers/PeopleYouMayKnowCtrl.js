@@ -1,10 +1,11 @@
 app.controller("PeopleYouMayKnowCtrl", ['$scope', '$location', '$routeParams', '$route', 'ServiceUrls', 'HttpService', 'LS', function($scope, $location, $routeParams, $route, ServiceUrls, HttpService, LS) {
 	var user = LS.getData();
-	var encodedProfile = user.split('.')[1];
-	var profile = JSON.parse(LS.url_base64_decode(encodedProfile));
+	// var encodedProfile = user.split('.')[1];
+	// var profile = JSON.parse(LS.url_base64_decode(encodedProfile));
 	var url = ServiceUrls.GetUserInfo;
 	var data = new Object();
-	data.user_id = profile.userId;
+	// data.user_id = profile.userId;
+	data.user_id = user;
 	var vm = this;
 	HttpService.PostMethod(url, data)
 	.then(function(response){
@@ -35,7 +36,7 @@ app.controller("PeopleYouMayKnowCtrl", ['$scope', '$location', '$routeParams', '
 		var url = ServiceUrls.ResponseFriendRequest;
 		var data = new Object();
 		data.user_id = accept.user_id;
-		data.action_user_id = profile.userId;      
+		data.action_user_id = user;      
 		data.status = 1;
 		//console.log(data);
 		HttpService.PostMethod(url, data)
@@ -53,7 +54,7 @@ app.controller("PeopleYouMayKnowCtrl", ['$scope', '$location', '$routeParams', '
 		var url = ServiceUrls.ResponseFriendRequest;
 		var data = new Object();
 		data.user_id = reject.user_id;
-		data.action_user_id = profile.userId;
+		data.action_user_id = user;
 		data.status = 2;
 		
 		HttpService.PostMethod(url, data)
@@ -69,9 +70,9 @@ app.controller("PeopleYouMayKnowCtrl", ['$scope', '$location', '$routeParams', '
 	vm.frdRequest = function(toUserId){
 		var url = ServiceUrls.SendFriendRequest;
 		var data = new Object();
-		data.user_id = profile.userId;
+		data.user_id = user;
 		data.friend_id = toUserId;		
-		data.action_user_id = profile.userId;
+		data.action_user_id = user;
 
 		HttpService.PostMethod(url, data)
 		.then(function(response){
@@ -92,8 +93,8 @@ app.controller("PeopleYouMayKnowCtrl", ['$scope', '$location', '$routeParams', '
     vm.postComments = function(postComment){
         var url = ServiceUrls.PostComment;
         var data = new Object();
-        data.user_id = profile.userId;
-        data.friend_id = profile.userId;
+        data.user_id = user;
+        data.friend_id = user;
         data.comment = postComment;
         console.log(data);                
         HttpService.PostMethod(url, data)

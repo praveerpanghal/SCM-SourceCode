@@ -1,13 +1,14 @@
 app.controller("EditProfileCtrl", ['$http', '$log', '$timeout', '$route', '$location', 'LS', 'HttpService', 'ServiceUrls', function($http, $log, $timeout, $route, $location, LS, HttpService, ServiceUrls){
 	
 	var user = LS.getData();
-	var encodedProfile = user.split('.')[1];
-	var profile = JSON.parse(LS.url_base64_decode(encodedProfile));
+	// var encodedProfile = user.split('.')[1];
+	// var profile = JSON.parse(LS.url_base64_decode(encodedProfile));
   var vm = this;
 	// userinfo service
 	var url = ServiceUrls.GetUserInfo;
   var data = new Object();
-  data.user_id = profile.userId;
+//   data.user_id = profile.userId;
+  data.user_id = user;
 
   HttpService.PostMethod(url, data)
   .then(function(response){
@@ -101,7 +102,7 @@ app.controller("EditProfileCtrl", ['$http', '$log', '$timeout', '$route', '$loca
 	vm.UpdateProfile =function(userData){
         var url = ServiceUrls.UpdateProfile;
         var data = new Object();
-        data.user_id = profile.userId;
+        data.user_id = user;
         data.user_fname = userData.user_fname;
         data.user_lname = userData.user_lname;
         data.user_email = userData.user_email;
@@ -175,7 +176,7 @@ app.controller("EditProfileCtrl", ['$http', '$log', '$timeout', '$route', '$loca
 	    //to update profile data in database
 	    var url = ServiceUrls.UpdateProfile;
         var data = new Object();
-        data.user_id = profile.userId;
+        data.user_id = user;
         data.user_fname = userProfile.user_fname;
         data.user_lname = userProfile.user_lname;
         data.user_email = userProfile.user_email;
@@ -233,7 +234,7 @@ app.controller("EditProfileCtrl", ['$http', '$log', '$timeout', '$route', '$loca
 	    //to update cover data in database
 	    var url = ServiceUrls.UpdateProfile;
         var data = new Object();
-        data.user_id = profile.userId;
+        data.user_id = user;
         data.user_fname = cover.user_fname;
         data.user_lname = cover.user_lname;
         data.user_email = cover.user_email;
@@ -266,7 +267,7 @@ app.controller("EditProfileCtrl", ['$http', '$log', '$timeout', '$route', '$loca
     vm.changePassword = function(user){console.log(user);
     	var url = ServiceUrls.ChangePassword;
     	var data = new Object();
-    	data.user_id = profile.userId;
+    	data.user_id = user;
     	data.old_password = user.old_password;
     	data.new_password = user.new_password;
 

@@ -1,7 +1,7 @@
 app.controller("ProfileDetailCtrl", ['$scope', '$routeParams', '$log', 'ServiceUrls', 'HttpService', 'LS', function($scope, $routeParams, $log, ServiceUrls, HttpService, LS) {	
 	var user = LS.getData();
-	var encodedProfile = user.split('.')[1];
-	var profile = JSON.parse(LS.url_base64_decode(encodedProfile));
+	// var encodedProfile = user.split('.')[1];
+	// var profile = JSON.parse(LS.url_base64_decode(encodedProfile));
 console.log(profile);
 	var url = ServiceUrls.GetUserInfo;
 	var data = new Object();

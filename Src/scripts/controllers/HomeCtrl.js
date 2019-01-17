@@ -2,13 +2,14 @@
 app.controller("HomeCtrl", ['$scope', '$filter', '$window', '$location', '$http', '$log', '$route', 'HttpService', 'ServiceUrls', 'LS', function($scope, $filter, $window, $location, $http, $log, $route, HttpService, ServiceUrls, LS){	
     var user = LS.getData();
     var vm = this;
-
-    	var encodedProfile = user.split('.')[1];
-        var profile = JSON.parse(LS.url_base64_decode(encodedProfile));
+    	// var encodedProfile = user.split('.')[1];
+        // var profile = JSON.parse(LS.url_base64_decode(encodedProfile));
         
         var url = ServiceUrls.GetUserInfo;
         var data = new Object();
-        data.user_id = profile.userId;
+        // data.user_id = profile.userId;
+        console.log(user);
+        data.user_id = user;
         HttpService.PostMethod(url, data)
             .then(function(response){
                 if(response.GetUserInfoResult!=''){                 
@@ -80,8 +81,8 @@ app.controller("HomeCtrl", ['$scope', '$filter', '$window', '$location', '$http'
             $scope.postComments = function(postComment){
                 var url = ServiceUrls.PostComment;
                 var data = new Object();
-                data.user_id = profile.userId;
-                data.friend_id = profile.userId;
+                data.user_id = user;
+                data.friend_id = user;
                 data.comment = postComment;                
             	HttpService.PostMethod(url, data)
             		.then(function(response){
@@ -105,7 +106,7 @@ app.controller("HomeCtrl", ['$scope', '$filter', '$window', '$location', '$http'
             	var url = ServiceUrls.ResponseFriendRequest;
                 var data = new Object();
                 data.user_id = accept.user_id;
-                data.action_user_id = profile.userId;      
+                data.action_user_id = user;      
                 data.status = 1;
                 console.log(data);
             	HttpService.PostMethod(url, data)
@@ -123,7 +124,7 @@ app.controller("HomeCtrl", ['$scope', '$filter', '$window', '$location', '$http'
             	var url = ServiceUrls.ResponseFriendRequest;
             	var data = new Object();
             	data.user_id = reject.user_id;
-            	data.action_user_id = profile.userId;
+            	data.action_user_id = user;
                 data.status = 2;
             	console.log(data);
                 

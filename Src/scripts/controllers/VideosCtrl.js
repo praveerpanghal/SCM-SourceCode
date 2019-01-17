@@ -1,13 +1,13 @@
 app.controller("VideosCtrl", ['$location', '$route', 'ServiceUrls', 'HttpService', 'LS', function($location, $route, ServiceUrls, HttpService, LS){
     
     var user = LS.getData();
-    var encodedProfile = user.split('.')[1];
-    var profile = JSON.parse(LS.url_base64_decode(encodedProfile));
+    // var encodedProfile = user.split('.')[1];
+    // var profile = JSON.parse(LS.url_base64_decode(encodedProfile));
     var vm = this;
 
     var url = ServiceUrls.GetUserInfo;
     var data = new Object();
-    data.user_id = profile.userId;
+    data.user_id = user;
     HttpService.PostMethod(url, data)
         .then(function(response){
             if(response.GetUserInfoResult!=''){                 

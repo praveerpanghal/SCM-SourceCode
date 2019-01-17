@@ -4,49 +4,49 @@ server = express(),
 bodyParser = require('body-parser'),
 engines = require('consolidate'),
 path = require('path'),
-jwt = require('jsonwebtoken'),
-expressJwt = require('express-jwt'),
+// jwt = require('jsonwebtoken'),
+// expressJwt = require('express-jwt'),
 SERVER_PORT=82;
 
 server.use(bodyParser.json());
 
 /* authentication token code */
-var secret = 'this is the secret secret secret 12356';
+// var secret = 'this is the secret secret secret 12356';
 
 // We are going to protect /api routes with JWT
-server.use('/api', expressJwt({secret: secret}));
+// server.use('/api', expressJwt({secret: secret}));
 
-var Client = require('node-rest-client').Client;
-var client = new Client();
-var request = require("request");
+// var Client = require('node-rest-client').Client;
+// var client = new Client();
+// var request = require("request");
 
-server.post('/authenticate', function (req, res) {
+// server.post('/authenticate', function (req, res) {
 
-	//TODO validate req.body.username and req.body.password  
-	var args = {
-    	data: { user_email: req.body.user_email, password: req.body.password },
-    	headers: { "Content-Type": "application/json" }
-	};
+// 	//TODO validate req.body.username and req.body.password  
+// 	var args = {
+//     	data: { user_email: req.body.user_email, password: req.body.password },
+//     	headers: { "Content-Type": "application/json" }
+// 	};
 
-	client.post("http://162.17.231.117:1212/ServiceSCM.svc/LoginDetails", args, 
-		function (data, response) {
-			var loginID = data[0];
-			// invalid user details return error message
-			if (!(loginID.ReturnVal==1)) {
-				res.json({ token: loginID.ReturnVal, err_status:0});
-				return;
-			}
-			//creating profile for token 
-		    var profile = {
-		    	returnVal: loginID.ReturnVal,
-		    	userId: loginID.UserId
-		  	};
-		  	// We are sending the profile inside the token
-		  	var token = jwt.sign(profile, secret, { expiresInMinutes: 60*5 });
-		  	res.json({ token: token });
-		}
-	);  
-});
+// 	client.post("http://162.17.231.117:1212/ServiceSCM.svc/LoginDetails", args, 
+// 		function (data, response) {
+// 			var loginID = data[0];
+// 			// invalid user details return error message
+// 			if (!(loginID.ReturnVal==1)) {
+// 				res.json({ token: loginID.ReturnVal, err_status:0});
+// 				return;
+// 			}
+// 			//creating profile for token 
+// 		    var profile = {
+// 		    	returnVal: loginID.ReturnVal,
+// 		    	userId: loginID.UserId
+// 		  	};
+// 		  	// We are sending the profile inside the token
+// 		  	var token = jwt.sign(profile, secret, { expiresInMinutes: 60*5 });
+// 		  	res.json({ token: token });
+// 		}
+// 	);  
+// });
 	
 server.use(express.static(__dirname));
 server.set('views', __dirname );

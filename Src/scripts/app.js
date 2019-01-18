@@ -2,7 +2,7 @@
 'use strict'
 var app = angular.module("scm", ['ngStorage', 'ngRoute', 'ngFileUpload', 'ngImgCrop']).run(function($rootScope, $location){
     $rootScope.location = $location;
-    $rootScope.keygen=$rootScope.location.path().split("/")[2];
+    $rootScope.keygen=$rootScope.location.path().split("/")[1];
 });
 
 /* Service URL's 
